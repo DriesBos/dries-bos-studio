@@ -4,7 +4,7 @@
 # Personal portfolio using VueJS, NuxtJS, Storyblok CMS, Axion
 ```
 
-## Updates
+## 2019 Updates
 
 ``` bash
 # Nuxt as JavaScript Framework
