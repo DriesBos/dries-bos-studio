@@ -1,6 +1,12 @@
 # dries-bos-studio-2019
 
-> Personal portfolio —
+> Personal portfolio 
+
+## Updates
+
+# Nuxt as JavaScript Framework
+# Storyblok as CMS
+#Storyblok as database
 
 ## Build Setup
 
