@@ -1,6 +1,8 @@
 # dries-bos-studio-2019
 
-> Personal portfolio 
+``` bash
+# Personal portfolio using VueJS, NuxtJS, Storyblok CMS, Axion
+```
 
 ## Updates
 
