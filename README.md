@@ -9,7 +9,7 @@
 ``` bash
 # Nuxt as JavaScript Framework
 # Storyblok as CMS
-#Storyblok as database
+# Storyblok as database
 ```
 
 ## Build Setup
