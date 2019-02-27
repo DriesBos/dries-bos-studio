@@ -27,4 +27,20 @@ $ yarn start
 
 # generate static project
 $ yarn run generate
+
+# install sass compiler
+$
+
+# install 
+```
+
+## Added Deps
+
+``` bash
+# install sass pre-processors
+$ npm install --save-dev node-sass sass-loader
+
+# install NuxtJS Module
+$ npm install --save storyblok-nuxt
+$ yarn add @nuxt/webpackn
 ```

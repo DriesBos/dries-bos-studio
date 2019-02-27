@@ -7,11 +7,11 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Dries Bos Studio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: "Hi, I'm a Philosophy Master turned Creative Web Developer that can help you build web applications." }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
@@ -24,7 +24,13 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [],
+  css: [
+    '~/assets/styling/reset.css',
+    '~/assets/styling/variables.sass',
+    '~/assets/styling/typography.sass',
+    '~/assets/styling/transitions.sass',
+    '~/assets/styling/main.sass'
+  ],
 
   /*
   ** Plugins to load before mounting the App
@@ -36,7 +42,13 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: '2g0x0eQy87JuPexCzlBqYQtt',
+        cacheProvider: 'memory'
+      }
+    ]
   ],
   /*
   ** Axios module configuration
