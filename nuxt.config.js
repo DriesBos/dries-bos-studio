@@ -11,7 +11,12 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "Hi, I'm a Philosophy Master turned Creative Web Developer that can help you build web applications." }
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          "Hi, I'm a Philosophy Master turned Creative Web Developer that can help you build web applications."
+      }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
