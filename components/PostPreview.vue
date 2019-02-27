@@ -1,10 +1,7 @@
 <template>
-  <nuxt-link
-    :to="id"
-    tag="li">
+  <nuxt-link :to="id" tag="li">
     <h1>{{ title }}</h1>
     <p>{{ excerpt }}</p>
-    <p>{{ thumbnail }}</p>
     <img :src="thumbnail">
   </nuxt-link>
 </template>

@@ -1,35 +1,30 @@
 <template>
-  <section class="view-Project">
-    <!-- <ul class="propject-List">
+  <section class="view-Container view-Post">
+    <ul class="post-List">
       <li>
         <h1>{{ title }}</h1>
-        <p>{{ excerpt }}</p>
-        <p>{{ cover }}</p>
+        <p>{{ content }}</p>
+        <img :src="thumbnail">
       </li>
-    </ul> -->
+    </ul>
   </section>
 </template>
 
 <script>
 export default {
-  // props: {
-  //   title: {
-  //     type: String,
-  //     required: true
-  //   },
-  //   excerpt: {
-  //     type: String,
-  //     required: true
-  //   },
-  //   cover: {
-  //     type: String,
-  //     required: true
-  //   },
-  //   id: {
-  //     type: String,
-  //     required: true
-  //   }
-  // }
+  asyncData(context) {
+    return context.app.$storyapi
+      .get('cdn/stories/blog/' + context.params.postId, {
+        version: 'draft'
+      })
+      .then(res => {
+        return {
+          title: res.data.story.content.title,
+          content: res.data.story.content.content,
+          thumbnail: res.data.story.content.thumbnail
+        }
+      })
+  }
 }
 </script>
 
