@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="id" tag="li">
+  <nuxt-link :to="'/blog/' + id" tag="li">
     <h1>{{ title }}</h1>
     <p>{{ excerpt }}</p>
     <img :src="thumbnail">
