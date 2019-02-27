@@ -1,4 +1,5 @@
 {
     "editor.minimap.enabled": false,
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true
 }
