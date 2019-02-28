@@ -1,3 +1,4 @@
+const axios = require('axios')
 const pkg = require('./package')
 
 module.exports = {
@@ -7,15 +8,14 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'Dries Bos Studio',
+    title: 'Boilerplate-Nuxt-Storyblok',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content:
-          "Hi, I'm a Philosophy Master turned Creative Web Developer that can help you build web applications."
+        content: 'Meta description'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -50,11 +50,27 @@ module.exports = {
     [
       'storyblok-nuxt',
       {
-        accessToken: '2g0x0eQy87JuPexCzlBqYQtt',
+        accessToken:
+          process.env.NODE_ENV === 'production'
+            ? 'LQu2PyUnQQnXdQrLxQ460Att'
+            : '2g0x0eQy87JuPexCzlBqYQtt',
         cacheProvider: 'memory'
       }
     ]
   ],
+  generate: {
+    routes: function() {
+      axios
+        .get(
+          'https://api.storyblok.com/v1/cdn/stories?version=published&token=LQu2PyUnQQnXdQrLxQ460Att&cv=' +
+            Math.floor(Date.now() / 1e3)
+        )
+        .then(res => {
+          const blogPosts = res.data.stories.map(bp => bp.full_slug)
+          return ['/', 'blog', 'about', ...blogPosts]
+        })
+    }
+  },
   /*
   ** Axios module configuration
   */
