@@ -54,3 +54,10 @@ $ heroku config:set NPM_CONFIG_PRODUCTION=false
 $ config:set HOST=0.0.0.0
 $ heroku config:set NODE_ENV=production
 ```
+
+## Miscellaneous
+
+```bash
+# Add favicon in /static
+# Add VueX to /store
+```
