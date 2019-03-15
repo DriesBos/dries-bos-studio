@@ -1,10 +1,10 @@
-# dries-bos-studio-2019
+# boilerplate-nuxt-storyblok
 
 ```bash
-# Personal portfolio using VueJS, NuxtJS, Storyblok CMS, Axion
+# Boilerplate using VueJS, NuxtJS, Storyblok CMS, Axion
 ```
 
-## 2019 Updates
+## Stack
 
 ```bash
 # Nuxt as JavaScript Framework
@@ -16,22 +16,17 @@
 
 ```bash
 # install dependencies
-$ yarn install
+$ npm install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ npm run dev
 
 # build for production and launch server
-$ yarn run build
-$ yarn start
+$ npm run build
+$ npm start
 
 # generate static project
-$ yarn run generate
-
-# install sass compiler
-$
-
-# install
+$ npm run generate
 ```
 
 ## Added Deps
@@ -42,5 +37,5 @@ $ npm install --save-dev node-sass sass-loader
 
 # install NuxtJS Module
 $ npm install --save storyblok-nuxt
-$ yarn add @nuxt/webpack
+$ npm install @nuxt/webpack
 ```
