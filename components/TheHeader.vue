@@ -13,7 +13,7 @@
   </header>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 @import '~/assets/styling/variables.sass'
 
 header
