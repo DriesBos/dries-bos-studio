@@ -41,7 +41,6 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [],
-
   /*
   ** Nuxt.js modules
   */
@@ -58,6 +57,9 @@ module.exports = {
       }
     ]
   ],
+  /*
+  ** Generating routes
+  */
   generate: {
     routes: function() {
       return axios
