@@ -5,6 +5,9 @@
         <nuxt-link to="/" tag="li">
           <a>Home</a>
         </nuxt-link>
+        <nuxt-link to="/blog" tag="li">
+          <a>Blog</a>
+        </nuxt-link>
         <nuxt-link to="/about" tag="li">
           <a>About</a>
         </nuxt-link>
@@ -19,10 +22,10 @@
 header
   position: relative
   width: 100%
-  background: pink
+  background: lightgrey
   ul
     display: flex
-    justify-content: space-around
+    justify-content: flex-start
     li
       padding: $spacing
       a
