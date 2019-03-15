@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader/>
-    <nuxt />
+    <nuxt/>
   </div>
 </template>
 
@@ -14,6 +14,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
