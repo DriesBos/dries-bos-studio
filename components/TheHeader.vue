@@ -12,3 +12,23 @@
     </nav>
   </header>
 </template>
+
+<style lang="sass">
+@import '~/assets/styling/variables.sass'
+
+header
+  position: relative
+  width: 100%
+  background: pink
+  ul
+    display: flex
+    justify-content: space-around
+    li
+      padding: $spacing
+      a
+        color: black
+        text-decoration: none
+    li.nuxt-link-exact-active
+      a
+        text-decoration: underline
+</style>
