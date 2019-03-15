@@ -27,7 +27,7 @@ header
     display: flex
     justify-content: flex-start
     li
-      padding: $spacing
+      padding: $spacing-2
       a
         color: black
         text-decoration: none
