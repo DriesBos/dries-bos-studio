@@ -47,6 +47,7 @@ $ npm install @nuxt/webpack
 $ heroku git:remote -a app-name
 $ git remote -v
 $ git push heroku master
+$ git push heroku branch-name:master
 
 # Set Heroku Config
 $ heroku config:set NPM_CONFIG_PRODUCTION=false
