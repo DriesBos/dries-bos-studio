@@ -1,13 +1,18 @@
 <template>
   <nuxt-link :to="'/blog/' + id" tag="li">
     <h1>{{ title }}</h1>
-    <p>{{ excerpt }}</p>
+    <MarkdownItem v-if="excerpt" :input="excerpt" class="post-Content"/>
     <img :src="thumbnail">
   </nuxt-link>
 </template>
 
 <script>
+import MarkdownItem from '~/components/MarkdownItem.vue'
+
 export default {
+  components: {
+    MarkdownItem
+  },
   props: {
     title: {
       type: String,

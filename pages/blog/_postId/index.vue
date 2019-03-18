@@ -3,7 +3,8 @@
     <ul class="post-List">
       <li>
         <h1>{{ title }}</h1>
-        <p>{{ content }}</p>
+        <MarkdownItem v-if="content" :input="content" class="post-Content"/>
+
         <img :src="thumbnail">
       </li>
     </ul>
@@ -11,7 +12,12 @@
 </template>
 
 <script>
+import MarkdownItem from '~/components/MarkdownItem.vue'
+
 export default {
+  components: {
+    MarkdownItem
+  },
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories/blog/' + context.params.postId, {

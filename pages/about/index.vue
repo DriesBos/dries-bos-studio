@@ -1,12 +1,17 @@
 <template>
   <section class="view-Container view-Profile">
     <h1>{{ title }}</h1>
-    <p>{{ content }}</p>
+    <MarkdownItem v-if="content" :input="content" class="post-Content"/>
   </section>
 </template>
 
 <script>
+import MarkdownItem from '~/components/MarkdownItem.vue'
+
 export default {
+  components: {
+    MarkdownItem
+  },
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories/about', {
