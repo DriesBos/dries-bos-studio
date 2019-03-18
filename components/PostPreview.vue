@@ -1,8 +1,8 @@
 <template>
   <nuxt-link :to="'/blog/' + id" tag="li">
+    <img :src="thumbnail">
     <h1>{{ title }}</h1>
     <MarkdownItem v-if="excerpt" :input="excerpt" class="post-Content"/>
-    <img :src="thumbnail">
   </nuxt-link>
 </template>
 

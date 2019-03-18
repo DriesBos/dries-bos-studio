@@ -1,5 +1,5 @@
 <template>
-  <section class="view-Container">
+  <section class="view-Container view-Index">
     <ul class="post-List">
       <PostPreview
         v-for="post in posts"
