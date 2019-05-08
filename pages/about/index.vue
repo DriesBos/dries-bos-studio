@@ -1,12 +1,15 @@
 <template>
   <section class="view-Container view-Profile">
-    <ul class="post-List">
-      <li>
-        <img :src="thumbnail">
-        <h1>{{ title }}</h1>
-        <MarkdownItem v-if="content" :input="content" class="post-Content"/>
-      </li>
-    </ul>
+    <div class="about">
+      <MarkdownItem v-if="content" :input="content"/>
+      <div class="about-Contact">
+        <a href="mailto:info@driesbos.com">Email ↗</a>
+        <br>
+        <a href="https://github.com/DriesBos" target="_blank">Github ↗</a>
+        <br>
+        <a href="https://www.instagram.com/driesbosstudio/" target="_blank">Instagram ↗</a>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -24,8 +27,6 @@ export default {
       })
       .then(res => {
         return {
-          thumbnail: res.data.story.content.thumbnail,
-          title: res.data.story.content.title,
           content: res.data.story.content.content
         }
       })

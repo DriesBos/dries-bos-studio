@@ -1,36 +1,33 @@
 // https://type-scale.com/
+@import '~/assets/styling/variables.sass'
+
 @font-face
-  font-family: 'Avenir'
-  src: url('~assets/fonts/Avenir-Next-LT-Pro.ttf') format('truetype')
+  font-family: 'Moderat'
+  src: url('~assets/fonts/Moderat-Regular.woff') format('woff')
   font-weight: normal
   font-style: normal
 
 @font-face
-  font-family: 'Avenir'
-  src: url('~assets/fonts/Avenir-Next-LT-Pro-Demi.ttf') format('truetype')
+  font-family: 'Moderat'
+  src: url('~assets/fonts/Moderat-Bold.woff') format('woff')
   font-weight: bold
   font-style: normal
 
-@font-face
-  font-family: 'Avenir'
-  src: url('~assets/fonts/Avenir-Next-LT-Pro-Italic.ttf') format('truetype')
-  font-weight: normal
-  font-style: italic
-
 h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active
-  font-family: "Avenir", Helvetica, Arial, sans-serif
-  font-size: 16px
-  line-height: 1.3
-  color:  black
+  font-family: "Moderat", Helvetica, Arial, sans-serif
+  font-size: 18px
+  line-height: 1.5
+  color: $font-color
   white-space: pre-line
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-a:hover, a:active, .nuxt-link-exact-active
+a
+  color: $font-color
+  text-decoration: none
+
+a:hover, a:active, .nuxt-link-exact-active a
   text-decoration: underline
 
-strong
+strong, em
   font-weight: bold
-
-i, em
-  font-style: italic

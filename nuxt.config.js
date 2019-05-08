@@ -5,25 +5,36 @@ module.exports = {
   mode: 'universal',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: 'nuxt-storyblok-boilerplate',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
       {
         hid: 'description',
         name: 'description',
         content: 'Meta description'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
+    ]
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: {
     color: '#fff',
     heright: '2px',
@@ -31,8 +42,8 @@ module.exports = {
   },
 
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: [
     '~/assets/styling/reset.css',
     '~/assets/styling/variables.sass',
@@ -42,12 +53,12 @@ module.exports = {
   ],
 
   /*
-  ** Plugins to load before mounting the App
-  */
+   ** Plugins to load before mounting the App
+   */
   plugins: [],
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     [
@@ -55,15 +66,15 @@ module.exports = {
       {
         accessToken:
           process.env.NODE_ENV === 'production' // Generate new token
-            ? 'LQu2PyUnQQnXdQrLxQ460Att' // Public
-            : '2g0x0eQy87JuPexCzlBqYQtt', // Preview
+            ? 'jqAz0BlSNQQGVE8GhfrrFwtt' // Public
+            : 'QMGXgQtF6vZkJUrEKUBIlQtt', // Preview
         cacheProvider: 'memory'
       }
     ]
   ],
   /*
-  ** Generating routes
-  */
+   ** Generating routes
+   */
   generate: {
     routes: function() {
       return axios
@@ -78,19 +89,19 @@ module.exports = {
     }
   },
   /*
-  ** Axios module configuration
-  */
+   ** Axios module configuration
+   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {

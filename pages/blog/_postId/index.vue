@@ -1,13 +1,10 @@
 <template>
   <section class="view-Container view-Post">
-    <ul class="post-List">
-      <li>
-        <h1>{{ title }}</h1>
-        <MarkdownItem v-if="content" :input="content" class="post-Content"/>
-
-        <img :src="thumbnail">
-      </li>
-    </ul>
+    <div class="post">
+      <!-- <h1>{{ title }}</h1> -->
+      <MarkdownItem v-if="content" :input="content" class="post-Content"/>
+      <img :src="thumbnail">
+    </div>
   </section>
 </template>
 
@@ -25,7 +22,7 @@ export default {
       })
       .then(res => {
         return {
-          title: res.data.story.content.title,
+          // title: res.data.story.content.title,
           content: res.data.story.content.content,
           thumbnail: res.data.story.content.thumbnail
         }

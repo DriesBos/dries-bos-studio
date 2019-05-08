@@ -2,20 +2,59 @@
 @import '~/assets/styling/typography.sass'
 @import '~/assets/styling/transitions.sass'
 
-.view-Container
-  margin-top: $spacing-2
+
+html, body, #__nuxt
+  position: relative
+  min-height: 100%
+
+header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
   display: flex
+  wrap: nowrap
+  justify-content: space-between
+  padding: $spacing-2
+  .header-Logo
+    text-decoration: underline
+
+.view-Container
+  display: flex
+  margin-left: $spacing-2
+  margin-right: $spacing-2
   flex-direction: column
   justify-content: center
   align-items: center
+  min-height: 100vh
 
-.post-List
+.posts
   display: flex
-  flex-direction: column
-  width: 300px
+  justify-content: space-between
+  flex-wrap: wrap
+  padding-top: 300px
   li
-    background: lightblue
+    flex-basis: calc(50% - #{$spacing-1})
+    margin-bottom: $spacing-2
+    cursor: pointer
+  img
+    width: 100%
+
+
+.post
+  margin-top: 300px
+  width: 100%
+  &-Content
+    max-width: $font-maxwidth
     margin-bottom: $spacing-2
   img
     width: 100%
-    background: green
+    margin-bottom: $spacing-2
+
+
+
+.about
+  text-align: center
+  max-width: $font-maxwidth
+  &-Contact
+    margin-top: 100px
