@@ -14,11 +14,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxt/webpack": "^2.4.5",
+    "@nuxt/webpack": "^2.6.3",
     "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
-    "marked": "^0.6.1",
-    "nuxt": "^2.4.0",
+    "marked": "^0.6.2",
+    "nuxt": "^2.6.3",
     "storyblok-nuxt": "^1.0.1"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
     "eslint-plugin-promise": ">=4.0.1",
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "prettier": "1.14.3",
     "pug": "^2.0.3",
