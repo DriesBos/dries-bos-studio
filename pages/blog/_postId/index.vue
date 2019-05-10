@@ -3,7 +3,13 @@
     <div class="post">
       <!-- <h1>{{ title }}</h1> -->
       <MarkdownItem v-if="content" :input="content" class="post-Content"/>
+      <p v-if="category">Role: {{ category }}</p>
+      <p>
+        Link:
+        <a v-if="hyperlink" :href="hyperlink">{{ hyperlink }}</a>
+      </p>
       <img :src="thumbnail">
+      <p>next</p>
     </div>
   </section>
 </template>
@@ -24,7 +30,9 @@ export default {
         return {
           // title: res.data.story.content.title,
           content: res.data.story.content.content,
-          thumbnail: res.data.story.content.thumbnail
+          thumbnail: res.data.story.content.thumbnail,
+          category: res.data.story.content.category,
+          hyperlink: res.data.story.content.hyperlink
         }
       })
   }

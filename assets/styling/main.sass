@@ -16,6 +16,7 @@ header
   wrap: nowrap
   justify-content: space-between
   padding: $spacing-2
+  z-index: $zindex-interface
   .header-Logo
     text-decoration: underline
 
@@ -33,20 +34,51 @@ header
   justify-content: space-between
   flex-wrap: wrap
   padding-top: 300px
+  width: 100%
+  &-Container // Aspect ratio container
+    position: relative
+    width: 100%
+    height: 0
+    padding-top: 66.72661871%
+    img
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &-Details // Hover for details
+      position: absolute
+      background: rgba(0, 0, 0, .75)
+      transition: opacity 300ms ease
+      opacity: 0
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+      p
+        color: white
+        margin: $spacing-1
+      p:nth-child(2)
+        position: absolute
+        right: 0
+        bottom: 0
   li
     flex-basis: calc(50% - #{$spacing-1})
     margin-bottom: $spacing-2
     cursor: pointer
-  img
-    width: 100%
-
+    &:hover .posts-Details
+      opacity: 1
 
 .post
   margin-top: 300px
   width: 100%
   &-Content
-    max-width: $font-maxwidth
-    margin-bottom: $spacing-2
+    margin-bottom: $spacing-1
+  p
+    margin-bottom: $spacing-1
+    a
+      display: inline
   img
     width: 100%
     margin-bottom: $spacing-2
@@ -55,6 +87,5 @@ header
 
 .about
   text-align: center
-  max-width: $font-maxwidth
   &-Contact
     margin-top: 100px

@@ -4,7 +4,7 @@
       <a>Dries Bos Studio</a>
     </nuxt-link>
     <nuxt-link to="/about" tag="div">
-      <a>About</a>
+      <a>Profile</a>
     </nuxt-link>
   </header>
 </template>

@@ -8,7 +8,13 @@
         :to="'/blog/' + post.id"
         tag="li"
       >
-        <img :src="post.thumbnail">
+        <div class="posts-Container">
+          <img :src="post.thumbnail">
+          <div class="posts-Details">
+            <p>{{ post.title }}</p>
+            <p>{{ post.category }}</p>
+          </div>
+        </div>
       </nuxt-link>
     </ul>
   </section>
@@ -27,7 +33,9 @@ export default {
           posts: res.data.stories.map(bp => {
             return {
               id: bp.slug,
-              thumbnail: bp.content.thumbnail
+              thumbnail: bp.content.thumbnail,
+              title: bp.content.title,
+              category: bp.content.category
             }
           })
         }
