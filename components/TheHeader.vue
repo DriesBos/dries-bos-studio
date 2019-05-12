@@ -4,7 +4,10 @@
       <span v-if="$route.path !== '/about'">
         Dries
         <span v-if="$route.path === '/'">Bos Studio</span>
-        <span v-if="$route.name === 'blog-postId'">and {{ blog-postId }}</span>
+        <span v-if="$route.name == 'blog-postId'">
+          and
+          <span class="capitalize">{{ $route.params.postId }}</span>
+        </span>
       </span>
     </nuxt-link>
     <nuxt-link v-if="$route.path === '/'" class="header-Link" to="/about" tag="div">
