@@ -1,12 +1,11 @@
 <template>
   <section class="view-Container view-Post">
     <div class="post">
-      <!-- <h1>{{ title }}</h1> -->
       <MarkdownItem v-if="content" :input="content" class="post-Content"/>
-      <p v-if="category">Role: {{ category }}</p>
       <p>
-        Link:
-        <a v-if="hyperlink" :href="hyperlink">{{ hyperlink }}</a>
+        <span v-if="category">Role: {{ category }}</span>
+        <br>
+        <span v-if="hyperlink" :href="hyperlink">Link: {{ hyperlink }}</span>
       </p>
       <img :src="thumbnail">
       <p>next</p>
@@ -28,7 +27,6 @@ export default {
       })
       .then(res => {
         return {
-          // title: res.data.story.content.title,
           content: res.data.story.content.content,
           thumbnail: res.data.story.content.thumbnail,
           category: res.data.story.content.category,
