@@ -1,17 +1,17 @@
 <template>
   <header>
-    <div class="header-Logo">
-      <nuxt-link class="header-Link" to="/" tag="a">
-        <span v-if="$route.path !== '/about'">Dries</span>
+    <nuxt-link class="header-Logo header-Link" to="/" tag="div">
+      <span v-if="$route.path !== '/about'">
+        Dries
         <span v-if="$route.path === '/'">Bos Studio</span>
         <span v-if="$route.name === 'blog-postId'">and {{ blog-postId }}</span>
-      </nuxt-link>
-    </div>
-    <nuxt-link v-if="$route.path === '/'" class to="/about" tag="div">
-      <a>Profile</a>
+      </span>
     </nuxt-link>
-    <nuxt-link v-if="$route.path !== '/'" class to="/" tag="div">
-      <a>X</a>
+    <nuxt-link v-if="$route.path === '/'" class="header-Link" to="/about" tag="div">
+      <span>Profile</span>
+    </nuxt-link>
+    <nuxt-link v-if="$route.path !== '/'" class="header-Link" to="/" tag="div">
+      <span>X</span>
     </nuxt-link>
   </header>
 </template>

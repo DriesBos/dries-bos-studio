@@ -15,14 +15,20 @@ header
   display: flex
   wrap: nowrap
   justify-content: space-between
-  padding: $spacing-2
   z-index: $zindex-interface
   .header-Logo
     flex-grow: 1
-    a
-      text-decoration: underline
     a, p
       display: inline
+  .header-Link
+    padding: $spacing-2
+    cursor: pointer
+    span
+      border-bottom: 1px solid transparent
+      transition: border-bottom $transition-hover
+      &:hover
+        border-bottom: 1px $font-color solid
+
 
 .view-Container
   display: flex
@@ -54,7 +60,7 @@ header
   &-Details // Hover for details
       position: absolute
       background: rgba(0, 0, 0, .75)
-      transition: opacity 300ms ease
+      transition: opacity $transition-hover
       opacity: 0
       left: 0
       top: 0
