@@ -1,7 +1,9 @@
 <template>
   <div>
     <TheHeader/>
-    <nuxt/>
+    <transition name="pageFade" mode="out-in">
+      <nuxt/>
+    </transition>
   </div>
 </template>
 
