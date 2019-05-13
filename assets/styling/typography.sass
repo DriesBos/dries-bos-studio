@@ -14,7 +14,9 @@
   font-style: normal
 
 html
+  // https://css-tricks.com/snippets/css/fluid-typography/
   font-size: 18px
+  font-size: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
 
 h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span
   font-family: "Moderat", Helvetica, Arial, sans-serif

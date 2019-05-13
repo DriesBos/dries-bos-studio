@@ -16,11 +16,23 @@ header
   wrap: nowrap
   justify-content: space-between
   z-index: $zindex-interface
+  > div
+    margin: $spacing-2
   .header-Logo
+    flex-grow: 1
+    line-height: 1
     a, p
       display: inline
+  .header-Icons
+    display: flex
+    > div
+      width: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
+      height: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
+      background: currentColor
+      border-radius: 100px
+    > div:last-child
+      margin-left: $spacing-1
   .header-Link
-    padding: $spacing-2
     cursor: pointer
     span
       border-bottom: 1px solid transparent
