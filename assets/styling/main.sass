@@ -7,6 +7,11 @@ html, body, #__nuxt
   position: relative
   min-height: 100%
 
+.toggle
+  background: pink
+  z-index: 999
+  cursor: pointer
+
 header
   position: fixed
   top: 0
@@ -19,7 +24,7 @@ header
   > div
     margin: $spacing-2
   .header-Logo
-    flex-grow: 1
+    // flex-grow: 1
     line-height: 1
     a, p
       display: inline
@@ -29,7 +34,7 @@ header
       width: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
       height: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
       background: currentColor
-      border-radius: 100px
+      border-radius: 100%
     > div:last-child
       margin-left: $spacing-1
   .header-Link
