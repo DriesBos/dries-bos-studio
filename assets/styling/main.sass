@@ -7,11 +7,6 @@ html, body, #__nuxt
   position: relative
   min-height: 100%
 
-.toggle
-  background: pink
-  z-index: 999
-  cursor: pointer
-
 header
   position: fixed
   top: 0
@@ -28,15 +23,8 @@ header
     line-height: 1
     a, p
       display: inline
-  .header-Icons
-    display: flex
-    > div
-      width: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
-      height: calc(18px + (22 - 18) * ((100vw - 700px) / (1400 - 700)))
-      background: currentColor
-      border-radius: 100%
-    > div:last-child
-      margin-left: $spacing-1
+  .header-Profile
+    padding-right: $spacing-2
   .header-Link
     cursor: pointer
     span
@@ -53,6 +41,16 @@ header
   .capitalize
     text-transform: capitalize
 
+.header-Toggle
+  position: fixed
+  top: $spacing-2
+  right: $spacing-2
+  z-index: 999
+
+.header-Icons
+  img
+    width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+    height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
 
 .view-Container
   display: flex

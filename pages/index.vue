@@ -1,10 +1,11 @@
 <template>
   <div>
     <TheHeader/>
+    <div @click="toggle()" class="header-Toggle header-Icons">
+      <img v-if="isList" src="~assets/images/list.png">
+      <img v-else src="~assets/images/blocks.png">
+    </div>
     <section class="view-Container view-Index">
-      <div @click="toggle()" class="toggle">
-        <p>toggle</p>
-      </div>
       <ul v-if="isList" class="list">
         <nuxt-link
           v-for="post in posts"
