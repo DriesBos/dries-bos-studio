@@ -2,7 +2,7 @@
   <div>
     <TheHeader/>
     <section class="view-Container view-Index">
-      <div v-on:click="isList = !isList" class="toggle">
+      <div @click="toggle()" class="toggle">
         <p>toggle</p>
       </div>
       <ul v-if="isList" class="list">
@@ -48,6 +48,11 @@ export default {
   data: function() {
     return {
       isList: false
+    }
+  },
+  methods: {
+    toggle: function() {
+      this.isList = !this.isList
     }
   },
   asyncData(context) {
