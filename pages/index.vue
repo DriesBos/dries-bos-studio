@@ -2,11 +2,13 @@
   <div>
     <TheHeader/>
     <div @click="toggle()" class="header-Toggle header-Icons">
-      <img v-if="isList" src="~assets/images/list.png">
-      <img v-else src="~assets/images/blocks.png">
+      <transition-group tag="ul" name="indexView">
+        <img key="list" v-if="isList" src="~assets/images/list.png">
+        <img key="grid" v-else src="~assets/images/blocks.png">
+      </transition-group>
     </div>
-    <section class="view-Container view-Index">
-      <ul v-if="isList" class="list">
+    <transition-group tag="section" name="indexView" class="view-Container view-Index">
+      <ul v-show="isList" class="list" key="list">
         <nuxt-link
           v-for="post in posts"
           :id="post.id"
@@ -18,7 +20,7 @@
           <p>{{ post.category }}</p>
         </nuxt-link>
       </ul>
-      <ul v-else class="posts">
+      <ul v-show="!isList" class="posts" key="grid">
         <nuxt-link
           v-for="post in posts"
           :id="post.id"
@@ -35,7 +37,7 @@
           </div>
         </nuxt-link>
       </ul>
-    </section>
+    </transition-group>
   </div>
 </template>
 

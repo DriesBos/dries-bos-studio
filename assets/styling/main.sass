@@ -24,7 +24,7 @@ header
     a, p
       display: inline
   .header-Profile
-    padding-right: $spacing-2
+    padding-right: calc((20px + (26 - 20) * ((100vw - 700px) / (1400 - 700))) + 25px)
   .header-Link
     cursor: pointer
     span
@@ -46,20 +46,31 @@ header
   top: $spacing-2
   right: $spacing-2
   z-index: 999
+  ul
+    position:
+    img
+      position: absolute
+      right: 0
+      top: 0
+
 
 .header-Icons
   img
     width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
     height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
 
-.view-Container
-  display: flex
-  margin-left: $spacing-2
-  margin-right: $spacing-2
-  flex-direction: column
-  justify-content: center
-  align-items: center
-  min-height: 100vh
+.view
+  &-Container
+    display: flex
+    margin-left: $spacing-2
+    margin-right: $spacing-2
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    min-height: 100vh
+  &-Profile
+    justify-content: center
+
 
 .posts
   display: flex
@@ -124,15 +135,17 @@ header
       color: white
   p:first-child
     margin-right: 300px
+
 .post
   margin-top: 300px
   width: 100%
   &-Content
     margin-bottom: $spacing-1
   p
-    margin-bottom: $spacing-1
     a
       display: inline
+  p:nth-child(2)
+      margin-bottom: $spacing-2
   img
     width: 100%
     margin-bottom: $spacing-1
