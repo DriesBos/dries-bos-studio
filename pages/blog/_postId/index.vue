@@ -3,11 +3,18 @@
     <div class="post">
       <MarkdownItem v-if="content" :input="content" class="post-Content"/>
       <p>
-        <span v-if="category">Role: {{ category }}</span>
+        <span v-if="category">Role: {{ role }}</span>
         <br>
         <span v-if="hyperlink" :href="hyperlink">Link: {{ hyperlink }}</span>
       </p>
-      <img :src="thumbnail">
+      <div class="post-Image">
+        <img v-if="image_0" :src="image_0">
+        <img v-if="image_1" :src="image_1">
+        <img v-if="image_2" :src="image_2">
+        <img v-if="image_3" :src="image_3">
+        <img v-if="image_4" :src="image_4">
+        <img v-if="image_5" :src="image_5">
+      </div>
       <p>next</p>
     </div>
   </section>
@@ -29,8 +36,15 @@ export default {
         return {
           content: res.data.story.content.content,
           thumbnail: res.data.story.content.thumbnail,
+          role: res.data.story.content.role,
           category: res.data.story.content.category,
-          hyperlink: res.data.story.content.hyperlink
+          hyperlink: res.data.story.content.hyperlink,
+          image_0: res.data.story.content.image_0,
+          image_1: res.data.story.content.image_1,
+          image_2: res.data.story.content.image_2,
+          image_3: res.data.story.content.image_3,
+          image_4: res.data.story.content.image_4,
+          image_5: res.data.story.content.image_5
         }
       })
   }
