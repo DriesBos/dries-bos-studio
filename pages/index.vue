@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader/>
+    <TheHeader />
     <section class="view-Container view-Index">
       <ul class="posts">
         <nuxt-link

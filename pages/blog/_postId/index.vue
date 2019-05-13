@@ -1,9 +1,9 @@
 <template>
   <div>
-    <TheHeader :headerTitle="title"/>
+    <TheHeader :headerTitle="title" />
     <section class="view-Container view-Post">
       <div class="post">
-        <MarkdownItem v-if="content" :input="content" class="post-Content"/>
+        <MarkdownItem v-if="content" :input="content" class="post-Content" />
         <p>
           <span v-if="category">Role: {{ role }}</span>
           <br>

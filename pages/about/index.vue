@@ -1,9 +1,9 @@
 <template>
   <div>
-    <TheHeader/>
+    <TheHeader />
     <section class="view-Container view-Profile">
       <div class="about">
-        <MarkdownItem v-if="content" :input="content"/>
+        <MarkdownItem v-if="content" :input="content" />
         <div class="about-Contact">
           <a href="mailto:info@driesbos.com">Email ↗</a>
           <br>
