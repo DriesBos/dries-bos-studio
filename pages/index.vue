@@ -3,9 +3,9 @@
     <TheHeader/>
     <section class="view-Container view-Index">
       <div v-on:click="isList = !isList" class="toggle">
-        <p>Blocks</p>
+        <p>toggle</p>
       </div>
-      <ul v-if="isList" class="posts">
+      <ul v-if="isList" class="list">
         <nuxt-link
           v-for="post in posts"
           :id="post.id"
@@ -13,14 +13,8 @@
           :to="'/blog/' + post.id"
           tag="li"
         >
-          <div class="posts-Container">
-            <img :src="post.thumbnail">
-            <p>list</p>
-            <div class="posts-Details">
-              <p>{{ post.title }}</p>
-              <p>{{ post.category }}</p>
-            </div>
-          </div>
+          <p>{{ post.title }}</p>
+          <p>{{ post.category }}</p>
         </nuxt-link>
       </ul>
       <ul v-else class="posts">
@@ -33,7 +27,6 @@
         >
           <div class="posts-Container">
             <img :src="post.thumbnail">
-            <p>blocks</p>
             <div class="posts-Details">
               <p>{{ post.title }}</p>
               <p>{{ post.category }}</p>
