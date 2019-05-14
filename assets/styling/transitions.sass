@@ -10,7 +10,14 @@
 
 // indexView
 .indexView-enter-active, .indexView-leave-active
-  transition: opacity $transition-index
+  transition: opacity .15s ease
 
 .indexView-enter, .indexView-leave-to
+  opacity: 0
+
+// Header StaticLogo
+.StaticLogo-enter-active, .StaticLogo-leave-active
+  transition: opacity .5s ease .5s
+
+.StaticLogo-enter, .StaticLogo-leave-to
   opacity: 0
