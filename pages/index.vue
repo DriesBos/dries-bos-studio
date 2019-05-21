@@ -15,6 +15,7 @@
         <img key="grid" v-else src="~assets/images/list.png">
       </div>
     </TheHeader>
+
     <transition-group tag="section" name="indexView" class="view-Container">
       <ul v-show="isList" class="list" key="list">
         <nuxt-link
@@ -29,6 +30,7 @@
           <p>{{ post.category }}</p>
         </nuxt-link>
       </ul>
+
       <ul v-show="!isList" class="index" key="grid">
         <nuxt-link
           v-for="post in posts"

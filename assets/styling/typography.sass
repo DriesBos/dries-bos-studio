@@ -7,12 +7,6 @@
   font-weight: normal
   font-style: normal
 
-@font-face
-  font-family: 'Moderat'
-  src: url('~assets/fonts/Moderat-Bold.woff') format('woff')
-  font-weight: bold
-  font-style: normal
-
 html
   // https://css-tricks.com/snippets/css/fluid-typography/
   font-size: 18px
@@ -23,6 +17,8 @@ h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span
   font-size: 1em
   line-height: 1.5
   color: $font-color
+  font-style: normal
+  font-weight: normal
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   max-width: $font-maxwidth
@@ -32,6 +28,3 @@ a
   text-decoration: none
 a:hover, a:active, .nuxt-link-exact-active a
   text-decoration: underline
-
-strong, em
-  font-weight: bold
