@@ -1,15 +1,19 @@
 <template>
   <div>
-    <TheHeader :headerTitle="title" />
-    <section class="view-Container view-Post">
+    <TheHeader :headerTitle="title"/>
+    <section class="view-Container">
       <div class="post">
-        <MarkdownItem v-if="content" :input="content" class="post-Content" />
-        <p>
-          <span v-if="category">Role: {{ role }}</span>
-          <br>
-          <span v-if="hyperlink" :href="hyperlink">Link: {{ hyperlink }}</span>
-        </p>
-        <div class="post-Image">
+        <div class="post-Content">
+          <MarkdownItem v-if="content" :input="content"/>
+          <p>
+            <span v-if="year">Date: {{ year }}</span>
+            <br>
+            <span v-if="category">Role: {{ role }}</span>
+            <br>
+            <span v-if="hyperlink" :href="hyperlink">{{ hyperlink }}</span>
+          </p>
+        </div>
+        <div class="post-Images">
           <img v-if="image_0" :src="image_0">
           <img v-if="image_1" :src="image_1">
           <img v-if="image_2" :src="image_2">
@@ -17,7 +21,14 @@
           <img v-if="image_4" :src="image_4">
           <img v-if="image_5" :src="image_5">
         </div>
-        <p>next</p>
+        <div class="post-Navigation">
+          <div class="site-Icon" title="previous project">
+            <img src="~assets/images/arrow-left.png">
+          </div>
+          <div class="site-Icon" title="next project">
+            <img src="~assets/images/arrow-right.png">
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -40,6 +51,7 @@ export default {
       .then(res => {
         return {
           title: res.data.story.content.title,
+          year: res.data.story.content.year,
           content: res.data.story.content.content,
           thumbnail: res.data.story.content.thumbnail,
           role: res.data.story.content.role,

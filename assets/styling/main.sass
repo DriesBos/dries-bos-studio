@@ -2,12 +2,26 @@
 @import '~/assets/styling/typography.sass'
 @import '~/assets/styling/transitions.sass'
 
-
 html, body, #__nuxt
   position: relative
   min-height: 100%
 
-header
+.site
+  &-Icon
+    position: relative
+    width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+    height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+    svg, img
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
+
+.capitalize
+  text-transform: capitalize
+
+.header
   position: fixed
   top: 0
   left: 0
@@ -16,51 +30,32 @@ header
   wrap: nowrap
   justify-content: space-between
   z-index: $zindex-interface
+  span
+    visibility: hidden
   > div
     margin: $spacing-2
-  .header-StaticLogo
-    margin-left: $spacing-2
-    margin-top: $spacing-2
-  .header-Logo
-    // flex-grow: 1
-    line-height: 1
     a, p
       display: inline
-  .header-Profile
-    padding-right: calc((20px + (26 - 20) * ((100vw - 700px) / (1400 - 700))) + 25px)
-  .header-Link
-    cursor: pointer
-    span
-      border-bottom: 1px solid transparent
-      transition: border-bottom $transition-hover
-      &:hover
-        border-bottom: 1px $font-color solid
-    svg
-      width: 28px
-      height: 28px
-      background: black
-      border-radius: 100px
-
-  .capitalize
-    text-transform: capitalize
-
-.header-Toggle
-  position: fixed
-  top: $spacing-2
-  right: $spacing-2
-  z-index: 999
-  ul
-    position:
+  &-Profile
     img
-      position: absolute
-      right: 0
+      transition: transform $transition-hover
+      &:hover
+        transform: rotate(-120deg)
+  &-Link
+    cursor: pointer
+  &-Icons
+    display: flex
+    > div
+      margin-left: $spacing-2
+  &-Toggle
+    position: relative
+    ul
+      position: fixed
+      left: 0
       top: 0
-
-
-.header-Icons
-  img
-    width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-    height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+      width: 100%
+      height: 100%
+      z-index: 999 // TODO: update to right level
 
 .view
   &-Container
@@ -75,7 +70,7 @@ header
     justify-content: center
 
 
-.posts
+.index
   display: flex
   justify-content: space-between
   flex-wrap: wrap
@@ -119,43 +114,47 @@ header
 .list
   display: flex
   flex-direction: column
-  // margin-left: $spacing-2
-  // margin-right: $spacing-2
   width: 100%
   padding-top: 300px
   li
     padding: $spacing-1
-    padding-left: 0
+    padding-left: $spacing-2
     display: flex
     flex-wrap: nowrap
     border-top: 2px currentColor solid
     cursor: pointer
+    transition: background .30s ease-in-out
+    p
+      transition: color .30s ease-in-out
   li:last-child
     border-bottom: 2px currentColor solid
+    margin-bottom: $spacing-2
   li:hover
     background: $font-color
     p
       color: white
-  p:first-child
+  p
     margin-right: 300px
+    &:last-child
+      margin-right: 0
 
 .post
   margin-top: 300px
   width: 100%
-  &-Content
-    margin-bottom: $spacing-1
-  p
-    a
-      display: inline
-  p:nth-child(2)
-      margin-bottom: $spacing-2
+  > div
+    margin-bottom: $spacing-2
   img
     width: 100%
     margin-bottom: $spacing-1
     &:last-child
       margin-bottom: 0
-
-
+  .markdown
+    margin-bottom: $spacing-1
+  &-Navigation
+    display: flex
+    justify-content: space-between
+    > div
+      cursor: pointer
 
 .about
   text-align: center

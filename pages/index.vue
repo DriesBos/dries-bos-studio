@@ -1,13 +1,21 @@
 <template>
   <div>
-    <TheHeader/>
-    <div @click="toggle()" class="header-Toggle header-Icons">
-      <transition-group tag="ul" name="indexView">
-        <img key="list" v-if="isList" src="~assets/images/list.png">
-        <img key="grid" v-else src="~assets/images/blocks.png">
-      </transition-group>
-    </div>
-    <transition-group tag="section" name="indexView" class="view-Container view-Index">
+    <TheHeader>
+      <nuxt-link
+        v-if="$route.path === '/'"
+        class="header-Link header-Profile site-Icon"
+        to="/about"
+        tag="div"
+        title="about page"
+      >
+        <img src="~assets/images/profile.png">
+      </nuxt-link>
+      <div @click="toggle()" class="header-Link header-Toggle site-Icon">
+        <img key="list" v-if="isList" src="~assets/images/blocks.png">
+        <img key="grid" v-else src="~assets/images/list.png">
+      </div>
+    </TheHeader>
+    <transition-group tag="section" name="indexView" class="view-Container">
       <ul v-show="isList" class="list" key="list">
         <nuxt-link
           v-for="post in posts"
@@ -16,11 +24,12 @@
           :to="'/blog/' + post.id"
           tag="li"
         >
+          <p>{{ post.year }}</p>
           <p>{{ post.title }}</p>
           <p>{{ post.category }}</p>
         </nuxt-link>
       </ul>
-      <ul v-show="!isList" class="posts" key="grid">
+      <ul v-show="!isList" class="index" key="grid">
         <nuxt-link
           v-for="post in posts"
           :id="post.id"
@@ -28,9 +37,9 @@
           :to="'/blog/' + post.id"
           tag="li"
         >
-          <div class="posts-Container">
+          <div class="index-Container">
             <img :src="post.thumbnail">
-            <div class="posts-Details">
+            <div class="index-Details">
               <p>{{ post.title }}</p>
               <p>{{ post.category }}</p>
             </div>
@@ -71,6 +80,7 @@ export default {
               id: bp.slug,
               thumbnail: bp.content.thumbnail,
               title: bp.content.title,
+              year: bp.content.year,
               category: bp.content.category
             }
           })
