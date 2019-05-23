@@ -111,24 +111,38 @@ html, body, #__nuxt
   width: 100%
   padding-top: 300px
   li
+    // padding-top: var(--spacing-one)
+    // padding-bottom: var(--spacing-one)
     padding: var(--spacing-one)
-    padding-left: var(--spacing-two)
     display: flex
-    flex-wrap: nowrap
+    justify-content: flex-start
     border-top: 2px currentColor solid
     cursor: pointer
     transition: background .30s ease-in-out
     p
       transition: color .30s ease-in-out
+    @media screen and ( max-width: $breakpoint-1 )
+      border-top: 1px currentColor solid
+      p:nth-child(1)
+        order: 2
+      p:nth-child(2)
+        order: 1
+        flex-grow: 1
+      p:nth-child(3)
+        display: none
   li:last-child
     border-bottom: 2px currentColor solid
     margin-bottom: var(--spacing-two)
+    @media screen and ( max-width: $breakpoint-1 )
+      border-bottom: 1px currentColor solid
   li:hover
     background: $font-color
     p
       color: white
   p
-    margin-right: 300px
+    margin-right: 10em
+    @media screen and ( max-width: $breakpoint-1 )
+      margin-right: 0
     &:last-child
       margin-right: 0
 
