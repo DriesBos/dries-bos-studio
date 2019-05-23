@@ -1,7 +1,5 @@
 // 1. Base scale non-linear scale https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
 // 2. Base scale on fluid typography (em) https://www.creativebloq.com/how-to/design-a-responsive-site-with-em-based-sizing
-$spacing-1: 2vmin
-$spacing-2: 4vmin
 
 $breakpoint-1: 750px
 
@@ -17,6 +15,10 @@ $transition-hover: .3s ease
 $transition-page: .5s ease
 $transition-index: .15s ease
 
-@media screen and ( max-width: $breakpoint-1)
-  $spacing-1: 1px
-  $spacing-2: 1px
+// Custom variables
+body
+  --spacing-one: 2vmin
+  --spacing-two: 4vmin
+  @media screen and ( max-width: $breakpoint-1)
+    --spacing-one: 1em
+    --spacing-two: 1em

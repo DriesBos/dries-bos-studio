@@ -33,7 +33,7 @@ html, body, #__nuxt
   span
     visibility: hidden
   > div
-    margin: $spacing-2
+    margin: var(--spacing-two)
     a, p
       display: inline
   &-Profile
@@ -46,13 +46,13 @@ html, body, #__nuxt
   &-Icons
     display: flex
     > div
-      margin-left: $spacing-2
+      margin-left: var(--spacing-two)
 
 .view
   &-Container
     display: flex
-    margin-left: $spacing-2
-    margin-right: $spacing-2
+    margin-left: var(--spacing-two)
+    margin-right: var(--spacing-two)
     flex-direction: column
     justify-content: flex-start
     align-items: center
@@ -89,21 +89,21 @@ html, body, #__nuxt
       height: 100%
       p
         color: white
-        margin: $spacing-1
+        margin: var(--spacing-one)
       p:nth-child(2)
         position: absolute
         right: 0
         bottom: 0
   li
-    flex-basis: calc(50% - #{$spacing-1})
-    margin-bottom: $spacing-2
+    flex-basis: calc(50% - #{var(--spacing-one)})
+    margin-bottom: var(--spacing-two)
     cursor: pointer
     &:hover .posts-Details
       opacity: 1
     @media screen and ( max-width: $breakpoint-1 )
       flex-basis: 100%
     @media screen and ( orientation: landscape ) // Two columns on landscape orientations
-      flex-basis: calc(50% - #{$spacing-1})
+      flex-basis: calc(50% - #{var(--spacing-one)})
 
 .list
   display: flex
@@ -111,8 +111,8 @@ html, body, #__nuxt
   width: 100%
   padding-top: 300px
   li
-    padding: $spacing-1
-    padding-left: $spacing-2
+    padding: var(--spacing-one)
+    padding-left: var(--spacing-two)
     display: flex
     flex-wrap: nowrap
     border-top: 2px currentColor solid
@@ -122,7 +122,7 @@ html, body, #__nuxt
       transition: color .30s ease-in-out
   li:last-child
     border-bottom: 2px currentColor solid
-    margin-bottom: $spacing-2
+    margin-bottom: var(--spacing-two)
   li:hover
     background: $font-color
     p
@@ -136,14 +136,14 @@ html, body, #__nuxt
   margin-top: 300px
   width: 100%
   > div
-    margin-bottom: $spacing-2
+    margin-bottom: var(--spacing-two)
   img
     width: 100%
-    margin-bottom: $spacing-1
+    margin-bottom: var(--spacing-one)
     &:last-child
       margin-bottom: 0
   .markdown
-    margin-bottom: $spacing-1
+    margin-bottom: var(--spacing-one)
   &-Navigation
     display: flex
     justify-content: space-between
@@ -154,3 +154,5 @@ html, body, #__nuxt
   text-align: center
   &-Contact
     margin-top: 100px
+    @media screen and ( max-width: $breakpoint-1 )
+      margin-top: var(--spacing-one)
