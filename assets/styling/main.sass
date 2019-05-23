@@ -100,6 +100,10 @@ html, body, #__nuxt
     cursor: pointer
     &:hover .posts-Details
       opacity: 1
+    @media screen and ( max-width: $breakpoint-1 )
+      flex-basis: 100%
+    @media screen and ( orientation: landscape ) // Two columns on landscape orientations
+      flex-basis: calc(50% - #{$spacing-1})
 
 .list
   display: flex

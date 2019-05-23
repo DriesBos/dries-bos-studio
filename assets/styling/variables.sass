@@ -3,6 +3,8 @@
 $spacing-1: 2vmin
 $spacing-2: 4vmin
 
+$breakpoint-1: 750px
+
 $fontbase: 18px
 $lineheight-base: 1.5em
 $font-color: #333
@@ -14,3 +16,7 @@ $zindex-interface: 100
 $transition-hover: .3s ease
 $transition-page: .5s ease
 $transition-index: .15s ease
+
+@media screen and ( max-width: $breakpoint-1)
+  $spacing-1: 1px
+  $spacing-2: 1px
