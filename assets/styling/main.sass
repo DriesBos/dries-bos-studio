@@ -104,6 +104,9 @@ html, body, #__nuxt
       flex-basis: 100%
     @media screen and ( orientation: landscape ) // Two columns on landscape orientations
       flex-basis: calc(50% - #{var(--spacing-one)})
+    @media screen and ( min-width: $breakpoint-2 ) // Three columns on larger screens
+      flex-basis: calc(33.3333% - ((2 * #{var(--spacing-two)}) / 3 ))
+      background: red
 
 .list
   display: flex
@@ -111,8 +114,6 @@ html, body, #__nuxt
   width: 100%
   padding-top: 300px
   li
-    // padding-top: var(--spacing-one)
-    // padding-bottom: var(--spacing-one)
     padding: var(--spacing-one)
     display: flex
     justify-content: flex-start
