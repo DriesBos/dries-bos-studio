@@ -10,7 +10,7 @@
             <br>
             <span v-if="category">Role: {{ role }}</span>
             <br>
-            <span v-if="hyperlink" :href="hyperlink">{{ hyperlink }}</span>
+            <a v-if="hyperlink" :href="hyperlink" target="_blank">{{ hyperlink }}</a>
           </p>
         </div>
         <div class="post-Images">
