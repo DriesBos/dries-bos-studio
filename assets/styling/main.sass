@@ -99,7 +99,7 @@ html, body, #__nuxt
     flex-basis: calc(50% - #{var(--spacing-one)})
     margin-bottom: var(--spacing-two)
     cursor: pointer
-    &:hover .posts-Details
+    &:hover .index-Details
       opacity: 1
     @media screen and ( max-width: $breakpoint-1 )
       flex-basis: 100%
@@ -132,29 +132,29 @@ html, body, #__nuxt
         flex-grow: 1
       p:nth-child(3)
         display: none
-  li:nth-child(5)
-    opacity: .9
-  li:nth-child(6)
-    opacity: .8
-  li:nth-child(7)
-    opacity: .7
-  li:nth-child(8)
-    opacity: .6
-  li:nth-child(9)
-    opacity: .5
-  li:nth-child(10)
-    opacity: .4
-  li:nth-child(11)
-    opacity: .3
-  li:nth-child(12)
-    opacity: .2
-  li:nth-child(13)
-    opacity: .1
-  li:nth-child(n+14)
-    opacity: 0
+  // li:nth-child(5)
+  //   opacity: .9
+  // li:nth-child(6)
+  //   opacity: .8
+  // li:nth-child(7)
+  //   opacity: .7
+  // li:nth-child(8)
+  //   opacity: .6
+  // li:nth-child(9)
+  //   opacity: .5
+  // li:nth-child(10)
+  //   opacity: .4
+  // li:nth-child(11)
+  //   opacity: .3
+  // li:nth-child(12)
+  //   opacity: .2
+  // li:nth-child(13)
+  //   opacity: .1
+  // li:nth-child(n+14)
+  //   opacity: 0
   li:last-child
     border-bottom: 2px currentColor solid
-    margin-bottom: var(--spacing-two)
+    margin-bottom: var(--spacing-three)
     @media screen and ( max-width: $breakpoint-1 )
       border-bottom: 1px currentColor solid
   li:hover
