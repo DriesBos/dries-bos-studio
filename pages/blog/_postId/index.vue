@@ -1,32 +1,50 @@
 <template>
   <div>
-    <TheHeader :headerTitle="title"/>
+    <TheHeader :headerTitle="title" />
     <section class="view-Container">
       <div class="post">
         <div class="post-Content">
-          <MarkdownItem v-if="content" :input="content"/>
+          <MarkdownItem v-if="content" :input="content" />
           <p>
             <span v-if="year">Date: {{ year }}</span>
-            <br>
+            <br />
             <span v-if="category">Role: {{ role }}</span>
-            <br>
+            <br />
             <a v-if="hyperlink" :href="hyperlink" target="_blank">{{ hyperlink }}</a>
           </p>
         </div>
         <div class="post-Images">
-          <img v-if="image_0" :src="image_0">
-          <img v-if="image_1" :src="image_1">
-          <img v-if="image_2" :src="image_2">
-          <img v-if="image_3" :src="image_3">
-          <img v-if="image_4" :src="image_4">
-          <img v-if="image_5" :src="image_5">
+          <video v-if="video_0" autoplay loop playsinline width="100%">
+            <source :src="video_0" type="video/mp4" />
+          </video>
+          <video v-if="video_1" autoplay loop playsinline width="100%">
+            <source :src="video_1" type="video/mp4" />
+          </video>
+          <video v-if="video_2" autoplay loop playsinline width="100%">
+            <source :src="video_2" type="video/mp4" />
+          </video>
+          <img v-if="image_0" :src="image_0" />
+          <img v-if="image_1" :src="image_1" />
+          <img v-if="image_2" :src="image_2" />
+          <img v-if="image_3" :src="image_3" />
+          <img v-if="image_4" :src="image_4" />
+          <img v-if="image_5" :src="image_5" />
+          <video v-if="video_3" autoplay loop playsinline width="100%">
+            <source :src="video_3" type="video/mp4" />
+          </video>
+          <video v-if="video_4" autoplay loop playsinline width="100%">
+            <source :src="video_4" type="video/mp4" />
+          </video>
+          <video v-if="video_5" autoplay loop playsinline width="100%">
+            <source :src="video_5" type="video/mp4" />
+          </video>
         </div>
         <div class="post-Navigation">
           <div class="site-Icon" title="previous project">
-            <img src="~assets/images/arrow-left.png">
+            <img src="~assets/images/arrow-left.png" />
           </div>
           <div class="site-Icon" title="next project">
-            <img src="~assets/images/arrow-right.png">
+            <img src="~assets/images/arrow-right.png" />
           </div>
         </div>
       </div>
