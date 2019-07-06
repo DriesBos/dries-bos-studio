@@ -8,7 +8,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'nuxt-storyblok-boilerplate',
+    title: 'Dries Bos Studio',
     meta: [
       {
         charset: 'utf-8'
@@ -91,7 +91,7 @@ module.exports = {
     routes: function() {
       return axios
         .get(
-          'https://api.storyblok.com/v1/cdn/stories?version=published&token=LQu2PyUnQQnXdQrLxQ460Att&starts_with=blog&cv=' +
+          'https://api.storyblok.com/v1/cdn/stories?version=published&token=QMGXgQtF6vZkJUrEKUBIlQtt&starts_with=blog&cv=' +
             Math.floor(Date.now() / 1e3)
         )
         .then(res => {
@@ -116,7 +116,7 @@ module.exports = {
      */
     extend(config, ctx) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient && 1 === 2) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

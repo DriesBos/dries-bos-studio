@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-storyblok-boilerplate",
+  "name": "dries-bos-studio",
   "version": "1.0.0",
-  "description": "My wicked Nuxt.js project",
+  "description": "MDries Bos Studio",
   "author": "Dries Bos",
   "private": true,
   "scripts": {
