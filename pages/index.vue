@@ -8,11 +8,11 @@
         tag="div"
         title="about page"
       >
-        <img src="~assets/images/profile.png">
+        <img src="~assets/images/profile.png" />
       </nuxt-link>
       <div @click="toggle()" class="header-Link header-Toggle site-Icon">
-        <img key="list" v-if="isList" src="~assets/images/blocks.png">
-        <img key="grid" v-else src="~assets/images/list.png">
+        <img key="list" v-if="isList" src="~assets/images/blocks.png" />
+        <img key="grid" v-else src="~assets/images/list.png" />
       </div>
     </TheHeader>
 
@@ -40,7 +40,7 @@
           tag="li"
         >
           <div class="index-Container">
-            <img :src="post.thumbnail">
+            <img :src="post.thumbnail" />
             <div class="index-Details">
               <p>{{ post.title }}</p>
               <p>{{ post.category }}</p>
