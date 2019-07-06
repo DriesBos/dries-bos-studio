@@ -48,11 +48,11 @@ html, body, #__nuxt
   &-Profile
     img
       transition: transform .3s ease-out
-      @media screen and ( max-width: $breakpoint-mobile) and (orientation: portrait)
+      @media (hover: none)
         transition: none
       &:hover
         transform: rotate(-120deg)
-        @media screen and ( max-width: $breakpoint-mobile) and (orientation: portrait)
+        @media (hover: none)
           transform: none
   &-Link
     cursor: pointer
