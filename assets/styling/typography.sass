@@ -26,5 +26,7 @@ h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span
 a
   color: $font-color
   text-decoration: none
+  @media screen and ( max-width: $breakpoint-mobile)
+    text-decoration: underline
 a:hover, a:active, .nuxt-link-exact-active a
   text-decoration: underline

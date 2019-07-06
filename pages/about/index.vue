@@ -5,11 +5,20 @@
       <div class="about">
         <MarkdownItem v-if="content" :input="content" />
         <div class="about-Contact">
-          <a href="mailto:info@driesbos.com">Email ↗</a>
-          <br>
-          <a href="https://github.com/DriesBos" target="_blank">Github ↗</a>
-          <br>
-          <a href="https://www.instagram.com/driesbosstudio/" target="_blank">Instagram ↗</a>
+          <a href="mailto:info@driesbos.com">
+            Email
+            <span>↗</span>
+          </a>
+          <br />
+          <a href="https://github.com/DriesBos" target="_blank">
+            Github
+            <span>↗</span>
+          </a>
+          <br />
+          <a href="https://www.instagram.com/driesbosstudio/" target="_blank">
+            Instagram
+            <span>↗</span>
+          </a>
         </div>
       </div>
     </section>
