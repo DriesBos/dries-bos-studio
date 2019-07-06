@@ -21,13 +21,22 @@
           <img v-if="image_4" :src="image_4" />
           <img v-if="image_5" :src="image_5" />
         </div>
-        <div class="post-Navigation">
-          <div class="site-Icon" title="previous project">
+        <div
+          class="post-Navigation"
+          v-bind:class="{ 'post-Footer--spaced': previous_url && next_url, 'post-Footer--end': next_url && ! previous_url }"
+        >
+          <nuxt-link
+            v-if="previous_url"
+            class="site-Icon"
+            tag="a"
+            :to="previous_url"
+            title="previous project"
+          >
             <img src="~assets/images/arrow-left.png" />
-          </div>
-          <div class="site-Icon" title="next project">
+          </nuxt-link>
+          <nuxt-link v-if="next_url" class="site-Icon" tag="a" :to="next_url" title="next project">
             <img src="~assets/images/arrow-right.png" />
-          </div>
+          </nuxt-link>
         </div>
       </div>
     </section>
@@ -38,17 +47,30 @@
 import TheHeader from '~/components/TheHeader.vue'
 import MarkdownItem from '~/components/MarkdownItem.vue'
 
+/* eslint-disable */
+function getProjectIndex(projects, id) {
+  let index = projects.findIndex(element => element.id === id)
+  return index === -1 ? 0 : index
+}
 export default {
   components: {
     MarkdownItem,
     TheHeader: TheHeader
   },
-  asyncData(context) {
-    return context.app.$storyapi
-      .get('cdn/stories/blog/' + context.params.postId, {
+  asyncData({ app, store, params }) {
+    return app.$storyapi
+      .get('cdn/stories/blog/' + params.postId, {
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft'
       })
       .then(res => {
+        let previous =
+            store.state.projects.list[
+              getProjectIndex(store.state.projects.list, params.postId) - 1
+            ],
+          next =
+            store.state.projects.list[
+              getProjectIndex(store.state.projects.list, params.postId) + 1
+            ]
         return {
           title: res.data.story.content.title,
           year: res.data.story.content.year,
@@ -62,10 +84,18 @@ export default {
           image_2: res.data.story.content.image_2,
           image_3: res.data.story.content.image_3,
           image_4: res.data.story.content.image_4,
-          image_5: res.data.story.content.image_5
+          image_5: res.data.story.content.image_5,
+          previous_url: previous ? '/blog/' + previous.id : null,
+          next_url: next ? '/blog/' + next.id : null
         }
       })
+  },
+  methods: {
+    navigateToProject(id) {
+      this.$router.push({ path: `/blog/${id}` })
+    }
   }
+  /* eslint-enable */
 }
 </script>
 
