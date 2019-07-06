@@ -32,12 +32,19 @@ html, body, #__nuxt
   wrap: nowrap
   justify-content: space-between
   z-index: $zindex-interface
+  &-Background
+    @media screen and ( max-width: $breakpoint-mobile)
+      background: rgba(229,229,229,0.5)
+      -webkit-backdrop-filter: saturate(180%) blur(2px)
+      backdrop-filter: saturate(180%) blur(2px)
   span
     visibility: hidden
   > div
     margin: var(--spacing-two)
     a, p
       display: inline
+  h1
+    z-index: 999
   &-Profile
     img
       transition: transform .3s ease-out

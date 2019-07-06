@@ -1,14 +1,14 @@
 <template>
   <div>
     <transition name="logoFade">
-      <header class="header">
+      <header class="header header-Background">
         <div class="header-Logo header-Link">
           <h1 v-if="$route.name === 'index' || $route.name === 'blog-postId'">Dries</h1>
         </div>
       </header>
     </transition>
     <transition name="pageFade" mode="out-in">
-      <nuxt/>
+      <nuxt />
     </transition>
   </div>
 </template>
