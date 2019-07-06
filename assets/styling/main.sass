@@ -48,8 +48,12 @@ html, body, #__nuxt
   &-Profile
     img
       transition: transform .3s ease-out
+      @media screen and ( max-width: $breakpoint-mobile) and (orientation: portrait)
+        transition: none
       &:hover
         transform: rotate(-120deg)
+        @media screen and ( max-width: $breakpoint-mobile) and (orientation: portrait)
+          transform: none
   &-Link
     cursor: pointer
   &-Icons
@@ -122,6 +126,9 @@ html, body, #__nuxt
       flex-basis: calc(50% - #{var(--spacing-one)})
     @media screen and ( min-width: $breakpoint-huge ) // Three columns on larger screens
       flex-basis: calc(33.3333% - ((2 * #{var(--spacing-two)}) / 3 ))
+  @media (hover: none)
+    li:hover .index-Details
+      display: none
 
 .list
   display: flex

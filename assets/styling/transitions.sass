@@ -18,6 +18,10 @@
 // Header Logo
 .logoFade-enter-active, .logoFade-leave-active
   transition: opacity .5s ease
+  @media screen and ( max-width: $breakpoint-mobile) and (orientation: portrait) // No fade when mobile
+    transition: none
 
 .logoFade-enter, .logoFade-leave-to
   opacity: 0
+  @media screen and ( max-width: $breakpoint-mobile) and (orientation: portrait)
+    opacity: 1
