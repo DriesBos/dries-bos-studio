@@ -73,6 +73,8 @@ html, body, #__nuxt
   width: 100%
   @media screen and ( max-width: $breakpoint-mobile)
     padding-top: 9em
+    li:last-child
+      margin-bottom: 2em
   &-Container // Aspect ratio container
     position: relative
     width: 100%
@@ -113,7 +115,6 @@ html, body, #__nuxt
       flex-basis: calc(50% - #{var(--spacing-one)})
     @media screen and ( min-width: $breakpoint-huge ) // Three columns on larger screens
       flex-basis: calc(33.3333% - ((2 * #{var(--spacing-two)}) / 3 ))
-      background: red
 
 .list
   display: flex
@@ -191,8 +192,9 @@ html, body, #__nuxt
   img
     width: 100%
     margin-bottom: var(--spacing-one)
-    &:last-child
-      margin-bottom: 0
+    @media screen and ( min-width: $breakpoint-mobile)
+      &:last-child
+        margin-bottom: 0
   .markdown
     margin-bottom: var(--spacing-one)
   &-Content
