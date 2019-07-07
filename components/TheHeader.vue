@@ -6,13 +6,25 @@
     </nuxt-link>
     <div class="header-Icons">
       <nuxt-link
-        v-if="$route.path !== '/'"
-        class="header-Link header-Close"
+        v-if="headerTitle"
+        class="header-Link header-Arrow"
         to="/"
         tag="div"
         title="close page"
       >
+        <img src="~assets/images/arrow-left.png" class="site-Icon" />
+      </nuxt-link>
+      <nuxt-link v-if="$route.path !== '/'" class="header-Link" to="/" tag="div" title="close page">
         <img src="~assets/images/close.png" class="site-Icon" />
+      </nuxt-link>
+      <nuxt-link
+        v-if="headerTitle"
+        class="header-Link header-Arrow"
+        to="/"
+        tag="div"
+        title="close page"
+      >
+        <img src="~assets/images/arrow-right.png" class="site-Icon" />
       </nuxt-link>
       <div v-if="$route.path === '/'" @click="toggle()" class="header-Link header-Toggle">
         <img key="list" v-if="isList" src="~assets/images/blocks.png" class="site-Icon" />
