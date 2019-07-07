@@ -136,6 +136,10 @@ table {
 
 * {
   box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  /* prevent webkit from resizing text to fit */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* prevent webkit from higlighting */
 }
 
 img {
