@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import TheHeader from '~/components/TheHeader.vue'
 import MarkdownItem from '~/components/MarkdownItem.vue'
+import TheHeader from '~/components/TheHeader.vue'
 
 /* eslint-disable */
 function getProjectIndex(projects, id) {

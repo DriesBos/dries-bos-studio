@@ -1,21 +1,6 @@
 <template>
   <div>
-    <TheHeader>
-      <nuxt-link
-        v-if="$route.path === '/'"
-        class="header-Link header-Profile site-Icon"
-        to="/about"
-        tag="div"
-        title="about page"
-      >
-        <img src="~assets/images/profile.png" />
-      </nuxt-link>
-      <div @click="toggle()" class="header-Link header-Toggle site-Icon">
-        <img key="list" v-if="isList" src="~assets/images/blocks.png" />
-        <img key="grid" v-else src="~assets/images/list.png" />
-      </div>
-    </TheHeader>
-
+    <TheHeader />
     <transition-group tag="section" name="indexView" class="view-Container">
       <ul v-show="isList" class="list" key="list">
         <nuxt-link
@@ -30,7 +15,6 @@
           <p>{{ post.category }}</p>
         </nuxt-link>
       </ul>
-
       <ul v-show="!isList" class="index" key="grid">
         <nuxt-link
           v-for="post in posts"
