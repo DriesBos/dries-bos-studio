@@ -21,23 +21,6 @@
           <img v-if="image_4" :src="image_4" />
           <img v-if="image_5" :src="image_5" />
         </div>
-        <div
-          class="post-Navigation"
-          v-bind:class="{ 'post-Footer--spaced': previous_url && next_url, 'post-Footer--end': next_url && ! previous_url }"
-        >
-          <nuxt-link
-            v-if="previous_url"
-            class="site-Icon"
-            tag="a"
-            :to="previous_url"
-            title="previous project"
-          >
-            <img src="~assets/images/arrow-left.png" />
-          </nuxt-link>
-          <nuxt-link v-if="next_url" class="site-Icon" tag="a" :to="next_url" title="next project">
-            <img src="~assets/images/arrow-right.png" />
-          </nuxt-link>
-        </div>
       </div>
     </section>
   </div>

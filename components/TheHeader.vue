@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <nuxt-link class="header-Link" to="/" tag="div">
+    <nuxt-link class="header-Logo header-Link" to="/" tag="div">
       <h1 v-if="$route.name === 'index'">Dries Bos Studio</h1>
       <h1 v-if="headerTitle">Dries and {{ headerTitle }}</h1>
     </nuxt-link>

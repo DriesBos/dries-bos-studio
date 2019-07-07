@@ -37,6 +37,12 @@ html, body, #__nuxt
   backdrop-filter: saturate(180%) blur(2px)
   a, p
     display: inline
+  &-Logo
+    min-width: 0 // Hack provides width data to ellipsis content in flexbox item
+    h1
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
   &-Profile
     img
       transition: transform .3s ease-out
@@ -52,9 +58,6 @@ html, body, #__nuxt
     display: flex
     align-items: center
     margin-right: var(--spacing-one)
-  &-Arrow
-    @media screen and ( min-width: $breakpoint-mobile)
-      display: none
 
 .view
   &-Container
