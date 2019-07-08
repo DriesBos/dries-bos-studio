@@ -24,8 +24,8 @@
 	          :to="'/blog/' + post.id"
 	          tag="a"
 	        >
-	          <div class="index-Container">
-	            <img :src="post.thumbnail" />
+	          <div class="index-Container" v-lazy-container="{ selector: 'img' }">
+	            <img :data-src="post.thumbnail" />
 	            <div class="index-Details">
 	              <p>{{ post.title }}</p>
 	              <p>{{ post.category }}</p>
