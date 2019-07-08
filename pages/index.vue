@@ -3,75 +3,63 @@
     <TheHeader />
     <transition-group tag="section" name="indexView" class="view-Container">
       <ul v-show="isList" class="list" key="list">
-        <nuxt-link
-          v-for="post in posts"
-          :id="post.id"
-          :key="post.id"
-          :to="'/blog/' + post.id"
-          tag="li"
-        >
-          <p>{{ post.year }}</p>
-          <p>{{ post.title }}</p>
-          <p>{{ post.category }}</p>
-        </nuxt-link>
+      	<li v-for="post in posts">
+	        <nuxt-link
+	          :id="post.id"
+	          :key="post.id"
+	          :to="'/blog/' + post.id"
+	          tag="a"
+	        >
+	          <p>{{ post.year }}</p>
+	          <p>{{ post.title }}</p>
+	          <p>{{ post.category }}</p>
+	        </nuxt-link>
+	    </li>
       </ul>
       <ul v-show="!isList" class="index" key="grid">
-        <nuxt-link
-          v-for="post in posts"
-          :id="post.id"
-          :key="post.id"
-          :to="'/blog/' + post.id"
-          tag="li"
-        >
-          <div class="index-Container">
-            <img :src="post.thumbnail" />
-            <div class="index-Details">
-              <p>{{ post.title }}</p>
-              <p>{{ post.category }}</p>
-            </div>
-          </div>
-        </nuxt-link>
+        <li v-for="post in posts">
+	        <nuxt-link
+	          :id="post.id"
+	          :key="post.id"
+	          :to="'/blog/' + post.id"
+	          tag="a"
+	        >
+	          <div class="index-Container">
+	            <img :src="post.thumbnail" />
+	            <div class="index-Details">
+	              <p>{{ post.title }}</p>
+	              <p>{{ post.category }}</p>
+	            </div>
+	          </div>
+	        </nuxt-link>
+	    </li>
       </ul>
     </transition-group>
   </div>
 </template>
 
+
+<script>
+import { mapState } from 'vuex'
+export default {
+	computed: mapState({
+		posts: state => state.posts.list,
+		isList: state => state.posts.isList
+	})
+}
+</script>
+
 <script>
 import TheHeader from '~/components/TheHeader.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     TheHeader: TheHeader
   },
-  data: function() {
-    return {
-      isList: false
-    }
-  },
-  methods: {
-    toggle: function() {
-      this.isList = !this.isList
-    }
-  },
-  asyncData(context) {
-    return context.app.$storyapi
-      .get('cdn/stories', {
-        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
-        starts_with: 'blog/'
-      })
-      .then(res => {
-        return {
-          posts: res.data.stories.map(bp => {
-            return {
-              id: bp.slug,
-              thumbnail: bp.content.thumbnail,
-              title: bp.content.title,
-              year: bp.content.year,
-              category: bp.content.category
-            }
-          })
-        }
-      })
-  }
+  computed: mapState({
+	posts: state => state.posts.list,
+	isList: state => state.posts.isList
+  })
 }
 </script>
