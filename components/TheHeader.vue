@@ -1,32 +1,32 @@
 <template>
   <header class="header">
-    <nuxt-link class="header-Logo header-Link" to="/" tag="div">
+    <nuxt-link class="header-Logo header-Link" to="/" tag="a">
       <h1 v-if="$route.name === 'index'">Dries Bos Studio</h1>
       <h1 v-if="headerTitle">Dries and {{ headerTitle }}</h1>
     </nuxt-link>
     <div class="header-Icons">
       <nuxt-link
-        v-if="headerTitle"
+        v-if="previousUrl"
         class="header-Link header-Arrow"
-        to="/"
-        tag="div"
+        :to="previousUrl"
+        tag="a"
         title="close page"
       >
         <img src="~assets/images/arrow-left.png" class="site-Icon" />
       </nuxt-link>
-      <nuxt-link v-if="$route.path !== '/'" class="header-Link" to="/" tag="div" title="close page">
+      <nuxt-link v-if="$route.path !== '/'" class="header-Link" to="/" tag="a" title="close page">
         <img src="~assets/images/close.png" class="site-Icon" />
       </nuxt-link>
       <nuxt-link
-        v-if="headerTitle"
+        v-if="nextUrl"
         class="header-Link header-Arrow"
-        to="/"
-        tag="div"
+        :to="nextUrl"
+        tag="a"
         title="close page"
       >
         <img src="~assets/images/arrow-right.png" class="site-Icon" />
       </nuxt-link>
-      <div v-if="$route.path === '/'" @click="toggle()" class="header-Link header-Toggle">
+      <div v-if="$route.path === '/'" @click="$store.commit('posts/toggleList', !isList)" class="header-Link header-Toggle">
         <img key="list" v-if="isList" src="~assets/images/blocks.png" class="site-Icon" />
         <img key="grid" v-else src="~assets/images/list.png" class="site-Icon" />
       </div>
@@ -44,23 +44,24 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: {
     headerTitle: {
       type: String,
       required: false
+    },
+    previousUrl: {
+	  type: String,
+      required: false  
+    },
+    nextUrl: {
+	   type: String,
+      required: false 
     }
   },
-  data: function() {
-    return {
-      isList: false
-    }
-  },
-  methods: {
-    toggle: function() {
-      this.isList = !this.isList
-      console.log(isList)
-    }
-  }
+  computed: mapState({
+	isList: state => state.posts.isList
+  })
 }
 </script>

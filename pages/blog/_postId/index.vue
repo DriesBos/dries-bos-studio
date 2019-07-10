@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader :headerTitle="title" />
+    <TheHeader :headerTitle="title" :previousUrl="previous_url" :nextUrl="next_url" />
     <section class="view-Container">
       <div class="post">
         <div class="post-Content">
@@ -13,13 +13,13 @@
             <a v-if="hyperlink" :href="hyperlink" target="_blank">{{ hyperlink }}</a>
           </p>
         </div>
-        <div class="post-Images">
-          <img v-if="image_0" :src="image_0" />
-          <img v-if="image_1" :src="image_1" />
-          <img v-if="image_2" :src="image_2" />
-          <img v-if="image_3" :src="image_3" />
-          <img v-if="image_4" :src="image_4" />
-          <img v-if="image_5" :src="image_5" />
+        <div class="post-Images" v-lazy-container="{ selector: 'img' }">
+          <img v-if="image_0" :data-src="image_0" />
+          <img v-if="image_1" :data-src="image_1" />
+          <img v-if="image_2" :data-src="image_2" />
+          <img v-if="image_3" :data-src="image_3" />
+          <img v-if="image_4" :data-src="image_4" />
+          <img v-if="image_5" :data-src="image_5" />
         </div>
       </div>
     </section>
@@ -47,12 +47,12 @@ export default {
       })
       .then(res => {
         let previous =
-            store.state.projects.list[
-              getProjectIndex(store.state.projects.list, params.postId) - 1
+            store.state.posts.list[
+              getProjectIndex(store.state.posts.list, params.postId) - 1
             ],
           next =
-            store.state.projects.list[
-              getProjectIndex(store.state.projects.list, params.postId) + 1
+            store.state.posts.list[
+              getProjectIndex(store.state.posts.list, params.postId) + 1
             ]
         return {
           title: res.data.story.content.title,
