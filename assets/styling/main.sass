@@ -37,12 +37,6 @@ html, body, #__nuxt
   backdrop-filter: saturate(180%) blur(2px)
   a, p
     display: inline
-  &-Logo
-    min-width: 0 // Hack provides width data to ellipsis content in flexbox item
-    h1
-      white-space: nowrap
-      overflow: hidden
-      text-overflow: ellipsis
   &-Profile
     img
       transition: transform .3s ease-out
@@ -54,6 +48,13 @@ html, body, #__nuxt
   &-Link
     cursor: pointer
     padding: var(--spacing-two) var(--spacing-one) var(--spacing-two) var(--spacing-one)
+  &-Logo
+    min-width: 0 // Hack provides width data to ellipsis content in flexbox item
+    padding: var(--spacing-two)
+    h1
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
   &-Icons
     display: flex
     align-items: center
