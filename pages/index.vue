@@ -3,36 +3,26 @@
     <TheHeader />
     <transition-group tag="section" name="indexView" class="view-Container">
       <ul v-show="isList" class="list" key="list">
-      	<li v-for="post in posts">
-	        <nuxt-link
-	          :id="post.id"
-	          :key="post.id"
-	          :to="'/blog/' + post.id"
-	          tag="a"
-	        >
-	          <p>{{ post.year }}</p>
-	          <p>{{ post.title }}</p>
-	          <p>{{ post.category }}</p>
-	        </nuxt-link>
-	    </li>
+        <li v-for="post in posts" :key="post.id">
+          <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a">
+            <p>{{ post.year }}</p>
+            <p>{{ post.title }}</p>
+            <p>{{ post.category }}</p>
+          </nuxt-link>
+        </li>
       </ul>
       <ul v-show="!isList" class="index" key="grid">
-        <li v-for="post in posts">
-	        <nuxt-link
-	          :id="post.id"
-	          :key="post.id"
-	          :to="'/blog/' + post.id"
-	          tag="a"
-	        >
-	          <div class="index-Container" v-lazy-container="{ selector: 'img' }">
-	            <img :data-src="post.thumbnail" />
-	            <div class="index-Details">
-	              <p>{{ post.title }}</p>
-	              <p>{{ post.category }}</p>
-	            </div>
-	          </div>
-	        </nuxt-link>
-	    </li>
+        <li v-for="post in posts" :key="post.id">
+          <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a">
+            <div class="index-Container" v-lazy-container="{ selector: 'img' }">
+              <img :data-src="post.thumbnail" />
+              <div class="index-Details">
+                <p>{{ post.title }}</p>
+                <p>{{ post.category }}</p>
+              </div>
+            </div>
+          </nuxt-link>
+        </li>
       </ul>
     </transition-group>
   </div>
@@ -42,10 +32,10 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-	computed: mapState({
-		posts: state => state.posts.list,
-		isList: state => state.posts.isList
-	})
+  computed: mapState({
+    posts: state => state.posts.list,
+    isList: state => state.posts.isList
+  })
 }
 </script>
 
@@ -58,8 +48,8 @@ export default {
     TheHeader: TheHeader
   },
   computed: mapState({
-	posts: state => state.posts.list,
-	isList: state => state.posts.isList
+    posts: state => state.posts.list,
+    isList: state => state.posts.isList
   })
 }
 </script>
