@@ -5,7 +5,7 @@
       <div class="post">
         <div class="post-Content">
           <MarkdownItem v-if="content" :input="content" />
-          <p>
+          <p class="ellipsis">
             <span v-if="year">Date: {{ year }}</span>
             <br />
             <span v-if="category">Role: {{ role }}</span>

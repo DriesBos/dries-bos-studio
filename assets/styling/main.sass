@@ -148,6 +148,11 @@ img[lazy="loaded"]
   padding-top: 300px
   @media screen and ( max-width: $breakpoint-mobile)
     padding-top: 9em
+  &-Category, &-Year
+    flex-shrink: 0
+  &-Title
+    @media screen and ( max-width: $breakpoint-mobile)
+      padding-right: var(--spacing-one)
   a
     width: 100%
     padding: var(--spacing-one)

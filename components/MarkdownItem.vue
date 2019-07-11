@@ -30,6 +30,7 @@ export default {
 @import '~/assets/styling/variables.sass'
 
 .markdown
+  min-width: 0 // Ellipsis hack
   p
     margin-bottom: $lineheight-base
     display: block

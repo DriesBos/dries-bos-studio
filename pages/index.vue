@@ -4,10 +4,10 @@
     <transition-group tag="section" name="indexView" class="view-Container">
       <ul v-show="isList" class="list" key="list">
         <li v-for="post in posts" :key="post.id">
-          <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a">
-            <p>{{ post.year }}</p>
-            <p>{{ post.title }}</p>
-            <p>{{ post.category }}</p>
+          <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a" class="ellipsis">
+            <p class="list-Year">{{ post.year }}</p>
+            <p class="list-Title">{{ post.title }}</p>
+            <p class="list-Category">{{ post.category }}</p>
           </nuxt-link>
         </li>
       </ul>
@@ -16,7 +16,7 @@
           <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a">
             <div class="index-Container" v-lazy-container="{ selector: 'img' }">
               <img :data-src="post.thumbnail" />
-              <div class="index-Details">
+              <div class="index-Details ellipsis">
                 <p>{{ post.title }}</p>
                 <p>{{ post.category }}</p>
               </div>
