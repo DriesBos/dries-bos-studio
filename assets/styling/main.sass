@@ -21,6 +21,8 @@ img[lazy="loaded"]
     width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
     height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
     opacity: 1
+    display: table-cell
+    vertical-align: middle
     svg, img
       position: absolute
       left: 0
@@ -59,13 +61,11 @@ img[lazy="loaded"]
   &-Logo
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
     padding: var(--spacing-two)
-    h1
-      white-space: nowrap
-      overflow: hidden
-      text-overflow: ellipsis
+    padding-right: 0
   &-Icons
     display: flex
     align-items: center
+    justify-content: center
     margin-right: var(--spacing-one)
     @media screen and ( max-width: $breakpoint-mobile)
       margin-right: 0
@@ -224,11 +224,14 @@ img[lazy="loaded"]
   .markdown
     margin-bottom: var(--spacing-one)
   &-Content
+    min-width: 0
     a
       text-decoration: underline
 
 .about
   text-align: center
+  margin-top: var(--spacing-one)
+  margin-bottom: var(--spacing-one)
   &-Contact
     margin-top: 100px
     @media screen and ( max-width: $breakpoint-mobile )
