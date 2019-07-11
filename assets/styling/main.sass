@@ -8,11 +8,19 @@ html, body, #__nuxt
   background: #ededed
   background: #e5e5e5
 
+img
+  transition: opacity .2s ease
+  opacity: 0
+
+img[lazy="loaded"]
+  opacity: 1
+
 .site
   &-Icon
     position: relative
     width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
     height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+    opacity: 1
     svg, img
       position: absolute
       left: 0
@@ -72,6 +80,11 @@ html, body, #__nuxt
     align-items: center
     min-height: 100vh
   &-Profile
+    position: fixed
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
     justify-content: center
 
 .index
