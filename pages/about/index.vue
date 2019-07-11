@@ -15,6 +15,11 @@
             <span>↗</span>
           </a>
           <br />
+          <a href="https://www.linkedin.com/in/driesbosstudio" target="_blank">
+            LinkedIn
+            <span>↗</span>
+          </a>
+          <br />
           <a href="https://www.instagram.com/driesbosstudio/" target="_blank">
             Instagram
             <span>↗</span>
