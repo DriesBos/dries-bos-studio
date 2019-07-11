@@ -9,8 +9,7 @@ module.exports = {
    */
   head: {
     title: 'Dries Bos Studio',
-    meta: [
-      {
+    meta: [{
         charset: 'utf-8'
       },
       {
@@ -23,13 +22,23 @@ module.exports = {
         content: 'Meta description'
       }
     ],
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico'
-      }
-    ]
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      sizes = "16x16",
+      href: '/favicon-16x16.png'
+    }],
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      sizes = "32x32",
+      href: '/favicon-32x32.png'
+    }],
+    link: [{
+      rel: 'apple-touch-icon',
+      sizes = "180x180",
+      href = "/apple-touch-icon.png"
+    }]
   },
 
   /*
@@ -45,7 +54,7 @@ module.exports = {
    ** Router behaviour
    */
   router: {
-    scrollBehavior: function(to, from, savedPosition) {
+    scrollBehavior: function (to, from, savedPosition) {
       return {
         x: 0,
         y: 0
@@ -76,10 +85,11 @@ module.exports = {
     [
       'storyblok-nuxt',
       {
-        accessToken:
-          process.env.NODE_ENV === 'production' // Generate new token
-            ? 'jqAz0BlSNQQGVE8GhfrrFwtt' // Public
-            : 'QMGXgQtF6vZkJUrEKUBIlQtt', // Preview
+        accessToken: process.env.NODE_ENV === 'production' // Generate new token
+          ?
+          'jqAz0BlSNQQGVE8GhfrrFwtt' // Public
+          :
+          'QMGXgQtF6vZkJUrEKUBIlQtt', // Preview
         cacheProvider: 'memory'
       }
     ]
@@ -88,11 +98,11 @@ module.exports = {
    ** Generating routes
    */
   generate: {
-    routes: function() {
+    routes: function () {
       return axios
         .get(
           'https://api.storyblok.com/v1/cdn/stories?version=published&token=QMGXgQtF6vZkJUrEKUBIlQtt&starts_with=blog&cv=' +
-            Math.floor(Date.now() / 1e3)
+          Math.floor(Date.now() / 1e3)
         )
         .then(res => {
           const blogPosts = res.data.stories.map(bp => bp.full_slug)
