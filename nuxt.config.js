@@ -20,7 +20,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Meta description'
+        content: 'web design + development'
       },
       {
         name: 'msapplication-TileColor',
@@ -29,6 +29,19 @@ module.exports = {
       {
         name: 'theme-color',
         content: '#ffffff'
+      },
+      {
+        property: 'og:image',
+        content:
+          'http://a.storyblok.com/f/54243/2160x2160/eb2e6a8c33/og-image.png'
+      },
+      {
+        property: 'og:title',
+        content: 'Dries Bos Studio'
+      },
+      {
+        property: 'og:description',
+        content: 'web design + development'
       }
     ],
     link: [
