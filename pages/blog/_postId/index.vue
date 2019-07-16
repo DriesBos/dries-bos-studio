@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader :headerTitle="title" :previousUrl="previous_url" :nextUrl="next_url" />
-    <section class="view-Container">
+    <section class="view-Container view-Post">
       <div class="post">
         <div class="post-Content">
           <MarkdownItem v-if="content" :input="content" />

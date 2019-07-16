@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader />
-    <transition-group tag="section" name="indexView" class="view-Container">
+    <transition-group tag="section" name="indexView" class="view-Container view-Index">
       <ul v-show="isList" class="list" key="list">
         <li v-for="post in posts" :key="post.id">
           <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a" class="ellipsis">
