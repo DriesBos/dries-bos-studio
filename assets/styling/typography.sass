@@ -14,6 +14,14 @@ html
 
 h1, h2, h3, p
   max-width: $font-maxwidth
+  overflow-wrap: break-word
+  word-wrap: break-word
+  word-break: break-word
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto
+  -moz-hyphens: auto
+  -webkit-hyphens: auto
+  hyphens: auto
 
 h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span
   font-family: "Moderat", Helvetica, Arial, sans-serif
@@ -37,3 +45,5 @@ a
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
+
+
