@@ -6,11 +6,22 @@
         <div class="post-Content">
           <MarkdownItem v-if="content" :input="content" />
           <p class="ellipsis">
-            <span v-if="year">Date: {{ year }}</span>
-            <br />
-            <span v-if="category">Role: {{ role }}</span>
-            <br />
-            <a v-if="hyperlink" :href="hyperlink" target="_blank">{{ hyperlink }}</a>
+            <span v-if="year">
+              Date: {{ year }}
+              <br />
+            </span>
+            <span v-if="category">
+              Role: {{ role }}
+              <br />
+            </span>
+            <span v-if="stack">
+              Tech: {{ stack }}
+              <br />
+            </span>
+            <a v-if="hyperlink" :href="hyperlink" target="_blank">
+              {{ hyperlink }}
+              <br />
+            </a>
           </p>
         </div>
         <div class="post-Images" v-lazy-container="{ selector: 'img' }">
@@ -67,6 +78,7 @@ export default {
           thumbnail: res.data.story.content.thumbnail,
           role: res.data.story.content.role,
           category: res.data.story.content.category,
+          stack: res.data.story.content.stack,
           hyperlink: res.data.story.content.hyperlink,
           image_0: res.data.story.content.image_0,
           image_1: res.data.story.content.image_1,

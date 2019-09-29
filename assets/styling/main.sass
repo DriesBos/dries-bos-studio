@@ -169,6 +169,7 @@ img[lazy="error"]
       padding-right: 0
     p
       transition: color .30s ease-in-out
+      text-transform: capitalize
     @media screen and ( max-width: $breakpoint-mobile )
       border-top: 1px currentColor solid
       p:nth-child(1)
@@ -226,6 +227,8 @@ img[lazy="error"]
     margin-top: 100px
     a
       text-decoration: none
+    a:hover
+      text-decoration: underline
     @media screen and ( max-width: $breakpoint-mobile )
       margin-top: var(--spacing-one)
       a
