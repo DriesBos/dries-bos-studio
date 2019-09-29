@@ -15,11 +15,17 @@
         </div>
         <div class="post-Images" v-lazy-container="{ selector: 'img' }">
           <img v-if="image_0" :data-src="image_0" />
+          <video autoplay loop muted preload="metadata" v-if="video_0" :src="video_0"></video>
           <img v-if="image_1" :data-src="image_1" />
+          <video loop muted preload="metadata" v-if="video_1" :src="video_1"></video>
           <img v-if="image_2" :data-src="image_2" />
+          <video loop muted preload="metadata" v-if="video_2" :src="video_2"></video>
           <img v-if="image_3" :data-src="image_3" />
+          <video loop muted preload="metadata" v-if="video_3" :src="video_3"></video>
           <img v-if="image_4" :data-src="image_4" />
+          <video loop muted preload="metadata" v-if="video_4" :src="video_4"></video>
           <img v-if="image_5" :data-src="image_5" />
+          <video loop muted preload="metadata" v-if="video_5" :src="video_5"></video>
         </div>
       </div>
     </section>
@@ -68,6 +74,12 @@ export default {
           image_3: res.data.story.content.image_3,
           image_4: res.data.story.content.image_4,
           image_5: res.data.story.content.image_5,
+          video_0: res.data.story.content.video_0,
+          video_1: res.data.story.content.video_1,
+          video_2: res.data.story.content.video_2,
+          video_3: res.data.story.content.video_3,
+          video_4: res.data.story.content.video_4,
+          video_5: res.data.story.content.video_5,
           previous_url: previous ? '/blog/' + previous.id : null,
           next_url: next ? '/blog/' + next.id : null
         }
