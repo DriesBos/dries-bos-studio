@@ -1,5 +1,5 @@
 const axios = require('axios')
-const pkg = require('./package')
+// const pkg = require('./package')
 const publicKey = process.env.PUBLICKEY
 const previewKey = process.env.PREVIEWKEY
 const apiToken = process.env.APITOKEN
@@ -17,7 +17,8 @@ module.exports = {
    */
   head: {
     title: 'Dries Bos Studio',
-    meta: [{
+    meta: [
+      {
         charset: 'utf-8'
       },
       {
@@ -39,7 +40,8 @@ module.exports = {
       },
       {
         property: 'og:image',
-        content: 'http://a.storyblok.com/f/54243/2160x2160/eb2e6a8c33/og-image.png'
+        content:
+          'http://a.storyblok.com/f/54243/2160x2160/eb2e6a8c33/og-image.png'
       },
       {
         property: 'og:title',
@@ -50,7 +52,8 @@ module.exports = {
         content: 'web design + development'
       }
     ],
-    link: [{
+    link: [
+      {
         rel: 'icon',
         type: 'image/image/png',
         sizes: '16x16',
@@ -91,7 +94,7 @@ module.exports = {
    ** Router behaviour
    */
   router: {
-    scrollBehavior: function (to, from, savedPosition) {
+    scrollBehavior: function(to, from, savedPosition) {
       return {
         x: 0,
         y: 0
@@ -122,9 +125,10 @@ module.exports = {
     [
       'storyblok-nuxt',
       {
-        accessToken: process.env.NODE_ENV === 'production' // Generate new token
-          ?
-          `${publicKey}` : `${previewKey}`,
+        accessToken:
+          process.env.NODE_ENV === 'production' // Generate new token
+            ? `${publicKey}`
+            : `${previewKey}`,
         cacheProvider: 'memory'
       }
     ]
@@ -133,11 +137,11 @@ module.exports = {
    ** Generating routes
    */
   generate: {
-    routes: function () {
+    routes: function() {
       return axios
         .get(
           `https://api.storyblok.com/v1/cdn/stories?version=published&token=${apiToken}&starts_with=blog&cv=` +
-          Math.floor(Date.now() / 1e3)
+            Math.floor(Date.now() / 1e3)
         )
         .then(res => {
           const blogPosts = res.data.stories.map(bp => bp.full_slug)
