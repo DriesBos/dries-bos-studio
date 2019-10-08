@@ -18,10 +18,7 @@
               Tech: {{ stack }}
               <br />
             </span>
-            <a v-if="hyperlink" :href="hyperlink" target="_blank">
-              {{ hyperlink }}
-              <br />
-            </a>
+            <MarkdownItem v-if="hyperlink" :input="hyperlink" />
           </p>
         </div>
         <div class="post-Images" v-lazy-container="{ selector: 'img' }">
