@@ -113,17 +113,17 @@ img[lazy="error"]
       height: 100%
       object-fit: cover
   &-Details // Hover for details
-      position: absolute
-      background: rgba(0, 0, 0, .75)
-      transition: opacity $transition-hover
-      opacity: 0
-      left: 0
-      top: 0
-      width: 100%
-      height: 100%
-      p
-        color: white
-        margin: var(--spacing-one)
+    position: absolute
+    background: rgba(0, 0, 0, .75)
+    transition: opacity $transition-hover
+    opacity: 0
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    p
+      color: white
+      margin: var(--spacing-one)
       p:nth-child(2)
         position: absolute
         right: 0
@@ -196,8 +196,6 @@ img[lazy="error"]
       margin-right: 0
     &:last-child
       margin-right: 0
-
-  +opacity(0.069) // See variables mixin
 
 .post
   margin-top: 300px
