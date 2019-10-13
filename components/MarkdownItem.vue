@@ -15,6 +15,7 @@ marked.setOptions({
 })
 
 export default {
+  name: 'MarkdownItem',
   props: {
     input: {
       type: String,

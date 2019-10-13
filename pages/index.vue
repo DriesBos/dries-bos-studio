@@ -1,55 +1,51 @@
 <template>
   <div>
-    <TheHeader />
-    <transition-group tag="section" name="indexView" class="view-Container view-Index">
-      <ul class="list" key="list">
-        <li v-for="post in posts" :key="post.id">
-          <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a" class="ellipsis">
-            <p class="list-Year">{{ post.year }}</p>
-            <p class="list-Title">{{ post.title }}</p>
-            <p class="list-Category">{{ post.category }}</p>
-          </nuxt-link>
-        </li>
+    <TheHeader :data-header="toggleHeader" />
+    <div class="view-Container view-Index">
+      <ul class="list">
+        <li is="IndexListItem" v-for="post in posts" :key="post.id" :post="post"></li>
       </ul>
-      <!-- <ul v-show="!isList" class="index" key="grid">
-        <li v-for="post in posts" :key="post.id">
-          <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a">
-            <div class="index-Container" v-lazy-container="{ selector: 'img' }">
-              <img :data-src="post.thumbnail" />
-              <div class="index-Details ellipsis">
-                <p>{{ post.title }}</p>
-                <p>{{ post.category }}</p>
-              </div>
-            </div>
-          </nuxt-link>
-        </li>
-      </ul>-->
-    </transition-group>
+    </div>
   </div>
 </template>
 
-
-<script>
-import { mapState } from 'vuex'
-export default {
-  computed: mapState({
-    posts: state => state.posts.list,
-    isList: state => state.posts.isList
-  })
-}
-</script>
-
 <script>
 import TheHeader from '~/components/TheHeader.vue'
+import IndexListItem from '~/components/IndexListItem.vue'
+
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    TheHeader: TheHeader
+    TheHeader: TheHeader,
+    IndexListItem: IndexListItem
+  },
+  data: function() {
+    return {
+      toggleHeader: false,
+      lastScrollPosition: 0
+    }
   },
   computed: mapState({
-    posts: state => state.posts.list,
-    isList: state => state.posts.isList
-  })
+    posts: state => state.posts.list
+  }),
+  methods: {
+    onScroll() {
+      // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+        return
+      }
+      this.toggleHeader = currentScrollPosition > this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
+  }
 }
 </script>

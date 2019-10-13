@@ -127,7 +127,8 @@ module.exports = {
             : `${previewKey}`,
         cacheProvider: 'memory'
       }
-    ]
+    ],
+    ['vue-scrollto/nuxt', { duration: 300 }]
   ],
   /*
    ** Generating routes

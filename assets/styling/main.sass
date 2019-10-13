@@ -5,12 +5,12 @@
 html, body, #__nuxt
   position: relative
   min-height: 100%
-  background: #ededed
-  background: #e5e5e5
+  background: white
 
 img
   transition: opacity .2s ease
   opacity: 0
+  width: 100%
 
 img[lazy="loaded"]
   opacity: 1
@@ -18,20 +18,29 @@ img[lazy="loaded"]
 img[lazy="error"]
   display: none
 
-.site
-  &-Icon
-    position: relative
-    width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-    height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-    opacity: 1
-    display: table-cell
-    vertical-align: middle
-    svg, img
-      position: absolute
-      left: 0
-      top: 0
-      width: 100%
-      height: 100%
+.icons-Row
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-right: var(--spacing-one)
+  @media screen and ( max-width: $breakpoint-mobile)
+    margin-right: 0
+.icon-Container
+  cursor: pointer
+  padding: var(--spacing-two) var(--spacing-one) var(--spacing-two) var(--spacing-one)
+.icon
+  position: relative
+  width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+  height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+  opacity: 1
+  display: table-cell
+  vertical-align: middle
+  svg, img
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
 
 .capitalize
   text-transform: capitalize
@@ -45,9 +54,11 @@ img[lazy="error"]
   wrap: nowrap
   justify-content: space-between
   z-index: $zindex-interface
-  background: rgba(229,229,229,0.5)
+  background: rgba(255,255,255,.5)
   -webkit-backdrop-filter: saturate(180%) blur(2px)
   backdrop-filter: saturate(180%) blur(2px)
+  transform: translate3d(0, 0, 0)
+  transition: transform .3s ease
   a, p
     display: inline
   &-Profile
@@ -58,30 +69,87 @@ img[lazy="error"]
         transform: rotate(-120deg)
         @media (hover: none)
           transform: none
-  &-Link
-    cursor: pointer
-    padding: var(--spacing-two) var(--spacing-one) var(--spacing-two) var(--spacing-one)
   &-Logo
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
     padding: var(--spacing-two)
     padding-right: 0
-  &-Icons
-    display: flex
-    align-items: center
-    justify-content: center
-    margin-right: var(--spacing-one)
-    @media screen and ( max-width: $breakpoint-mobile)
-      margin-right: 0
+  &[data-header="true"]
+    transform: translate3d(0, -100%, 0)
 
 .view
   &-Container
     display: flex
-    margin-left: var(--spacing-two)
-    margin-right: var(--spacing-two)
     flex-direction: column
     justify-content: flex-start
     align-items: center
     min-height: 100vh
+
+  &-Index
+    ul
+      display: flex
+      flex-direction: column
+      width: 100%
+      padding-top: 300px
+      @media screen and ( max-width: $breakpoint-mobile)
+        padding-top: 9em
+      li
+        position: relative
+        display: flex
+        flex-direction: column
+        width: 100%
+        border-top: 2px currentColor solid
+        .icons-Row
+          position: absolute
+          top: 0
+          right: 0
+          opacity: 0
+          transition: opacity $transition-hover
+          .icon-Container
+            padding: var(--spacing-one)
+        @media screen and ( max-width: $breakpoint-mobile )
+          border-top: 1px currentColor solid
+        .list-Outer
+          display: flex
+          padding-top: var(--spacing-one)
+          padding-bottom: var(--spacing-one)
+          cursor: pointer
+          &:hover
+            .icons-Row
+              opacity: 1
+          p
+            text-transform: capitalize
+            @media screen and ( min-width: $breakpoint-mobile )
+              width: 33.3333%
+          .list-Title
+            padding-left: var(--spacing-two)
+          @media screen and ( max-width: $breakpoint-mobile )
+            justify-content: space-between
+            .list-Category
+              display: none
+            .list-Year
+              padding-right: var(--spacing-two)
+        .list-Inner
+          &_Content
+            margin-top: var(--spacing-one)
+            margin-bottom: var(--spacing-two)
+            padding-right: var(--spacing-one)
+            @media screen and ( min-width: $breakpoint-mobile )
+              width: 66.666%
+              margin-left: auto
+            p
+              max-width: 100%
+              @media screen and ( max-width: $breakpoint-mobile )
+                padding-left: var(--spacing-two)
+        &:last-child
+          border-bottom: 2px currentColor solid
+          margin-bottom: var(--spacing-three)
+          @media screen and ( max-width: $breakpoint-mobile )
+            border-bottom: 1px currentColor solid
+            margin-bottom: 4.5em
+        &[data-active="false"]
+          .icons-Row
+            height: 100%
+
   &-Profile
     position: fixed
     left: 0
@@ -89,147 +157,93 @@ img[lazy="error"]
     right: 0
     bottom: 0
     justify-content: center
-
-.index
-  display: flex
-  justify-content: space-between
-  flex-wrap: wrap
-  padding-top: 300px
-  width: 100%
-  @media screen and ( max-width: $breakpoint-mobile)
-    padding-top: 9em
-    li:last-child
-      margin-bottom: 2em
-  &-Container // Aspect ratio container
-    position: relative
-    width: 100%
-    height: 0
-    padding-top: 62.5%
-    img
-      position: absolute
-      left: 0
-      top: 0
-      width: 100%
-      height: 100%
-      object-fit: cover
-  &-Details // Hover for details
-    position: absolute
-    background: rgba(0, 0, 0, .75)
-    transition: opacity $transition-hover
-    opacity: 0
-    left: 0
-    top: 0
-    width: 100%
-    height: 100%
-    p
-      color: white
-      margin: var(--spacing-one)
-      p:nth-child(2)
-        position: absolute
-        right: 0
-        bottom: 0
-  li
-    flex-basis: calc(50% - #{var(--spacing-one)})
-    margin-bottom: var(--spacing-two)
-    cursor: pointer
-    &:hover .index-Details
-      opacity: 1
-    @media screen and ( max-width: $breakpoint-mobile )
-      flex-basis: 100%
-    @media screen and ( orientation: landscape ) // Two columns on landscape orientations
-      flex-basis: calc(50% - #{var(--spacing-one)})
-    @media screen and ( min-width: $breakpoint-huge ) // Three columns on larger screens
-      flex-basis: calc(33.3333% - ((2 * #{var(--spacing-two)}) / 3 ))
-  @media (hover: none)
-    li:hover .index-Details
-      display: none
-
-.list
-  display: flex
-  flex-direction: column
-  width: 100%
-  padding-top: 300px
-  @media screen and ( max-width: $breakpoint-mobile)
-    padding-top: 9em
-  &-Category, &-Year
-    flex-shrink: 0
-  &-Title
-    @media screen and ( max-width: $breakpoint-mobile)
-      padding-right: var(--spacing-one)
-  a
-    width: 100%
-    padding: var(--spacing-one)
-    display: flex
-    justify-content: flex-start
-    border-top: 2px currentColor solid
-    cursor: pointer
-    transition: background .30s ease-in-out
-    @media screen and ( max-width: $breakpoint-mobile)
-      padding-left: 0
-      padding-right: 0
-    p
-      transition: color .30s ease-in-out
-      text-transform: capitalize
-    @media screen and ( max-width: $breakpoint-mobile )
-      border-top: 1px currentColor solid
-      p:nth-child(1)
-        order: 3
-      p:nth-child(2)
-        order: 1
-        flex-grow: 1
-      p:nth-child(3)
-        display: none
-  li:last-child
-    border-bottom: 2px currentColor solid
-    margin-bottom: var(--spacing-three)
-    @media screen and ( max-width: $breakpoint-mobile )
-      border-bottom: 1px currentColor solid
-      margin-bottom: 4.5em
-  @media screen and ( min-width: $breakpoint-mobile)
-    li:hover
-      background: $font-color
-      p
-        color: white
-  p
-    margin-right: 18vw
-    @media screen and ( max-width: $breakpoint-mobile )
-      margin-right: 0
-    &:last-child
-      margin-right: 0
-
-.post
-  margin-top: 300px
-  width: 100%
-  @media screen and ( max-width: $breakpoint-mobile)
-    margin-top: 9em
-  > div
-    margin-bottom: var(--spacing-two)
-  img, video
-    width: 100%
-    margin-bottom: var(--spacing-one)
-    @media screen and ( min-width: $breakpoint-mobile)
-      &:last-child
-        margin-bottom: 0
-  .markdown
-    margin-bottom: var(--spacing-one)
-  &-Content
-    min-width: 0
-    a
-      text-decoration: underline
-
-.about
-  text-align: center
-  margin-top: var(--spacing-one)
-  margin-bottom: var(--spacing-one)
-  &-Contact
-    margin-top: 100px
-    a
-      text-decoration: none
-    a:hover
-      text-decoration: underline
-    @media screen and ( max-width: $breakpoint-mobile )
+    .about
+      text-align: center
       margin-top: var(--spacing-one)
-      a
-        text-decoration: underline
-      span
-        display: none
+      margin-bottom: var(--spacing-one)
+      &-Contact
+        margin-top: 100px
+        a
+          text-decoration: none
+        a:hover
+          text-decoration: underline
+        @media screen and ( max-width: $breakpoint-mobile )
+          margin-top: var(--spacing-one)
+          a
+            text-decoration: underline
+          span
+            display: none
+
+// .post
+//   margin-top: 300px
+//   width: 100%
+//   @media screen and ( max-width: $breakpoint-mobile)
+//     margin-top: 9em
+//   > div
+//     margin-bottom: var(--spacing-two)
+//   img, video
+//     width: 100%
+//     margin-bottom: var(--spacing-one)
+//     @media screen and ( min-width: $breakpoint-mobile)
+//       &:last-child
+//         margin-bottom: 0
+//   .markdown
+//     margin-bottom: var(--spacing-one)
+//   &-Content
+//     min-width: 0
+//     a
+//       text-decoration: underline
+
+// .index
+//   display: flex
+//   justify-content: space-between
+//   flex-wrap: wrap
+//   padding-top: 300px
+//   width: 100%
+//   @media screen and ( max-width: $breakpoint-mobile)
+//     padding-top: 9em
+//     li:last-child
+//       margin-bottom: 2em
+//   &-Container // Aspect ratio container
+//     position: relative
+//     width: 100%
+//     height: 0
+//     padding-top: 62.5%
+//     img
+//       position: absolute
+//       left: 0
+//       top: 0
+//       width: 100%
+//       height: 100%
+//       object-fit: cover
+//   &-Details // Hover for details
+//     position: absolute
+//     background: rgba(0, 0, 0, .75)
+//     transition: opacity $transition-hover
+//     opacity: 0
+//     left: 0
+//     top: 0
+//     width: 100%
+//     height: 100%
+//     p
+//       color: white
+//       margin: var(--spacing-one)
+//       p:nth-child(2)
+//         position: absolute
+//         right: 0
+//         bottom: 0
+//   li
+//     flex-basis: calc(50% - #{var(--spacing-one)})
+//     margin-bottom: var(--spacing-two)
+//     cursor: pointer
+//     &:hover .index-Details
+//       opacity: 1
+//     @media screen and ( max-width: $breakpoint-mobile )
+//       flex-basis: 100%
+//     @media screen and ( orientation: landscape ) // Two columns on landscape orientations
+//       flex-basis: calc(50% - #{var(--spacing-one)})
+//     @media screen and ( min-width: $breakpoint-huge ) // Three columns on larger screens
+//       flex-basis: calc(33.3333% - ((2 * #{var(--spacing-two)}) / 3 ))
+//   @media (hover: none)
+//     li:hover .index-Details
+//       display: none

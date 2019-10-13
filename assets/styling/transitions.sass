@@ -1,6 +1,13 @@
 @import '~/assets/styling/variables.sass'
 @import '~/assets/styling/variables.sass'
 
+// General
+.fade-enter-active, .fade-leave-active
+  transition: opacity $transition-general
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+
 // Page
 .pageFade-enter-active, .pageFade-leave-active
   transition: opacity $transition-page
