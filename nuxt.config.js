@@ -1,13 +1,9 @@
 const axios = require('axios')
 // const pkg = require('./package')
-const publicKey = process.env.PUBLICKEY
-const previewKey = process.env.PREVIEWKEY
-const apiToken = process.env.APITOKEN
-// import {
-//   publicKey,
-//   previewKey,
-//   apiToken
-// } from './config';
+// const publicKey = process.env.PUBLICKEY
+// const previewKey = process.env.PREVIEWKEY
+// const apiToken = process.env.APITOKEN
+import { publicKey, previewKey, apiToken } from './config'
 
 module.exports = {
   mode: 'universal',
@@ -16,7 +12,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Dries Bos Studio',
+    title: 'Dries Bos',
     meta: [
       {
         charset: 'utf-8'
@@ -28,7 +24,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'web design + development'
+        content: 'Creative Frontend Development'
       },
       {
         name: 'msapplication-TileColor',
@@ -45,7 +41,7 @@ module.exports = {
       },
       {
         property: 'og:title',
-        content: 'Dries Bos Studio'
+        content: 'Dries Bos'
       },
       {
         property: 'og:description',
