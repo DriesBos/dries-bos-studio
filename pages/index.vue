@@ -2,7 +2,7 @@
   <div>
     <TheHeader />
     <transition-group tag="section" name="indexView" class="view-Container view-Index">
-      <ul v-show="isList" class="list" key="list">
+      <ul class="list" key="list">
         <li v-for="post in posts" :key="post.id">
           <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a" class="ellipsis">
             <p class="list-Year">{{ post.year }}</p>
@@ -11,7 +11,7 @@
           </nuxt-link>
         </li>
       </ul>
-      <ul v-show="!isList" class="index" key="grid">
+      <!-- <ul v-show="!isList" class="index" key="grid">
         <li v-for="post in posts" :key="post.id">
           <nuxt-link :id="post.id" :key="post.id" :to="'/blog/' + post.id" tag="a">
             <div class="index-Container" v-lazy-container="{ selector: 'img' }">
@@ -23,7 +23,7 @@
             </div>
           </nuxt-link>
         </li>
-      </ul>
+      </ul>-->
     </transition-group>
   </div>
 </template>

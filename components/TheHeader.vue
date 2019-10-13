@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nuxt-link class="header-Logo header-Link ellipsis" to="/" tag="a">
-      <h1 v-if="$route.name === 'index'">Dries Bos Studio</h1>
+      <h1 v-if="$route.name === 'index'">Dries Bos</h1>
       <h1 v-else-if="headerTitle">Dries and {{ headerTitle }}</h1>
       <h1 v-else>&nbsp;</h1>
     </nuxt-link>
@@ -27,14 +27,14 @@
       >
         <img src="~assets/images/arrow-right.png" class="site-Icon" />
       </nuxt-link>
-      <a
+      <!-- <a
         v-if="$route.path === '/'"
         @click="$store.commit('posts/toggleList', !isList)"
         class="header-Link header-Toggle"
       >
         <img key="list" v-if="isList" src="~assets/images/blocks.png" class="site-Icon" />
         <img key="grid" v-else src="~assets/images/list.png" class="site-Icon" />
-      </a>
+      </a>-->
       <nuxt-link
         v-if="$route.path === '/'"
         class="header-Link header-Profile"
