@@ -15,7 +15,7 @@
             <span>↗</span>
           </a>
           <br />
-          <a href="https://www.linkedin.com/in/driesbosstudio" target="_blank">
+          <a href="https://www.linkedin.com/in/drbos" target="_blank">
             LinkedIn
             <span>↗</span>
           </a>
