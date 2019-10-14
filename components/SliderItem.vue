@@ -8,7 +8,7 @@
         :key="number"
         v-lazy-container="{ selector: '.image' }"
       >
-        <img :data-src="currentImage | resize('1680x0')" @click="next" class="image" />
+        <img :data-src="currentImage" @click="next" class="image" />
         <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev"></div>
         <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next"></div>
       </div>
