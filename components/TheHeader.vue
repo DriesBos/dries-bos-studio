@@ -41,6 +41,14 @@
         <img key="list" v-if="isList" src="~assets/images/blocks.png" class="icon" />
         <img key="grid" v-else src="~assets/images/list.png" class="icon" />
       </a>-->
+      <div
+        v-if="$route.path === '/'"
+        @click="changeMsg"
+        class="icon-Container"
+        title="change theme"
+      >
+        <img src="~assets/images/theme.png" class="icon" />
+      </div>
       <nuxt-link
         v-if="$route.path === '/'"
         class="icon-Container header-Profile"
