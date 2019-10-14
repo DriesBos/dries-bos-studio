@@ -119,9 +119,11 @@ img[lazy="error"]
           p
             text-transform: capitalize
             @media screen and ( min-width: $breakpoint-mobile )
-              width: 33.3333%
-          .list-Title
-            padding-left: var(--spacing-two)
+              // width: 33.3333%
+          p
+            margin-left: 10vw
+          .list-Year
+            margin-left: var(--spacing-two)
           @media screen and ( max-width: $breakpoint-mobile )
             justify-content: space-between
             .list-Category
@@ -130,16 +132,18 @@ img[lazy="error"]
               padding-right: var(--spacing-two)
         .list-Inner
           &_Content
+            display: flex
             margin-top: var(--spacing-one)
             margin-bottom: var(--spacing-two)
-            padding-right: var(--spacing-one)
+            p:first-child
+              margin-left: var(--spacing-two)
             @media screen and ( min-width: $breakpoint-mobile )
-              width: 66.666%
-              margin-left: auto
-            p
-              max-width: 100%
-              @media screen and ( max-width: $breakpoint-mobile )
-                padding-left: var(--spacing-two)
+              .list-Year
+                margin-right: 10vw
+            @media screen and ( max-width: $breakpoint-mobile )
+              .list-Year
+                display: none
+
         &:last-child
           border-bottom: 2px currentColor solid
           margin-bottom: var(--spacing-three)

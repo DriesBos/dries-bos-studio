@@ -12,12 +12,13 @@
         </transition>
       </div>
 
+      <p class="list-Year">{{ post.year }}</p>
       <p class="list-Title">{{ post.title }}</p>
       <p class="list-Category">{{ post.category }}</p>
-      <p class="list-Year">{{ post.year }}</p>
     </div>
     <div v-show="isActive" class="list-Inner">
       <div class="list-Inner_Content">
+        <p class="list-Year"></p>
         <p class="list-Content">{{ post.content }}</p>
       </div>
       <SliderItem
