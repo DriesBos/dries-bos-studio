@@ -2,10 +2,9 @@
 @import '~/assets/styling/typography.sass'
 @import '~/assets/styling/transitions.sass'
 
-html, body, #__nuxt
+html, body, #__layout
   position: relative
   min-height: 100%
-  background: white
 
 img
   transition: opacity .2s ease
@@ -58,9 +57,10 @@ img[lazy="error"]
   -webkit-backdrop-filter: saturate(180%) blur(2px)
   backdrop-filter: saturate(180%) blur(2px)
   transform: translate3d(0, 0, 0)
-  transition: transform .3s ease
-  a, p
+  transition: transform .3s ease, background $transition-page
+  a, p, h1
     display: inline
+    transition: color $transition-page
   &-Profile
     img
       transition: transform .3s ease-out
@@ -75,6 +75,10 @@ img[lazy="error"]
     padding-right: 0
   &[data-header="true"]
     transform: translate3d(0, -100%, 0)
+  &[data-theme="true"]
+    background: rgba(153,154,158,.5)
+    h1, p, a
+      color: white
 
 .view
   &-Container
@@ -83,6 +87,10 @@ img[lazy="error"]
     justify-content: flex-start
     align-items: center
     min-height: 100vh
+    background: white
+    transition: background $transition-page
+    &[data-theme="true"]
+      background: #999A9E
 
   &-Index
     ul
@@ -98,6 +106,9 @@ img[lazy="error"]
         flex-direction: column
         width: 100%
         border-top: 2px currentColor solid
+        transition: border-top $transition-page
+        p
+          transition: color $transition-page
         .icons-Row
           position: absolute
           top: 0
@@ -156,6 +167,11 @@ img[lazy="error"]
         &[data-active="true"]
           .icons-Row
             opacity: 1
+        &[data-theme="true"]
+          border-top: 2px currentColor solid
+          color: white
+          p
+            color: white
 
   &-Profile
     position: fixed
@@ -164,6 +180,11 @@ img[lazy="error"]
     right: 0
     bottom: 0
     justify-content: center
+    transition: background $transition-page
+    &[data-theme="true"]
+      background: #999A9E
+      p, a, span
+        color: white
     .about
       text-align: center
       margin-top: var(--spacing-one)

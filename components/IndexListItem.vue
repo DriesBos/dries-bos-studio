@@ -1,15 +1,17 @@
 <template>
-  <li :data-active="[isActive]" :id="post.id">
+  <li :data-active="[isActive]" :id="post.id" :data-theme="isList">
     <div @click="toggle" v-scroll-to="`#${post.id}`" class="list-Outer">
       <transition name="fade" mode="out-in">
         <div v-if="isActive" class="icons-Row">
           <div class="icon-Container" title="close project">
-            <img src="~assets/images/close.png" class="icon" />
+            <img v-if="isList" src="~assets/images/close-dark.png" class="icon" />
+            <img v-else src="~assets/images/close.png" class="icon" />
           </div>
         </div>
         <div v-else class="icons-Row">
           <div class="icon-Container" title="open page">
-            <img src="~assets/images/eye.png" class="icon" />
+            <img v-if="isList" src="~assets/images/eye-dark.png" class="icon" />
+            <img v-else src="~assets/images/eye.png" class="icon" />
           </div>
         </div>
       </transition>
@@ -33,6 +35,8 @@
 
 <script>
 import SliderItem from '~/components/SliderItem.vue'
+import { mapState } from 'vuex'
+
 export default {
   name: 'IndexListItem',
   components: {
@@ -50,6 +54,9 @@ export default {
     toggle: function() {
       this.isActive = !this.isActive
     }
-  }
+  },
+  computed: mapState({
+    isList: state => state.posts.isList
+  })
 }
 </script>

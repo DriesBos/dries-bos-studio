@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :data-theme="isList">
     <nuxt-link class="header-Logo icon-Container ellipsis" to="/" tag="a">
       <h1 v-if="$route.name === 'index'">Dries Bos</h1>
       <h1 v-else-if="headerTitle">Dries and {{ headerTitle }}</h1>
@@ -22,7 +22,8 @@
         tag="a"
         title="close page"
       >
-        <img src="~assets/images/close.png" class="icon" />
+        <img v-if="isList" src="~assets/images/close-dark.png" class="icon" />
+        <img v-else src="~assets/images/close.png" class="icon" />
       </nuxt-link>
       <nuxt-link
         v-if="nextUrl"
@@ -43,11 +44,12 @@
       </a>-->
       <div
         v-if="$route.path === '/'"
-        @click="changeMsg"
+        @click="$store.commit('posts/toggleList', !isList)"
         class="icon-Container"
         title="change theme"
       >
-        <img src="~assets/images/theme.png" class="icon" />
+        <img v-if="isList" src="~assets/images/theme-dark.png" class="icon" />
+        <img v-else src="~assets/images/theme.png" class="icon" />
       </div>
       <nuxt-link
         v-if="$route.path === '/'"
@@ -56,7 +58,8 @@
         tag="a"
         title="about page"
       >
-        <img src="~assets/images/profile.png" class="icon" />
+        <img v-if="isList" src="~assets/images/profile-dark.png" class="icon" />
+        <img v-else src="~assets/images/profile.png" class="icon" />
       </nuxt-link>
     </div>
   </header>

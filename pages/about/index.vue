@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader />
-    <section class="view-Container view-Profile">
+    <section class="view-Container view-Profile" :data-theme="isList">
       <div class="about">
         <MarkdownItem v-if="content" :input="content" />
         <div class="about-Contact">
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import MarkdownItem from '~/components/MarkdownItem.vue'
 import TheHeader from '~/components/TheHeader.vue'
 
@@ -49,6 +50,9 @@ export default {
           content: res.data.story.content.content
         }
       })
-  }
+  },
+  computed: mapState({
+    isList: state => state.posts.isList
+  })
 }
 </script>

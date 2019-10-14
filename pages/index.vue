@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader :data-header="toggleHeader" />
-    <div class="view-Container view-Index">
+    <div class="view-Container view-Index" :data-theme="isList">
       <ul class="list">
         <li is="IndexListItem" v-for="post in posts" :key="post.id" :post="post"></li>
       </ul>
@@ -27,7 +27,8 @@ export default {
     }
   },
   computed: mapState({
-    posts: state => state.posts.list
+    posts: state => state.posts.list,
+    isList: state => state.posts.isList
   }),
   methods: {
     onScroll() {
