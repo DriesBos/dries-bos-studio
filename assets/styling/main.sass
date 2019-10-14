@@ -115,8 +115,21 @@ img[lazy="error"]
           right: 0
           opacity: 0
           transition: opacity $transition-hover
+          @media screen and ( max-width: $breakpoint-mobile )
+            position: relative
+            top: auto
+            right: auto
+            justify-content: flex-start
+            order: 2
+            flex-grow: 1
           .icon-Container
             padding: var(--spacing-one)
+            @media screen and ( max-width: $breakpoint-mobile )
+              padding-top: 0
+              padding-bottom: 0
+              height: 1.5em
+              display: flex
+              align-items: center
         @media screen and ( max-width: $breakpoint-mobile )
           border-top: 1px currentColor solid
         .list-Outer
@@ -129,18 +142,23 @@ img[lazy="error"]
               opacity: 1
           p
             text-transform: capitalize
-            @media screen and ( min-width: $breakpoint-mobile )
-              // width: 33.3333%
           p
             margin-left: 10vw
           .list-Year
             margin-left: var(--spacing-two)
           @media screen and ( max-width: $breakpoint-mobile )
-            justify-content: space-between
+            .list-Title
+              margin-left: var(--spacing-two)
+              order: 1
+              width: auto !important
+              flex-basis: auto !important
             .list-Category
               display: none
             .list-Year
+              text-align: right
+              order: 3
               padding-right: var(--spacing-two)
+              margin: 0
         .list-Inner
           &_Content
             display: flex
@@ -152,8 +170,11 @@ img[lazy="error"]
               .list-Year
                 margin-right: 10vw
             @media screen and ( max-width: $breakpoint-mobile )
+              margin-top: 0
               .list-Year
                 display: none
+              .list-Content
+                margin-left: var(--spacing-two)
 
         &:last-child
           border-bottom: 2px currentColor solid
