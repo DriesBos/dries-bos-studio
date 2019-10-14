@@ -21,6 +21,7 @@
         <p class="list-Content">{{ post.content }}</p>
       </div>
       <SliderItem
+        :postid="post.id"
         :images="[post.thumbnail, post.image_0, post.image_1, post.image_2, post.image_3, post.image_4, post.image_5, post.image_6, post.image_7, post.image_8, post.image_9]"
       />
     </div>

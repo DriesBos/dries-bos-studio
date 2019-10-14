@@ -1,9 +1,10 @@
 <template>
-  <div class="slider-Container">
+  <div class="slider-Container" v-scroll-to="`#${postid}${postid}`">
     <transition-group name="slider">
       <div
         class="image-Slider"
         v-for="number in [index]"
+        :id="`${postid}${postid}`"
         :key="number"
         v-lazy-container="{ selector: '.image' }"
       >
@@ -19,7 +20,8 @@
 export default {
   name: 'SliderItem',
   props: {
-    images: Array
+    images: Array,
+    postid: String
   },
   data: function() {
     return {
