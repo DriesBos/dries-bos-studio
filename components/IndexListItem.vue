@@ -1,16 +1,18 @@
 <template>
   <li :data-active="[isActive]" :id="post.id">
     <div @click="toggle" v-scroll-to="`#${post.id}`" class="list-Outer">
-      <div class="icons-Row">
-        <transition name="fade" mode="out-in">
-          <div v-if="isActive" class="icon-Container" title="close project">
+      <transition name="fade" mode="out-in">
+        <div v-if="isActive" class="icons-Row">
+          <div class="icon-Container" title="close project">
             <img src="~assets/images/close.png" class="icon" />
           </div>
-          <div v-else class="icon-Container" title="open page">
+        </div>
+        <div v-else class="icons-Row">
+          <div class="icon-Container" title="open page">
             <img src="~assets/images/eye.png" class="icon" />
           </div>
-        </transition>
-      </div>
+        </div>
+      </transition>
 
       <p class="list-Year">{{ post.year }}</p>
       <p class="list-Title">{{ post.title }}</p>
