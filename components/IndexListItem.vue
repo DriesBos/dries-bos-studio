@@ -9,7 +9,7 @@
           </div>
         </div>
         <div v-else class="icons-Row">
-          <div class="icon-Container" title="open page">
+          <div class="icon-Container" title="view project">
             <img v-if="isList" src="~assets/images/eye-dark.png" class="icon" />
             <img v-else src="~assets/images/eye.png" class="icon" />
           </div>
