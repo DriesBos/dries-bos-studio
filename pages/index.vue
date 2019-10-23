@@ -45,15 +45,7 @@ export default {
         })
       }
 
-      function centerCursor(e) {
-        TweenLite.to($cursor, 0.3, {
-          left: $(window).width() / 2,
-          top: $(window).height() / 2
-        })
-      }
-
       $(window).on('mousemove', moveCursor)
-      $(window).on('mouseleave', centerCursor)
     },
     onScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
