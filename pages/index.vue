@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="cursor" :data-theme="isList"></div>
     <TheHeader :data-header="toggleHeader" />
     <div class="view-Container view-Index" :data-theme="isList">
       <ul class="list">
@@ -12,6 +13,9 @@
 <script>
 import TheHeader from '~/components/TheHeader.vue'
 import IndexListItem from '~/components/IndexListItem.vue'
+import TweenMax from 'gsap'
+import JQuery from 'jquery'
+let $ = JQuery
 
 import { mapState } from 'vuex'
 
@@ -31,6 +35,18 @@ export default {
     isList: state => state.posts.isList
   }),
   methods: {
+    customCursor() {
+      var $cursor = $('.cursor')
+
+      function moveCursor(e) {
+        TweenLite.to($cursor, 0.3, {
+          left: e.pageX,
+          top: e.pageY
+        })
+      }
+
+      $(window).on('mousemove', moveCursor)
+    },
     onScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
       const currentScrollPosition =
@@ -58,6 +74,7 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
+    this.customCursor()
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
     this.widestElement(`list-Type`)

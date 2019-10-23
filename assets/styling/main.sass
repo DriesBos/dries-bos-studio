@@ -44,6 +44,20 @@ img[lazy="error"]
 .capitalize
   text-transform: capitalize
 
+.cursor
+  position: absolute
+  width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+  height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+  top: 50vh
+  left: 50vw
+  transform: translate(-50%, -50%)
+  border-radius: 100px
+  background: #333
+  z-index: 999
+  pointer-events: none
+  &[data-theme="true"]
+    background: white
+
 .header
   position: fixed
   top: 0
