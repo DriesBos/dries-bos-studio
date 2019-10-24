@@ -151,8 +151,21 @@ img[lazy="error"]
           padding-top: var(--spacing-one)
           padding-bottom: var(--spacing-one)
           cursor: pointer
+          .image
+            position: absolute
+            top: 0
+            right: 0
+            transform: translate(-50%, -50%)
+            width: auto
+            height: 200%
+            pointer-events: none
+            opacity: 0
+            z-index: 999
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
           &:hover
             .icons-Row
+              opacity: 1
+            .image
               opacity: 1
           p
             text-transform: capitalize

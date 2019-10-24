@@ -19,6 +19,8 @@
       <p class="list-Year">{{ post.year }}</p>
       <p class="list-Title">{{ post.title }}</p>
       <p class="list-Category">{{ post.category }}</p>
+
+      <img class="image" :class="post.id" :src="post.thumbnail" />
     </div>
     <div v-show="isActive" class="list-Inner">
       <div class="list-Inner_Content">
@@ -36,6 +38,9 @@
 <script>
 import SliderItem from '~/components/SliderItem.vue'
 import { mapState } from 'vuex'
+import TweenMax from 'gsap'
+import JQuery from 'jquery'
+let $ = JQuery
 
 export default {
   name: 'IndexListItem',
@@ -53,10 +58,26 @@ export default {
   methods: {
     toggle: function() {
       this.isActive = !this.isActive
+    },
+    customCursor() {
+      var $cursor = $(`.image.${this.post.id}`)
+
+      function moveCursor(e) {
+        TweenLite.to($cursor, 0, {
+          left: e.pageX,
+          top: e.offsetY
+        })
+        console.log(e)
+      }
+
+      $(`#${this.post.id}`).on('mousemove', moveCursor)
     }
   },
   computed: mapState({
     isList: state => state.posts.isList
-  })
+  }),
+  mounted() {
+    this.customCursor()
+  }
 }
 </script>
