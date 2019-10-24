@@ -3,7 +3,7 @@
     <transition name="pageFade" mode="out-in">
       <nuxt />
     </transition>
-    <div class="cursor" :data-theme="isList"></div>
+    <!-- <div class="cursor" :data-theme="isList"></div> -->
   </div>
 </template>
 
@@ -18,21 +18,19 @@ export default {
     isList: state => state.posts.isList
   }),
   methods: {
-    customCursor() {
-      var $cursor = $('.cursor')
-
-      function moveCursor(e) {
-        TweenLite.to($cursor, 0.3, {
-          left: e.pageX,
-          top: e.pageY
-        })
-      }
-
-      $(window).on('mousemove', moveCursor)
-    }
+    // customCursor() {
+    //   var $cursor = $('.cursor')
+    //   function moveCursor(e) {
+    //     TweenLite.to($cursor, 0.3, {
+    //       left: e.pageX,
+    //       top: e.pageY
+    //     })
+    //   }
+    //   $(window).on('mousemove', moveCursor)
+    // }
   },
   mounted() {
-    this.customCursor()
+    // this.customCursor()
   }
 }
 </script>
