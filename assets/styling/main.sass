@@ -101,7 +101,7 @@ img[lazy="error"]
     justify-content: flex-start
     align-items: center
     min-height: 100vh
-    // background: white
+    background: white
     transition: background $transition-page
     &[data-theme="true"]
       background: #999A9E
@@ -160,8 +160,8 @@ img[lazy="error"]
             height: 200%
             pointer-events: none
             opacity: 0
-            z-index: -1
-            // box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+            z-index: 1
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
           &:hover
             .icons-Row
               opacity: 1
