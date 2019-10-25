@@ -1,40 +1,38 @@
 <template>
   <div>
     <TheHeader :headerTitle="title" :previousUrl="previous_url" :nextUrl="next_url" />
-    <section class="view-Container view-Post" :data-theme="isList">
-      <div class="post">
-        <div class="post-Content">
-          <MarkdownItem v-if="content" :input="content" />
-          <p class="ellipsis">
-            <span v-if="year">
-              Date: {{ year }}
-              <br />
-            </span>
-            <span v-if="category">
-              Role: {{ role }}
-              <br />
-            </span>
-            <span v-if="stack">
-              Tech: {{ stack }}
-              <br />
-            </span>
-            <MarkdownItem v-if="hyperlink" :input="hyperlink" />
-          </p>
-        </div>
-        <div class="post-Images" v-lazy-container="{ selector: 'img' }">
-          <img v-if="image_0" :data-src="image_0" />
-          <video autoplay loop muted preload="metadata" v-if="video_0" :src="video_0"></video>
-          <img v-if="image_1" :data-src="image_1" />
-          <video loop muted preload="metadata" v-if="video_1" :src="video_1"></video>
-          <img v-if="image_2" :data-src="image_2" />
-          <video loop muted preload="metadata" v-if="video_2" :src="video_2"></video>
-          <img v-if="image_3" :data-src="image_3" />
-          <video loop muted preload="metadata" v-if="video_3" :src="video_3"></video>
-          <img v-if="image_4" :data-src="image_4" />
-          <video loop muted preload="metadata" v-if="video_4" :src="video_4"></video>
-          <img v-if="image_5" :data-src="image_5" />
-          <video loop muted preload="metadata" v-if="video_5" :src="video_5"></video>
-        </div>
+    <section class="view-Container view-Post">
+      <div class="post-Content">
+        <MarkdownItem v-if="content" :input="content" />
+        <p class="ellipsis">
+          <span v-if="year">
+            Date: {{ year }}
+            <br />
+          </span>
+          <span v-if="category">
+            Role: {{ role }}
+            <br />
+          </span>
+          <span v-if="stack">
+            Tech: {{ stack }}
+            <br />
+          </span>
+          <MarkdownItem v-if="hyperlink" :input="hyperlink" />
+        </p>
+      </div>
+      <div class="post-Images" v-lazy-container="{ selector: 'img' }">
+        <img v-if="image_0" :data-src="image_0" />
+        <video autoplay loop muted preload="metadata" v-if="video_0" :src="video_0"></video>
+        <img v-if="image_1" :data-src="image_1" />
+        <video loop muted preload="metadata" v-if="video_1" :src="video_1"></video>
+        <img v-if="image_2" :data-src="image_2" />
+        <video loop muted preload="metadata" v-if="video_2" :src="video_2"></video>
+        <img v-if="image_3" :data-src="image_3" />
+        <video loop muted preload="metadata" v-if="video_3" :src="video_3"></video>
+        <img v-if="image_4" :data-src="image_4" />
+        <video loop muted preload="metadata" v-if="video_4" :src="video_4"></video>
+        <img v-if="image_5" :data-src="image_5" />
+        <video loop muted preload="metadata" v-if="video_5" :src="video_5"></video>
       </div>
     </section>
   </div>

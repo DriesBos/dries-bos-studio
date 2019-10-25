@@ -2,6 +2,7 @@
 @import '~/assets/styling/typography.sass'
 @import '~/assets/styling/transitions.sass'
 
+// GENERAL
 html, body, #__layout
   position: relative
   min-height: 100%
@@ -17,16 +18,26 @@ img[lazy="loaded"]
 img[lazy="error"]
   display: none
 
+// BLOCKS
 .icons-Row
+  position: absolute
+  top: 0
+  right: var(--spacing-one)
   display: flex
   align-items: center
   justify-content: center
-  margin-right: var(--spacing-one)
+  transition: opacity $transition-hover
+  height: 100%
   @media screen and ( max-width: $breakpoint-mobile)
     margin-right: 0
 .icon-Container
+  display: flex
+  align-items: center
+  justify-content: center
   cursor: pointer
-  padding: var(--spacing-two) var(--spacing-one) var(--spacing-two) var(--spacing-one)
+  padding-left: var(--spacing-one)
+  padding-right: var(--spacing-one)
+  height: 100%
 .icon
   position: relative
   width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
@@ -40,9 +51,6 @@ img[lazy="error"]
     top: 0
     width: 100%
     height: 100%
-
-.capitalize
-  text-transform: capitalize
 
 .cursor
   position: absolute
@@ -58,23 +66,20 @@ img[lazy="error"]
   &[data-theme="true"]
     background: white
 
+// HEADER
 .header
   position: fixed
   top: 0
   left: 0
-  width: 100%
+  right: 0
   display: flex
   wrap: nowrap
   justify-content: space-between
   z-index: $zindex-interface
   background: rgba(255,255,255,.5)
-  -webkit-backdrop-filter: saturate(180%) blur(2px)
   backdrop-filter: saturate(180%) blur(2px)
-  transform: translate3d(0, 0, 0)
-  transition: transform .3s ease, background $transition-page
   a, p, h1
     display: inline
-    transition: color $transition-page
   &-Profile
     img
       transition: transform .3s ease-out
@@ -86,134 +91,165 @@ img[lazy="error"]
   &-Logo
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
     padding: var(--spacing-two)
-    padding-right: 0
   &[data-header="true"]
     transform: translate3d(0, -100%, 0)
-  &[data-theme="true"]
-    background: rgba(153,154,158,.5)
-    h1, p, a
-      color: white
 
+// VIEWS
 .view
+  &-Theme
+    background: white
+    color: black
+    transition: background $transition-theme, color $transition-theme
+    min-height: 100vh
+    .header
+      transition: transform .3s ease, background $transition-theme
+    h1, p, a, span
+      color: black
+      transition: color $transition-theme
+    &[data-theme="true"]
+      background: #999A9E
+      color: white
+      .header
+        background: rgba(153,154,158,.5)
+      h1, p, a, span
+        color: white
   &-Container
     display: flex
     flex-direction: column
     justify-content: flex-start
-    align-items: center
     min-height: 100vh
-    background: white
-    transition: background $transition-page
-    &[data-theme="true"]
-      background: #999A9E
-
   &-Index
-    ul
+    padding-top: 300px
+    @media screen and ( max-width: $breakpoint-mobile)
+      padding-top: 9em
+    .list
       display: flex
       flex-direction: column
       width: 100%
-      padding-top: 300px
-      @media screen and ( max-width: $breakpoint-mobile)
-        padding-top: 9em
-      li
-        position: relative
-        display: flex
-        flex-direction: column
+    .list-Item
+      position: relative
+      width: 100%
+      cursor: pointer
+      border-top: 2px currentColor solid
+      @media screen and ( max-width: $breakpoint-mobile )
+        border-top: 1px currentColor solid
+      &:hover
+        .icons-Row, .list-Cursor
+          opacity: 1
+    .icons-Row
+      opacity: 0
+    .list-Details
+      display: flex
+      margin-top: var(--spacing-one)
+      margin-bottom: var(--spacing-one)
+      p
+        text-transform: capitalize
+      p
+        margin-left: 10vw
+      .list-Year
+        margin-left: var(--spacing-two)
+      @media screen and ( max-width: $breakpoint-mobile )
+        .list-Title
+          margin-left: var(--spacing-two)
+          order: 1
+          width: auto !important
+          flex-basis: auto !important
+        .list-Category
+          display: none
+        .list-Year
+          text-align: right
+          order: 3
+          padding-right: var(--spacing-two)
+          margin: 0
+    .list-Cursor
+      position: absolute
+      top: 0
+      left: 0
+      transform: translate(-50%, -50%)
+      width: 20vw
+      height: 12.5vw
+      overflow: hidden
+      pointer-events: none
+      opacity: 0
+      z-index: $zindex-cursor
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+      img
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
         width: 100%
-        border-top: 2px currentColor solid
-        transition: border-top $transition-page
-        p
-          transition: color $transition-page
-        .icons-Row
+        opacity: 1
+        object-fit: cover
+
+    .grid
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+      width: 100%
+      padding-left: var(--spacing-two)
+      padding-right: var(--spacing-two)
+      &-Item
+        width: calc(50% - #{var(--spacing-one)})
+        cursor: pointer
+        margin-bottom: var(--spacing-two)
+        &:hover .grid-Ratio
+          opacity: 1
+      &-Ratio
+        position: relative
+        width: 100%
+        height: 0
+        padding-top: 65.5%
+        &:hover .grid-Details
+          opacity: 1
+        img
           position: absolute
           top: 0
-          right: 0
-          opacity: 0
-          transition: opacity $transition-hover
-          @media screen and ( max-width: $breakpoint-mobile )
-            position: relative
-            top: auto
-            right: auto
-            justify-content: flex-start
-            order: 2
-            flex-grow: 1
-          .icon-Container
-            padding: var(--spacing-one)
-            @media screen and ( max-width: $breakpoint-mobile )
-              padding-top: 0
-              padding-bottom: 0
-              height: 1.5em
-              display: flex
-              align-items: center
-        @media screen and ( max-width: $breakpoint-mobile )
-          border-top: 1px currentColor solid
-        .list-Outer
-          display: flex
-          padding-top: var(--spacing-one)
-          padding-bottom: var(--spacing-one)
-          cursor: pointer
-          .image
-            position: absolute
-            top: 0
-            right: 0
-            transform: translate(-50%, -50%)
-            width: auto
-            height: 200%
-            pointer-events: none
-            opacity: 0
-            z-index: 1
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
-          &:hover
-            .icons-Row
-              opacity: 1
-            .image
-              opacity: 1
-          p
-            text-transform: capitalize
-          p
-            margin-left: 10vw
-          .list-Year
-            margin-left: var(--spacing-two)
-          @media screen and ( max-width: $breakpoint-mobile )
-            .list-Title
-              margin-left: var(--spacing-two)
-              order: 1
-              width: auto !important
-              flex-basis: auto !important
-            .list-Category
-              display: none
-            .list-Year
-              text-align: right
-              order: 3
-              padding-right: var(--spacing-two)
-              margin: 0
-        .list-Inner
-          &_Content
-            display: flex
-            margin-top: var(--spacing-one)
-            margin-bottom: var(--spacing-two)
-            p:first-child
-              margin-left: var(--spacing-two)
-            @media screen and ( min-width: $breakpoint-mobile )
-              .list-Year
-                margin-right: 10vw
-            @media screen and ( max-width: $breakpoint-mobile )
-              margin-top: 0
-              .list-Year
-                display: none
-              .list-Content
-                margin-left: var(--spacing-two)
+          left: 0
+          width: 100%
+          height: 100%
+          object-fit: cover
+      &-Details
+        position: absolute
+        width: 100%
+        height: 100%
+        left: 0
+        top: 0
+        opacity: 0
+        transition: opacity $transition-hover
+        // background: purple
+        // @media screen and ( max-width: $breakpoint-mobile )
+        //   flex-basis: 100%
+        // @media screen and ( orientation: landscape ) // Two columns on landscape orientations
+        //   flex-basis: 50%
+        // @media screen and ( min-width: $breakpoint-huge ) // Three columns on larger screens
+        //   flex-basis: 33.3333%
+      &-Cursor
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -100%)
+        pointer-events: none
+        z-index: $zindex-cursor
+        text-align: center
 
-        &[data-active="false"]
-          .icons-Row
-            height: 100%
-        &[data-active="true"]
-          .icons-Row
-            opacity: 1
-        &[data-theme="true"]
-          border-top: 2px currentColor solid
-          color: white
-          p
-            color: white
+  &-Post
+    padding-top: 300px
+    margin-left: var(--spacing-two)
+    margin-right: var(--spacing-two)
+    @media screen and ( max-width: $breakpoint-mobile)
+      padding-top: 9em
+    .post-Content
+      margin-bottom: var(--spacing-two)
+    .post-Images
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+    img, video
+      width: 100%
+      margin-bottom: var(--spacing-two)
+    .markdown:first-child
+      margin-bottom: var(--spacing-two)
 
   &-Profile
     position: fixed
@@ -222,15 +258,13 @@ img[lazy="error"]
     right: 0
     bottom: 0
     justify-content: center
-    transition: background $transition-page
-    &[data-theme="true"]
-      background: #999A9E
-      p, a, span
-        color: white
     .about
       text-align: center
       margin-top: var(--spacing-one)
       margin-bottom: var(--spacing-one)
+      .markdown
+        display: flex
+        justify-content: center
       &-Contact
         margin-top: 100px
         a
@@ -243,77 +277,3 @@ img[lazy="error"]
             text-decoration: underline
           span
             display: none
-
-// .post
-//   margin-top: 300px
-//   width: 100%
-//   @media screen and ( max-width: $breakpoint-mobile)
-//     margin-top: 9em
-//   > div
-//     margin-bottom: var(--spacing-two)
-//   img, video
-//     width: 100%
-//     margin-bottom: var(--spacing-one)
-//     @media screen and ( min-width: $breakpoint-mobile)
-//       &:last-child
-//         margin-bottom: 0
-//   .markdown
-//     margin-bottom: var(--spacing-one)
-//   &-Content
-//     min-width: 0
-//     a
-//       text-decoration: underline
-
-// .index
-//   display: flex
-//   justify-content: space-between
-//   flex-wrap: wrap
-//   padding-top: 300px
-//   width: 100%
-//   @media screen and ( max-width: $breakpoint-mobile)
-//     padding-top: 9em
-//     li:last-child
-//       margin-bottom: 2em
-//   &-Container // Aspect ratio container
-//     position: relative
-//     width: 100%
-//     height: 0
-//     padding-top: 62.5%
-//     img
-//       position: absolute
-//       left: 0
-//       top: 0
-//       width: 100%
-//       height: 100%
-//       object-fit: cover
-//   &-Details // Hover for details
-//     position: absolute
-//     background: rgba(0, 0, 0, .75)
-//     transition: opacity $transition-hover
-//     opacity: 0
-//     left: 0
-//     top: 0
-//     width: 100%
-//     height: 100%
-//     p
-//       color: white
-//       margin: var(--spacing-one)
-//       p:nth-child(2)
-//         position: absolute
-//         right: 0
-//         bottom: 0
-//   li
-//     flex-basis: calc(50% - #{var(--spacing-one)})
-//     margin-bottom: var(--spacing-two)
-//     cursor: pointer
-//     &:hover .index-Details
-//       opacity: 1
-//     @media screen and ( max-width: $breakpoint-mobile )
-//       flex-basis: 100%
-//     @media screen and ( orientation: landscape ) // Two columns on landscape orientations
-//       flex-basis: calc(50% - #{var(--spacing-one)})
-//     @media screen and ( min-width: $breakpoint-huge ) // Three columns on larger screens
-//       flex-basis: calc(33.3333% - ((2 * #{var(--spacing-two)}) / 3 ))
-//   @media (hover: none)
-//     li:hover .index-Details
-//       display: none

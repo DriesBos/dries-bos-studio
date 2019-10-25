@@ -1,6 +1,7 @@
 export const state = () => ({
   list: [],
-  isList: false
+  isList: true,
+  isLight: true
 })
 
 export const mutations = {
@@ -9,5 +10,8 @@ export const mutations = {
   },
   toggleList(state, isList) {
     state.isList = isList
+  },
+  toggleLight(state, isLight) {
+    state.isLight = isLight
   }
 }

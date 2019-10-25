@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader />
-    <section class="view-Container view-Profile" :data-theme="isList">
+    <div class="view-Container view-Profile">
       <div class="about">
         <MarkdownItem v-if="content" :input="content" />
         <div class="about-Contact">
@@ -26,7 +26,7 @@
           </a>
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
       })
   },
   computed: mapState({
-    isList: state => state.posts.isList
+    isLight: state => state.posts.isLight
   })
 }
 </script>

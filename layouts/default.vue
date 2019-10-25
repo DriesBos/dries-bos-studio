@@ -1,9 +1,9 @@
 <template>
   <div>
     <transition name="pageFade" mode="out-in">
-      <nuxt />
+      <nuxt :data-theme="isLight" class="view-Theme" />
     </transition>
-    <!-- <div class="cursor" :data-theme="isList"></div> -->
+    <!-- <div class="cursor" :data-theme="isLight"></div> -->
   </div>
 </template>
 
@@ -15,7 +15,7 @@ let $ = JQuery
 
 export default {
   computed: mapState({
-    isList: state => state.posts.isList
+    isLight: state => state.posts.isLight
   }),
   methods: {
     // customCursor() {

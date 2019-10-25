@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :data-theme="isList">
+  <header class="header">
     <nuxt-link class="header-Logo icon-Container ellipsis" to="/" tag="a">
       <h1 v-if="$route.name === 'index'">Dries Bos</h1>
       <h1 v-else-if="headerTitle">Dries and {{ headerTitle }}</h1>
@@ -10,56 +10,66 @@
         v-if="previousUrl"
         class="icon-Container header-Arrow"
         :to="previousUrl"
-        tag="a"
+        tag="div"
         title="close page"
       >
-        <img src="~assets/images/arrow-left.png" class="icon" />
+        <img v-if="isLight" src="~assets/images/arrow-left-dark.png" class="icon" />
+        <img v-else src="~assets/images/arrow-left-light.png" class="icon" />
       </nuxt-link>
       <nuxt-link
         v-if="$route.path !== '/'"
         class="icon-Container"
         to="/"
-        tag="a"
+        tag="div"
         title="close page"
       >
-        <img v-if="isList" src="~assets/images/close-dark.png" class="icon" />
-        <img v-else src="~assets/images/close.png" class="icon" />
+        <img v-if="isLight" src="~assets/images/close-dark.png" class="icon" />
+        <img v-else src="~assets/images/close-light.png" class="icon" />
       </nuxt-link>
       <nuxt-link
         v-if="nextUrl"
         class="icon-Container header-Arrow"
         :to="nextUrl"
-        tag="a"
+        tag="div"
         title="close page"
       >
-        <img src="~assets/images/arrow-right.png" class="icon" />
+        <img v-if="isLight" src="~assets/images/arrow-right-dark.png" class="icon" />
+        <img v-else src="~assets/images/arrow-right-light.png" class="icon" />
       </nuxt-link>
-      <!-- <a
-        v-if="$route.path === '/'"
+      <div
+        v-if="$route.path === '/' && isList === true"
         @click="$store.commit('posts/toggleList', !isList)"
         class="icon-Container header-Toggle"
       >
-        <img key="list" v-if="isList" src="~assets/images/blocks.png" class="icon" />
-        <img key="grid" v-else src="~assets/images/list.png" class="icon" />
-      </a>-->
+        <img key="dark" v-if="isLight" src="~assets/images/grid-dark.png" class="icon" />
+        <img key="light" v-else src="~assets/images/grid-light.png" class="icon" />
+      </div>
+      <div
+        v-if="$route.path === '/' && isList === false"
+        @click="$store.commit('posts/toggleList', !isList)"
+        class="icon-Container header-Toggle"
+      >
+        <img key="dark" v-if="isLight" src="~assets/images/list-dark.png" class="icon" />
+        <img key="light" v-else src="~assets/images/list-light.png" class="icon" />
+      </div>
       <div
         v-if="$route.path === '/'"
-        @click="$store.commit('posts/toggleList', !isList)"
+        @click="$store.commit('posts/toggleLight', !isLight)"
         class="icon-Container"
         title="change theme"
       >
-        <img v-if="isList" src="~assets/images/theme-dark.png" class="icon" />
-        <img v-else src="~assets/images/theme.png" class="icon" />
+        <img v-if="isLight" src="~assets/images/theme-dark.png" class="icon" />
+        <img v-else src="~assets/images/theme-light.png" class="icon" />
       </div>
       <nuxt-link
         v-if="$route.path === '/'"
         class="icon-Container header-Profile"
         to="/about"
-        tag="a"
+        tag="div"
         title="about page"
       >
-        <img v-if="isList" src="~assets/images/profile-dark.png" class="icon" />
-        <img v-else src="~assets/images/profile.png" class="icon" />
+        <img v-if="isLight" src="~assets/images/profile-dark.png" class="icon" />
+        <img v-else src="~assets/images/profile-light.png" class="icon" />
       </nuxt-link>
     </div>
   </header>
@@ -84,7 +94,8 @@ export default {
     }
   },
   computed: mapState({
-    isList: state => state.posts.isList
+    isList: state => state.posts.isList,
+    isLight: state => state.posts.isLight
   })
 }
 </script>
