@@ -163,6 +163,8 @@ img[lazy="loaded"]
           .list-Details
             position: relative
             margin-left: 10vw
+            @media screen and ( min-width: $breakpoint-laptop )
+              margin-left: 144px
             p
               text-transform: capitalize
           .list-Year
@@ -202,6 +204,8 @@ img[lazy="loaded"]
           .list-Outer
             z-index: 200
             cursor: default
+            .icons-Row
+              opacity: 1
             .list-Details
               cursor: pointer
               p
