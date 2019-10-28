@@ -160,9 +160,11 @@ img[lazy="loaded"]
           cursor: pointer
           z-index: 100
           border-top: 1px currentColor solid
-          p
-            text-transform: capitalize
+          .list-Details
+            position: relative
             margin-left: 10vw
+            p
+              text-transform: capitalize
           .list-Year
             margin-left: var(--spacing-two)
         .list-Inner
@@ -199,11 +201,24 @@ img[lazy="loaded"]
           z-index: 100
           .list-Outer
             z-index: 200
-            p
-              opacity: .33
-              text-transform: lowercase
-        .icons-Row
-          opacity: .33
+            cursor: default
+            .list-Details
+              cursor: pointer
+              p
+                text-transform: lowercase
+                &:nth-child(2)
+                  position: absolute
+                  opacity: 0
+                  top: 0
+                  left: 0
+              &:hover
+                p:first-child
+                  opacity: 0
+                p:nth-child(2)
+                  opacity: 1
+
+        img, p
+          opacity: .4
     // .list-Cursor
     //   position: absolute
     //   top: 0

@@ -16,9 +16,15 @@
           <img src="~assets/images/arrow-right-light.png" class="icon" />
         </div>
       </div>
-      <p class="list-Year">{{ post.year }}</p>
-      <p class="list-Title">{{ post.title }}</p>
-      <p class="list-Category" :id="post.id">{{ post.category }}</p>
+      <div class="list-Year list-Details">
+        <p>{{ post.year }}</p>
+      </div>
+      <div class="list-Title list-Details">
+        <p>{{ post.title }}</p>
+      </div>
+      <div class="list-Category list-Details">
+        <p>{{ post.category }}</p>
+      </div>
     </div>
     <div v-if="isOpen" class="list-Inner">
       <p class="list-Content">{{ post.content }}</p>

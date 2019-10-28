@@ -10,13 +10,22 @@
           </div>
           <div class="list-Outer">
             <div class="icons-Row">
-              <div class="icon-Container" title="view project">
+              <div class="icon-Container" title="search">
                 <img src="~assets/images/search-light.png" class="icon" />
               </div>
             </div>
-            <p @click="sortYear" class="list-Year">year</p>
-            <p @click="sortTitle" class="list-Title">title</p>
-            <p @click="sortCategory" class="list-Category">role</p>
+            <div @click="sortYear" class="list-Year list-Details">
+              <p>year</p>
+              <p>sort</p>
+            </div>
+            <div @click="sortTitle" class="list-Title list-Details">
+              <p>title</p>
+              <p>sort</p>
+            </div>
+            <div @click="sortCategory" class="list-Category list-Details">
+              <p>role</p>
+              <p>sort</p>
+            </div>
           </div>
         </li>
       </ul>
@@ -48,7 +57,9 @@ export default {
       toggleHeader: false,
       lastScrollPosition: 0,
       sorting: -1,
-      toggleSorting: false,
+      toggleSortingYear: false,
+      toggleSortingTitle: false,
+      toggleSortingCategory: false,
       sortByYear: true,
       sortByTitle: false,
       sortByCategory: false
@@ -71,7 +82,7 @@ export default {
     }),
     sortedArray: function() {
       if (this.sortByYear) {
-        if (this.toggleSorting) {
+        if (this.toggleSortingYear) {
           return this.posts
             .slice(0)
             .sort((a, b) => (a.year < b.year ? this.sorting : -this.sorting))
@@ -82,7 +93,7 @@ export default {
         }
       }
       if (this.sortByTitle) {
-        if (this.toggleSorting) {
+        if (this.toggleSortingTitle) {
           return this.posts
             .slice(0)
             .sort(
@@ -103,7 +114,7 @@ export default {
         }
       }
       if (this.sortByCategory) {
-        if (this.toggleSorting) {
+        if (this.toggleSortingCategory) {
           return this.posts
             .slice(0)
             .sort(
@@ -132,19 +143,19 @@ export default {
       this.sortByYear = true
       this.sortByTitle = false
       this.sortByCategory = false
-      this.toggleSorting = !this.toggleSorting
+      this.toggleSortingYear = !this.toggleSortingYear
     },
     sortTitle() {
       this.sortByYear = false
       this.sortByTitle = true
       this.sortByCategory = false
-      this.toggleSorting = !this.toggleSorting
+      this.toggleSortingTitle = !this.toggleSortingTitle
     },
     sortCategory() {
       this.sortByYear = false
       this.sortByTitle = false
       this.sortByCategory = true
-      this.toggleSorting = !this.toggleSorting
+      this.toggleSortingCategory = !this.toggleSortingCategory
     },
     onScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
