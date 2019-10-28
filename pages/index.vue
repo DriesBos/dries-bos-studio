@@ -85,11 +85,21 @@ export default {
         if (this.toggleSorting) {
           return this.posts
             .slice(0)
-            .sort((a, b) => (a.title < b.title ? this.sorting : -this.sorting))
+            .sort(
+              (a, b) =>
+                a.title.toLowerCase() < b.title.toLowerCase()
+                  ? this.sorting
+                  : -this.sorting
+            )
         } else {
           return this.posts
             .slice(0)
-            .sort((a, b) => (a.title > b.title ? this.sorting : -this.sorting))
+            .sort(
+              (a, b) =>
+                a.title.toLowerCase() > b.title.toLowerCase()
+                  ? this.sorting
+                  : -this.sorting
+            )
         }
       }
       if (this.sortByCategory) {
@@ -97,13 +107,19 @@ export default {
           return this.posts
             .slice(0)
             .sort(
-              (a, b) => (a.category < b.category ? this.sorting : -this.sorting)
+              (a, b) =>
+                a.category.toLowerCase() < b.category.toLowerCase()
+                  ? this.sorting
+                  : -this.sorting
             )
         } else {
           return this.posts
             .slice(0)
             .sort(
-              (a, b) => (a.category > b.category ? this.sorting : -this.sorting)
+              (a, b) =>
+                a.category.toLowerCase() > b.category.toLowerCase()
+                  ? this.sorting
+                  : -this.sorting
             )
         }
       } else {
