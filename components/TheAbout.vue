@@ -1,5 +1,5 @@
 <template>
-  <div class="view-Profile">
+  <section class="view-Profile">
     <div class="about">
       <MarkdownItem v-if="content" :input="content" />
       <div class="about-Contact">
@@ -29,7 +29,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

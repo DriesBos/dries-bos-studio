@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="view-Container">
     <TheHeader :data-header="toggleHeader" />
     <TheAbout :content="content" />
-    <div class="view-Container view-Index">
+    <section class="view-Index">
       <ul class="list list-Filter">
         <li class="list-Item">
           <div class="list-Top">
@@ -32,7 +32,7 @@
       <ul class="list">
         <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
       </ul>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -80,6 +80,7 @@ export default {
     ...mapState({
       posts: state => state.posts.list
     }),
+    // TODO: KISS
     sortedArray: function() {
       if (this.sortByYear) {
         if (this.toggleSortingYear) {
