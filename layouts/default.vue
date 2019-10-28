@@ -53,7 +53,6 @@ export default {
       for (var i = 0; i < list.length; i++) {
         list[i].style.width = `${widest}px`
       }
-      console.log(widest)
     }
   },
   mounted() {

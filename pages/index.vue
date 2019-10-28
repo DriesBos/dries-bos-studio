@@ -8,19 +8,20 @@
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
           </div>
-          <div class="list-Details">
+          <div class="list-Outer">
+            <div class="icons-Row">
+              <div class="icon-Container" title="view project">
+                <img src="~assets/images/search-light.png" class="icon" />
+              </div>
+            </div>
             <p @click="sortYear" class="list-Year">year</p>
             <p @click="sortTitle" class="list-Title">title</p>
             <p @click="sortCategory" class="list-Category">role</p>
           </div>
         </li>
       </ul>
-      <ul class="list list-Content">
+      <ul class="list">
         <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
-        <!-- <li
-          v-for="item in sortedArray"
-          :key="item.id"
-        >{{ item.year }} | {{ item.title }} | {{ item.category }}</li>-->
       </ul>
     </div>
   </div>
@@ -116,13 +117,6 @@ export default {
       this.sortByTitle = false
       this.sortByCategory = false
       this.toggleSorting = !this.toggleSorting
-      console.log(
-        this.sortByYear,
-        this.sortByTitle,
-        this.sortByCategory,
-        this.toggleSorting,
-        this.sorting
-      )
     },
     sortTitle() {
       this.sortByYear = false
@@ -135,13 +129,6 @@ export default {
       this.sortByTitle = false
       this.sortByCategory = true
       this.toggleSorting = !this.toggleSorting
-      console.log(
-        this.sortByYear,
-        this.sortByTitle,
-        this.sortByCategory,
-        this.toggleSorting,
-        this.sorting
-      )
     },
     onScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe

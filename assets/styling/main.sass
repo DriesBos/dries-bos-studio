@@ -119,128 +119,108 @@ img[lazy="loaded"]
     @media screen and ( max-width: $breakpoint-mobile)
       padding-top: 9em
 
-    // LANDING ITEM
-    .landing
-      width: 100%
-      height: 0
-      padding-top: 56.5vw
-      background: green
-
-    // LIST TOP
-    .list-Top
-      position: absolute
-      top: -218px
-      left: 0
-      height: 218px
-      width: 100%
-      max-width: 1440px
-      z-index: 0
-      img
-        position: absolute
-        bottom: 0
-        left: 0
-        width: 100%
-        height: auto
-        opacity: 1
-
-    .list-Filter
-      box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
-      transition: transform 1s ease
-      transform: translateY(1px)
-      will-change: transform
-      z-index: 100
-      animation: blockup ease-out 1
-      animation-fill-mode: forwards
-      animation-duration: .35s
-      animation-delay: 1s
-      li
-        border-bottom: currentColor 1px solid
-        z-index: 100
-        .list-Details
-          z-index: 200
-
-    // LIST ITEM
+    // LIST
     .list
       display: flex
       flex-direction: column
       width: 100%
       max-width: 1440px
       background: white
-
-    .list-Item
-      position: relative
-      width: 100%
-      transition: max-height 5s ease
-      &:hover
-        .icons-Row, .list-Cursor
-          opacity: 1
-    .list-Inner
-      z-index: 100
-      background: white
-      .slider-Container
-        .image-Slider
-          height: 62.5vw
-          max-height: 900px
-        img, video
-          position: absolute
-          height: 100%
-          width: 100%
-          object-fit: cover
-          cursor: pointer
-          z-index: 200
-      .list-Content
-        margin-left: var(--spacing-two)
-        padding-top: var(--spacing-one)
-        margin-bottom: var(--spacing-two)
-    .icons-Row
-      opacity: 0
-    .list-Details
-      background: white
-      position: relative
-      display: flex
-      padding-top: var(--spacing-one)
-      padding-bottom: var(--spacing-one)
-      cursor: pointer
-      z-index: 100
-      border-top: 1px currentColor solid
-      p
-        text-transform: capitalize
-        margin-left: 10vw
-      .list-Year
-        margin-left: var(--spacing-two)
-      @media screen and ( max-width: $breakpoint-mobile )
-        .list-Title
-          margin-left: var(--spacing-two)
-          order: 1
-          width: auto !important
-          flex-basis: auto !important
-        .list-Category
-          display: none
-        .list-Year
-          text-align: right
-          order: 3
-          padding-right: var(--spacing-two)
-          margin: 0
-    .list-Cursor
-      position: absolute
-      top: 0
-      left: 0
-      transform: translate(-50%, -50%)
-      width: 20vw
-      height: 12.5vw
-      overflow: hidden
-      pointer-events: none
-      opacity: 0
-      z-index: $zindex-cursor
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
-      img
-        position: absolute
-        top: 0
-        left: 0
-        height: 100%
+      .list-Item
+        position: relative
         width: 100%
-        opacity: 1
-        object-fit: cover
+        transition: max-height 5s ease
+        .icons-Row
+          opacity: 0
+        &:hover
+          .icons-Row, .list-Cursor
+            opacity: 1
+            z-index: 999
+        .list-Top
+          position: absolute
+          top: -218px
+          left: 0
+          height: 218px
+          width: 100%
+          max-width: 1440px
+          z-index: 0
+          img
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 100%
+            height: auto
+            opacity: 1
+        .list-Outer
+          background: white
+          position: relative
+          display: flex
+          padding-top: var(--spacing-one)
+          padding-bottom: var(--spacing-one)
+          cursor: pointer
+          z-index: 100
+          border-top: 1px currentColor solid
+          p
+            text-transform: capitalize
+            margin-left: 10vw
+          .list-Year
+            margin-left: var(--spacing-two)
+        .list-Inner
+          background: white
+          z-index: 100
+          p
+            max-width: 100%
+            padding-left: var(--spacing-two)
+            padding-right: var(--spacing-three)
+            margin-bottom: var(--spacing-two)
+          .slider-Container
+            .image-Slider
+              height: 62.5vw
+              max-height: 900px
+            img, video
+              position: absolute
+              height: 100%
+              width: 100%
+              object-fit: cover
+              cursor: pointer
+              z-index: 100
+      &.list-Filter
+        box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
+        transition: transform 1s ease
+        transform: translateY(1px)
+        will-change: transform
+        animation: blockup ease-out 1
+        animation-fill-mode: forwards
+        animation-duration: .35s
+        animation-delay: 1s
+        z-index: 100
+        li
+          border-bottom: currentColor 1px solid
+          z-index: 100
+          .list-Outer
+            z-index: 200
+        .icons-Row
+          opacity: 1
+    // .list-Cursor
+    //   position: absolute
+    //   top: 0
+    //   left: 0
+    //   transform: translate(-50%, -50%)
+    //   width: 20vw
+    //   height: 12.5vw
+    //   overflow: hidden
+    //   pointer-events: none
+    //   opacity: 0
+    //   z-index: $zindex-cursor
+    //   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+    //   img
+    //     position: absolute
+    //     top: 0
+    //     left: 0
+    //     height: 100%
+    //     width: 100%
+    //     opacity: 1
+    //     object-fit: cover
 
   &-Profile
     display: flex

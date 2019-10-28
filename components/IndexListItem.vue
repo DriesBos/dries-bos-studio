@@ -6,14 +6,14 @@
     <div
       @click="isOpen = !isOpen"
       v-scroll-to="`#${post.id}`"
-      class="list-Details ellipsis cursor-Active"
+      class="list-Outer ellipsis cursor-Active"
     >
       <div class="icons-Row">
         <div v-if="isOpen" class="icon-Container" title="view project">
-          <img src="~assets/images/close-dark.png" class="icon" />
+          <img src="~assets/images/close-light.png" class="icon" />
         </div>
         <div v-else class="icon-Container" title="view project">
-          <img src="~assets/images/arrow-right-dark.png" class="icon" />
+          <img src="~assets/images/arrow-right-light.png" class="icon" />
         </div>
       </div>
       <p class="list-Year">{{ post.year }}</p>
