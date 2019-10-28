@@ -1,42 +1,148 @@
 <template>
   <div>
     <TheHeader :data-header="toggleHeader" />
-    <transition-group tag="div" name="indexView" class="view-Container view-Index">
-      <ul v-show="isList" class="list" key="list">
-        <li is="IndexListItem" v-for="post in posts" :key="post.id" :post="post"></li>
+    <TheAbout :content="content" />
+    <div class="view-Container view-Index">
+      <ul class="list list-Filter">
+        <li class="list-Item">
+          <div class="list-Top">
+            <img src="~/assets/images/top-ground.png" />
+          </div>
+          <div class="list-Details">
+            <p @click="sortYear" class="list-Year">year</p>
+            <p @click="sortTitle" class="list-Title">title</p>
+            <p @click="sortCategory" class="list-Category">role</p>
+          </div>
+        </li>
       </ul>
-
-      <ul v-show="!isList" class="grid" key="grid">
-        <li is="IndexGridItem" v-for="post in posts" :key="post.id" :post="post"></li>
+      <ul class="list list-Content">
+        <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
+        <!-- <li
+          v-for="item in sortedArray"
+          :key="item.id"
+        >{{ item.year }} | {{ item.title }} | {{ item.category }}</li>-->
       </ul>
-    </transition-group>
+    </div>
   </div>
 </template>
 
 <script>
 import TheHeader from '~/components/TheHeader.vue'
+import TheAbout from '~/components/TheAbout.vue'
 import IndexListItem from '~/components/IndexListItem.vue'
-import IndexGridItem from '~/components/IndexGridItem.vue'
+
+import JQuery from 'jquery'
+let $ = JQuery
 
 import { mapState } from 'vuex'
 
 export default {
   components: {
     TheHeader: TheHeader,
-    IndexListItem: IndexListItem,
-    IndexGridItem: IndexGridItem
+    TheAbout: TheAbout,
+    IndexListItem: IndexListItem
   },
   data: function() {
     return {
       toggleHeader: false,
-      lastScrollPosition: 0
+      lastScrollPosition: 0,
+      sorting: -1,
+      toggleSorting: false,
+      sortByYear: true,
+      sortByTitle: false,
+      sortByCategory: false
     }
   },
-  computed: mapState({
-    posts: state => state.posts.list,
-    isList: state => state.posts.isList
-  }),
+  asyncData(context) {
+    return context.app.$storyapi
+      .get('cdn/stories/about', {
+        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft'
+      })
+      .then(res => {
+        return {
+          content: res.data.story.content.content
+        }
+      })
+  },
+  computed: {
+    ...mapState({
+      posts: state => state.posts.list
+    }),
+    sortedArray: function() {
+      if (this.sortByYear) {
+        if (this.toggleSorting) {
+          return this.posts
+            .slice(0)
+            .sort((a, b) => (a.year < b.year ? this.sorting : -this.sorting))
+        } else {
+          return this.posts
+            .slice(0)
+            .sort((a, b) => (a.year > b.year ? this.sorting : -this.sorting))
+        }
+      }
+      if (this.sortByTitle) {
+        if (this.toggleSorting) {
+          return this.posts
+            .slice(0)
+            .sort((a, b) => (a.title < b.title ? this.sorting : -this.sorting))
+        } else {
+          return this.posts
+            .slice(0)
+            .sort((a, b) => (a.title > b.title ? this.sorting : -this.sorting))
+        }
+      }
+      if (this.sortByCategory) {
+        if (this.toggleSorting) {
+          return this.posts
+            .slice(0)
+            .sort(
+              (a, b) => (a.category < b.category ? this.sorting : -this.sorting)
+            )
+        } else {
+          return this.posts
+            .slice(0)
+            .sort(
+              (a, b) => (a.category > b.category ? this.sorting : -this.sorting)
+            )
+        }
+      } else {
+        return this.posts
+      }
+    }
+  },
   methods: {
+    sortYear() {
+      this.sortByYear = true
+      this.sortByTitle = false
+      this.sortByCategory = false
+      this.toggleSorting = !this.toggleSorting
+      console.log(
+        this.sortByYear,
+        this.sortByTitle,
+        this.sortByCategory,
+        this.toggleSorting,
+        this.sorting
+      )
+    },
+    sortTitle() {
+      this.sortByYear = false
+      this.sortByTitle = true
+      this.sortByCategory = false
+      this.toggleSorting = !this.toggleSorting
+    },
+    sortCategory() {
+      this.sortByYear = false
+      this.sortByTitle = false
+      this.sortByCategory = true
+      this.toggleSorting = !this.toggleSorting
+      console.log(
+        this.sortByYear,
+        this.sortByTitle,
+        this.sortByCategory,
+        this.toggleSorting,
+        this.sorting
+      )
+    },
     onScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
       const currentScrollPosition =
@@ -48,8 +154,10 @@ export default {
       this.lastScrollPosition = currentScrollPosition
     }
   },
+  watch: {},
   mounted() {
     window.addEventListener('scroll', this.onScroll)
+    window.scroll(0, window.innerHeight)
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)

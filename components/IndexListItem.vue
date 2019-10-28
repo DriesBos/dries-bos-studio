@@ -1,72 +1,77 @@
 <template>
-  <nuxt-link :to="'/blog/' + post.id" :key="post.id" :id="post.id" class="list-Item" tag="li">
-    <div class="icons-Row">
-      <div class="icon-Container" title="view project">
-        <img v-if="isLight" src="~assets/images/arrow-right-dark.png" class="icon" />
-        <img v-else src="~assets/images/arrow-right-light.png" class="icon" />
-      </div>
+  <li :key="post.id" :id="post.id" class="list-Item">
+    <div class="list-Top">
+      <img src="~/assets/images/top-ground.png" />
     </div>
-    <div class="list-Details ellipsis">
+    <div
+      @click="isOpen = !isOpen"
+      v-scroll-to="`#${post.id}`"
+      class="list-Details ellipsis cursor-Active"
+    >
+      <div class="icons-Row">
+        <div v-if="isOpen" class="icon-Container" title="view project">
+          <img src="~assets/images/close-dark.png" class="icon" />
+        </div>
+        <div v-else class="icon-Container" title="view project">
+          <img src="~assets/images/arrow-right-dark.png" class="icon" />
+        </div>
+      </div>
       <p class="list-Year">{{ post.year }}</p>
       <p class="list-Title">{{ post.title }}</p>
-      <p class="list-Category">{{ post.category }}</p>
+      <p class="list-Category" :id="post.id">{{ post.category }}</p>
     </div>
-    <div class="list-Cursor" :class="post.id">
-      <img class="image" :src="post.thumbnail" />
+    <div v-if="isOpen" class="list-Inner">
+      <p class="list-Content">{{ post.content }}</p>
+      <SliderItem
+        :images="[post.image_0, post.image_1, post.image_2, post.image_3, post.image_4, post.image_5]"
+      />
     </div>
-  </nuxt-link>
+  </li>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import SliderItem from '~/components/SliderItem.vue'
 import TweenMax from 'gsap'
 import JQuery from 'jquery'
 let $ = JQuery
 
 export default {
   name: 'IndexListItem',
+  components: {
+    SliderItem: SliderItem
+  },
   props: {
     post: Object
   },
-  methods: {
-    customListCursor() {
-      var $listcursor = $(`.list-Cursor.${this.post.id}`)
-      function moveCursor(e) {
-        TweenLite.to($listcursor, 0, {
-          left: e.pageX,
-          top: e.offsetY
-        })
-        console.log(e, 'LIST')
-      }
-      // $(`#${this.post.id}`).on('mousemove', moveCursor)
-      document
-        .querySelector(`.list-Item#${this.post.id}`)
-        .addEventListener('mousemove', moveCursor, false)
-    },
-    widestElement(e) {
-      const list = document.getElementsByClassName(`${e}`)
-      const listWidths = []
-      // Push offsetWidth property to new list
-      for (let i = 0; i < list.length; i++) {
-        listWidths.push(list[i].offsetWidth)
-      }
-      // Get highest number of the new list
-      var widest = Math.max(...listWidths) + 1
-      // Add new width to all el with class x
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.width = `${widest}px`
-      }
+  data: function() {
+    return {
+      isOpen: false
     }
   },
-  computed: mapState({
-    isList: state => state.posts.isList,
-    isLight: state => state.posts.isLight
-  }),
+  methods: {
+    // customListCursor() {
+    //   var $listcursor = $(`.list-Cursor.${this.post.id}`)
+    //   function moveCursor(e) {
+    //     TweenLite.to($listcursor, 0, {
+    //       left: e.pageX,
+    //       top: e.offsetY
+    //     })
+    //     console.log(e, 'LIST')
+    //   }
+    //   // $(`#${this.post.id}`).on('mousemove', moveCursor)
+    //   document
+    //     .querySelector(`.list-Item#${this.post.id}`)
+    //     .addEventListener('mousemove', moveCursor, false)
+    // },
+    // getPositionX(e) {
+    //   const item = document.querySelector(`.${e}#${this.post.id}`)
+    //   var itemPos = item.getBoundingClientRect()
+    //   console.log(itemPos)
+    // }
+  },
   mounted() {
-    this.customListCursor()
-    this.widestElement(`list-Year`)
-    this.widestElement(`list-Title`)
-    this.widestElement(`list-Type`)
+    // this.customListCursor()
+    // this.getPositionX(`list-Category`)
   }
 }
 </script>

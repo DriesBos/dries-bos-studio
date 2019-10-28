@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-Container" v-scroll-to="`#${postid}${postid}`">
+  <div class="slider-Container">
     <transition-group name="slider">
       <div
         class="image-Slider"

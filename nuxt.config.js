@@ -87,18 +87,6 @@ module.exports = {
   },
 
   /*
-   ** Router behaviour
-   */
-  router: {
-    scrollBehavior: function(to, from, savedPosition) {
-      return {
-        x: 0,
-        y: 0
-      }
-    }
-  },
-
-  /*
    ** Global CSS
    */
   css: [

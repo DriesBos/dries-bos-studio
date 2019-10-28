@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     compiledMarkdown: function() {
-      return marked(this.input, { sanitize: true })
+      return marked(this.input)
     }
   }
 }

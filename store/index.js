@@ -5,7 +5,6 @@ export default {
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         starts_with: 'blog/'
       })
-
       let posts = getPosts.data.stories.map(bp => {
         return {
           id: bp.slug,
