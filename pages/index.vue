@@ -167,14 +167,32 @@ export default {
       }
       this.toggleHeader = currentScrollPosition > this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
+    },
+    widestElement(e) {
+      const list = document.getElementsByClassName(`${e}`)
+      const listWidths = []
+      for (let i = 0; i < list.length; i++) {
+        listWidths.push(list[i].offsetWidth)
+      }
+      var widest = Math.max(...listWidths) + 1
+      for (var i = 0; i < list.length; i++) {
+        list[i].style.width = `${widest}px`
+      }
     }
   },
   watch: {},
   mounted() {
     window.addEventListener('scroll', this.onScroll)
     window.scroll(0, window.innerHeight)
+    // TODO: KISS
+    this.widestElement(`list-Year`)
+    this.widestElement(`list-Title`)
+    this.widestElement(`list-Category`)
   },
-  beforeDestroy() {
+  destroyed() {
+    window.removeEventListener('resize', this.widestElement(`list-Year`))
+    window.removeEventListener('resize', this.widestElement(`list-Title`))
+    window.removeEventListener('resize', this.widestElement(`list-Category`))
     window.removeEventListener('scroll', this.onScroll)
   }
 }

@@ -42,29 +42,10 @@ export default {
       $(window).on('mousemove', moveCursor)
       $('.list-Details, .icon').on('mouseenter', activeCursor)
       $('.list-Details, .icon').on('mouseleave', removeActiveCursor)
-    },
-    widestElement(e) {
-      const list = document.getElementsByClassName(`${e}`)
-      const listWidths = []
-      for (let i = 0; i < list.length; i++) {
-        listWidths.push(list[i].offsetWidth)
-      }
-      var widest = Math.max(...listWidths) + 1
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.width = `${widest}px`
-      }
     }
   },
   mounted() {
     this.customCursor()
-    this.widestElement(`list-Year`)
-    this.widestElement(`list-Title`)
-    this.widestElement(`list-Category`)
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.widestElement(`list-Year`))
-    window.removeEventListener('resize', this.widestElement(`list-Title`))
-    window.removeEventListener('resize', this.widestElement(`list-Category`))
   }
 }
 </script>
