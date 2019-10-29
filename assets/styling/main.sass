@@ -175,11 +175,17 @@ img[lazy="loaded"]
         .list-Inner
           background: white
           z-index: 100
-          p
-            max-width: 100%
-            padding-left: var(--spacing-two)
-            padding-right: var(--spacing-three)
+          .list-Details
+            display: flex
+            flex-wrap: nowrap
             margin-bottom: var(--spacing-two)
+            .list-Year
+              margin-left: var(--spacing-two)
+              opacity: 0
+            .list-Content
+              margin-left: 10vw
+              @media screen and ( min-width: $breakpoint-laptop )
+                margin-left: 144px
           .slider-Container
             .image-Slider
               height: 62.5vw
