@@ -103,7 +103,7 @@ img[lazy="loaded"]
   &-Logo
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
     padding: var(--spacing-two)
-  &[data-header="true"]
+  &[data-toggle-header="true"]
     transform: translate3d(0, -100%, 0)
 
 // VIEWS
@@ -256,8 +256,13 @@ img[lazy="loaded"]
     justify-content: center
     width: 100%
     min-height: 100vh
+    will-change: opacity
+    transition: opacity $transition-page .2s
+    opacity: 0
     a, p, span
       color: white
+    &[data-toggle-profile="true"]
+      opacity: 1
     .about
       text-align: center
       margin: var(--spacing-one)

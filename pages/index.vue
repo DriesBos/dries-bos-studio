@@ -1,7 +1,7 @@
 <template>
   <div class="view-Container">
-    <TheHeader :data-header="toggleHeader" />
-    <TheAbout :content="content" />
+    <TheHeader :data-toggle-header="toggleHeader" />
+    <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
         <li class="list-Item">
@@ -56,6 +56,7 @@ export default {
     return {
       toggleHeader: false,
       toggleFilter: false,
+      toggleProfile: true,
       lastScrollPosition: 0,
       sorting: -1,
       toggleSortingYear: false,
@@ -159,7 +160,7 @@ export default {
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
     },
-    onScrollHeader() {
+    onScrollToggleHeader() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
@@ -169,13 +170,18 @@ export default {
       this.toggleHeader = currentScrollPosition > this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
     },
-    onScrollTopListItem() {
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      if (currentScrollPosition > window.innerHeight - 100) {
+    onScrollToggleFilter() {
+      if (window.pageYOffset > window.innerHeight * 0.99) {
         this.toggleFilter = true
       } else {
         this.toggleFilter = false
+      }
+    },
+    onScrollToggleProfile() {
+      if (window.pageYOffset < window.innerHeight * 0.25) {
+        this.toggleProfile = true
+      } else {
+        this.toggleProfile = false
       }
     },
     widestElement(e) {
@@ -193,13 +199,13 @@ export default {
   watch: {},
   mounted() {
     window.addEventListener('scroll', () => {
-      this.onScrollHeader()
-      this.onScrollTopListItem()
-      console.log(window.pageYOffset, window.innerHeight)
+      this.onScrollToggleHeader()
+      this.onScrollToggleFilter()
+      this.onScrollToggleProfile()
     }),
-      window.scroll(0, window.innerHeight)
-    // TODO: KISS
-    this.widestElement(`list-Year`)
+      // window.scroll(0, window.innerHeight)
+      // TODO: KISS
+      this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
     this.widestElement(`list-Category`)
     console.log(scrollY)
@@ -208,7 +214,11 @@ export default {
     window.removeEventListener('resize', this.widestElement(`list-Year`))
     window.removeEventListener('resize', this.widestElement(`list-Title`))
     window.removeEventListener('resize', this.widestElement(`list-Category`))
-    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', () => {
+      this.onScrollToggleHeader()
+      this.onScrollToggleFilter()
+      this.onScrollToggleProfile()
+    })
   }
 }
 </script>
