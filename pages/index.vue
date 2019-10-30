@@ -3,7 +3,7 @@
     <TheHeader :data-header="toggleHeader" />
     <TheAbout :content="content" />
     <section class="view-Index">
-      <ul class="list list-Filter">
+      <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
         <li class="list-Item">
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
@@ -55,6 +55,7 @@ export default {
   data: function() {
     return {
       toggleHeader: false,
+      toggleFilter: false,
       lastScrollPosition: 0,
       sorting: -1,
       toggleSortingYear: false,
@@ -158,7 +159,7 @@ export default {
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
     },
-    onScroll() {
+    onScrollHeader() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
@@ -167,6 +168,15 @@ export default {
       }
       this.toggleHeader = currentScrollPosition > this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
+    },
+    onScrollTopListItem() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition > window.innerHeight - 100) {
+        this.toggleFilter = true
+      } else {
+        this.toggleFilter = false
+      }
     },
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
@@ -182,12 +192,17 @@ export default {
   },
   watch: {},
   mounted() {
-    window.addEventListener('scroll', this.onScroll)
-    window.scroll(0, window.innerHeight)
+    window.addEventListener('scroll', () => {
+      this.onScrollHeader()
+      this.onScrollTopListItem()
+      console.log(window.pageYOffset, window.innerHeight)
+    }),
+      window.scroll(0, window.innerHeight)
     // TODO: KISS
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
     this.widestElement(`list-Category`)
+    console.log(scrollY)
   },
   destroyed() {
     window.removeEventListener('resize', this.widestElement(`list-Year`))

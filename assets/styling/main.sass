@@ -199,13 +199,9 @@ img[lazy="loaded"]
               z-index: 100
       &.list-Filter
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
-        transition: transform 1s ease
-        transform: translateY(1px)
         will-change: transform
-        animation: blockup ease-out 1
-        animation-fill-mode: forwards
-        animation-duration: .35s
-        animation-delay: 1s
+        transition: transform .35s ease-out .2s
+        transform: translateY(1px)
         z-index: 100
         li
           border-bottom: currentColor 1px solid
@@ -231,6 +227,9 @@ img[lazy="loaded"]
                   opacity: 1
         img, p
           opacity: .4
+        &[data-toggle-filter="true"]
+          transform: translateY(-75px)
+
         // .list-Cursor
         //   position: absolute
         //   top: 0
