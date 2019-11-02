@@ -56,7 +56,7 @@ export default {
     return {
       toggleHeader: false,
       toggleFilter: false,
-      toggleProfile: true,
+      toggleProfile: false,
       lastScrollPosition: 0, // Used for header
       previousScrollPosition: 0, // Used for direction
       scrollDirection: '',
