@@ -14,6 +14,7 @@ export default {
           role: bp.content.role,
           stack: bp.content.stack,
           content: bp.content.content,
+          image_background_color: bp.content.image_background_color,
           thumbnail: bp.content.thumbnail,
           image_0: bp.content.image_0,
           image_1: bp.content.image_1,
