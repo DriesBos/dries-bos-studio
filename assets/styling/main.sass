@@ -80,31 +80,41 @@ img[lazy="loaded"]
 // HEADER
 .header
   position: fixed
-  top: 0
+  bottom: 0
   left: 0
   right: 0
   display: flex
   wrap: nowrap
   justify-content: space-between
   z-index: $zindex-interface
+  pointer-events: none
+  transition: opacity $transition-general
   // background: rgba(255,255,255,.5)
   // backdrop-filter: saturate(180%) blur(2px)
   // border-bottom: 1px currentColor solid
+  &[data-toggle-profile="true"]
+    opacity: 0
   a, p, h1
     display: inline
     color: white
-  &-Profile
-    img
-      transition: transform .3s ease-out
-    &:hover,
-    &[data-toggle-profile="true"]
-      img
-        transform: rotate(-120deg)
-        @media (hover: none)
-          transform: none
-  &-Logo
+  // &-Profile
+  //   img
+  //     transition: transform .3s ease-out
+  //   &:hover,
+  //   &[data-toggle-profile="true"]
+  //     img
+  //       transform: rotate(-120deg)
+  //       @media (hover: none)
+  //         transform: none
+  &-Logo,
+  .header-Profile
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
-    padding: var(--spacing-two)
+    margin: var(--spacing-two)
+    background: black
+    border-radius: 100px
+    border: 2px solid white
+    padding-bottom: .15em
+    pointer-events: auto
   &[data-toggle-header="true"]
     transform: translate3d(0, -100%, 0)
 
@@ -149,6 +159,7 @@ img[lazy="loaded"]
           width: 100%
           max-width: 1440px
           z-index: 0
+          pointer-events: none
           img
             position: absolute
             bottom: 0

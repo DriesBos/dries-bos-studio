@@ -1,6 +1,6 @@
 <template>
   <div class="view-Container">
-    <TheHeader :profile="toggleProfile" />
+    <TheHeader :data-toggle-profile="toggleProfile" />
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
@@ -173,7 +173,7 @@ export default {
       this.lastScrollPosition = currentScrollPosition
     },
     onScrollToggleFilter() {
-      if (window.pageYOffset > window.innerHeight * 0.99) {
+      if (window.pageYOffset > window.innerHeight * 1.01) {
         this.toggleFilter = true
       } else {
         this.toggleFilter = false
@@ -182,12 +182,6 @@ export default {
     onScrollToggleProfile() {
       if (window.pageYOffset < window.innerHeight * 0.25) {
         this.toggleProfile = true
-        // if (this.scrollDirection === false) {
-        //   window.scrollTo({
-        //     top: 0,
-        //     behavior: 'smooth'
-        //   })
-        // }
       } else {
         this.toggleProfile = false
       }
@@ -214,14 +208,15 @@ export default {
       }
     },
     startPosition() {
-      // window.scrollTo(0, 1000)
+      window.scroll(0, window.innerHeight)
+      this.toggleFilter = false
     }
   },
-  watch: {},
-  created() {
+  beforeMount() {
     this.startPosition()
   },
   mounted() {
+    window.addEventListener('beforeunload', this.startPosition)
     window.addEventListener('scroll', () => {
       this.onScrollToggleHeader()
       this.onScrollToggleFilter()
