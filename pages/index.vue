@@ -9,11 +9,11 @@
             <img src="~/assets/images/top-ground.png" />
           </div>
           <div class="list-Outer">
-            <div class="icons-Row">
+            <!-- <div class="icons-Row">
               <div class="icon-Container" title="search">
                 <img src="~assets/images/search-light.png" class="icon" />
               </div>
-            </div>
+            </div>-->
             <div @click="sortYear" class="list-Year list-Details">
               <p>year</p>
               <p>sort</p>
