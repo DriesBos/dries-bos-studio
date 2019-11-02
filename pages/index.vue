@@ -1,6 +1,6 @@
 <template>
   <div class="view-Container">
-    <TheHeader :data-toggle-header="toggleHeader" />
+    <TheHeader :profile="toggleProfile" />
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
@@ -57,7 +57,9 @@ export default {
       toggleHeader: false,
       toggleFilter: false,
       toggleProfile: true,
-      lastScrollPosition: 0,
+      lastScrollPosition: 0, // Used for header
+      previousScrollPosition: 0, // Used for direction
+      scrollDirection: '',
       sorting: -1,
       toggleSortingYear: false,
       toggleSortingTitle: false,
@@ -180,10 +182,26 @@ export default {
     onScrollToggleProfile() {
       if (window.pageYOffset < window.innerHeight * 0.25) {
         this.toggleProfile = true
+        // if (this.scrollDirection === false) {
+        //   window.scrollTo({
+        //     top: 0,
+        //     behavior: 'smooth'
+        //   })
+        // }
       } else {
         this.toggleProfile = false
       }
     },
+    onScrollDirection() {
+      let currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition > this.lastScrollPosition) {
+        this.scrollDirection = 'DOWN'
+      } else {
+        this.scrollDirection = 'UP'
+      }
+    },
+    scrollToTop() {},
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
       const listWidths = []
@@ -202,13 +220,12 @@ export default {
       this.onScrollToggleHeader()
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
+      this.onScrollDirection()
+      this.scrollToTop()
     }),
-      // window.scroll(0, window.innerHeight)
-      // TODO: KISS
       this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
     this.widestElement(`list-Category`)
-    console.log(scrollY)
   },
   destroyed() {
     window.removeEventListener('resize', this.widestElement(`list-Year`))
