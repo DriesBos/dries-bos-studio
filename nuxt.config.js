@@ -119,6 +119,20 @@ module.exports = {
     ['vue-scrollto/nuxt', { duration: 300 }]
   ],
   /*
+   ** Router behaviour
+   */
+  router: {
+    scrollBehavior: function(to, from, savedPosition) {
+      console.log(to)
+      console.log(from)
+      console.log(savedPosition)
+      return {
+        x: 0,
+        y: 500
+      }
+    }
+  },
+  /*
    ** Generating routes
    */
   generate: {

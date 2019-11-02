@@ -212,9 +212,15 @@ export default {
       for (var i = 0; i < list.length; i++) {
         list[i].style.width = `${widest}px`
       }
+    },
+    startPosition() {
+      // window.scrollTo(0, 1000)
     }
   },
   watch: {},
+  created() {
+    this.startPosition()
+  },
   mounted() {
     window.addEventListener('scroll', () => {
       this.onScrollToggleHeader()
