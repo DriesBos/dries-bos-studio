@@ -4,9 +4,10 @@
       <div
         class="image-Slider"
         v-for="number in [index]"
-        :id="`${postid}${postid}`"
+        :id="postid"
         :key="number"
         v-lazy-container="{ selector: '.image' }"
+        :style="`background:#${bgcolor}`"
       >
         <img :data-src="currentImage" @click="next" class="image" />
         <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev"></div>
@@ -20,12 +21,19 @@
 export default {
   name: 'SliderItem',
   props: {
+    bgcolor: String,
     images: Array,
     postid: String
   },
   data: function() {
     return {
-      index: 0
+      index: 0,
+      style: ''
+    }
+  },
+  computed: {
+    style() {
+      this.style = 'background-color:red'
     }
   },
   methods: {
