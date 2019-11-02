@@ -4,7 +4,12 @@
       <h1>Dries Bos</h1>
     </nuxt-link>
     <div class="icons-Row">
-      <div class="icon-Container header-Profile" v-scroll-to="`.view-Profile`" title="about me">
+      <div
+        class="icon-Container header-Profile"
+        v-scroll-to="`.view-Profile`"
+        title="about me"
+        :data-toggle-profile="profile"
+      >
         <img src="~assets/images/profile-dark.png" class="icon" />
       </div>
     </div>
@@ -13,6 +18,9 @@
 
 <script>
 export default {
-  name: 'TheHeader'
+  name: 'TheHeader',
+  props: {
+    profile: Boolean
+  }
 }
 </script>

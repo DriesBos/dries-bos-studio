@@ -92,10 +92,12 @@ img[lazy="loaded"]
   // border-bottom: 1px currentColor solid
   a, p, h1
     display: inline
+    color: white
   &-Profile
     img
       transition: transform .3s ease-out
-    &:hover
+    &:hover,
+    &[data-toggle-profile="true"]
       img
         transform: rotate(-120deg)
         @media (hover: none)
@@ -257,14 +259,12 @@ img[lazy="loaded"]
     width: 100%
     min-height: 100vh
     will-change: opacity
-    transition: opacity $transition-page .2s, transform $transition-page .2s
+    transition: opacity $transition-page .2s
     opacity: 0
-    transform: translateY(35px)
     a, p, span
       color: white
     &[data-toggle-profile="true"]
       opacity: 1
-      transform: translateY(0)
     .about
       text-align: center
       margin: var(--spacing-one)
