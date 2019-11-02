@@ -32,7 +32,9 @@
         <p class="list-Content">{{ post.content }}</p>
       </div>
       <SliderItem
+        :bgcolor="post.image_background_color"
         :images="[post.image_0, post.image_1, post.image_2, post.image_3, post.image_4, post.image_5]"
+        :postid="post.id"
       />
     </div>
   </li>
@@ -58,6 +60,9 @@ export default {
     }
   },
   methods: {
+    initState() {
+      this.isOpen = false
+    }
     // customListCursor() {
     //   var $listcursor = $(`.list-Cursor.${this.post.id}`)
     //   function moveCursor(e) {
@@ -79,6 +84,7 @@ export default {
     // }
   },
   mounted() {
+    window.addEventListener('beforeunload', this.initState)
     // this.customListCursor()
     // this.getPositionX(`list-Category`)
   }
