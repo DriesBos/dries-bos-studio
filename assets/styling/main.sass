@@ -68,7 +68,6 @@ img[lazy="loaded"]
     border: 3px solid purple
   li
     position: relative
-    // opacity: 0
   img
     position: absolute
     width: 300px
@@ -89,23 +88,11 @@ img[lazy="loaded"]
   z-index: $zindex-interface
   pointer-events: none
   transition: opacity $transition-general
-  // background: rgba(255,255,255,.5)
-  // backdrop-filter: saturate(180%) blur(2px)
-  // border-bottom: 1px currentColor solid
   &[data-toggle-profile="true"]
     opacity: 0
   a, p, h1
     display: inline
     color: white
-  // &-Profile
-  //   img
-  //     transition: transform .3s ease-out
-  //   &:hover,
-  //   &[data-toggle-profile="true"]
-  //     img
-  //       transform: rotate(-120deg)
-  //       @media (hover: none)
-  //         transform: none
   &-Logo,
   .header-Profile
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
