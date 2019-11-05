@@ -1,7 +1,6 @@
 <template>
   <div class="view-Container">
     <TheHeader :data-toggle-profile="toggleProfile" />
-    <ThreeTest />
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
@@ -40,7 +39,6 @@
 <script>
 import TheAbout from '~/components/TheAbout.vue'
 import TheHeader from '~/components/TheHeader.vue'
-import ThreeTest from '~/components/ThreeTest.vue'
 import IndexListItem from '~/components/IndexListItem.vue'
 import JQuery from 'jquery'
 import { mapState } from 'vuex'
@@ -50,7 +48,6 @@ export default {
   components: {
     TheAbout: TheAbout,
     TheHeader: TheHeader,
-    ThreeTest: ThreeTest,
     IndexListItem: IndexListItem
   },
   data: function() {

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TheStars />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
@@ -19,11 +20,15 @@
 </template>
 
 <script>
+import ThreeTest from '~/components/ThreeTest.vue'
 import TweenMax from 'gsap'
 import JQuery from 'jquery'
 let $ = JQuery
 
 export default {
+  components: {
+    TheStars: TheStars
+  },
   methods: {
     customCursor() {
       var $cursor = $('.cursor')

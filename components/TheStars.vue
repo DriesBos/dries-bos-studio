@@ -7,7 +7,7 @@ import * as THREE from 'three'
 import image from '../assets/images/star.png'
 
 export default {
-  name: 'ThreeTest',
+  name: 'TheStars',
   data() {
     return {
       camera: null,
