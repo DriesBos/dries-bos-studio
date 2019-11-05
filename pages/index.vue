@@ -1,6 +1,7 @@
 <template>
   <div class="view-Container">
     <TheHeader :data-toggle-profile="toggleProfile" />
+    <ThreeTest />
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
@@ -37,19 +38,19 @@
 </template>
 
 <script>
-import TheHeader from '~/components/TheHeader.vue'
 import TheAbout from '~/components/TheAbout.vue'
+import TheHeader from '~/components/TheHeader.vue'
+import ThreeTest from '~/components/ThreeTest.vue'
 import IndexListItem from '~/components/IndexListItem.vue'
-
 import JQuery from 'jquery'
-let $ = JQuery
-
 import { mapState } from 'vuex'
+let $ = JQuery
 
 export default {
   components: {
-    TheHeader: TheHeader,
     TheAbout: TheAbout,
+    TheHeader: TheHeader,
+    ThreeTest: ThreeTest,
     IndexListItem: IndexListItem
   },
   data: function() {
@@ -195,7 +196,6 @@ export default {
         this.scrollDirection = 'UP'
       }
     },
-    scrollToTop() {},
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
       const listWidths = []
@@ -222,7 +222,6 @@ export default {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
       this.onScrollDirection()
-      this.scrollToTop()
     }),
       this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
