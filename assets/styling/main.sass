@@ -88,8 +88,6 @@ img[lazy="loaded"]
   z-index: $zindex-interface
   pointer-events: none
   transition: opacity $transition-general
-  &[data-toggle-profile="true"]
-    opacity: 0
   a, p, h1
     display: inline
     color: white
@@ -102,8 +100,6 @@ img[lazy="loaded"]
     border: 2px solid white
     padding-bottom: .15em
     pointer-events: auto
-  &[data-toggle-header="true"]
-    transform: translate3d(0, -100%, 0)
 
 .three
   &-Container
@@ -119,42 +115,45 @@ img[lazy="loaded"]
     position: relative
     display: flex
     flex-direction: column
-    justify-content: flex-start
     align-items: center
   &-Index
     display: flex
     flex-direction: column
-    justify-content: flex-start
     align-items: center
-    padding-top: 218px
-    width: 100%
+    padding-top: 14.32vw
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)
-    @media screen and ( max-width: $breakpoint-mobile)
-      padding-top: 9em
+    width: 100%
+    @media screen and ( max-width: $breakpoint-mobile )
+      padding-left: 0
+      padding-right: 0
+      padding-top: 15.5vw
+    @media screen and ( min-width: $breakpoint-laptop )
+      padding-top: 224px
     .list
       display: flex
       flex-direction: column
       width: 100%
       max-width: 1440px
-      background: white
       .list-Item
         position: relative
         width: 100%
+        background: white
         transition: max-height 5s ease
         .icons-Row
           opacity: 0
         &:hover
-          .icons-Row, .list-Cursor
+          .icons-Row
             opacity: 1
-            z-index: 999
+        @media screen and ( max-width: $breakpoint-mobile )
+          .icons-Row
+            display: none
         .list-Top
           position: absolute
-          top: -218px
+          top: 0
           left: 0
-          height: 218px
           width: 100%
-          max-width: 1440px
+          height: 0
           z-index: 0
           pointer-events: none
           img
@@ -171,11 +170,21 @@ img[lazy="loaded"]
           cursor: pointer
           z-index: 100
           border-top: 1px currentColor solid
+          .list-Year
+            min-width: 42px
+          @media screen and ( max-width: $breakpoint-mobile )
+            .list-Title
+              flex-grow: 1
+            .list-Details:last-child
+              text-align: right
+              margin-right: var(--spacing-two)
           .list-Details
             position: relative
             margin-left: 10vw
             padding-top: var(--spacing-one)
             padding-bottom: var(--spacing-one)
+            @media screen and ( max-width: $breakpoint-mobile )
+              margin-left: var(--spacing-two)
             @media screen and ( min-width: $breakpoint-laptop )
               margin-left: 144px
             p
@@ -185,17 +194,25 @@ img[lazy="loaded"]
         .list-Inner
           background: white
           z-index: 100
-          .list-Details
+          &_Content
             display: flex
             flex-wrap: nowrap
             margin-bottom: var(--spacing-two)
-            .list-Year
-              margin-left: var(--spacing-two)
+          .list-Year
+            margin-left: var(--spacing-two)
+            flex-shrink: 0
+            min-width: 42px
+            p
               opacity: 0
-            .list-Content
-              margin-left: 10vw
-              @media screen and ( min-width: $breakpoint-laptop )
-                margin-left: 144px
+            @media screen and ( max-width: $breakpoint-mobile )
+              display: none
+          .list-Content
+            margin-left: 10vw
+            padding-right: var(--spacing-two)
+            @media screen and ( max-width: $breakpoint-mobile )
+              margin-left: var(--spacing-two)
+            @media screen and ( min-width: $breakpoint-laptop )
+              margin-left: 144px
           .slider-Container
             z-index: 100
             .image-Slider
@@ -242,7 +259,11 @@ img[lazy="loaded"]
         img, p
           opacity: .4
         &[data-toggle-filter="true"]
-          transform: translateY(-75px)
+          transform: translateY(calc(0px - (4vmin + 1.5em)))
+          @media screen and ( max-width: $breakpoint-mobile )
+            transform: translateY(-65px)
+          @media screen and ( min-width: $breakpoint-laptop )
+            transform: translateY(-91px)
 
         // .list-Cursor
         //   position: absolute
@@ -279,7 +300,7 @@ img[lazy="loaded"]
       opacity: 1
     .about
       text-align: center
-      margin: var(--spacing-one)
+      margin: var(--spacing-two)
       .markdown
         display: flex
         flex-direction: column
@@ -296,15 +317,3 @@ img[lazy="loaded"]
             text-decoration: underline
           span
             display: none
-
-@keyframes carousel
-  0%
-    transform: translateX(0)
-  100%
-    transform: translateX(-100vw)
-
-@keyframes blockup
-  from
-    transform: translateY(0)
-  to
-    transform: translateY(-75px)

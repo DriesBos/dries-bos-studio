@@ -27,9 +27,13 @@
       </div>
     </div>
     <div v-if="isOpen" class="list-Inner">
-      <div class="list-Details">
-        <p class="list-Year">{{ post.year }}</p>
-        <p class="list-Content">{{ post.content }}</p>
+      <div class="list-Inner_Content">
+        <div class="list-Year list-Details">
+          <p>{{post.year }}</p>
+        </div>
+        <div class="list-Content list-Details">
+          <p>{{ post.content }}</p>
+        </div>
       </div>
       <SliderItem
         :bgcolor="post.image_background_color"
