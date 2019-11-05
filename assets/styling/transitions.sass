@@ -23,23 +23,8 @@
 .fold-enter, .fold-leave-to
   opacity: 0
 
-// // indexView
-// .indexView-enter-active
-//   transition: opacity .5s
-
-// .indexView-leave-active
-//   transition: opacity .5s reverse
-
-// .indexView-enter, .indexView-leave-to
-//   opacity: 0
-
 // Header Logo
-.logoFade-enter-active, .logoFade-leave-active
+.header-enter-active, .header-leave-active
   transition: opacity .5s ease
-  @media (hover: none) // No fade when mobile
-    transition: none
-
-.logoFade-enter, .logoFade-leave-to
+.header-enter, .header-leave-to
   opacity: 0
-  @media (hover: none)
-    opacity: 1

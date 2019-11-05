@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ThreeTest from '~/components/ThreeTest.vue'
+import TheStars from '~/components/TheStars.vue'
 import TweenMax from 'gsap'
 import JQuery from 'jquery'
 let $ = JQuery

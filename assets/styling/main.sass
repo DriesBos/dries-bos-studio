@@ -96,7 +96,7 @@ img[lazy="loaded"]
   &-Logo,
   .header-Profile
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
-    margin: var(--spacing-two)
+    margin: var(--spacing-two) var(--spacing-one)
     background: black
     border-radius: 100px
     border: 2px solid white
@@ -112,7 +112,6 @@ img[lazy="loaded"]
     left: 0
     width: 100%
     height: 100vh
-    background: black
 
 // VIEWS
 .view
@@ -127,8 +126,10 @@ img[lazy="loaded"]
     flex-direction: column
     justify-content: flex-start
     align-items: center
-    padding-top: 300px + 218px
+    padding-top: 218px
     width: 100%
+    padding-left: var(--spacing-two)
+    padding-right: var(--spacing-two)
     @media screen and ( max-width: $breakpoint-mobile)
       padding-top: 9em
     .list
@@ -167,14 +168,14 @@ img[lazy="loaded"]
           background: white
           position: relative
           display: flex
-          padding-top: var(--spacing-one)
-          padding-bottom: var(--spacing-one)
           cursor: pointer
           z-index: 100
           border-top: 1px currentColor solid
           .list-Details
             position: relative
             margin-left: 10vw
+            padding-top: var(--spacing-one)
+            padding-bottom: var(--spacing-one)
             @media screen and ( min-width: $breakpoint-laptop )
               margin-left: 144px
             p
@@ -231,6 +232,8 @@ img[lazy="loaded"]
                   opacity: 0
                   top: 0
                   left: 0
+                  padding-top: var(--spacing-one)
+                  padding-bottom: var(--spacing-one)
               &:hover
                 p:first-child
                   opacity: 0

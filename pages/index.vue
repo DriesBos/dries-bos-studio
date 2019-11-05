@@ -1,6 +1,6 @@
 <template>
   <div class="view-Container">
-    <TheHeader :data-toggle-profile="toggleProfile" />
+    <TheHeader />
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
@@ -142,6 +142,40 @@ export default {
     }
   },
   methods: {
+    // INIT
+    startPosition() {
+      window.scroll(0, 0)
+      this.toggleFilter = false
+    },
+    // SCROLL BEHAVIOR
+    onScrollToggleFilter() {
+      if (window.pageYOffset > window.innerHeight * 0.5) {
+        this.toggleFilter = true
+      } else {
+        this.toggleFilter = false
+      }
+    },
+    onScrollToggleProfile() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition === 0) {
+        this.toggleProfile = true
+      } else {
+        this.toggleProfile = false
+      }
+    },
+    // LIST ELEMENTS UNIFORM WIDTH
+    widestElement(e) {
+      const list = document.getElementsByClassName(`${e}`)
+      const listWidths = []
+      for (let i = 0; i < list.length; i++) {
+        listWidths.push(list[i].offsetWidth)
+      }
+      var widest = Math.max(...listWidths) + 1
+      for (var i = 0; i < list.length; i++) {
+        list[i].style.width = `${widest}px`
+      }
+    },
+    // FILTER
     sortYear() {
       this.sortByYear = true
       this.sortByTitle = false
@@ -159,54 +193,6 @@ export default {
       this.sortByTitle = false
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
-    },
-    onScrollToggleHeader() {
-      // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
-        return
-      }
-      this.toggleHeader = currentScrollPosition > this.lastScrollPosition
-      this.lastScrollPosition = currentScrollPosition
-    },
-    onScrollToggleFilter() {
-      if (window.pageYOffset > window.innerHeight * 1.01) {
-        this.toggleFilter = true
-      } else {
-        this.toggleFilter = false
-      }
-    },
-    onScrollToggleProfile() {
-      if (window.pageYOffset < window.innerHeight * 0.25) {
-        this.toggleProfile = true
-      } else {
-        this.toggleProfile = false
-      }
-    },
-    onScrollDirection() {
-      let currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      if (currentScrollPosition > this.lastScrollPosition) {
-        this.scrollDirection = 'DOWN'
-      } else {
-        this.scrollDirection = 'UP'
-      }
-    },
-    widestElement(e) {
-      const list = document.getElementsByClassName(`${e}`)
-      const listWidths = []
-      for (let i = 0; i < list.length; i++) {
-        listWidths.push(list[i].offsetWidth)
-      }
-      var widest = Math.max(...listWidths) + 1
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.width = `${widest}px`
-      }
-    },
-    startPosition() {
-      window.scroll(0, window.innerHeight)
-      this.toggleFilter = false
     }
   },
   beforeMount() {
@@ -214,22 +200,27 @@ export default {
   },
   mounted() {
     window.addEventListener('beforeunload', this.startPosition)
+    window.addEventListener('resize', () => {
+      this.widestElement(`list-Year`)
+      this.widestElement(`list-Title`)
+      this.widestElement(`list-Category`)
+    })
     window.addEventListener('scroll', () => {
-      this.onScrollToggleHeader()
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
-      this.onScrollDirection()
-    }),
-      this.widestElement(`list-Year`)
+    })
+    this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
     this.widestElement(`list-Category`)
   },
   destroyed() {
-    window.removeEventListener('resize', this.widestElement(`list-Year`))
-    window.removeEventListener('resize', this.widestElement(`list-Title`))
-    window.removeEventListener('resize', this.widestElement(`list-Category`))
+    window.addEventListener('beforeunload', this.startPosition)
+    window.removeEventListener('resize', () => {
+      this.widestElement(`list-Year`)
+      this.widestElement(`list-Title`)
+      this.widestElement(`list-Category`)
+    })
     window.removeEventListener('scroll', () => {
-      this.onScrollToggleHeader()
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
     })

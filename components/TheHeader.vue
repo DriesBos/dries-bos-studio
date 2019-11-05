@@ -1,25 +1,39 @@
 <template>
-  <header class="header">
-    <nuxt-link class="header-Logo icon-Container ellipsis" to="/" tag="a">
-      <h1>Dries Bos</h1>
-    </nuxt-link>
-    <!-- <div class="icons-Row">
-      <div
-        class="icon-Container header-Profile"
-        v-scroll-to="`.view-Profile`"
-        title="profile"
-      >
-        <img src="~assets/images/profile-dark.png" class="icon" />
+  <transition name="header">
+    <header v-if="toggleHeader" class="header">
+      <nuxt-link class="header-Logo icon-Container ellipsis" to="/" tag="a">
+        <h1>Dries Bos</h1>
+      </nuxt-link>
+      <div class="header-Profile icon-Container ellipsis" v-scroll-to="`.view-Profile`">
+        <h1>profile</h1>
       </div>
-    </div>-->
-    <div class="header-Profile icon-Container ellipsis" v-scroll-to="`.view-Profile`">
-      <h1>profile</h1>
-    </div>
-  </header>
+    </header>
+  </transition>
 </template>
 
 <script>
 export default {
-  name: 'TheHeader'
+  name: 'TheHeader',
+  data: function() {
+    return {
+      toggleHeader: false
+    }
+  },
+  methods: {
+    onScrollToggleHeader() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition !== 0) {
+        this.toggleHeader = true
+      } else {
+        this.toggleHeader = false
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.onScrollToggleHeader)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.onScrollToggleHeader)
+  }
 }
 </script>
