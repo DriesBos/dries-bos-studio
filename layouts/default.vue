@@ -36,36 +36,36 @@ export default {
   //   })
   // },
   methods: {
-    customCursor() {
-      var $cursor = $('.cursor')
-      // Cursor movement
-      function moveCursor(e) {
-        TweenLite.to($cursor, 0.3, {
-          left: e.pageX,
-          top: e.pageY
-        })
-      }
-      // Get ID from list items
-      function imageCursor(e) {
-        if (e.currentTarget.className === 'list-Item') {
-          $cursor.addClass('image')
-        }
-      }
-      function removeImageCursor(e) {
-        if (e.currentTarget.className === 'list-Item') {
-          $cursor.removeClass('image')
-        }
-      }
-      function showID(e) {
-        if (e.currentTarget.className === 'list-Item') {
-          console.log($cursor[0].firstChild.childNodes)
-        }
-      }
-      $(window).on('mousemove', moveCursor)
-      $('.list-Item').on('mouseenter', imageCursor)
-      $('.list-Item').on('mouseenter', showID)
-      $('.list-Item').on('mouseleave', removeImageCursor)
-    }
+    // customCursor() {
+    //   var $cursor = $('.cursor')
+    //   // Cursor movement
+    //   function moveCursor(e) {
+    //     TweenLite.to($cursor, 0.3, {
+    //       left: e.pageX,
+    //       top: e.pageY
+    //     })
+    //   }
+    //   // Get ID from list items
+    //   function imageCursor(e) {
+    //     if (e.currentTarget.className === 'list-Item') {
+    //       $cursor.addClass('image')
+    //     }
+    //   }
+    //   function removeImageCursor(e) {
+    //     if (e.currentTarget.className === 'list-Item') {
+    //       $cursor.removeClass('image')
+    //     }
+    //   }
+    //   function showID(e) {
+    //     if (e.currentTarget.className === 'list-Item') {
+    //       console.log($cursor[0].firstChild.childNodes)
+    //     }
+    //   }
+    //   $(window).on('mousemove', moveCursor)
+    //   $('.list-Item').on('mouseenter', imageCursor)
+    //   $('.list-Item').on('mouseenter', showID)
+    //   $('.list-Item').on('mouseleave', removeImageCursor)
+    // }
   },
   mounted() {
     // this.customCursor()
