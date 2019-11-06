@@ -88,13 +88,18 @@ img[lazy="loaded"]
   a, p, h1
     display: inline
     color: white
+  &-Container
+    display: flex
+    position: relative
+    height: 100%
   &-Logo,
-  .header-Profile
+  &-Profile,
+  &-Work
     min-width: 0 // Hack provides width data to ellipsis content in flexbox item
     margin: var(--spacing-two) var(--spacing-one)
     background: black
     border-radius: 100px
-    border: 2px solid white
+    border: 1px solid white
     padding-bottom: .15em
     pointer-events: auto
     @media screen and ( min-width: $breakpoint-laptop )

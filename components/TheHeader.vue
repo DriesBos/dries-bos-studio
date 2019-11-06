@@ -4,8 +4,19 @@
       <nuxt-link class="header-Logo icon-Container ellipsis" to="/" tag="a">
         <h1>Dries Bos</h1>
       </nuxt-link>
-      <div class="header-Profile icon-Container ellipsis" v-scroll-to="`.view-Profile`">
-        <h1>profile</h1>
+      <div class="header-Container">
+        <div
+          class="header-Work icon-Container ellipsis"
+          v-scroll-to="{
+          el: '.view-Index',
+          offset: -200
+        }"
+        >
+          <h1>work</h1>
+        </div>
+        <div class="header-Profile icon-Container ellipsis" v-scroll-to="`.view-Profile`">
+          <h1>profile</h1>
+        </div>
       </div>
     </header>
   </transition>
