@@ -1,15 +1,16 @@
 <template>
   <li :key="post.id" :id="post.id" class="list-Item">
-    <div class="list-Cursor" :class="post.id">
+    <!-- <div class="list-Cursor" :id="post.id" :data-is-open="isOpen">
       <img :src="post.thumbnail" />
-    </div>
+    </div>-->
     <div class="list-Top">
       <img src="~/assets/images/top-ground.png" />
     </div>
     <div
       @click="isOpen = !isOpen"
       v-scroll-to="`#${post.id}`"
-      class="list-Outer ellipsis cursor-Active"
+      :id="post.id"
+      class="list-Outer ellipsis"
     >
       <div class="icons-Row">
         <div v-if="isOpen" class="icon-Container" title="view project">
@@ -69,36 +70,31 @@ export default {
   methods: {
     initState() {
       this.isOpen = false
-    },
-    customListCursor() {
-      var $listcursor = $(`.list-Cursor.${this.post.id}`)
-      function moveCursor(e) {
-        TweenLite.to($listcursor, 0, {
-          left: e.pageX,
-          top: e.offsetY
-        })
-      }
-      function displayImage(e) {
-        $listcursor.addClass('image')
-      }
-      function removeImage(e) {
-        $listcursor.removeClass('image')
-      }
-      $(`.list-Item#${this.post.id}`).on('mouseenter', displayImage)
-      $(`.list-Item#${this.post.id}`).on('mouseleave', removeImage)
-      document
-        .querySelector(`.list-Item#${this.post.id}`)
-        .addEventListener('mousemove', moveCursor, false)
-    },
-    getPositionX(e) {
-      const item = document.querySelector(`.${e}#${this.post.id}`)
-      var itemPos = item.getBoundingClientRect()
-      console.log(itemPos)
     }
+    // customListCursor() {
+    //   var $listcursor = $(`.list-Cursor#${this.post.id}`)
+    //   function moveCursor(e) {
+    //     TweenLite.to($listcursor, 0, {
+    //       left: e.pageX,
+    //       top: e.offsetY
+    //     })
+    //   }
+    //   function displayImage() {
+    //     $listcursor.addClass('image')
+    //   }
+    //   function removeImage() {
+    //     $listcursor.removeClass('image')
+    //   }
+    //   $(`.list-Outer#${this.post.id}`).on('mouseenter', displayImage)
+    //   $(`.list-Outer#${this.post.id}`).on('mouseleave', removeImage)
+    //   document
+    //     .querySelector(`.list-Item#${this.post.id}`)
+    //     .addEventListener('mousemove', moveCursor, false)
+    // }
   },
   mounted() {
     window.addEventListener('beforeunload', this.initState)
-    this.customListCursor()
+    // this.customListCursor()
   }
 }
 </script>
