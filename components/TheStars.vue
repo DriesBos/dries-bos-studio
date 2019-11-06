@@ -63,7 +63,7 @@ export default {
         }
       })
       this.starGeo.verticesNeedUpdate = true
-      this.stars.rotation.y += 0.002
+      // this.stars.rotation.y += 0.002
 
       this.renderer.render(this.scene, this.camera)
       requestAnimationFrame(this.animate)

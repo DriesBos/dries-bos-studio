@@ -112,9 +112,10 @@ export default {
   right: 0
 
 .slider-enter-active, 
-  transition: all .2s ease .2s
+  transition: all .37s ease .13s
 .slider-leave-active
-  transition: all .2s ease
+  transition: all .13s ease-out
 .slider-enter, .slider-leave-to
   opacity: 0
+  transform: scale(.95)
 </style>

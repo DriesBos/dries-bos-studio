@@ -102,8 +102,15 @@ img[lazy="loaded"]
     border: 1px solid white
     padding-bottom: .15em
     pointer-events: auto
-    @media screen and ( min-width: $breakpoint-laptop )
-      margin: var(--spacing-two)
+  &-Profile
+    margin-left: 0
+  &-Work
+    margin-right: var(--spacing-one)
+  @media screen and ( min-width: $breakpoint-laptop )
+    .header-Profile
+      margin-right: var(--spacing-two)
+    .header-Logo
+      margin-left: var(--spacing-two)
 
 .three
   &-Container
