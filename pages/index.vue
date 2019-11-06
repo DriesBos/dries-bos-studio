@@ -29,7 +29,7 @@
           </div>
         </li>
       </ul>
-      <ul class="list">
+      <ul class="list list-Work">
         <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
       </ul>
     </section>

@@ -127,6 +127,7 @@ img[lazy="loaded"]
     padding-top: 14.32vw
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)
+    padding-bottom: 50vmin
     width: 100%
     @media screen and ( max-width: $breakpoint-mobile )
       padding-left: 0
@@ -139,10 +140,20 @@ img[lazy="loaded"]
       flex-direction: column
       width: 100%
       max-width: 1440px
+      &.list-Work
+        li:last-child
+          .list-Inner
+            border-bottom: 2px solid white
+        li
+          .list-Top
+            opacity: 0
+        li:first-child
+          .list-Top
+            opacity: 1
+
       .list-Item
         position: relative
         width: 100%
-        background: white
         transition: max-height 5s ease
         overflow: visible
         // .list-Cursor
@@ -194,11 +205,11 @@ img[lazy="loaded"]
             height: auto
             opacity: 1
         .list-Outer
-          background: white
           position: relative
           display: flex
           cursor: pointer
           z-index: 100
+          background: white
           border-top: 1px currentColor solid
           .list-Year
             min-width: 42px
@@ -222,12 +233,14 @@ img[lazy="loaded"]
           .list-Year
             margin-left: var(--spacing-two)
         .list-Inner
-          background: white
           z-index: 100
+          border-right: 2px solid white
+          border-left: 2px solid white
           &_Content
             display: flex
             flex-wrap: nowrap
-            margin-bottom: var(--spacing-two)
+            padding-bottom: var(--spacing-one)
+            background: white
           .list-Year
             margin-left: var(--spacing-two)
             flex-shrink: 0
