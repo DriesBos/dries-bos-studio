@@ -51,30 +51,28 @@ img[lazy="loaded"]
     width: 100%
     height: 100%
 
-.cursor
-  position: absolute
-  width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-  height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-  top: 50vh
-  left: 50vw
-  transform: translate(-50%, -50%)
-  border-radius: 100px
-  z-index: 999
-  border: 3px solid black
-  pointer-events: none
-  &.active
-    background: black
-  &.image
-    border: 3px solid purple
-  li
-    position: relative
-  img
-    position: absolute
-    width: 300px
-    height: 200px
-    left: 0
-    top: 0
-    transform: translate(-50%, -50%)
+// CURSOR
+// .cursor
+//   position: absolute
+//   top: 50vh
+//   left: 50vw
+//   transform: translate(-50%, -50%)
+//   z-index: 999
+//   pointer-events: none
+//   display: none
+//   &.active
+//     background: black
+//   &.image
+//     display: inline
+//   li
+//     position: relative
+//   img
+//     position: absolute
+//     width: 300px
+//     height: 200px
+//     left: 0
+//     top: 0
+//     transform: translate(-50%, -50%)
 
 // HEADER
 .header
@@ -87,7 +85,6 @@ img[lazy="loaded"]
   justify-content: space-between
   z-index: $zindex-interface
   pointer-events: none
-  transition: opacity $transition-general
   a, p, h1
     display: inline
     color: white
@@ -100,6 +97,8 @@ img[lazy="loaded"]
     border: 2px solid white
     padding-bottom: .15em
     pointer-events: auto
+    @media screen and ( min-width: $breakpoint-laptop )
+      margin: var(--spacing-two)
 
 .three
   &-Container
@@ -140,6 +139,30 @@ img[lazy="loaded"]
         width: 100%
         background: white
         transition: max-height 5s ease
+        overflow: visible
+        .list-Cursor
+          position: absolute
+          top: 0
+          left: 0
+          transform: translate(-50%, -50%)
+          width: 20vw
+          height: 12.5vw
+          overflow: hidden
+          pointer-events: none
+          opacity: 0
+          z-index: $zindex-cursor
+          z-index: 999
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+          img
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            width: 100%
+            opacity: 1
+            object-fit: cover
+          &.image
+            opacity: 1
         .icons-Row
           opacity: 0
         &:hover
@@ -229,7 +252,7 @@ img[lazy="loaded"]
       &.list-Filter
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
         will-change: transform
-        transition: transform .35s ease-out .2s
+        transition: transform .35s ease-out
         transform: translateY(1px)
         z-index: 100
         li
@@ -265,26 +288,6 @@ img[lazy="loaded"]
           @media screen and ( min-width: $breakpoint-laptop )
             transform: translateY(-91px)
 
-        // .list-Cursor
-        //   position: absolute
-        //   top: 0
-        //   left: 0
-        //   transform: translate(-50%, -50%)
-        //   width: 20vw
-        //   height: 12.5vw
-        //   overflow: hidden
-        //   pointer-events: none
-        //   opacity: 0
-        //   z-index: $zindex-cursor
-        //   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
-        //   img
-        //     position: absolute
-        //     top: 0
-        //     left: 0
-        //     height: 100%
-        //     width: 100%
-        //     opacity: 1
-        //     object-fit: cover
   &-Profile
     display: flex
     align-items: center
@@ -292,7 +295,7 @@ img[lazy="loaded"]
     width: 100%
     min-height: 100vh
     will-change: opacity
-    transition: opacity $transition-page .2s
+    transition: opacity $transition-page
     opacity: 0
     a, p, span
       color: white

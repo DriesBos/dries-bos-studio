@@ -1,5 +1,8 @@
 <template>
   <li :key="post.id" :id="post.id" class="list-Item">
+    <div class="list-Cursor" :class="post.id">
+      <img :src="post.thumbnail" />
+    </div>
     <div class="list-Top">
       <img src="~/assets/images/top-ground.png" />
     </div>
@@ -66,31 +69,36 @@ export default {
   methods: {
     initState() {
       this.isOpen = false
+    },
+    customListCursor() {
+      var $listcursor = $(`.list-Cursor.${this.post.id}`)
+      function moveCursor(e) {
+        TweenLite.to($listcursor, 0, {
+          left: e.pageX,
+          top: e.offsetY
+        })
+      }
+      function displayImage(e) {
+        $listcursor.addClass('image')
+      }
+      function removeImage(e) {
+        $listcursor.removeClass('image')
+      }
+      $(`.list-Item#${this.post.id}`).on('mouseenter', displayImage)
+      $(`.list-Item#${this.post.id}`).on('mouseleave', removeImage)
+      document
+        .querySelector(`.list-Item#${this.post.id}`)
+        .addEventListener('mousemove', moveCursor, false)
+    },
+    getPositionX(e) {
+      const item = document.querySelector(`.${e}#${this.post.id}`)
+      var itemPos = item.getBoundingClientRect()
+      console.log(itemPos)
     }
-    // customListCursor() {
-    //   var $listcursor = $(`.list-Cursor.${this.post.id}`)
-    //   function moveCursor(e) {
-    //     TweenLite.to($listcursor, 0, {
-    //       left: e.pageX,
-    //       top: e.offsetY
-    //     })
-    //     console.log(e, 'LIST')
-    //   }
-    //   // $(`#${this.post.id}`).on('mousemove', moveCursor)
-    //   document
-    //     .querySelector(`.list-Item#${this.post.id}`)
-    //     .addEventListener('mousemove', moveCursor, false)
-    // },
-    // getPositionX(e) {
-    //   const item = document.querySelector(`.${e}#${this.post.id}`)
-    //   var itemPos = item.getBoundingClientRect()
-    //   console.log(itemPos)
-    // }
   },
   mounted() {
     window.addEventListener('beforeunload', this.initState)
-    // this.customListCursor()
-    // this.getPositionX(`list-Category`)
+    this.customListCursor()
   }
 }
 </script>

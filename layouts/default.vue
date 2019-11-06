@@ -12,7 +12,7 @@
           :id="post.id"
           v-lazy-container="{ selector: 'img' }"
         >
-          <img :data-src="post.thumbnail" />
+          <img :data-src="post.thumbnail" :id="post.id" />
         </li>
       </ul>
     </div>-->
@@ -23,34 +23,52 @@
 import TheStars from '~/components/TheStars.vue'
 import TweenMax from 'gsap'
 import JQuery from 'jquery'
+import { mapState } from 'vuex'
 let $ = JQuery
 
 export default {
   components: {
     TheStars: TheStars
   },
+  // computed: {
+  //   ...mapState({
+  //     posts: state => state.posts.list
+  //   })
+  // },
   methods: {
     customCursor() {
       var $cursor = $('.cursor')
+      // Cursor movement
       function moveCursor(e) {
         TweenLite.to($cursor, 0.3, {
           left: e.pageX,
           top: e.pageY
         })
       }
-      function activeCursor(e) {
-        $cursor.addClass('active')
+      // Get ID from list items
+      function imageCursor(e) {
+        if (e.currentTarget.className === 'list-Item') {
+          $cursor.addClass('image')
+        }
       }
-      function removeActiveCursor(e) {
-        $cursor.removeClass('active')
+      function removeImageCursor(e) {
+        if (e.currentTarget.className === 'list-Item') {
+          $cursor.removeClass('image')
+        }
+      }
+      function showID(e) {
+        if (e.currentTarget.className === 'list-Item') {
+          console.log($cursor[0].firstChild.childNodes)
+        }
       }
       $(window).on('mousemove', moveCursor)
-      $('.list-Details, .icon').on('mouseenter', activeCursor)
-      $('.list-Details, .icon').on('mouseleave', removeActiveCursor)
+      $('.list-Item').on('mouseenter', imageCursor)
+      $('.list-Item').on('mouseenter', showID)
+      $('.list-Item').on('mouseleave', removeImageCursor)
     }
   },
   mounted() {
-    this.customCursor()
+    // this.customCursor()
   }
 }
 </script>
