@@ -297,6 +297,21 @@ img[lazy="loaded"]
               object-fit: cover
               cursor: pointer
               z-index: 100
+            .image-Slider_Nav
+              .icon
+                position: absolute
+                top: 50%
+                left: 0
+                transform: translateY(-50%)
+                width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+                height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+                opacity: 1
+                margin: var(--spacing-two)
+            .image-Slider_Next
+              .icon
+                left: auto
+                right: 0
+
       &.list-Filter
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
         will-change: transform

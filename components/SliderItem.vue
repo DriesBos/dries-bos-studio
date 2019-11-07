@@ -10,8 +10,12 @@
         :style="`background:#${bgcolor}`"
       >
         <img :data-src="currentImage" @click="next" class="image" />
-        <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev"></div>
-        <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next"></div>
+        <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev">
+          <img src="~assets/images/arrow-left-dark.png" class="icon" title="previous image" />
+        </div>
+        <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next">
+          <img src="~assets/images/arrow-right-dark.png" class="icon" title="next image" />
+        </div>
       </div>
     </transition-group>
   </div>
@@ -106,6 +110,11 @@ export default {
   top: 0
   bottom: 0
   cursor: pointer
+  .icon
+    position: absolute
+    width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+    height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
+    opacity: 1
 .image-Slider_Prev
   left: 0
 .image-Slider_Next
