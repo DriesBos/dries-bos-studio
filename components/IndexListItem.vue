@@ -20,23 +20,23 @@
           <img src="~assets/images/arrow-right-light.png" class="icon" />
         </div>
       </div>
-      <div class="list-Year list-Details">
+      <div v-if="post.year" class="list-Year list-Details">
         <p>{{ post.year }}</p>
       </div>
-      <div class="list-Title list-Details">
+      <div v-if="post.title" class="list-Title list-Details">
         <p>{{ post.title }}</p>
       </div>
-      <div class="list-Category list-Details">
+      <div v-if="post.category" class="list-Category list-Details">
         <p>{{ post.category }}</p>
       </div>
     </div>
     <div v-if="isOpen" class="list-Inner">
       <div class="list-Inner_Content">
-        <div class="list-Year list-Details">
+        <div v-if="post.year" class="list-Year list-Details">
           <p>{{post.year }}</p>
         </div>
-        <div class="list-Content list-Details">
-          <p>{{ post.content }}</p>
+        <div v-if="post.content" class="list-Content list-Details">
+          <MarkdownItem :input="post.content" />
         </div>
       </div>
       <SliderItem
@@ -50,6 +50,7 @@
 
 <script>
 import SliderItem from '~/components/SliderItem.vue'
+import MarkdownItem from '~/components/MarkdownItem.vue'
 import TweenMax from 'gsap'
 import JQuery from 'jquery'
 let $ = JQuery
@@ -57,7 +58,8 @@ let $ = JQuery
 export default {
   name: 'IndexListItem',
   components: {
-    SliderItem: SliderItem
+    SliderItem: SliderItem,
+    MarkdownItem: MarkdownItem
   },
   props: {
     post: Object
