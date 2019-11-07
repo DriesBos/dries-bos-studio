@@ -1,8 +1,15 @@
 <template>
   <div class="view-Container">
     <transition name="fade">
-      <div v-if="toggleLandingHelper" class="landing-Helper">
-        <div class="icon-Container" title="scroll down">
+      <div
+        v-if="toggleLandingHelper"
+        class="landing-Helper"
+        v-scroll-to="{
+          el: '.view-Index',
+          offset: -200
+        }"
+      >
+        <div class="landing-Icon" title="scroll down">
           <img src="~assets/images/arrow-down-dark.png" class="icon" />
         </div>
       </div>
@@ -17,11 +24,11 @@
           </div>
           <div class="list-Outer">
             <div @click="sortYear" class="list-Year list-Details">
-              <p>year</p>
+              <p>date</p>
               <p>sort</p>
             </div>
             <div @click="sortTitle" class="list-Title list-Details">
-              <p>title</p>
+              <p>project</p>
               <p>sort</p>
             </div>
             <div @click="sortCategory" class="list-Category list-Details">
