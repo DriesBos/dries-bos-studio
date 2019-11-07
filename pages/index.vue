@@ -6,7 +6,8 @@
         class="landing-Helper"
         v-scroll-to="{
           el: '.view-Index',
-          offset: -200
+          offset: -250,
+          duration: 1000,
         }"
       >
         <div class="landing-Icon" title="scroll down">
