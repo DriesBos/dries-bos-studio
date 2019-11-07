@@ -8,7 +8,11 @@
     </div>
     <div
       @click="isOpen = !isOpen"
-      v-scroll-to="`#${post.id}`"
+      v-scroll-to="{
+          el: `#${post.id}`,
+          duration: 600,
+          easing: 'ease'
+        }"
       :id="post.id"
       class="list-Outer ellipsis"
     >
