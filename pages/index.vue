@@ -1,5 +1,12 @@
 <template>
   <div class="view-Container">
+    <transition name="fade">
+      <div v-if="toggleLandingHelper" class="landing-Helper">
+        <div class="icon-Container" title="scroll down">
+          <img src="~assets/images/arrow-down-dark.png" class="icon" />
+        </div>
+      </div>
+    </transition>
     <TheHeader />
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
@@ -164,6 +171,12 @@ export default {
         this.toggleProfile = false
       }
     },
+    onScrollToggleLandingHelper() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition !== 0) {
+        this.toggleLandingHelper = false
+      }
+    },
     // LIST ELEMENTS UNIFORM WIDTH
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
@@ -209,6 +222,7 @@ export default {
     window.addEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
+      this.onScrollToggleLandingHelper()
     })
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
@@ -224,6 +238,7 @@ export default {
     window.removeEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
+      this.onScrollToggleLandingHelper()
     })
   }
 }
