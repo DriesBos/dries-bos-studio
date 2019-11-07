@@ -296,8 +296,25 @@ img[lazy="loaded"]
           .list-Outer
             z-index: 200
             cursor: default
-            .icons-Row
-              opacity: 1
+            .list-Category
+              flex-grow: 1
+            .list-Search
+              display: flex
+              flex-wrap: nowrap
+              padding-right: var(--spacing-one)
+              input
+                font-family: "Moderat", Helvetica, Arial, sans-serif
+                font-size: 1em
+                line-height: 1.5
+                color: $font-color
+                font-style: normal
+                font-weight: normal
+                -webkit-font-smoothing: antialiased
+                -moz-osx-font-smoothing: grayscale
+                transition: opacity $transition-general
+                opacity: 0
+              input:focus
+                opacity: 1
             .list-Details
               cursor: pointer
               p

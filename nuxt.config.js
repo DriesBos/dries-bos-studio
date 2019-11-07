@@ -91,6 +91,7 @@ module.exports = {
    */
   css: [
     '~/assets/styling/reset.css',
+    '~/assets/styling/form-reset.css',
     '~/assets/styling/variables.sass',
     '~/assets/styling/typography.sass',
     '~/assets/styling/transitions.sass',
@@ -123,9 +124,6 @@ module.exports = {
    */
   router: {
     scrollBehavior: function(to, from, savedPosition) {
-      console.log(to)
-      console.log(from)
-      console.log(savedPosition)
       return {
         x: 0,
         y: 500

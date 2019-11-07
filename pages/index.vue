@@ -16,11 +16,6 @@
             <img src="~/assets/images/top-ground.png" />
           </div>
           <div class="list-Outer">
-            <!-- <div class="icons-Row">
-              <div class="icon-Container" title="search">
-                <img src="~assets/images/search-light.png" class="icon" />
-              </div>
-            </div>-->
             <div @click="sortYear" class="list-Year list-Details">
               <p>year</p>
               <p>sort</p>
@@ -33,11 +28,18 @@
               <p>role</p>
               <p>sort</p>
             </div>
+            <div @click="searchFocus" class="list-Search">
+              <input type="text" v-model="search" ref="search" placeholder="search" />
+              <div class="icon-Container" title="search">
+                <img src="~assets/images/search-light.png" class="icon" />
+              </div>
+            </div>
           </div>
         </li>
       </ul>
       <ul class="list list-Work">
-        <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
+        <!-- <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li> -->
+        <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
       </ul>
     </section>
   </div>
@@ -59,20 +61,21 @@ export default {
   },
   data: function() {
     return {
+      // Toggle data
       toggleHeader: false,
       toggleFilter: false,
       toggleProfile: false,
       toggleLandingHelper: true,
-      lastScrollPosition: 0, // Used for header
-      previousScrollPosition: 0, // Used for direction
-      scrollDirection: '',
+      // Sorting data
       sorting: -1,
       toggleSortingYear: false,
       toggleSortingTitle: false,
       toggleSortingCategory: false,
       sortByYear: true,
       sortByTitle: false,
-      sortByCategory: false
+      sortByCategory: false,
+      // Search data
+      search: ''
     }
   },
   asyncData(context) {
@@ -147,6 +150,11 @@ export default {
       } else {
         return this.posts
       }
+    },
+    filteredList() {
+      return this.posts.filter(post => {
+        return post.title.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
   },
   methods: {
@@ -207,6 +215,9 @@ export default {
       this.sortByTitle = false
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
+    },
+    searchFocus() {
+      this.$refs.search.focus()
     }
   },
   beforeMount() {
