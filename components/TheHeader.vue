@@ -5,7 +5,7 @@
         <h1>Dries Bos</h1>
       </nuxt-link>
       <div class="header-Container">
-        <div
+        <!-- <div
           class="header-Work icon-Container ellipsis"
           v-scroll-to="{
           el: '.view-Index',
@@ -13,9 +13,9 @@
         }"
         >
           <h1>work</h1>
-        </div>
+        </div>-->
         <div class="header-Profile icon-Container ellipsis" v-scroll-to="`.view-Profile`">
-          <h1>profile</h1>
+          <h1>about</h1>
         </div>
       </div>
     </header>

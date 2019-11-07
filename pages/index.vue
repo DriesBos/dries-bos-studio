@@ -33,11 +33,11 @@
               <p>sort</p>
             </div>
             <div @click="sortCategory" class="list-Category list-Details">
-              <p>role</p>
+              <p>type</p>
               <p>sort</p>
             </div>
             <div @click="searchFocus" class="list-Search">
-              <input type="text" v-model="search" ref="search" placeholder="search" />
+              <input type="text" v-model="search" ref="search" placeholder=" search" />
               <div class="icon-Container" title="search">
                 <img src="~assets/images/search-light.png" class="icon" />
               </div>
