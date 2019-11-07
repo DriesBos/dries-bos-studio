@@ -55,6 +55,7 @@ export default {
       toggleHeader: false,
       toggleFilter: false,
       toggleProfile: false,
+      toggleLandingHelper: true,
       lastScrollPosition: 0, // Used for header
       previousScrollPosition: 0, // Used for direction
       scrollDirection: '',

@@ -112,6 +112,15 @@ img[lazy="loaded"]
     .header-Logo
       margin-left: var(--spacing-two)
 
+.landing-Helper
+  position: fixed
+  bottom: var(--spacing-two)
+  left: 50%
+  transform: translateX(-50%)
+  color: white
+  p
+    color: white
+
 .three
   &-Container
     position: fixed
@@ -134,7 +143,7 @@ img[lazy="loaded"]
     padding-top: 14.32vw
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)
-    padding-bottom: 50vmin
+    padding-bottom: 25vmin
     width: 100%
     @media screen and ( max-width: $breakpoint-mobile )
       padding-left: 0
@@ -246,7 +255,8 @@ img[lazy="loaded"]
           &_Content
             display: flex
             flex-wrap: nowrap
-            padding-bottom: var(--spacing-one)
+            padding-top: var(--spacing-one)
+            padding-bottom: var(--spacing-two)
             background: white
           .list-Year
             margin-left: var(--spacing-two)
@@ -336,6 +346,7 @@ img[lazy="loaded"]
         display: flex
         flex-direction: column
         align-items: center
+        max-width: 30em
       &-Contact
         margin-top: 100px
         a
