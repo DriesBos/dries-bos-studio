@@ -32,8 +32,7 @@ export default {
   },
   methods: {
     onScrollToggleHeader() {
-      let scrollPosition = document.documentElement.scrollTop
-      if (scrollPosition !== 0) {
+      if (window.pageYOffset > window.innerHeight * 0.5) {
         this.toggleHeader = true
       } else {
         this.toggleHeader = false

@@ -28,7 +28,7 @@ export default {
         1000
       )
       this.camera.position.z = 1
-      this.camera.rotation.x = Math.PI / 2
+      this.camera.rotation.x = Math.PI / 2.3
       this.renderer = new THREE.WebGLRenderer({ antialias: true })
       this.renderer.setSize(container.clientWidth, container.clientHeight)
       container.appendChild(this.renderer.domElement)
