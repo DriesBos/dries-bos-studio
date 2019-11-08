@@ -1,53 +1,105 @@
 <template>
   <div class="view-Container">
-    <transition name="fade">
-      <div
-        v-if="toggleLandingHelper"
-        class="landing-Helper"
-        v-scroll-to="{
-          el: '.view-Index',
-          offset: -250,
-          duration: 1000,
-        }"
-      >
-        <div class="landing-Icon" title="scroll down">
-          <img src="~assets/images/arrow-down-dark.png" class="icon" />
-        </div>
-      </div>
-    </transition>
-    <TheHeader />
+    <transition name="fade"></transition>
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
-      <ul class="list list-Filter" :data-toggle-filter="toggleFilter">
-        <li class="list-Item">
+      <ul class="list">
+        <li class="list-Item list-Item_Header" :data-toggle-filter="toggleFilter">
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
           </div>
           <div class="list-Outer">
-            <div @click="sortYear" class="list-Year list-Details">
+            <div class="list-Logo list-Year list-Details">
+              <p>Dries Bos</p>
+            </div>
+            <div class="list-Nav list-Details">
+              <p v-scroll-to="{
+          el: '.view-Index',
+          duration: 600
+        }">Work</p>
+              <p
+                v-scroll-to="{
+          el: '.view-Profile',
+          duration: 600
+        }"
+              >About</p>
+              <p
+                v-scroll-to="{
+          el: '.list-Item_Footer',
+          duration: 600,
+          easing: 'ease-in'
+
+        }"
+              >Contact</p>
+            </div>
+          </div>
+        </li>
+        <li class="list-Item list-Item_Filter">
+          <div class="list-Top">
+            <img src="~/assets/images/top-ground.png" />
+          </div>
+          <div class="list-Outer">
+            <div class="list-Year list-Details">
               <p>date</p>
-              <p>sort</p>
+              <p @click="sortYear">sort</p>
             </div>
-            <div @click="sortTitle" class="list-Title list-Details">
+            <div class="list-Title list-Details">
               <p>project</p>
-              <p>sort</p>
+              <p @click="sortTitle">sort</p>
             </div>
-            <div @click="sortCategory" class="list-Category list-Details">
+            <div class="list-Category list-Details">
               <p>type</p>
-              <p>sort</p>
+              <p @click="sortCategory">sort</p>
             </div>
-            <div @click="searchFocus" class="list-Search">
-              <input type="text" v-model="search" ref="search" placeholder=" search" />
-              <div class="icon-Container" title="search">
+            <div class="list-Search">
+              <input type="text" v-model="search" ref="search" placeholder="search" />
+              <div @click="searchFocus" class="icon-Container" title="search">
                 <img src="~assets/images/search-light.png" class="icon" />
               </div>
             </div>
           </div>
         </li>
-      </ul>
-      <ul class="list list-Work">
-        <!-- <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li> -->
-        <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+        <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
+        <!-- <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li> -->
+        <li class="list-Item list-Item_Footer" data-toggle-footer="true">
+          <div class="list-Top">
+            <img src="~/assets/images/top-ground.png" />
+          </div>
+          <div class="list-Outer">
+            <div class="list-Mail list-Details">
+              <a href="mailto:info@driesbos.com">info@driesbos.com</a>
+            </div>
+            <div class="list-Social list-Details">
+              <a
+                href="https://www.instagram.com/driesbosstudio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Instagram</a>
+              <a
+                href="https://www.linkedin.com/in/drbos/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >LinkedIn</a>
+              <a href="https://github.com/DriesBos" target="_blank" rel="noopener noreferrer">Github</a>
+              <a
+                href="https://codepen.io/driesbos"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Codepen</a>
+            </div>
+            <div class="icons-Row">
+              <div
+                class="icon-Container"
+                title="view project"
+                v-scroll-to="{
+          el: '.view-Index',
+          duration: 600}"
+              >
+                <img src="~assets/images/arrow-up-light.png" class="icon" />
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
     </section>
   </div>
@@ -55,7 +107,6 @@
 
 <script>
 import TheAbout from '~/components/TheAbout.vue'
-import TheHeader from '~/components/TheHeader.vue'
 import IndexListItem from '~/components/IndexListItem.vue'
 import JQuery from 'jquery'
 import { mapState } from 'vuex'
@@ -64,16 +115,13 @@ let $ = JQuery
 export default {
   components: {
     TheAbout: TheAbout,
-    TheHeader: TheHeader,
     IndexListItem: IndexListItem
   },
   data: function() {
     return {
       // Toggle data
-      toggleHeader: false,
       toggleFilter: false,
-      toggleProfile: false,
-      toggleLandingHelper: true,
+      toggleProfile: true,
       // Sorting data
       sorting: -1,
       toggleSortingYear: false,
@@ -187,16 +235,11 @@ export default {
         this.toggleProfile = false
       }
     },
-    onScrollToggleLandingHelper() {
-      let scrollPosition = document.documentElement.scrollTop
-      if (scrollPosition !== 0) {
-        this.toggleLandingHelper = false
-      }
-    },
     // LIST ELEMENTS UNIFORM WIDTH
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
       const listWidths = []
+      console.log(list)
       for (let i = 0; i < list.length; i++) {
         listWidths.push(list[i].offsetWidth)
       }
@@ -224,6 +267,7 @@ export default {
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
     },
+    // SEARCH
     searchFocus() {
       this.$refs.search.focus()
     }
@@ -236,28 +280,23 @@ export default {
     window.addEventListener('resize', () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
-      this.widestElement(`list-Category`)
     })
     window.addEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
-      this.onScrollToggleLandingHelper()
     })
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
-    this.widestElement(`list-Category`)
   },
   destroyed() {
     window.addEventListener('beforeunload', this.startPosition)
     window.removeEventListener('resize', () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
-      this.widestElement(`list-Category`)
     })
     window.removeEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
-      this.onScrollToggleLandingHelper()
     })
   }
 }

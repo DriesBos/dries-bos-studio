@@ -1,8 +1,5 @@
 <template>
-  <li :key="post.id" :id="post.id" class="list-Item">
-    <!-- <div class="list-Cursor" :id="post.id" :data-is-open="isOpen">
-      <img :src="post.thumbnail" />
-    </div>-->
+  <li :key="post.id" :id="post.id" class="list-Item list-Item_Project">
     <div class="list-Top">
       <img src="~/assets/images/top-ground.png" />
     </div>
@@ -10,20 +7,12 @@
       @click="isOpen = !isOpen"
       v-scroll-to="{
           el: `#${post.id}`,
-          duration: 600,
-          easing: 'ease'
+          duration: 600
         }"
       :id="post.id"
       class="list-Outer ellipsis"
+      :class="{ active: isOpen }"
     >
-      <div class="icons-Row">
-        <div v-if="isOpen" class="icon-Container" title="view project">
-          <img src="~assets/images/close-light.png" class="icon" />
-        </div>
-        <div v-else class="icon-Container" title="view project">
-          <img src="~assets/images/arrow-right-light.png" class="icon" />
-        </div>
-      </div>
       <div v-if="post.year" class="list-Year list-Details">
         <p>{{ post.year }}</p>
       </div>
@@ -33,8 +22,16 @@
       <div v-if="post.category" class="list-Category list-Details">
         <p>{{ post.category }}</p>
       </div>
+      <div class="icons-Row">
+        <div v-if="isOpen" class="icon-Container" title="view project">
+          <img src="~assets/images/close-light.png" class="icon" />
+        </div>
+        <div v-else class="icon-Container" title="view project">
+          <img src="~assets/images/arrow-right-light.png" class="icon" />
+        </div>
+      </div>
     </div>
-    <div v-if="isOpen" class="list-Inner">
+    <div v-show="isOpen" class="list-Inner">
       <div class="list-Inner_Content">
         <div v-if="post.year" class="list-Year list-Details">
           <p>{{post.year }}</p>
@@ -77,30 +74,9 @@ export default {
     initState() {
       this.isOpen = false
     }
-    // customListCursor() {
-    //   var $listcursor = $(`.list-Cursor#${this.post.id}`)
-    //   function moveCursor(e) {
-    //     TweenLite.to($listcursor, 0, {
-    //       left: e.pageX,
-    //       top: e.offsetY
-    //     })
-    //   }
-    //   function displayImage() {
-    //     $listcursor.addClass('image')
-    //   }
-    //   function removeImage() {
-    //     $listcursor.removeClass('image')
-    //   }
-    //   $(`.list-Outer#${this.post.id}`).on('mouseenter', displayImage)
-    //   $(`.list-Outer#${this.post.id}`).on('mouseleave', removeImage)
-    //   document
-    //     .querySelector(`.list-Item#${this.post.id}`)
-    //     .addEventListener('mousemove', moveCursor, false)
-    // }
   },
   mounted() {
     window.addEventListener('beforeunload', this.initState)
-    // this.customListCursor()
   }
 }
 </script>

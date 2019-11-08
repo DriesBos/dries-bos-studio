@@ -17,16 +17,12 @@ img[lazy="loaded"]
   transition: opacity .2s ease // just like slider element
   opacity: 1
 
-// BLOCKS
+// BUILDING BLOCKS
 .icons-Row
-  position: absolute
-  top: 0
-  right: var(--spacing-one)
   display: flex
   align-items: center
   justify-content: center
   transition: opacity $transition-hover
-  height: 100%
   @media screen and ( max-width: $breakpoint-mobile)
     margin-right: 0
 .icon-Container
@@ -34,8 +30,6 @@ img[lazy="loaded"]
   align-items: center
   justify-content: center
   cursor: pointer
-  padding-left: var(--spacing-one)
-  padding-right: var(--spacing-one)
   height: 100%
 .icon
   position: relative
@@ -51,86 +45,7 @@ img[lazy="loaded"]
     width: 100%
     height: 100%
 
-// CURSOR
-// .cursor
-//   position: absolute
-//   top: 50vh
-//   left: 50vw
-//   transform: translate(-50%, -50%)
-//   z-index: 999
-//   pointer-events: none
-//   display: none
-//   &.active
-//     background: black
-//   &.image
-//     display: inline
-//   li
-//     position: relative
-//   img
-//     position: absolute
-//     width: 300px
-//     height: 200px
-//     left: 0
-//     top: 0
-//     transform: translate(-50%, -50%)
-
-// HEADER
-.header
-  position: fixed
-  bottom: 0
-  left: 0
-  right: 0
-  display: flex
-  wrap: nowrap
-  justify-content: space-between
-  z-index: $zindex-interface
-  pointer-events: none
-  a, p, h1
-    display: inline
-    color: white
-  &-Container
-    display: flex
-    position: relative
-    height: 100%
-  &-Logo,
-  &-Profile,
-  &-Work
-    min-width: 0 // Hack provides width data to ellipsis content in flexbox item
-    margin: var(--spacing-two) var(--spacing-one)
-    background: black
-    border-radius: 100px
-    border: 1px solid white
-    padding-bottom: .15em
-    pointer-events: auto
-  &-Profile
-    margin-left: 0
-  &-Work
-    margin-right: var(--spacing-one)
-  @media screen and ( min-width: $breakpoint-laptop )
-    .header-Profile
-      margin-right: var(--spacing-two)
-    .header-Logo
-      margin-left: var(--spacing-two)
-
-.landing-Helper
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100vh
-  z-index: 999
-  .landing-Icon
-    position: absolute
-    top: auto
-    bottom: 0
-    left: 50%
-    transform: translateX(-50%)
-    display: flex
-    align-items: center
-    justify-content: center
-    cursor: pointer
-    padding: var(--spacing-two)
-
+// VIEWS
 .three
   &-Container
     position: fixed
@@ -139,7 +54,6 @@ img[lazy="loaded"]
     width: 100%
     height: 100vh
 
-// VIEWS
 .view
   &-Container
     position: relative
@@ -161,54 +75,20 @@ img[lazy="loaded"]
       padding-top: 15.5vw
     @media screen and ( min-width: $breakpoint-laptop )
       padding-top: 224px
+
+    // LISTS
     .list
       display: flex
       flex-direction: column
       width: 100%
       max-width: 1440px
-      &.list-Work
-        li:last-child
-          .list-Inner
-            border-bottom: 2px solid white
-        li
-          .list-Top
-            opacity: 0
-        li:first-child
-          .list-Top
-            opacity: 1
-
       .list-Item
         position: relative
         width: 100%
-        transition: max-height 5s ease
-        overflow: visible
-        // .list-Cursor
-        //   position: absolute
-        //   top: 0
-        //   left: 50%
-        //   transform: translate(-50%, -50%)
-        //   width: 20vw
-        //   height: 12.5vw
-        //   overflow: hidden
-        //   pointer-events: none
-        //   opacity: 0
-        //   z-index: $zindex-cursor
-        //   z-index: 999
-        //   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
-        //   img
-        //     position: absolute
-        //     top: 0
-        //     left: 0
-        //     height: 100%
-        //     width: 100%
-        //     opacity: 1
-        //     object-fit: cover
-        //   &.image
-        //     opacity: 1
-        //   &[data-is-open="true"]
-        //     opacity: 0
         .icons-Row
           opacity: 0
+          padding-left: var(--spacing-two)
+          padding-right: var(--spacing-two)
         &:hover
           .icons-Row
             opacity: 1
@@ -221,6 +101,7 @@ img[lazy="loaded"]
           left: 0
           width: 100%
           height: 0
+          opacity: 0
           z-index: 0
           pointer-events: none
           img
@@ -230,35 +111,46 @@ img[lazy="loaded"]
             width: 100%
             height: auto
             opacity: 1
-        .list-Outer
+        .list-Outer // Outer
           position: relative
           display: flex
-          cursor: pointer
+          align-items: center
           z-index: 100
           background: white
           border-top: 1px currentColor solid
-          .list-Year
-            min-width: 42px
-          @media screen and ( max-width: $breakpoint-mobile )
-            .list-Title
-              flex-grow: 1
-            .list-Details:last-child
-              text-align: right
-              margin-right: var(--spacing-two)
           .list-Details
             position: relative
             margin-left: 10vw
             padding-top: var(--spacing-one)
             padding-bottom: var(--spacing-one)
+            p
+              text-transform: lowercase
             @media screen and ( max-width: $breakpoint-mobile )
               margin-left: var(--spacing-two)
             @media screen and ( min-width: $breakpoint-laptop )
               margin-left: 144px
+          .list-Details:first-child
+            margin-left: var(--spacing-two)
+          .list-Year
+            min-width: 42px
+          .list-Title, .list-Logo
             p
               text-transform: capitalize
-          .list-Year
-            margin-left: var(--spacing-two)
-        .list-Inner
+          .list-Nav, .list-Mail, .list-Social
+            display: flex
+            flex-wrap: nowrap
+            p, a
+              margin-right: 1em
+              cursor: pointer
+              user-select: none
+            p:last-child, a:last-child
+              margin-right: 0
+          @media screen and ( max-width: $breakpoint-mobile )
+            .list-Title
+              flex-grow: 1
+            .list-Category
+              text-align: right
+        .list-Inner // Inner
           z-index: 100
           border-right: 2px solid white
           border-left: 2px solid white
@@ -274,6 +166,7 @@ img[lazy="loaded"]
             min-width: 42px
             p
               opacity: 0
+              cursor: default
             @media screen and ( max-width: $breakpoint-mobile )
               display: none
           .list-Content
@@ -283,84 +176,22 @@ img[lazy="loaded"]
               margin-left: var(--spacing-two)
             @media screen and ( min-width: $breakpoint-laptop )
               margin-left: 144px
-          .slider-Container
-            z-index: 100
-            height: 62.5vw
-            max-height: 900px
-            .image-Slider
-              height: 100%
-              z-index: 100
-            img, video
-              position: absolute
-              height: 100%
-              width: 100%
-              object-fit: cover
-              cursor: pointer
-              z-index: 100
-            .image-Slider_Nav
-              .icon
-                position: absolute
-                top: 50%
-                left: 0
-                transform: translateY(-50%)
-                width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-                height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-                opacity: 1
-                margin: var(--spacing-two)
-            .image-Slider_Next
-              .icon
-                left: auto
-                right: 0
 
-      &.list-Filter
+      .list-Item_Project
+        .list-Outer
+          cursor: pointer
+          .list-Category
+            flex-grow: 1
+          &.active
+            cursor: default
+
+      .list-Item_Header
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
         will-change: transform
         transition: transform .35s ease-out
-        transform: translateY(1px)
         z-index: 100
-        li
-          border-bottom: currentColor 1px solid
-          z-index: 100
-          .list-Outer
-            z-index: 200
-            cursor: default
-            .list-Category
-              flex-grow: 1
-            .list-Search
-              display: flex
-              flex-wrap: nowrap
-              padding-right: var(--spacing-one)
-              input
-                font-family: "Moderat", Helvetica, Arial, sans-serif
-                font-size: 1em
-                line-height: 1.5
-                color: $font-color
-                font-style: normal
-                font-weight: normal
-                -webkit-font-smoothing: antialiased
-                -moz-osx-font-smoothing: grayscale
-                transition: opacity $transition-general
-                opacity: 0
-              input:focus
-                opacity: 1
-            .list-Details
-              cursor: pointer
-              p
-                text-transform: lowercase
-                &:nth-child(2)
-                  position: absolute
-                  opacity: 0
-                  top: 0
-                  left: 0
-                  padding-top: var(--spacing-one)
-                  padding-bottom: var(--spacing-one)
-              &:hover
-                p:first-child
-                  opacity: 0
-                p:nth-child(2)
-                  opacity: 1
-        img, p
-          opacity: .4
+        .list-Top
+          opacity: 1
         &[data-toggle-filter="true"]
           transform: translateY(calc(0px - (4vmin + 1.5em)))
           @media screen and ( max-width: $breakpoint-mobile )
@@ -368,7 +199,87 @@ img[lazy="loaded"]
           @media screen and ( min-width: $breakpoint-laptop )
             transform: translateY(-91px)
 
+      .list-Item_Filter
+        p, input, img
+          opacity: .4
+          user-select: none
+        img
+          transition: opacity $transition-hover
+        .list-Top
+          opacity: 1
+        .list-Outer
+          .list-Category
+            flex-grow: 1
+          .list-Search
+            display: flex
+            align-items: center
+            flex-wrap: nowrap
+            padding-right: var(--spacing-two)
+            cursor: default
+            .icon-Container:hover
+              img
+                opacity: 1
+            input
+              font-family: "Moderat", Helvetica, Arial, sans-serif
+              font-size: 1em // TODO: Move to typography.sass
+              line-height: 1.5
+              color: $font-color
+              font-style: normal
+              font-weight: normal
+              -webkit-font-smoothing: antialiased
+              -moz-osx-font-smoothing: grayscale
+              transition: opacity $transition-general
+              opacity: 0
+              cursor: default
+            input:focus
+              opacity: 1
+              cursor: text
+            input::placeholder
+              opacity: .4
+              color: black
+          .list-Details
+            p
+              text-transform: lowercase
+            p:nth-child(2)
+              position: absolute
+              opacity: 0
+              top: 0
+              left: 0
+              padding-top: var(--spacing-one)
+              padding-bottom: var(--spacing-one)
+            &:hover
+              p:first-child
+                opacity: 0
+                cursor: default
+              p:nth-child(2)
+                opacity: 1
+                cursor: pointer
+
+      .list-Item:nth-last-child(2)
+        box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
+        z-index: 100
+        .list-Inner
+          border-bottom: 2px solid white
+
+      .list-Item_Footer
+        margin-top: calc(0px + (4vmin + 1.5em))
+        @media screen and ( max-width: $breakpoint-mobile )
+          margin-top: 65px
+        @media screen and ( min-width: $breakpoint-laptop )
+          margin-top: 91px
+        .list-Top
+          opacity: 1
+        .list-Outer
+          .list-Mail
+            flex-grow: 1
+          .list-Social
+            margin-left: var(--spacing-two)
+          .icons-Row
+            opacity: 1
+
+  // PROFILE
   &-Profile
+    position: relative
     display: flex
     align-items: center
     justify-content: center
@@ -385,20 +296,14 @@ img[lazy="loaded"]
     .about
       text-align: center
       margin: var(--spacing-two)
+      max-width: 30em
       .markdown
         display: flex
         flex-direction: column
         align-items: center
-        max-width: 30em
-      &-Contact
-        margin-top: 100px
-        a
-          text-decoration: none
-        a:hover
-          text-decoration: underline
-        @media screen and ( max-width: $breakpoint-mobile )
-          margin-top: var(--spacing-one)
-          a
-            text-decoration: underline
-          span
-            display: none
+    .helper
+      position: absolute
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      padding: var(--spacing-two)
