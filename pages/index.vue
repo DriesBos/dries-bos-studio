@@ -10,7 +10,12 @@
           </div>
           <div class="list-Outer">
             <div class="list-Logo list-Year list-Details">
-              <p>Dries Bos</p>
+              <p
+                v-scroll-to="{
+          el: '.view-Index',
+          duration: 600
+        }"
+              >Dries Bos</p>
             </div>
             <div class="list-Nav list-Details">
               <p v-scroll-to="{
@@ -52,7 +57,7 @@
               <p @click="sortCategory">sort</p>
             </div>
             <div class="list-Search">
-              <input type="text" v-model="search" ref="search" placeholder="search" />
+              <input type="text" v-model="search" ref="search" placeholder="type search.." />
               <div @click="searchFocus" class="icon-Container" title="search">
                 <img src="~assets/images/search-light.png" class="icon" />
               </div>
