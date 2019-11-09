@@ -9,12 +9,12 @@ html, body, #__layout
   background: black
 
 img
-  transition: opacity $transition-lazy // just like slider element
+  // transition: opacity $transition-lazy // just like slider element
   opacity: 0
   width: 100%
 
 img[lazy="loaded"]
-  transition: opacity $transition-lazy // just like slider element
+  // transition: opacity $transition-lazy // just like slider element
   opacity: 1
 
 // BUILDING BLOCKS
@@ -344,7 +344,7 @@ img[lazy="loaded"]
     width: 100%
     min-height: 100vh
     will-change: opacity
-    transition: opacity $transition-page, display $transition-page
+    transition: opacity $transition-page
     opacity: 0
     cursor: default
     a, p, span
