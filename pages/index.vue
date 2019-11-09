@@ -56,7 +56,7 @@
               <p>type</p>
               <p @click="sortCategory">sort</p>
             </div>
-            <div class="list-Search">
+            <div class="list-Search" v-bind:class="{ active: searchHasInput }">
               <input type="text" v-model="search" ref="search" placeholder="type search.." />
               <div @click="searchFocus" class="icon-Container" title="search">
                 <img src="~assets/images/search-light.png" class="icon" />
@@ -64,8 +64,8 @@
             </div>
           </div>
         </li>
-        <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
-        <li class="list-Item list-Item_Footer" data-toggle-footer="true">
+        <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+        <li class="list-Item list-Item_Footer">
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
           </div>
@@ -135,7 +135,8 @@ export default {
       sortByTitle: false,
       sortByCategory: false,
       // Search data
-      search: ''
+      search: '',
+      searchHasInput: false
     }
   },
   asyncData(context) {
@@ -243,7 +244,6 @@ export default {
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
       const listWidths = []
-      console.log(list)
       for (let i = 0; i < list.length; i++) {
         listWidths.push(list[i].offsetWidth)
       }
@@ -274,6 +274,13 @@ export default {
     // SEARCH
     searchFocus() {
       this.$refs.search.focus()
+    },
+    searchHasValue() {
+      if (this.search !== '') {
+        this.searchHasInput = true
+      } else {
+        this.searchHasInput = false
+      }
     }
   },
   beforeMount() {
@@ -289,6 +296,7 @@ export default {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
     })
+    window.addEventListener('input', this.searchHasValue)
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
   },
@@ -302,6 +310,7 @@ export default {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
     })
+    window.removeEventListener('input', this.searchHasValue)
   }
 }
 </script>

@@ -225,6 +225,12 @@ img[lazy="loaded"]
             padding-right: var(--spacing-two)
             cursor: default
             min-width: 0
+            &.active
+              .icon-Container img
+                opacity: 1
+              input
+                opacity: 1
+                cursor: text
             @media screen and ( max-width: $breakpoint-mobile )
               display: none
             .icon-Container:hover
