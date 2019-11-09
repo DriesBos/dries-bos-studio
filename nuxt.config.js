@@ -51,28 +51,24 @@ module.exports = {
     link: [
       {
         rel: 'icon',
-        type: 'image/image/png',
+        type: 'image/png',
         sizes: '16x16',
         href: '/favicon-16x16.png'
       },
       {
         rel: 'icon',
-        type: 'image/image/png',
+        type: 'image/png',
         sizes: '32x32',
         href: '/favicon-32x32.png'
       },
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/apple-touch-icon.png'
+        href: '/apple-icon-180x180.png'
       },
       {
         rel: 'manifest',
-        href: '/site.webmanifest'
-      },
-      {
-        rel: 'mask-icon',
-        href: '/safari-pinned-tab.svg'
+        href: '/manifest.json'
       }
     ]
   },
