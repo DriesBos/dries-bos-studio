@@ -24,10 +24,10 @@
       </div>
       <div class="icons-Row">
         <div v-if="isOpen" class="icon-Container" title="view project">
-          <img src="~assets/images/close-light.png" class="icon" />
+          <img src="~assets/images/close-red.png" class="icon" />
         </div>
         <div v-else class="icon-Container" title="view project">
-          <img src="~assets/images/arrow-right-light.png" class="icon" />
+          <img src="~assets/images/arrow-right-red.png" class="icon" />
         </div>
       </div>
     </div>

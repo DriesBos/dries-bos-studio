@@ -58,7 +58,7 @@
             <div class="list-Search" v-bind:class="{ active: searchHasInput }">
               <input type="text" v-model="search" ref="search" placeholder="type search.." />
               <div @click="searchFocus" class="icon-Container" title="search">
-                <img src="~assets/images/search-light.png" class="icon" />
+                <img src="~assets/images/search-red.png" class="icon" />
               </div>
             </div>
           </div>
@@ -99,6 +99,7 @@
           duration: 600}"
               >
                 <img src="~assets/images/arrow-up-light.png" class="icon" />
+                <img src="~assets/images/arrow-up-red.png" class="icon" />
               </div>
             </div>
           </div>

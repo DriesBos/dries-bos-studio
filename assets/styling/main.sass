@@ -150,6 +150,11 @@ img[lazy="loaded"]
           .list-Category
             flex-grow: 1
             flex-shrink: 0
+          .list-Nav, .list-Mail, .list-Social, .list-Logo
+            p, a
+              transition: color $transition-hover
+              &:hover
+                color: $font-hover
           @media screen and ( max-width: $breakpoint-mobile )
             .list-Title
               flex-grow: 1
@@ -214,7 +219,9 @@ img[lazy="loaded"]
           opacity: .4
           user-select: none
         img
-          transition: opacity $transition-hover
+          transition: opacity $transition-hover, filter $transition-hover
+          -webkit-filter: grayscale(1)
+          filter: greyscale(1)
         .list-Top
           opacity: 1
         .list-Outer
@@ -226,6 +233,9 @@ img[lazy="loaded"]
             padding-right: var(--spacing-two)
             cursor: default
             min-width: 0
+            .icon-Container:hover img
+              -webkit-filter: grayscale(0)
+              filter: greyscale(0)
             &.active
               .icon-Container img
                 opacity: 1
@@ -267,6 +277,7 @@ img[lazy="loaded"]
               left: 0
               padding-top: var(--spacing-one)
               padding-bottom: var(--spacing-one)
+              color: $font-hover
             &:hover
               p:first-child
                 opacity: 0
@@ -274,6 +285,13 @@ img[lazy="loaded"]
               p:nth-child(2)
                 opacity: 1
                 cursor: pointer
+
+      .list-Item_Project
+        .list-Outer
+          p
+            transition: color $transition-hover
+          &:hover p
+            color: $font-hover
 
       .list-Item:nth-last-child(2)
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
@@ -298,6 +316,19 @@ img[lazy="loaded"]
               display: none
           .icons-Row
             opacity: 1
+            .icon-Container
+              padding-left: var(--spacing-one)
+              padding-right: var(--spacing-one)
+            img
+              position: absolute
+              transition: opacity $transition-hover
+            img:last-child
+              opacity: 0
+            &:hover
+              img:first-child
+                opacity: 0
+              img:last-child
+                opacity: 1
 
   // PROFILE
   &-Profile
