@@ -89,7 +89,7 @@ export default {
 @import '~/assets/styling/variables.sass'
 .slider-Container
   position: relative
-  height: 62.5vw
+  height: calc(61.5vw - #{var(--spacing-two)})
   max-height: 900px
   &:hover .image-Slider_Nav
     opacity: 1
@@ -102,13 +102,13 @@ export default {
     top: 0
     width: 100%
     height: 100%
-    img
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      object-fit: cover
+  img
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: contain
 .image-Slider_Nav
   position: absolute
   z-index: 999
