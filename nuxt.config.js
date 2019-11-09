@@ -12,7 +12,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Dries Bos',
+    title: 'Dries Bos —- Portfolio',
     meta: [
       {
         charset: 'utf-8'
@@ -41,11 +41,11 @@ module.exports = {
       },
       {
         property: 'og:title',
-        content: 'Dries Bos'
+        content: 'Dries Bos —— Portfolio'
       },
       {
         property: 'og:description',
-        content: 'web design + development'
+        content: 'Software Development + Interface Design'
       }
     ],
     link: [

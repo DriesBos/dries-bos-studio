@@ -1,7 +1,7 @@
 {
-  "name": "dries-bos-studio",
+  "name": "dries-bos",
   "version": "1.0.0",
-  "description": "Creative Frontend Development",
+  "description": "Software Development + Interface Design",
   "author": "Dries Bos",
   "private": true,
   "scripts": {
