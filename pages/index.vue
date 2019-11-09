@@ -281,13 +281,20 @@ export default {
       } else {
         this.searchHasInput = false
       }
+    },
+    // OTHER
+    windowIsVisible() {
+      if (document.visibilityState === 'hidden') {
+        document.title = '☺️ miss you..'
+      } else {
+        document.title = '🧑‍🚀 Dries Bos'
+      }
     }
   },
   beforeMount() {
     this.startPosition()
   },
   mounted() {
-    window.addEventListener('beforeunload', this.startPosition)
     window.addEventListener('resize', () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
@@ -297,11 +304,10 @@ export default {
       this.onScrollToggleProfile()
     })
     window.addEventListener('input', this.searchHasValue)
-    this.widestElement(`list-Year`)
-    this.widestElement(`list-Title`)
+    document.addEventListener('visibilitychange', this.windowIsVisible)
+    window.addEventListener('beforeunload', this.startPosition)
   },
   destroyed() {
-    window.addEventListener('beforeunload', this.startPosition)
     window.removeEventListener('resize', () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
@@ -311,6 +317,8 @@ export default {
       this.onScrollToggleProfile()
     })
     window.removeEventListener('input', this.searchHasValue)
+    document.removeEventListener('visibilitychange', this.windowIsVisible)
+    window.removeEventListener('beforeunload', this.startPosition)
   }
 }
 </script>

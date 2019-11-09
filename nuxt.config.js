@@ -12,7 +12,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Dries Bos —- Portfolio',
+    title: '🧑‍🚀 Dries Bos',
     meta: [
       {
         charset: 'utf-8'
@@ -41,7 +41,7 @@ module.exports = {
       },
       {
         property: 'og:title',
-        content: 'Dries Bos —— Portfolio'
+        content: '🧑‍🚀 Dries Bos'
       },
       {
         property: 'og:description',
