@@ -46,6 +46,14 @@ module.exports = {
       {
         property: 'og:description',
         content: 'Software Development + Interface Design'
+      },
+      {
+        name: 'mobile-web-app-capable',
+        content: 'yes'
+      },
+      {
+        name: 'apple-mobile-web-app-capable',
+        content: 'yes'
       }
     ],
     link: [
