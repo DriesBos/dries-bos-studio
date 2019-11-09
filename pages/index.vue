@@ -282,12 +282,26 @@ export default {
         this.searchHasInput = false
       }
     },
-    // OTHER
+    // BROWSER APIS
     windowIsVisible() {
       if (document.visibilityState === 'hidden') {
         document.title = '☺️ miss you..'
+        this.toggleFilter = false
       } else {
         document.title = '🧑‍🚀 Dries Bos'
+        let scrollPosition = document.documentElement.scrollTop
+        if (scrollPosition > window.innerHeight * 0.5) {
+          this.toggleFilter = true
+        }
+      }
+    },
+    mouseLeftDocument() {
+      this.toggleFilter = false
+    },
+    mouseEntersDocument() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition > window.innerHeight * 0.5) {
+        this.toggleFilter = true
       }
     }
   },
@@ -306,6 +320,8 @@ export default {
     window.addEventListener('input', this.searchHasValue)
     document.addEventListener('visibilitychange', this.windowIsVisible)
     window.addEventListener('beforeunload', this.startPosition)
+    document.addEventListener('mouseleave', this.mouseLeftDocument)
+    document.addEventListener('mouseenter', this.mouseEntersDocument)
   },
   destroyed() {
     window.removeEventListener('resize', () => {
@@ -319,6 +335,7 @@ export default {
     window.removeEventListener('input', this.searchHasValue)
     document.removeEventListener('visibilitychange', this.windowIsVisible)
     window.removeEventListener('beforeunload', this.startPosition)
+    document.removeEventListener('mouseleave', this.mouseLeftDocument)
   }
 }
 </script>
