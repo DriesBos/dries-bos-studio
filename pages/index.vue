@@ -1,6 +1,5 @@
 <template>
   <div class="view-Container">
-    <transition name="fade"></transition>
     <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list">

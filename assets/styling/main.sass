@@ -9,12 +9,12 @@ html, body, #__layout
   background: black
 
 img
-  transition: opacity .2s ease // just like slider element
+  transition: opacity $transition-lazy // just like slider element
   opacity: 0
   width: 100%
 
 img[lazy="loaded"]
-  transition: opacity .2s ease // just like slider element
+  transition: opacity $transition-lazy // just like slider element
   opacity: 1
 
 // BUILDING BLOCKS
@@ -245,7 +245,7 @@ img[lazy="loaded"]
               font-weight: normal
               -webkit-font-smoothing: antialiased
               -moz-osx-font-smoothing: grayscale
-              transition: opacity $transition-general
+              transition: opacity $transition-hover
               opacity: 0
               cursor: default
               padding-left: var(--spacing-one)
