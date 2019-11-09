@@ -86,10 +86,13 @@ export default {
 </script>
 
 <style lang="sass">
+@import '~/assets/styling/variables.sass'
 .slider-Container
   position: relative
   height: 62.5vw
   max-height: 900px
+  &:hover .image-Slider_Nav
+    opacity: 1
 .image-Slider
   position: relative
   height: 100%
@@ -113,6 +116,8 @@ export default {
   top: 0
   bottom: 0
   cursor: pointer
+  transition: opacity $transition-hover
+  opacity: 0
   .icon
     position: absolute
     top: 50%
