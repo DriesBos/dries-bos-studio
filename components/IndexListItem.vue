@@ -23,7 +23,7 @@
         <p>{{ post.category }}</p>
       </div>
       <div class="icons-Row">
-        <div v-if="isOpen" class="icon-Container" title="view project">
+        <div v-if="isOpen" class="icon-Container" title="close project">
           <img src="~assets/images/close-red.png" class="icon" />
         </div>
         <div v-else class="icon-Container" title="view project">

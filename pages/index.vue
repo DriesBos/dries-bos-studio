@@ -14,6 +14,7 @@
           el: '.view-Index',
           duration: 600
         }"
+                title="thats me!"
               >Dries Bos</p>
             </div>
             <div class="list-Nav list-Details">
@@ -45,19 +46,19 @@
           <div class="list-Outer">
             <div class="list-Year list-Details">
               <p>date</p>
-              <p @click="sortYear">sort</p>
+              <p @click="sortYear" title="sort by date">sort</p>
             </div>
             <div class="list-Title list-Details">
               <p>project</p>
-              <p @click="sortTitle">sort</p>
+              <p @click="sortTitle" title="sort by project">sort</p>
             </div>
             <div class="list-Category list-Details">
               <p>type</p>
-              <p @click="sortCategory">sort</p>
+              <p @click="sortCategory" title="sort by type">sort</p>
             </div>
             <div class="list-Search" v-bind:class="{ active: searchHasInput }">
               <input type="text" v-model="search" ref="search" placeholder="type search.." />
-              <div @click="searchFocus" class="icon-Container" title="search">
+              <div @click="searchFocus" class="icon-Container" title="search projects">
                 <img src="~assets/images/search-red.png" class="icon" />
               </div>
             </div>
@@ -70,7 +71,7 @@
           </div>
           <div class="list-Outer">
             <div class="list-Mail list-Details">
-              <a href="mailto:info@driesbos.com">info@driesbos.com</a>
+              <a href="mailto:info@driesbos.com" title="say hello!">info@driesbos.com</a>
             </div>
             <div class="list-Social list-Details">
               <a
@@ -93,7 +94,7 @@
             <div class="icons-Row">
               <div
                 class="icon-Container"
-                title="view project"
+                title="scroll to top"
                 v-scroll-to="{
           el: '.view-Index',
           duration: 600}"

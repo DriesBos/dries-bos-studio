@@ -16,7 +16,7 @@
       <img src="~assets/images/arrow-left-red.png" class="icon" title="previous image" />
     </div>
     <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next">
-      <img src="~assets/images/arrow-right-red.png" class="icon" title="previous image" />
+      <img src="~assets/images/arrow-right-red.png" class="icon" title="next image" />
     </div>
   </div>
 </template>
