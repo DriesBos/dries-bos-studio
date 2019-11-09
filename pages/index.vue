@@ -64,7 +64,7 @@
           </div>
         </li>
         <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-        <li class="list-Item list-Item_Footer">
+        <li class="list-Item list-Item_Footer" :data-toggle-footer="toggleFooter">
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
           </div>
@@ -126,6 +126,7 @@ export default {
       // Toggle data
       toggleFilter: false,
       toggleProfile: true,
+      toggleFooter: false,
       // Sorting data
       sorting: -1,
       toggleSortingYear: false,
@@ -240,6 +241,21 @@ export default {
         this.toggleProfile = false
       }
     },
+    onScrollToggleFooter() {
+      var pageHeight = document.documentElement.offsetHeight
+      var windowHeight = window.innerHeight
+      var scrollPosition =
+        window.scrollY ||
+        window.pageYOffset ||
+        document.body.scrollTop +
+          ((document.documentElement && document.documentElement.scrollTop) ||
+            0)
+      if (pageHeight <= windowHeight + scrollPosition) {
+        this.toggleFooter = true
+      } else {
+        this.toggleFooter = false
+      }
+    },
     // LIST ELEMENTS UNIFORM WIDTH
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
@@ -318,6 +334,7 @@ export default {
     window.addEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
+      this.onScrollToggleFooter()
     })
     window.addEventListener('input', () => {
       this.widestElement(`list-Year`)
@@ -337,6 +354,7 @@ export default {
     window.removeEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
+      this.onScrollToggleFooter()
     })
     window.removeEventListener('input', () => {
       this.widestElement(`list-Year`)

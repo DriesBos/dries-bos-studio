@@ -239,6 +239,8 @@ img[lazy="loaded"]
             &.active
               .icon-Container img
                 opacity: 1
+                -webkit-filter: grayscale(0)
+                filter: greyscale(0)
               input
                 opacity: 1
                 cursor: text
@@ -261,6 +263,7 @@ img[lazy="loaded"]
               cursor: default
               padding-left: var(--spacing-one)
               min-width: 0
+              color: $font-hover
             input:focus
               opacity: 1
               cursor: text
@@ -301,6 +304,9 @@ img[lazy="loaded"]
 
       .list-Item_Footer
         margin-top: calc(0px + (4vmin + 1.5em))
+        &[data-toggle-footer="true"]
+          .list-Mail a
+            color: $font-hover
         @media screen and ( max-width: $breakpoint-mobile )
           margin-top: 65px
         @media screen and ( min-width: $breakpoint-laptop )
