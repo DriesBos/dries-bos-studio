@@ -318,6 +318,10 @@ export default {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
     })
+    window.addEventListener('input', () => {
+      this.widestElement(`list-Year`)
+      this.widestElement(`list-Title`)
+    })
     window.addEventListener('input', this.searchHasValue)
     document.addEventListener('visibilitychange', this.windowIsVisible)
     window.addEventListener('beforeunload', this.startPosition)
@@ -332,6 +336,10 @@ export default {
     window.removeEventListener('scroll', () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
+    })
+    window.removeEventListener('input', () => {
+      this.widestElement(`list-Year`)
+      this.widestElement(`list-Title`)
     })
     window.removeEventListener('input', this.searchHasValue)
     document.removeEventListener('visibilitychange', this.windowIsVisible)
