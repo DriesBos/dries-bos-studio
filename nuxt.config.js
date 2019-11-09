@@ -89,6 +89,7 @@ module.exports = {
     '~/assets/styling/reset.css',
     '~/assets/styling/form-reset.css',
     '~/assets/styling/variables.sass',
+    '~/assets/styling/fonts.css',
     '~/assets/styling/typography.sass',
     '~/assets/styling/transitions.sass',
     '~/assets/styling/main.sass'

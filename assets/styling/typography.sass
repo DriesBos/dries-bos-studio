@@ -1,16 +1,11 @@
 // https://type-scale.com/
 @import '~/assets/styling/variables.sass'
 
-@font-face
-  font-family: 'Moderat'
-  src: url('~assets/fonts/Moderat-Regular.woff') format('woff')
-  font-weight: normal
-  font-style: normal
-
-html
+html, body
   // https://css-tricks.com/snippets/css/fluid-typography/
-  font-size: 19px
-  font-size: calc(19px + (22 - 19) * ((100vw - 700px) / (1400 - 700)))
+  font-size: 16px
+  // font-size: calc(19px + (22 - 19) * ((100vw - 700px) / (1400 - 700)))
+  font-size: calc(16px + (19 - 16) * ((100vw - 700px) / (1400 - 700)))
 
 h1, h2, h3, p
   max-width: $font-maxwidth
@@ -24,7 +19,7 @@ h1, h2, h3, p
   hyphens: auto
 
 h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span
-  font-family: "Moderat", Helvetica, Arial, sans-serif
+  font-family: "Graphik", Helvetica, Arial, sans-serif
   font-size: 1em
   line-height: 1.5
   color: $font-color
@@ -45,5 +40,3 @@ a
     white-space: nowrap
     overflow: hidden
     text-overflow: ellipsis
-
-
