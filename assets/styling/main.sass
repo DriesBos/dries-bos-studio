@@ -147,11 +147,17 @@ img[lazy="loaded"]
               margin-right: 0
           .list-Logo p
             cursor: pointer
+          .list-Category
+            flex-grow: 1
           @media screen and ( max-width: $breakpoint-mobile )
             .list-Title
               flex-grow: 1
             .list-Category
               text-align: right
+              margin-right: var(--spacing-two)
+              flex-grow: 0
+            .list-Social, .list-Nav
+              margin-right: var(--spacing-two)
         .list-Inner // Inner
           z-index: 100
           border-right: 2px solid white
@@ -182,8 +188,6 @@ img[lazy="loaded"]
       .list-Item_Project
         .list-Outer
           cursor: pointer
-          .list-Category
-            flex-grow: 1
           &.active
             cursor: default
 
@@ -194,6 +198,9 @@ img[lazy="loaded"]
         z-index: 100
         .list-Top
           opacity: 1
+        .list-Outer
+          @media screen and ( max-width: $breakpoint-mobile )
+            justify-content: space-between
         &[data-toggle-filter="true"]
           transform: translateY(calc(0px - (4vmin + 1.5em)))
           @media screen and ( max-width: $breakpoint-mobile )
@@ -210,14 +217,16 @@ img[lazy="loaded"]
         .list-Top
           opacity: 1
         .list-Outer
-          .list-Category
-            flex-grow: 1
           .list-Search
+            flex-basis: auto
             display: flex
             align-items: center
             flex-wrap: nowrap
             padding-right: var(--spacing-two)
             cursor: default
+            min-width: 0
+            @media screen and ( max-width: $breakpoint-mobile )
+              display: none
             .icon-Container:hover
               img
                 opacity: 1
@@ -233,6 +242,8 @@ img[lazy="loaded"]
               transition: opacity $transition-general
               opacity: 0
               cursor: default
+              padding-left: var(--spacing-one)
+              min-width: 0
             input:focus
               opacity: 1
               cursor: text
@@ -276,6 +287,8 @@ img[lazy="loaded"]
             flex-grow: 1
           .list-Social
             margin-left: var(--spacing-two)
+            @media screen and ( max-width: $breakpoint-mobile )
+              display: none
           .icons-Row
             opacity: 1
 

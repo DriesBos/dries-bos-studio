@@ -10,16 +10,16 @@
           duration: 600
         }"
       :id="post.id"
-      class="list-Outer ellipsis"
+      class="list-Outer"
       :class="{ active: isOpen }"
     >
-      <div v-if="post.year" class="list-Year list-Details">
+      <div v-if="post.year" class="list-Year list-Details ellipsis">
         <p>{{ post.year }}</p>
       </div>
-      <div v-if="post.title" class="list-Title list-Details">
+      <div v-if="post.title" class="list-Title list-Details ellipsis">
         <p>{{ post.title }}</p>
       </div>
-      <div v-if="post.category" class="list-Category list-Details">
+      <div v-if="post.category" class="list-Category list-Details ellipsis">
         <p>{{ post.category }}</p>
       </div>
       <div class="icons-Row">
@@ -33,7 +33,7 @@
     </div>
     <div v-show="isOpen" class="list-Inner">
       <div class="list-Inner_Content">
-        <div v-if="post.year" class="list-Year list-Details">
+        <div v-if="post.year" class="list-Year list-Details ellipsis">
           <p>{{post.year }}</p>
         </div>
         <div v-if="post.content" class="list-Content list-Details">

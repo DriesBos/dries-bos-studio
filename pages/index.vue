@@ -65,7 +65,6 @@
           </div>
         </li>
         <li is="IndexListItem" v-for="post in sortedArray" :key="post.id" :post="post"></li>
-        <!-- <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li> -->
         <li class="list-Item list-Item_Footer" data-toggle-footer="true">
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
@@ -213,7 +212,7 @@ export default {
       }
     },
     filteredList() {
-      return this.posts.filter(post => {
+      return this.sortedArray.filter(post => {
         return post.title.toLowerCase().includes(this.search.toLowerCase())
       })
     }
