@@ -309,6 +309,8 @@ export default {
     this.startPosition()
   },
   mounted() {
+    this.widestElement(`list-Year`)
+    this.widestElement(`list-Title`)
     window.addEventListener('resize', () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
