@@ -151,10 +151,11 @@ img[lazy="loaded"]
             flex-grow: 1
             flex-shrink: 0
           .list-Nav, .list-Mail, .list-Social, .list-Logo
-            p, a
-              transition: color $transition-hover
-              &:hover
-                color: $font-hover
+            @media (hover: hover)
+              p, a
+                transition: color $transition-hover
+                &:hover
+                  color: $font-hover
           @media screen and ( max-width: $breakpoint-mobile )
             .list-Title
               flex-grow: 1
@@ -233,9 +234,10 @@ img[lazy="loaded"]
             padding-right: var(--spacing-two)
             cursor: default
             min-width: 0
-            .icon-Container:hover img
-              -webkit-filter: grayscale(0)
-              filter: greyscale(0)
+            @media (hover: hover)
+              .icon-Container:hover img
+                -webkit-filter: grayscale(0)
+                filter: greyscale(0)
             &.active
               .icon-Container img
                 opacity: 1
@@ -246,9 +248,10 @@ img[lazy="loaded"]
                 cursor: text
             @media screen and ( max-width: $breakpoint-mobile )
               display: none
-            .icon-Container:hover
-              img
-                opacity: 1
+            @media (hover: hover)
+              .icon-Container:hover
+                img
+                  opacity: 1
             input
               font-family: "Moderat", Helvetica, Arial, sans-serif
               font-size: 1em // TODO: Move to typography.sass
@@ -282,19 +285,21 @@ img[lazy="loaded"]
               padding-bottom: var(--spacing-one)
               color: $font-hover
             &:hover
-              p:first-child
-                opacity: 0
-                cursor: default
-              p:nth-child(2)
-                opacity: 1
-                cursor: pointer
+              @media (hover: hover)
+                p:first-child
+                  opacity: 0
+                  cursor: default
+                p:nth-child(2)
+                  opacity: 1
+                  cursor: pointer
 
       .list-Item_Project
         .list-Outer
-          p
-            transition: color $transition-hover
-          &:hover p
-            color: $font-hover
+          @media (hover: hover)
+            p
+              transition: color $transition-hover
+            &:hover p
+              color: $font-hover
 
       .list-Item:nth-last-child(2)
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
@@ -330,15 +335,17 @@ img[lazy="loaded"]
             img:last-child
               opacity: 0
             &:hover
-              img:first-child
-                opacity: 0
-              img:last-child
-                opacity: 1
+              @media (hover: hover)
+                img:first-child
+                  opacity: 0
+                img:last-child
+                  opacity: 1
 
   // PROFILE
   &-Profile
     position: relative
     display: flex
+    flex-direction: column
     align-items: center
     justify-content: center
     width: 100%
@@ -365,3 +372,7 @@ img[lazy="loaded"]
       left: 50%
       transform: translateX(-50%)
       padding: var(--spacing-two)
+      @media screen and ( max-width: $breakpoint-mobile )
+        position: relative
+        left: auto
+        transform: translateX(0)

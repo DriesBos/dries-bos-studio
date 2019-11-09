@@ -117,7 +117,8 @@ export default {
   bottom: 0
   cursor: pointer
   transition: opacity $transition-hover
-  opacity: 0
+  @media (hover: hover)
+    opacity: 0
   .icon
     position: absolute
     top: 50%
