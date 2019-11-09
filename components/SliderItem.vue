@@ -117,8 +117,9 @@ export default {
   bottom: 0
   cursor: pointer
   transition: opacity $transition-hover
-  @media (hover: hover)
-    opacity: 0
+  opacity: 0
+  @media screen and ( max-width: $breakpoint-mobile )
+    opacity: 1
   .icon
     position: absolute
     top: 50%

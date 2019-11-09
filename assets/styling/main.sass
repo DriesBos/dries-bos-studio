@@ -253,14 +253,6 @@ img[lazy="loaded"]
                 img
                   opacity: 1
             input
-              font-family: "Moderat", Helvetica, Arial, sans-serif
-              font-size: 1em // TODO: Move to typography.sass
-              line-height: 1.5
-              color: $font-color
-              font-style: normal
-              font-weight: normal
-              -webkit-font-smoothing: antialiased
-              -moz-osx-font-smoothing: grayscale
               transition: opacity $transition-hover
               opacity: 0
               cursor: default
@@ -300,6 +292,13 @@ img[lazy="loaded"]
               transition: color $transition-hover
             &:hover p
               color: $font-hover
+        @media screen and ( max-width: $breakpoint-mobile )
+          .list-Outer.active
+            .list-Category
+              display: none
+            .icons-Row
+              display: inline-block
+              opacity: 1
 
       .list-Item:nth-last-child(2)
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
