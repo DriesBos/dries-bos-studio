@@ -32,14 +32,14 @@
       </div>
     </div>
     <div v-show="isOpen" class="list-Inner">
-      <div class="list-Inner_Content">
+      <!-- <div class="list-Inner_Content">
         <div v-if="post.year" class="list-Year list-Details ellipsis">
           <p>{{post.year }}</p>
         </div>
         <div v-if="post.content" class="list-Content list-Details">
           <MarkdownItem :input="post.content" />
         </div>
-      </div>
+      </div>-->
       <SliderItem
         :bgcolor="post.image_background_color"
         :images="[post.image_0, post.image_1, post.image_2, post.image_3, post.image_4, post.image_5]"

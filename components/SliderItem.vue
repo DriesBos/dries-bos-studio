@@ -1,22 +1,24 @@
 <template>
   <div class="slider-Container">
-    <transition-group name="slider">
-      <div
-        class="image-Slider"
-        v-for="number in [index]"
-        :id="postid"
-        :key="number"
-        v-lazy-container="{ selector: '.image' }"
-        :style="`background:#${bgcolor}`"
-      >
-        <img :data-src="currentImage" class="image" />
+    <div class="slider-Inside">
+      <transition-group name="slider">
+        <div
+          class="image-Slider"
+          v-for="number in [index]"
+          :id="postid"
+          :key="number"
+          v-lazy-container="{ selector: '.image' }"
+          :style="`background:#${bgcolor}`"
+        >
+          <img :data-src="currentImage" class="image" />
+        </div>
+      </transition-group>
+      <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev">
+        <img src="~assets/images/arrow-left-red.png" class="icon" title="previous image" />
       </div>
-    </transition-group>
-    <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev">
-      <img src="~assets/images/arrow-left-red.png" class="icon" title="previous image" />
-    </div>
-    <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next">
-      <img src="~assets/images/arrow-right-red.png" class="icon" title="next image" />
+      <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next">
+        <img src="~assets/images/arrow-right-red.png" class="icon" title="next image" />
+      </div>
     </div>
   </div>
 </template>
@@ -89,8 +91,16 @@ export default {
 @import '~/assets/styling/variables.sass'
 .slider-Container
   position: relative
-  height: calc(61.5vw - #{var(--spacing-two)})
-  max-height: 900px
+  // height: calc(61.5vw - #{var(--spacing-two)})
+  height: 0
+  overflow: hidden
+  padding-top: 62.5%
+.slider-Inside
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
   &:hover .image-Slider_Nav
     opacity: 1
 .image-Slider
@@ -108,7 +118,6 @@ export default {
     left: 0
     width: 100%
     height: 100%
-    object-fit: contain
 .image-Slider_Nav
   position: absolute
   z-index: 999
