@@ -1,6 +1,6 @@
 export default {
   actions: {
-    async nuxtServerInit({ commit, dispatch }, { app }) {
+    async nuxtServerInit({ commit }, { app }) {
       let getPosts = await app.$storyapi.get('cdn/stories', {
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         starts_with: 'blog/'
@@ -9,13 +9,9 @@ export default {
         return {
           id: bp.slug,
           title: bp.content.title,
-          category: bp.content.category,
           year: bp.content.year,
-          role: bp.content.role,
-          stack: bp.content.stack,
+          category: bp.content.category,
           content: bp.content.content,
-          image_background_color: bp.content.image_background_color,
-          thumbnail: bp.content.thumbnail,
           image_0: bp.content.image_0,
           image_1: bp.content.image_1,
           image_2: bp.content.image_2,
