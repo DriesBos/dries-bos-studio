@@ -93,7 +93,7 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#333', // Similar to font color
+    color: '#FF4105',
     height: '2px',
     throttle: '200'
   },
@@ -139,7 +139,7 @@ module.exports = {
     scrollBehavior: function(to, from, savedPosition) {
       return {
         x: 0,
-        y: 500
+        y: 0
       }
     }
   },
