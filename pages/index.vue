@@ -115,14 +115,7 @@ import TheAbout from '~/components/TheAbout.vue'
 import IndexListItem from '~/components/IndexListItem.vue'
 import JQuery from 'jquery'
 import { mapState } from 'vuex'
-import VueAnalytics from 'vue-analytics'
 let $ = JQuery
-
-Vue.use(VueAnalytics, {
-  id: 'UA-151943071-1',
-  router,
-  checkDuplicatedScript: true
-})
 
 export default {
   components: {
