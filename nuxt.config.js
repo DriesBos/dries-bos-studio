@@ -1,14 +1,9 @@
-import {
-  publicKeySecret,
-  previewKeySecret,
-  apiTokenSecret,
-  gaTokenSecret
-} from './config'
 const axios = require('axios')
 const pkg = require('./package')
-const publicKey = process.env.PUBLICKEY || `${publicKeySecret}`
-const previewKey = process.env.PREVIEWKEY || `${previewKeySecret}`
-const apiToken = process.env.APITOKEN || `${apiTokenSecret}`
+const publicKey = process.env.PUBLICKEY
+const previewKey = process.env.PREVIEWKEY
+const apiToken = process.env.APITOKEN
+// import { publicKey, previewKey, apiToken, gaToken } from './config'
 
 module.exports = {
   mode: 'universal',
@@ -144,7 +139,7 @@ module.exports = {
     [
       '@nuxtjs/google-analytics',
       {
-        id: process.env.GA_ID || `${gaTokenSecret}`
+        id: process.env.GA_ID || `${gaToken}`
       }
     ]
   ],

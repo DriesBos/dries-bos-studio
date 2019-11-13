@@ -314,11 +314,18 @@ export default {
     },
     mouseLeftDocument() {
       this.toggleFilter = false
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition === 0 && this.toggleProfile === true) {
+        this.toggleProfile = false
+      }
     },
     mouseEntersDocument() {
       let scrollPosition = document.documentElement.scrollTop
       if (scrollPosition > window.innerHeight * 0.5) {
         this.toggleFilter = true
+      }
+      if (scrollPosition === 0) {
+        this.toggleProfile = true
       }
     }
   },
