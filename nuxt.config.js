@@ -89,6 +89,11 @@ module.exports = {
     ]
   },
 
+  serverMiddleware: [
+    // Will register redirect-ssl npm package
+    'redirect-ssl'
+  ],
+
   /*
    ** Customize the progress-bar color
    */

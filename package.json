@@ -25,6 +25,7 @@
     "jquery": "^3.4.1",
     "marked": "^0.7.0",
     "nuxt": "^2.8.1",
+    "redirect-ssl": "^1.4.1",
     "storyblok-nuxt": "^1.0.1",
     "three": "^0.110.0",
     "vue-analytics": "^5.17.2",
