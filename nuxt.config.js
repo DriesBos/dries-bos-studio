@@ -3,7 +3,7 @@ const pkg = require('./package')
 const publicKey = process.env.PUBLICKEY
 const previewKey = process.env.PREVIEWKEY
 const apiToken = process.env.APITOKEN
-// import { publicKey, previewKey, apiToken } from './config'
+// import { publicKey, previewKey, apiToken, gaToken } from './config'
 
 module.exports = {
   mode: 'universal',
@@ -135,7 +135,13 @@ module.exports = {
         cacheProvider: 'memory'
       }
     ],
-    ['vue-scrollto/nuxt', { duration: 300 }]
+    ['vue-scrollto/nuxt', { duration: 300 }],
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: process.env.GA_ID || `${gaToken}`
+      }
+    ]
   ],
   /*
    ** Router behaviour
@@ -174,14 +180,6 @@ module.exports = {
   /*
    ** Build configuration
    */
-  buildModules: [
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: 'UA-151943071-1'
-      }
-    ]
-  ],
   build: {
     /*
      ** You can extend webpack config here
