@@ -57,7 +57,7 @@
               <p @click="sortCategory" title="sort by type">sort</p>
             </div>
             <div class="list-Search" v-bind:class="{ active: searchHasInput }">
-              <input type="text" v-model="search" ref="search" placeholder="type search.." />
+              <input type="text" v-model="search" ref="search" placeholder="filter by name" />
               <div @click="searchFocus" class="icon-Container" title="search projects">
                 <img src="~assets/images/search-red.png" class="icon" />
               </div>
