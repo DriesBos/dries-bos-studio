@@ -133,6 +133,7 @@ img[lazy="loaded"]
             margin-left: var(--spacing-two)
           .list-Year
             min-width: 42px
+            flex-shrink: 0
           .list-Title, .list-Logo
             p
               text-transform: capitalize
@@ -326,6 +327,8 @@ img[lazy="loaded"]
               display: none
           .icons-Row
             opacity: 1
+            @media screen and ( max-width: $breakpoint-mobile )
+              display: inline
             .icon-Container
               padding-right: var(--spacing-one)
             img
