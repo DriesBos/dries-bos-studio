@@ -8,7 +8,7 @@
             <img src="~/assets/images/top-ground.png" />
           </div>
           <div class="list-Outer">
-            <div class="list-Logo list-Year list-Details">
+            <div class="list-Logo list-Details">
               <p
                 v-scroll-to="{
           el: '.view-Index',
