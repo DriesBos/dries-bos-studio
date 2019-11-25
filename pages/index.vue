@@ -302,8 +302,17 @@ export default {
     // BROWSER APIS
     windowIsVisible() {
       if (document.visibilityState === 'hidden') {
-        document.title = '☺️ miss you..'
+        document.title = '👀 You there?'
         this.toggleFilter = false
+        // let randomNumber = Math.floor(Math.random() * 3)
+        // if (randomNumber === 0) {
+        // }
+        // if (randomNumber === 1) {
+        //   document.title = '☕️ Coffee break?'
+        // }
+        // if (randomNumber === 2) {
+        //   document.title = '💔 Baby is gone..'
+        // }
       } else {
         document.title = '🧑‍🚀 Dries Bos'
         let scrollPosition = document.documentElement.scrollTop
