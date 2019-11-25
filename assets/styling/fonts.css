@@ -1,11 +1,4 @@
 @font-face {
-  font-family: 'Moderat';
-  src: url('~assets/fonts/Moderat-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Graphik';
   src: url('~assets/fonts/Graphik-Regular-Web.woff2') format('woff2');
   font-weight: normal;
