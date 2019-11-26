@@ -78,18 +78,13 @@
                 href="https://www.instagram.com/driesbosstudio/"
                 target="_blank"
                 rel="noopener noreferrer"
-              >Instagram</a>
-              <a
-                href="https://www.linkedin.com/in/drbos/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >LinkedIn</a>
-              <a href="https://github.com/DriesBos" target="_blank" rel="noopener noreferrer">Github</a>
+              >instagram</a>
+              <a href="https://github.com/DriesBos" target="_blank" rel="noopener noreferrer">github</a>
               <a
                 href="https://codepen.io/driesbos"
                 target="_blank"
                 rel="noopener noreferrer"
-              >Codepen</a>
+              >codepen</a>
             </div>
             <div class="icons-Row">
               <div
