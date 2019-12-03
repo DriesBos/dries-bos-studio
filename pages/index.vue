@@ -18,10 +18,12 @@
               >Dries Bos</p>
             </div>
             <div class="list-Nav list-Details">
-              <p v-scroll-to="{
+              <p
+                v-scroll-to="{
           el: '.view-Index',
           duration: 600
-        }">Work</p>
+        }"
+              >projects</p>
               <p
                 v-scroll-to="{
           el: '.view-Profile',
