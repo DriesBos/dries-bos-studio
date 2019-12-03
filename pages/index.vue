@@ -20,7 +20,7 @@
             <div class="list-Nav list-Details">
               <p
                 v-scroll-to="{
-          el: '.view-Index',
+          el: '.list-Item_Filter',
           duration: 600
         }"
               >projects</p>
