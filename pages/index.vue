@@ -65,28 +65,61 @@
           </div>
         </li>
         <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-        <li class="list-Item list-Item_Footer" :data-toggle-footer="toggleFooter">
+
+        <li key="footer" class="list-Item list-Item_Footer" :data-toggle-footer="toggleFooter">
           <div class="list-Top">
             <img src="~/assets/images/top-ground.png" />
           </div>
           <div class="list-Outer">
-            <div class="list-Mail list-Details">
-              <a href="mailto:info@driesbos.com" title="say hello!">info@driesbos.com</a>
+            <div class="list-Mail list-Details ellipsis">
+              <a
+                href="mailto:info@driesbos.com"
+                title="Let's talk"
+                class="state-normal"
+              >Let's talk &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
+              <a
+                href="mailto:info@driesbos.com"
+                title="Let's talk"
+                class="state-hover"
+              >info@driesbos.com</a>
             </div>
-            <div class="list-Social list-Details">
+            <div class="icons-Row">
               <a
                 href="https://www.instagram.com/driesbosstudio/"
                 target="_blank"
-                rel="noopener noreferrer"
-              >instagram</a>
-              <a href="https://github.com/DriesBos" target="_blank" rel="noopener noreferrer">github</a>
+                rel="noopener"
+                class="icon-Container"
+                title="instagram"
+              >
+                <div class="icon">
+                  <img src="~assets/images/instagram-black.png" class="icon" />
+                  <img src="~assets/images/instagram-red.png" class="icon hover" />
+                </div>
+              </a>
+              <a
+                href="https://github.com/DriesBos"
+                target="_blank"
+                rel="noopener"
+                class="icon-Container"
+                title="github"
+              >
+                <div class="icon">
+                  <img src="~assets/images/github-black.png" class="icon" />
+                  <img src="~assets/images/github-red.png" class="icon hover" />
+                </div>
+              </a>
               <a
                 href="https://codepen.io/driesbos"
                 target="_blank"
-                rel="noopener noreferrer"
-              >codepen</a>
-            </div>
-            <div class="icons-Row">
+                rel="noopener"
+                class="icon-Container"
+                title="codepen"
+              >
+                <div class="icon">
+                  <img src="~assets/images/codepen-black.png" class="icon" />
+                  <img src="~assets/images/codepen-red.png" class="icon hover" />
+                </div>
+              </a>
               <div
                 class="icon-Container"
                 title="scroll to top"
@@ -94,8 +127,10 @@
           el: '.view-Index',
           duration: 600}"
               >
-                <img src="~assets/images/arrow-up-light.png" class="icon" />
-                <img src="~assets/images/arrow-up-red.png" class="icon" />
+                <div class="icon">
+                  <img src="~assets/images/arrow-up-black.png" class="icon" />
+                  <img src="~assets/images/arrow-up-red.png" class="icon hover" />
+                </div>
               </div>
             </div>
           </div>

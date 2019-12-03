@@ -23,14 +23,20 @@ img[lazy="loaded"]
   align-items: center
   justify-content: center
   transition: opacity $transition-hover
+  padding-right: var(--spacing-two)
   @media screen and ( max-width: $breakpoint-mobile)
-    margin-right: 0
+    padding-right: var(--spacing-one)
 .icon-Container
   display: flex
   align-items: center
   justify-content: center
   cursor: pointer
   height: 100%
+  margin-left: var(--spacing-two)
+  @media screen and ( max-width: $breakpoint-mobile)
+    margin-left: var(--spacing-one)
+.icon-Container:first-child
+  margin-left: 0
 .icon
   position: relative
   width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
@@ -44,6 +50,13 @@ img[lazy="loaded"]
     top: 0
     width: 100%
     height: 100%
+.icon
+  .hover
+    opacity: 0
+    transition: opacity $transition-hover
+.icon:hover
+  .hover
+    opacity: 1
 
 // VIEWS
 .three
@@ -85,18 +98,6 @@ img[lazy="loaded"]
       .list-Item
         position: relative
         width: 100%
-        .icons-Row
-          opacity: 0
-          padding-left: var(--spacing-two)
-          padding-right: var(--spacing-two)
-          @media screen and ( max-width: $breakpoint-mobile )
-            padding-right: var(--spacing-one)
-        &:hover
-          .icons-Row
-            opacity: 1
-        @media screen and ( max-width: $breakpoint-mobile )
-          .icons-Row
-            display: none
         .list-Top
           position: absolute
           top: 0
@@ -140,7 +141,7 @@ img[lazy="loaded"]
           .list-Title, .list-Logo
             p
               text-transform: capitalize
-          .list-Nav, .list-Mail, .list-Social
+          .list-Nav, .list-Mail
             display: flex
             flex-wrap: nowrap
             p, a
@@ -155,7 +156,7 @@ img[lazy="loaded"]
             flex-grow: 1
             flex-shrink: 0
             margin-left: var(--spacing-three)
-          .list-Nav, .list-Mail, .list-Social, .list-Logo
+          .list-Nav, .list-Mail, .list-Logo
             @media (hover: hover)
               p, a
                 transition: color $transition-hover
@@ -168,7 +169,7 @@ img[lazy="loaded"]
               text-align: right
               margin-right: var(--spacing-two)
               flex-grow: 0
-            .list-Social, .list-Nav
+            .list-Nav
               margin-right: var(--spacing-two)
         .list-Inner // Inner
           z-index: $zindex-projects
@@ -293,6 +294,11 @@ img[lazy="loaded"]
                   cursor: pointer
 
       .list-Item_Project
+        .icons-Row
+          opacity: 0
+        &:hover
+          .icons-Row
+            opacity: 1
         .list-Outer
           @media (hover: hover)
             p
@@ -303,9 +309,8 @@ img[lazy="loaded"]
           .list-Outer.active
             .list-Category
               display: none
-            .icons-Row
-              display: inline-block
-              opacity: 1
+          .icons-Row
+            display: none
 
       .list-Item:nth-last-child(2)
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
@@ -315,39 +320,38 @@ img[lazy="loaded"]
 
       .list-Item_Footer
         margin-top: calc(0px + (4vmin + 1.5em))
-        &[data-toggle-footer="true"]
-          .list-Mail a
-            color: $font-hover
+        .list-Outer
+          justify-content: space-between
+        .list-Mail
+          a
+            transition: opacity $transition-hover
+          a:last-child
+            position: absolute
+            margin-top: var(--spacing-one)
+            top: 0
+            left: 0
+          .state-normal
+            opacity: 1
+            transition: opacity $transition-hover
+            @media screen and ( max-width: $breakpoint-mobile )
+              opacity: 0
+          .state-hover
+            opacity: 0
+            transition: opacity $transition-hover
+            @media screen and ( max-width: $breakpoint-mobile )
+              opacity: 1
+          &:hover
+            .state-normal
+              opacity: 0
+            .state-hover
+              opacity: 1
+
         @media screen and ( max-width: $breakpoint-mobile )
           margin-top: 65px
         @media screen and ( min-width: $breakpoint-laptop )
           margin-top: 91px
         .list-Top
           opacity: 1
-        .list-Outer
-          .list-Mail
-            flex-grow: 1
-          .list-Social
-            margin-left: var(--spacing-two)
-            @media screen and ( max-width: $breakpoint-mobile )
-              display: none
-          .icons-Row
-            opacity: 1
-            @media screen and ( max-width: $breakpoint-mobile )
-              display: inline
-            .icon-Container
-              padding-right: var(--spacing-one)
-            img
-              position: absolute
-              transition: opacity $transition-hover
-            img:last-child
-              opacity: 0
-            &:hover
-              @media (hover: hover)
-                img:first-child
-                  opacity: 0
-                img:last-child
-                  opacity: 1
 
   // PROFILE
   &-Profile
