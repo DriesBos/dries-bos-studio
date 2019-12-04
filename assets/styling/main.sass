@@ -306,11 +306,14 @@ img[lazy="loaded"]
             &:hover p
               color: $font-hover
         @media screen and ( max-width: $breakpoint-mobile )
+          .list-Outer
+            .icons-Row
+              display: none
           .list-Outer.active
             .list-Category
               display: none
-          .icons-Row
-            display: none
+            .icons-Row
+              display: inline
 
       .list-Item:nth-last-child(2)
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
@@ -345,6 +348,9 @@ img[lazy="loaded"]
               opacity: 0
             .state-hover
               opacity: 1
+        .icons-Row
+          .icon-Container:last-child
+            margin-left: var(--spacing-three)
 
         @media screen and ( max-width: $breakpoint-mobile )
           margin-top: 65px
