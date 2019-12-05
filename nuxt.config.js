@@ -41,7 +41,7 @@ module.exports = {
       },
       {
         property: 'og:title',
-        content: '🧑‍🚀 Dries Bos'
+        content: '🧑‍🚀 Dries Bos — Web & Interaction Developer'
       },
       {
         property: 'og:description',
