@@ -173,14 +173,15 @@ img[lazy="loaded"]
               margin-right: var(--spacing-two)
         .list-Inner // Inner
           z-index: $zindex-projects
-          border-right: 2px solid white
-          border-left: 2px solid white
           &_Content
             display: flex
             flex-wrap: nowrap
             padding-top: var(--spacing-one)
             padding-bottom: var(--spacing-two)
             background: white
+          .slider-Container
+            border-right: 2px solid white
+            border-left: 2px solid white
           .list-Year
             margin-left: var(--spacing-two)
             flex-shrink: 0
@@ -296,6 +297,11 @@ img[lazy="loaded"]
       .list-Item_Project
         .icons-Row
           opacity: 0
+          svg
+            fill: $font-hover
+        .slider-Container
+          svg
+            fill: $font-hover
         &:hover
           .icons-Row
             opacity: 1
@@ -314,6 +320,35 @@ img[lazy="loaded"]
               display: none
             .icons-Row
               display: inline
+
+      .list-Item_Project#site-sprint-service
+        .list-Outer
+          background: linear-gradient(90deg, rgba(148,106,170,1) 0%, rgba(50,86,103,1) 23%, rgba(165,130,48,1) 46%, rgba(165,130,48,1) 87%, rgba(253,85,6,1) 94%)
+          .list-Year, .list-Category
+            opacity: 0
+          .icons-Row
+            opacity: 1
+            svg
+              fill: white
+        .list-Outer.active
+          .icons-Row
+            opacity: 0
+        &:hover
+          .list-Outer.active
+            .icons-Row
+              opacity: 1
+        .list-Inner
+          background: linear-gradient(90deg, rgba(148,106,170,1) 0%, rgba(50,86,103,1) 23%, rgba(165,130,48,1) 46%, rgba(165,130,48,1) 87%, rgba(253,85,6,1) 94%)
+          .list-Inner_Content
+            background: linear-gradient(90deg, rgba(148,106,170,1) 0%, rgba(50,86,103,1) 23%, rgba(165,130,48,1) 46%, rgba(165,130,48,1) 87%, rgba(253,85,6,1) 94%)
+        .list-Inner, .list-Outer
+          .list-Details
+            p, a
+              color: white
+        .slider-Container
+          border: 0
+          svg
+            fill: white
 
       .list-Item:nth-last-child(2)
         box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)

@@ -24,10 +24,24 @@
       </div>
       <div class="icons-Row">
         <div v-if="isOpen" class="icon-Container" title="close project">
-          <img src="~assets/images/close-red.png" class="icon" />
+          <svg width="25" height="25" class="icon">
+            <path
+              d="M13.5373645,0.0666483999 L13.5366484,11.5366484 L25.0666484,11.5373645 L25.0666484,13.5373645 L13.5366484,13.5366484 L13.5373645,25.0666484 L11.5373645,25.0666484 L11.5366484,13.5366484 L0.0666483999,13.5373645 L0.0666483999,11.5373645 L11.5366484,11.5366484 L11.5373645,0.0666483999 L13.5373645,0.0666483999 Z"
+              fill
+              transform="translate(12.566648, 12.566648) rotate(45.000000) translate(-12.566648, -12.566648)"
+              fill-rule="evenodd"
+            />
+          </svg>
         </div>
         <div v-else class="icon-Container" title="view project">
-          <img src="~assets/images/arrow-right-red.png" class="icon" />
+          <svg width="25" height="25" class="icon">
+            <path
+              d="M13.5101551,-0.0106601718 L13.5094466,21.1873398 L21.0001551,13.6964466 L22.4143687,15.1106602 L12.5148737,25.0101551 L12.5104466,25.0053398 L12.5059415,25.0101551 L2.60644661,15.1106602 L4.02066017,13.6964466 L11.5094466,21.1853398 L11.5101551,-0.0106601718 L13.5101551,-0.0106601718 Z"
+              fill
+              transform="translate(12.510408, 12.499747) scale(-1, -1) rotate(90.000000) translate(-12.510408, -12.499747)"
+              fill-rule="evenodd"
+            />
+          </svg>
         </div>
       </div>
     </div>
