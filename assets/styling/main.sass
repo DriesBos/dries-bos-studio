@@ -42,14 +42,12 @@ img[lazy="loaded"]
   width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
   height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
   opacity: 1
-  display: table-cell
-  vertical-align: middle
   svg, img
     position: absolute
     left: 0
     top: 0
     width: 100%
-    height: 100%
+    height: auto
 .icon
   .hover
     opacity: 0
@@ -86,6 +84,7 @@ img[lazy="loaded"]
       padding-left: 0
       padding-right: 0
       padding-top: 15.5vw
+      padding-bottom: 0
     @media screen and ( min-width: $breakpoint-laptop )
       padding-top: 224px
 
@@ -419,9 +418,6 @@ img[lazy="loaded"]
         display: flex
         flex-direction: column
         align-items: center
-        p
-          word-break: normal
-          hyphens: none
     .helper
       position: absolute
       bottom: 0

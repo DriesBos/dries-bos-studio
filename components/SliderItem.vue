@@ -14,8 +14,7 @@
         </div>
       </transition-group>
       <div v-if="imageCount > 1" @click="previous" class="image-Slider_Nav image-Slider_Prev">
-        <!-- <img src="~assets/images/arrow-left-red.png" class="icon" title="previous image" /> -->
-        <svg width="25" height="25" class="icon" title="previous image">
+        <svg width="25" height="25" viewBox="0 0 25 25" class="icon" title="previous image">
           <path
             d="M13.5101551,-0.0106601718 L13.5094466,21.1873398 L21.0001551,13.6964466 L22.4143687,15.1106602 L12.5148737,25.0101551 L12.5104466,25.0053398 L12.5059415,25.0101551 L2.60644661,15.1106602 L4.02066017,13.6964466 L11.5094466,21.1853398 L11.5101551,-0.0106601718 L13.5101551,-0.0106601718 Z"
             fill
@@ -25,8 +24,7 @@
         </svg>
       </div>
       <div v-if="imageCount > 1" @click="next" class="image-Slider_Nav image-Slider_Next">
-        <!-- <img src="~assets/images/arrow-right-red.png" class="icon" title="next image" /> -->
-        <svg width="25" height="25" class="icon" title="next image">
+        <svg width="25" height="25" viewBox="0 0 25 25" class="icon" title="next image">
           <path
             d="M13.5101551,-0.0106601718 L13.5094466,21.1873398 L21.0001551,13.6964466 L22.4143687,15.1106602 L12.5148737,25.0101551 L12.5104466,25.0053398 L12.5059415,25.0101551 L2.60644661,15.1106602 L4.02066017,13.6964466 L11.5094466,21.1853398 L11.5101551,-0.0106601718 L13.5101551,-0.0106601718 Z"
             fill
