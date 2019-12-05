@@ -12,7 +12,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: '🧑‍🚀 Dries Bos',
+    title: '🧑‍🚀 Dries Bos — Web & Interaction Development',
     meta: [
       {
         charset: 'utf-8'
