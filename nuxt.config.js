@@ -12,7 +12,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: '🧑‍🚀 Dries Bos — Web & Interaction Development',
+    title: '🧑‍🚀 Dries Bos — Web & Interaction Developer',
     meta: [
       {
         charset: 'utf-8'
@@ -24,7 +24,8 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Creative Frontend Development'
+        content:
+          'I’m Dries Bos, a Web & Interaction Developer from Amsterdam. I help brands build their vision online.'
       },
       {
         name: 'msapplication-TileColor',
@@ -129,7 +130,7 @@ module.exports = {
       'storyblok-nuxt',
       {
         accessToken:
-          process.env.NODE_ENV === 'production' // Generate new token
+          process.env.NODE_ENV === 'production'
             ? `${publicKey}`
             : `${previewKey}`,
         cacheProvider: 'memory'

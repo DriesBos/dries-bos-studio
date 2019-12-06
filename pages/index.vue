@@ -341,7 +341,7 @@ export default {
         document.title = '👀 You there?'
         this.toggleFilter = false
       } else {
-        document.title = '🧑‍🚀 Dries Bos — Web & Interaction Development'
+        document.title = '🧑‍🚀 Dries Bos — Web & Interaction Developer'
         let scrollPosition = document.documentElement.scrollTop
         if (scrollPosition > window.innerHeight * 0.5) {
           this.toggleFilter = true
