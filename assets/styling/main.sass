@@ -195,8 +195,6 @@ img[lazy="loaded"]
             padding-right: var(--spacing-two)
             @media screen and ( max-width: $breakpoint-mobile )
               margin-left: var(--spacing-two)
-            @media screen and ( min-width: $breakpoint-laptop )
-              margin-left: 144px
 
       .list-Item_Project
         .list-Outer
@@ -332,6 +330,11 @@ img[lazy="loaded"]
         .list-Outer.active
           .icons-Row
             opacity: 0
+          @media screen and ( max-width: $breakpoint-mobile )
+            .list-Year
+              display: none
+            .list-Title
+              margin-left: var(--spacing-two)
         &:hover
           .list-Outer.active
             .icons-Row
