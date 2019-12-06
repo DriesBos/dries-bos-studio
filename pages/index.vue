@@ -297,6 +297,10 @@ export default {
         listWidths.push(list[i].offsetWidth)
       }
       var widest = Math.max(...listWidths) + 1
+      // Unset width first to prevent width accumilation
+      for (var i = 0; i < list.length; i++) {
+        list[i].style.width = 'unset'
+      }
       for (var i = 0; i < list.length; i++) {
         list[i].style.width = `${widest}px`
       }
