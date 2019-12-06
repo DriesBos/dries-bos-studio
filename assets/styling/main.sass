@@ -22,7 +22,7 @@ img[lazy="loaded"]
   display: flex
   align-items: center
   justify-content: center
-  transition: opacity $transition-hover
+  transition: opacity $transition-hover, display $transition-hover
   padding-right: var(--spacing-two)
   @media screen and ( max-width: $breakpoint-mobile)
     padding-right: var(--spacing-one)
@@ -328,6 +328,8 @@ img[lazy="loaded"]
             opacity: 0
           .icons-Row
             opacity: 1
+            @media screen and ( max-width: $breakpoint-mobile )
+              display: inline
             svg
               fill: white
         .list-Outer.active
