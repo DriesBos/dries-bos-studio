@@ -290,6 +290,13 @@ export default {
       }
     },
     // LIST ELEMENTS UNIFORM WIDTH
+    unsetWidth(e) {
+      // Unset width first to prevent width accumilation
+      const list = document.getElementsByClassName(`${e}`)
+      for (var i = 0; i < list.length; i++) {
+        list[i].style.width = 'unset'
+      }
+    },
     widestElement(e) {
       const list = document.getElementsByClassName(`${e}`)
       const listWidths = []
@@ -297,10 +304,6 @@ export default {
         listWidths.push(list[i].offsetWidth)
       }
       var widest = Math.max(...listWidths) + 1
-      // Unset width first to prevent width accumilation
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.width = 'unset'
-      }
       for (var i = 0; i < list.length; i++) {
         list[i].style.width = `${widest}px`
       }
@@ -372,6 +375,8 @@ export default {
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
     window.addEventListener('resize', () => {
+      this.unsetWidth(`list-Year`)
+      this.unsetWidth(`list-Title`)
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
     })
@@ -392,6 +397,8 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', () => {
+      this.unsetWidth(`list-Year`)
+      this.unsetWidth(`list-Title`)
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
     })
