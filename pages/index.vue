@@ -55,7 +55,7 @@
               <p @click="sortTitle" title="sort by project">sort</p>
             </div>
             <div class="list-Category list-Details">
-              <p>type</p>
+              <p>role</p>
               <p @click="sortCategory" title="sort by type">sort</p>
             </div>
             <div class="list-Search" v-bind:class="{ active: searchHasInput }">
