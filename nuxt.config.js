@@ -3,6 +3,7 @@ const pkg = require('./package')
 const publicKey = process.env.PUBLICKEY
 const previewKey = process.env.PREVIEWKEY
 const apiToken = process.env.APITOKEN
+const gaToken = process.env.GA_ID
 // import { publicKey, previewKey, apiToken, gaToken } from './config'
 
 module.exports = {
@@ -140,8 +141,7 @@ module.exports = {
     [
       '@nuxtjs/google-analytics',
       {
-        // id: process.env.GA_ID || `${gaToken}`
-        id: process.env.GA_ID || `${process.env.GA_ID}`
+        id: process.env.GA_ID || `${gaToken}`
       }
     ]
   ],
