@@ -46,7 +46,10 @@
       </div>
     </div>
     <div v-show="isOpen" class="list-Inner">
-      <div class="list-Inner_Content">
+      <div
+        v-if="post.year || post.content || post.image_0 || post.image_1 || post.image_2 || post.image_3 || post.image_4 || post.image_5"
+        class="list-Inner_Content"
+      >
         <div v-if="post.year" class="list-Year list-Details ellipsis">
           <p>{{post.year }}</p>
         </div>
@@ -55,6 +58,7 @@
         </div>
       </div>
       <SliderItem
+        v-if="post.image_0 || post.image_1 || post.image_2 || post.image_3 || post.image_4 || post.image_5"
         :bgcolor="post.image_background_color"
         :images="[post.image_0, post.image_1, post.image_2, post.image_3, post.image_4, post.image_5]"
         :postid="post.id"
