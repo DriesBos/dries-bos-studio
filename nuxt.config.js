@@ -1,10 +1,6 @@
 const axios = require('axios')
 const pkg = require('./package')
-const publicKey = process.env.PUBLICKEY
-const previewKey = process.env.PREVIEWKEY
-const apiToken = process.env.APITOKEN
-const gaToken = process.env.GA_ID
-// import { publicKey, previewKey, apiToken, gaToken } from './config'
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -127,13 +123,14 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    ['@nuxtjs/dotenv', {}],
     [
       'storyblok-nuxt',
       {
         accessToken:
           process.env.NODE_ENV === 'production'
-            ? `${publicKey}`
-            : `${previewKey}`,
+            ? `${process.env.PUBLICKEY}`
+            : `${process.env.PREVIEWKEY}`,
         cacheProvider: 'memory'
       }
     ],
@@ -141,7 +138,7 @@ module.exports = {
     [
       '@nuxtjs/google-analytics',
       {
-        id: process.env.GA_ID || `${gaToken}`
+        id: process.env.GA_ID || `${process.env.GA_ID}`
       }
     ]
   ],
@@ -163,8 +160,9 @@ module.exports = {
     routes: function() {
       return axios
         .get(
-          `https://api.storyblok.com/v1/cdn/stories?version=published&token=${apiToken}&starts_with=blog&cv=` +
-            Math.floor(Date.now() / 1e3)
+          `https://api.storyblok.com/v1/cdn/stories?version=published&token=${
+            process.env.APITOKEN
+          }&starts_with=blog&cv=` + Math.floor(Date.now() / 1e3)
         )
         .then(res => {
           const blogPosts = res.data.stories.map(bp => bp.full_slug)

@@ -20,6 +20,7 @@
   "dependencies": {
     "@nuxt/webpack": "^2.8.1",
     "@nuxtjs/axios": "^5.5.4",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-analytics": "^2.2.1",
     "cross-env": "^5.2.0",
     "gsap": "^2.1.3",
