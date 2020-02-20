@@ -77,22 +77,6 @@ img[lazy="loaded"]
       .list-Item
         position: relative
         width: 100%
-        .list-Top
-          position: absolute
-          top: 0
-          left: 0
-          width: 100%
-          height: 0
-          opacity: 0
-          z-index: $zindex-top
-          pointer-events: none
-          img
-            position: absolute
-            bottom: 0
-            left: 0
-            width: 100%
-            height: auto
-            opacity: 1
         .list-Outer // Outer
           position: relative
           display: flex
@@ -187,8 +171,6 @@ img[lazy="loaded"]
         will-change: transform
         transition: transform .35s ease-out .25s
         z-index: $zindex-header
-        .list-Top
-          opacity: 1
         .list-Outer
           justify-content: space-between
           padding-right: var(--spacing-two)
@@ -209,8 +191,6 @@ img[lazy="loaded"]
           transition: opacity $transition-hover, filter $transition-hover
           -webkit-filter: grayscale(1)
           filter: greyscale(1)
-        .list-Top
-          opacity: 1
         .list-Outer
           .list-Search
             flex-basis: auto
@@ -375,5 +355,3 @@ img[lazy="loaded"]
           margin-top: 65px
         @media screen and ( min-width: $breakpoint-laptop )
           margin-top: 91px
-        .list-Top
-          opacity: 1

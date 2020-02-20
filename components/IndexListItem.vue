@@ -1,8 +1,5 @@
 <template>
   <li :key="post.id" :id="post.id" class="list-Item list-Item_Project">
-    <div class="list-Top">
-      <img src="~/assets/images/top-ground.png" />
-    </div>
     <div
       @click="isOpen = !isOpen"
       v-scroll-to="{
@@ -68,14 +65,14 @@
 </template>
 
 <script>
-import SliderItem from '~/components/SliderItem.vue'
-import MarkdownItem from '~/components/MarkdownItem.vue'
-import TweenMax from 'gsap'
-import JQuery from 'jquery'
+import SliderItem from "~/components/SliderItem.vue"
+import MarkdownItem from "~/components/MarkdownItem.vue"
+import TweenMax from "gsap"
+import JQuery from "jquery"
 let $ = JQuery
 
 export default {
-  name: 'IndexListItem',
+  name: "IndexListItem",
   components: {
     SliderItem: SliderItem,
     MarkdownItem: MarkdownItem
@@ -94,7 +91,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('beforeunload', this.initState)
+    window.addEventListener("beforeunload", this.initState)
   }
 }
 </script>

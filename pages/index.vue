@@ -3,9 +3,6 @@
     <section class="view-Index">
       <ul class="list">
         <li class="list-Item list-Item_Header" :data-toggle-filter="toggleFilter">
-          <div class="list-Top">
-            <img src="~/assets/images/top-ground.png" />
-          </div>
           <div class="list-Outer">
             <div class="list-Logo list-Details">
               <p
@@ -35,9 +32,6 @@
           </div>
         </li>
         <li class="list-Item list-Item_Filter">
-          <div class="list-Top">
-            <img src="~/assets/images/top-ground.png" />
-          </div>
           <div class="list-Outer">
             <div class="list-Year list-Details">
               <p>date</p>
