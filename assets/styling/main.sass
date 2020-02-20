@@ -6,7 +6,6 @@
 html, body, #__layout
   position: relative
   min-height: 100%
-  background: black
 
 img
   // transition: opacity $transition-lazy // just like slider element
@@ -58,14 +57,6 @@ img[lazy="loaded"]
     opacity: 1
 
 // VIEWS
-.three
-  &-Container
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100vh
-
 .view
   &-Container
     position: relative
@@ -76,25 +67,13 @@ img[lazy="loaded"]
     display: flex
     flex-direction: column
     align-items: center
-    padding-top: 14.8vw
-    padding-left: var(--spacing-two)
-    padding-right: var(--spacing-two)
-    padding-bottom: 25vmin
     width: 100%
-    @media screen and ( max-width: $breakpoint-mobile )
-      padding-left: 0
-      padding-right: 0
-      padding-top: 15.5vw
-      padding-bottom: 0
-    @media screen and ( min-width: $breakpoint-laptop )
-      padding-top: 224px
 
     // LISTS
     .list
       display: flex
       flex-direction: column
       width: 100%
-      max-width: 1440px
       .list-Item
         position: relative
         width: 100%
