@@ -1,5 +1,5 @@
-const axios = require('axios')
 const pkg = require('./package')
+const axios = require('axios')
 require('dotenv').config()
 
 module.exports = {
@@ -9,41 +9,19 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: '🧑‍🚀 Dries Bos — Web & Interaction Developer',
+    title: pkg.name,
     meta: [
       {
         charset: 'utf-8'
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        content: 'width=device-width, initial-scale=1, viewport-fit=cover'
       },
       {
         hid: 'description',
         name: 'description',
-        content:
-          'I’m Dries Bos, a Web & Interaction Developer from Amsterdam. I help brands build their vision online.'
-      },
-      {
-        name: 'msapplication-TileColor',
-        content: '#000000'
-      },
-      {
-        name: 'theme-color',
-        content: '#ffffff'
-      },
-      {
-        property: 'og:image',
-        content:
-          'http://a.storyblok.com/f/54243/2160x2160/eb2e6a8c33/og-image.png'
-      },
-      {
-        property: 'og:title',
-        content: '🧑‍🚀 Dries Bos — Web & Interaction Developer'
-      },
-      {
-        property: 'og:description',
-        content: 'Software Development + Interface Design'
+        content: pkg.description
       },
       {
         name: 'mobile-web-app-capable',
@@ -56,10 +34,6 @@ module.exports = {
       {
         name: 'apple-mobile-web-app-status-bar-style',
         content: 'black-translucent'
-      },
-      {
-        name: 'apple-mobile-web-app-title',
-        content: 'Dries Bos'
       }
     ],
     link: [
@@ -86,20 +60,10 @@ module.exports = {
       }
     ]
   },
-
-  serverMiddleware: [
-    // Will register redirect-ssl npm package
-    'redirect-ssl'
-  ],
-
   /*
    ** Customize the progress-bar color
    */
-  loading: {
-    color: '#FF4105',
-    height: '2px',
-    throttle: '200'
-  },
+  loading: false,
 
   /*
    ** Global CSS
@@ -117,45 +81,31 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/filters.js'],
+  plugins: [    "~/plugins/components",
+  "~/plugins/filters",],
   /*
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    ['@nuxtjs/dotenv', {}],
+    "@nuxtjs/pwa",
+    "@nuxtjs/axios",
+    [
+      "@bazzite/nuxt-optimized-images",
+      { optimizedImages: { optimizeImages: true, optimizeImagesInDev: true } }
+    ],
     [
       'storyblok-nuxt',
       {
         accessToken:
           process.env.NODE_ENV === 'production'
-            ? `${process.env.PUBLICKEY}`
-            : `${process.env.PREVIEWKEY}`,
+            ? process.env.PUBLICKEY
+            : process.env.PREVIEWKEY,
         cacheProvider: 'memory'
       }
     ],
     ['vue-scrollto/nuxt', { duration: 300 }],
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: process.env.GA_ID || `${process.env.GA_ID}`
-      }
-    ]
   ],
-  /*
-   ** Router behaviour
-   */
-  router: {
-    scrollBehavior: function(to, from, savedPosition) {
-      return {
-        x: 0,
-        y: 0
-      }
-    }
-  },
-  /*
-   ** Generating routes
-   */
+
   generate: {
     routes: function() {
       return axios
@@ -169,12 +119,6 @@ module.exports = {
           return ['/', '/blog', '/about', ...blogPosts]
         })
     }
-  },
-  /*
-   ** Axios module configuration
-   */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
@@ -195,5 +139,14 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  buildModules: [
+    ["@nuxt/typescript-build"],
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: "UA-151943071-1"
+      }
+    ]
+  ]
 }
