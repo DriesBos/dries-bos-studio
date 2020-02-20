@@ -1,6 +1,5 @@
 <template>
   <div class="view-Container">
-    <TheAbout :content="content" :data-toggle-profile="toggleProfile" />
     <section class="view-Index">
       <ul class="list">
         <li class="list-Item list-Item_Header" :data-toggle-filter="toggleFilter">
@@ -24,12 +23,6 @@
           duration: 600
         }"
               >projects</p>
-              <p
-                v-scroll-to="{
-          el: '.view-Profile',
-          duration: 600
-        }"
-              >About</p>
               <p
                 v-scroll-to="{
           el: '.list-Item_Footer',
@@ -143,15 +136,13 @@
 </template>
 
 <script>
-import TheAbout from '~/components/TheAbout.vue'
-import IndexListItem from '~/components/IndexListItem.vue'
-import JQuery from 'jquery'
-import { mapState } from 'vuex'
+import IndexListItem from "~/components/IndexListItem.vue"
+import JQuery from "jquery"
+import { mapState } from "vuex"
 let $ = JQuery
 
 export default {
   components: {
-    TheAbout: TheAbout,
     IndexListItem: IndexListItem
   },
   data: function() {
@@ -169,20 +160,9 @@ export default {
       sortByTitle: false,
       sortByCategory: false,
       // Search data
-      search: '',
+      search: "",
       searchHasInput: false
     }
-  },
-  asyncData(context) {
-    return context.app.$storyapi
-      .get('cdn/stories/about', {
-        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft'
-      })
-      .then(res => {
-        return {
-          content: res.data.story.content.content
-        }
-      })
   },
   computed: {
     ...mapState({
@@ -205,20 +185,18 @@ export default {
         if (this.toggleSortingTitle) {
           return this.posts
             .slice(0)
-            .sort(
-              (a, b) =>
-                a.title.toLowerCase() < b.title.toLowerCase()
-                  ? this.sorting
-                  : -this.sorting
+            .sort((a, b) =>
+              a.title.toLowerCase() < b.title.toLowerCase()
+                ? this.sorting
+                : -this.sorting
             )
         } else {
           return this.posts
             .slice(0)
-            .sort(
-              (a, b) =>
-                a.title.toLowerCase() > b.title.toLowerCase()
-                  ? this.sorting
-                  : -this.sorting
+            .sort((a, b) =>
+              a.title.toLowerCase() > b.title.toLowerCase()
+                ? this.sorting
+                : -this.sorting
             )
         }
       }
@@ -226,20 +204,18 @@ export default {
         if (this.toggleSortingCategory) {
           return this.posts
             .slice(0)
-            .sort(
-              (a, b) =>
-                a.category.toLowerCase() < b.category.toLowerCase()
-                  ? this.sorting
-                  : -this.sorting
+            .sort((a, b) =>
+              a.category.toLowerCase() < b.category.toLowerCase()
+                ? this.sorting
+                : -this.sorting
             )
         } else {
           return this.posts
             .slice(0)
-            .sort(
-              (a, b) =>
-                a.category.toLowerCase() > b.category.toLowerCase()
-                  ? this.sorting
-                  : -this.sorting
+            .sort((a, b) =>
+              a.category.toLowerCase() > b.category.toLowerCase()
+                ? this.sorting
+                : -this.sorting
             )
         }
       } else {
@@ -294,7 +270,7 @@ export default {
       // Unset width first to prevent width accumilation
       const list = document.getElementsByClassName(`${e}`)
       for (var i = 0; i < list.length; i++) {
-        list[i].style.width = 'unset'
+        list[i].style.width = "unset"
       }
     },
     widestElement(e) {
@@ -332,7 +308,7 @@ export default {
       this.$refs.search.focus()
     },
     searchHasValue() {
-      if (this.search !== '') {
+      if (this.search !== "") {
         this.searchHasInput = true
       } else {
         this.searchHasInput = false
@@ -340,11 +316,11 @@ export default {
     },
     // BROWSER APIS
     windowIsVisible() {
-      if (document.visibilityState === 'hidden') {
-        document.title = '👀 You there?'
+      if (document.visibilityState === "hidden") {
+        document.title = "👀 You there?"
         this.toggleFilter = false
       } else {
-        document.title = '🧑‍🚀 Dries Bos — Web & Interaction Developer'
+        document.title = "🧑‍🚀 Dries Bos — Web & Interaction Developer"
         let scrollPosition = document.documentElement.scrollTop
         if (scrollPosition > window.innerHeight * 0.5) {
           this.toggleFilter = true
@@ -374,47 +350,47 @@ export default {
   mounted() {
     this.widestElement(`list-Year`)
     this.widestElement(`list-Title`)
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       this.unsetWidth(`list-Year`)
       this.unsetWidth(`list-Title`)
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
     })
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
       this.onScrollToggleFooter()
     })
-    window.addEventListener('input', () => {
+    window.addEventListener("input", () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
     })
-    window.addEventListener('input', this.searchHasValue)
-    document.addEventListener('visibilitychange', this.windowIsVisible)
-    window.addEventListener('beforeunload', this.startPosition)
-    document.addEventListener('mouseleave', this.mouseLeftDocument)
-    document.addEventListener('mouseenter', this.mouseEntersDocument)
+    window.addEventListener("input", this.searchHasValue)
+    document.addEventListener("visibilitychange", this.windowIsVisible)
+    window.addEventListener("beforeunload", this.startPosition)
+    document.addEventListener("mouseleave", this.mouseLeftDocument)
+    document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    window.removeEventListener('resize', () => {
+    window.removeEventListener("resize", () => {
       this.unsetWidth(`list-Year`)
       this.unsetWidth(`list-Title`)
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
     })
-    window.removeEventListener('scroll', () => {
+    window.removeEventListener("scroll", () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
       this.onScrollToggleFooter()
     })
-    window.removeEventListener('input', () => {
+    window.removeEventListener("input", () => {
       this.widestElement(`list-Year`)
       this.widestElement(`list-Title`)
     })
-    window.removeEventListener('input', this.searchHasValue)
-    document.removeEventListener('visibilitychange', this.windowIsVisible)
-    window.removeEventListener('beforeunload', this.startPosition)
-    document.removeEventListener('mouseleave', this.mouseLeftDocument)
+    window.removeEventListener("input", this.searchHasValue)
+    document.removeEventListener("visibilitychange", this.windowIsVisible)
+    window.removeEventListener("beforeunload", this.startPosition)
+    document.removeEventListener("mouseleave", this.mouseLeftDocument)
   }
 }
 </script>

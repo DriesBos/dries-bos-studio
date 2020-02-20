@@ -398,39 +398,3 @@ img[lazy="loaded"]
           margin-top: 91px
         .list-Top
           opacity: 1
-
-  // PROFILE
-  &-Profile
-    position: relative
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    width: 100%
-    min-height: 100vh
-    will-change: opacity
-    transition: opacity $transition-page
-    opacity: 0
-    cursor: default
-    a, p, span
-      color: white
-    &[data-toggle-profile="true"]
-      opacity: 1
-    .about
-      text-align: center
-      margin: var(--spacing-two)
-      max-width: 30em
-      .markdown
-        display: flex
-        flex-direction: column
-        align-items: center
-    .helper
-      position: absolute
-      bottom: 0
-      left: 50%
-      transform: translateX(-50%)
-      padding: var(--spacing-two)
-      @media screen and ( max-width: $breakpoint-mobile )
-        position: relative
-        left: auto
-        transform: translateX(0)
