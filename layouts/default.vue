@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheStars />
+    <!-- <TheStars /> -->
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import TheStars from '~/components/TheStars.vue'
+// import TheStars from '~/components/TheStars.vue'
 
 export default {
   components: {
-    TheStars: TheStars
+    // TheStars: TheStars
   }
 }
 </script>
