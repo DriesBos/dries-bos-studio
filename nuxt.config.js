@@ -1,9 +1,9 @@
-const pkg = require('./package')
-const axios = require('axios')
-require('dotenv').config()
+const pkg = require("./package")
+const axios = require("axios")
+require("dotenv").config()
 
 module.exports = {
-  mode: 'universal',
+  mode: "universal",
 
   /*
    ** Headers of the page
@@ -12,51 +12,51 @@ module.exports = {
     title: pkg.name,
     meta: [
       {
-        charset: 'utf-8'
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, viewport-fit=cover'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, viewport-fit=cover"
       },
       {
-        hid: 'description',
-        name: 'description',
+        hid: "description",
+        name: "description",
         content: pkg.description
       },
       {
-        name: 'mobile-web-app-capable',
-        content: 'yes'
+        name: "mobile-web-app-capable",
+        content: "yes"
       },
       {
-        name: 'apple-mobile-web-app-capable',
-        content: 'yes'
+        name: "apple-mobile-web-app-capable",
+        content: "yes"
       },
       {
-        name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black-translucent'
+        name: "apple-mobile-web-app-status-bar-style",
+        content: "black-translucent"
       }
     ],
     link: [
       {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: '/favicon-16x16.png'
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/favicon-16x16.png"
       },
       {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/favicon-32x32.png'
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicon-32x32.png"
       },
       {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/apple-icon-180x180.png'
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-icon-180x180.png"
       },
       {
-        rel: 'manifest',
-        href: '/manifest.json'
+        rel: "manifest",
+        href: "/manifest.json"
       }
     ]
   },
@@ -69,22 +69,19 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    '~/assets/styling/reset.css',
-    '~/assets/styling/form-reset.css',
-    '~/assets/styling/variables.sass',
-    '~/assets/styling/fonts.css',
-    '~/assets/styling/typography.sass',
-    '~/assets/styling/transitions.sass',
-    '~/assets/styling/main.sass'
+    "~/assets/styling/reset.css",
+    "~/assets/styling/form-reset.css",
+    "~/assets/styling/variables.sass",
+    "~/assets/styling/fonts.css",
+    "~/assets/styling/typography.sass",
+    "~/assets/styling/transitions.sass",
+    "~/assets/styling/main.sass"
   ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [    
-    "~/plugins/components",
-    "~/plugins/filters"
-  ],
+  plugins: ["~/plugins/components", "~/plugins/filters"],
   /*
    ** Nuxt.js modules
    */
@@ -96,29 +93,28 @@ module.exports = {
       { optimizedImages: { optimizeImages: true, optimizeImagesInDev: true } }
     ],
     [
-      'storyblok-nuxt',
+      "storyblok-nuxt",
       {
         accessToken:
-          process.env.NODE_ENV === 'production'
+          process.env.NODE_ENV === "production"
             ? process.env.PUBLICKEY
             : process.env.PREVIEWKEY,
-        cacheProvider: 'memory'
+        cacheProvider: "memory"
       }
     ],
-    ['vue-scrollto/nuxt', { duration: 300 }],
+    ["vue-scrollto/nuxt", { duration: 300 }]
   ],
 
   generate: {
     routes: function() {
       return axios
         .get(
-          `https://api.storyblok.com/v1/cdn/stories?version=published&token=${
-            process.env.APITOKEN
-          }&starts_with=blog&cv=` + Math.floor(Date.now() / 1e3)
+          `https://api.storyblok.com/v1/cdn/stories?version=published&token=${process.env.APITOKEN}&starts_with=projects&cv=` +
+            Math.floor(Date.now() / 1e3)
         )
         .then(res => {
           const blogPosts = res.data.stories.map(bp => bp.full_slug)
-          return ['/', '/blog', '/about', ...blogPosts]
+          return ["/", "/projects", "/about", ...blogPosts]
         })
     }
   },
@@ -134,9 +130,9 @@ module.exports = {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient && 1 === 2) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           exclude: /(node_modules)/
         })
       }

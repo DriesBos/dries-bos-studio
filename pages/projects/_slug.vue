@@ -24,7 +24,7 @@ export default {
   mixins: [storyblokLivePreview],
   scrollToTop: true,
   asyncData(context) {
-    let endpoint = `cdn/stories/blog/${context.params.slug}`
+    let endpoint = `cdn/stories/projects/${context.params.slug}`
 
     return context.app.$storyapi
       .get(endpoint, {

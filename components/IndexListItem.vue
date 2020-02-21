@@ -4,7 +4,7 @@
       <img :src="post.cover_image" alt="" />
     </div>
     <nuxt-link
-      :to="`/blog/${post.id}`"
+      :to="`/projects/${post.id}`"
       class="listItem-DetailsWrapper"
       tag="div"
     >

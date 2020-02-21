@@ -3,7 +3,7 @@ export default {
     async nuxtServerInit({ commit }, { app }) {
       let getPosts = await app.$storyapi.get("cdn/stories", {
         version: process.env.NODE_ENV === "production" ? "published" : "draft",
-        starts_with: "blog/"
+        starts_with: "projects/"
       })
       let posts = getPosts.data.stories.map(bp => {
         return {

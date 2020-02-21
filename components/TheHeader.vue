@@ -5,13 +5,13 @@
         <div class="listItem-Logo listItem-Details">
           <nuxt-link to="/">
             Dries Bos
-            <span v-if="this.$route.name === 'blog-slug'"
+            <span v-if="this.$route.name === 'project-slug'"
               >— {{ $route.params.slug }}</span
             >
             <span v-else>— Web & Interaction Development</span>
           </nuxt-link>
         </div>
-        <div v-if="this.$route.name === 'blog-slug'" class="listItem-Icons">
+        <div v-if="this.$route.name === 'project-slug'" class="listItem-Icons">
           <nuxt-link to="/" class="icon-Container" title="close project">
             <div
               class="icon"
