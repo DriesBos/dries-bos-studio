@@ -24,49 +24,22 @@ main
     color: black
     .background-One
       transform: translate3d(0%, 0%, 0)
-      transition: transform $transition-theme
-    .icon.theme
-      fill: $color-support-white
-      stroke: $color-support-white
-    .listItem_Project:hover
-      background-color: $color-support-white
-      p, svg
-        color: white
+      transition: transform $transition-theme // Dublicate for delay
   &.two
     color: white
     .background-Two
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
-    .icon.theme
-      fill: $color-support-lightgrey
-    .listItem_Project:hover
-      background-color: $color-support-lightgrey
-      p, svg
-        color: black
   &.three
     color: white
     .background-Three
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
-    .icon.theme
-      fill: $color-support-darkgrey
-      stroke: $color-support-darkgrey
-    .listItem_Project:hover
-      background-color: $color-support-darkgrey
-      p, svg
-        color: black
   &.four
     color: white
     .background-Four
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
-    .icon.theme
-      fill: $color-support-black
-      stroke: $color-support-black
-    .listItem_Project:hover
-      background-color: $color-support-black
-      p
-        color: white
 
 .background
   position: fixed
@@ -92,7 +65,8 @@ main
   &.arrow, &.close
     fill: currentColor
   &.theme
-    stroke: currentColor
+    fill: var(--support-color)
+    stroke: var(--support-color)
 
 // BUILDING BLOCKS
 .list
@@ -170,6 +144,8 @@ main
       &:hover
         .listItem-Thumb
           opacity: 1
+        a, p, svg
+          color: var(--support-color)
     &_Filter
       border-top: 1px currentColor solid
       p, input::placeholder, svg, input
