@@ -15,7 +15,7 @@
               <p title="sort by role">role</p>
             </div>
           </div>
-          <div class="listItem-Icons" v-bind:class="{ active: searchHasInput }">
+          <div class="listItem-Icons" v-bind:class="{ active: toggleSearch }">
             <input
               type="text"
               v-model="search"
@@ -23,7 +23,7 @@
               placeholder="filter by name"
             />
             <div
-              @click="searchFocus"
+              @click="searchIconClick"
               class="icon-Container"
               title="search projects"
             >
@@ -66,6 +66,7 @@ export default {
       toggleSortingYear: false,
       toggleSortingTitle: false,
       toggleSortingCategory: false,
+      toggleSearch: false,
       sortByYear: true,
       sortByTitle: false,
       sortByCategory: false,
@@ -195,8 +196,9 @@ export default {
       this.toggleSortingCategory = !this.toggleSortingCategory
     },
     // SEARCH
-    searchFocus() {
+    searchIconClick() {
       this.$refs.search.focus()
+      this.toggleSearch = !this.toggleSearch
     },
     searchHasValue() {
       if (this.search !== "") {

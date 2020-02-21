@@ -95,9 +95,16 @@ img[lazy="loaded"]
         opacity: 1
     &_Filter
       border-top: 1px currentColor solid
-      p, input::placeholder, svg
+      p, input::placeholder, svg, input
         color: black
         opacity: .33
+        transition: opacity $transition-fade
+      .listItem-Icons
+        input
+          opacity: 0
+        &.active
+          input, svg
+            opacity: 1
 
 header
   position: fixed
