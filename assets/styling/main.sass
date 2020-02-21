@@ -27,17 +27,6 @@ img[lazy="loaded"]
     display: flex
     align-items: center
     justify-content: space-between
-    border-top: 1px currentColor solid
-    cursor: pointer
-    &_Project
-      transition: background-color $transition-hover
-      will-change: background-color
-      &:hover
-        background-color: green
-    &_Filter
-      p, input::placeholder, svg
-        color: black
-        opacity: .33
     &-DetailsWrapper
       display: flex
       flex-grow: 1
@@ -75,6 +64,21 @@ img[lazy="loaded"]
           top: 0
           width: 100%
           height: auto
+    &_Header
+      .listItem-DetailsWrapper
+        padding-top: var(--spacing-two)
+    &_Project
+      transition: background-color $transition-hover
+      will-change: background-color
+      border-top: 1px currentColor solid
+      cursor: pointer
+      &:hover
+        background-color: green
+    &_Filter
+      border-top: 1px currentColor solid
+      p, input::placeholder, svg
+        color: black
+        opacity: .33
 
 header
   position: fixed
