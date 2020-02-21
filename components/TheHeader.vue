@@ -3,13 +3,13 @@
     <li class="listItem listItem_Header">
       <div class="listItem-DetailsWrapper">
         <div class="listItem-Logo listItem-Details">
-          <p title="thats me!">
+          <nuxt-link to="/">
             Dries Bos
             <span v-if="this.$route.name === 'blog-slug'"
               >— {{ $route.params.slug }}</span
             >
             <span v-else>— Web & Interaction Development</span>
-          </p>
+          </nuxt-link>
         </div>
         <div v-if="this.$route.name === 'blog-slug'" class="listItem-Icons">
           <nuxt-link to="/" class="icon-Container" title="close project">

@@ -4,6 +4,7 @@
       <ul class="list">
         <li class="listItem listItem_Filter">
           <div class="listItem-DetailsWrapper">
+            <div class="listItem-Details"></div>
             <div class="listItem-Title listItem-Details" @click="sortTitle">
               <p title="sort by project">project</p>
             </div>
@@ -238,6 +239,7 @@ export default {
     this.startPosition()
   },
   mounted() {
+    // console.log(this.posts)
     window.addEventListener("scroll", () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()

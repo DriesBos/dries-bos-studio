@@ -53,9 +53,9 @@ export default {
     return {
       story: { content: {} }
     }
-  },
-  mounted() {
-    console.log(this.story)
   }
+  // mounted() {
+  //   console.log(this.story)
+  // }
 }
 </script>

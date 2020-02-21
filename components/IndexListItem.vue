@@ -1,10 +1,23 @@
 <template>
   <li :key="post.id" :id="post.id" class="listItem listItem_Project">
-    <nuxt-link :to="`/blog/${post.id}`" class="listItem-DetailsWrapper" tag="div">
+    <div class="listItem-Thumb">
+      <img :src="post.cover_image" alt="" />
+    </div>
+    <nuxt-link
+      :to="`/blog/${post.id}`"
+      class="listItem-DetailsWrapper"
+      tag="div"
+    >
+      <div class="listItem-Number listItem-Details ellipsis">
+        <p>001</p>
+      </div>
       <div v-if="post.title" class="listItem-Title listItem-Details ellipsis">
         <p>{{ post.title }}</p>
       </div>
-      <div v-if="post.category" class="listItem-Category listItem-Details ellipsis">
+      <div
+        v-if="post.category"
+        class="listItem-Category listItem-Details ellipsis"
+      >
         <p>{{ post.category }}</p>
       </div>
     </nuxt-link>
