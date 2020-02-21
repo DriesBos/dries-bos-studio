@@ -91,8 +91,12 @@ img[lazy="loaded"]
       will-change: background-color
       border-top: 1px currentColor solid
       cursor: pointer
-      &:hover .listItem-Thumb
-        opacity: 1
+      &:hover
+        background-color: $color-support-white
+        p
+          color: $color-font-white
+        .listItem-Thumb
+          opacity: 1
     &_Filter
       border-top: 1px currentColor solid
       p, input::placeholder, svg, input
