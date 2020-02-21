@@ -25,21 +25,48 @@ main
     .background-One
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
+    .icon.theme
+      fill: $color-support-white
+      stroke: $color-support-white
+    .listItem_Project:hover
+      background-color: $color-support-white
+      p, svg
+        color: white
   &.two
     color: white
     .background-Two
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
+    .icon.theme
+      fill: $color-support-lightgrey
+    .listItem_Project:hover
+      background-color: $color-support-lightgrey
+      p, svg
+        color: black
   &.three
     color: white
     .background-Three
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
+    .icon.theme
+      fill: $color-support-darkgrey
+      stroke: $color-support-darkgrey
+    .listItem_Project:hover
+      background-color: $color-support-darkgrey
+      p, svg
+        color: black
   &.four
     color: white
     .background-Four
       transform: translate3d(0%, 0%, 0)
       transition: transform $transition-theme
+    .icon.theme
+      fill: $color-support-black
+      stroke: $color-support-black
+    .listItem_Project:hover
+      background-color: $color-support-black
+      p
+        color: white
 
 .background
   position: fixed
@@ -61,8 +88,11 @@ main
     background-color: black
 
 .icon
-  &.arrow
+  transition: fill $transition-fade, stroke $transition-fade
+  &.arrow, &.close
     fill: currentColor
+  &.theme
+    stroke: currentColor
 
 // BUILDING BLOCKS
 .list
@@ -135,20 +165,15 @@ main
       p
         text-transform: capitalize
     &_Project
-      transition: background-color $transition-hover
-      will-change: background-color
       border-top: 1px currentColor solid
       cursor: pointer
       &:hover
-        background-color: $color-support-white
-        p
-          color: $color-font-white
         .listItem-Thumb
           opacity: 1
     &_Filter
       border-top: 1px currentColor solid
       p, input::placeholder, svg, input
-        color: black
+        color: currentColor
         opacity: .33
         transition: opacity $transition-fade
       .listItem-Icons
