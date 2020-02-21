@@ -19,7 +19,25 @@
             ></div>
           </nuxt-link>
         </div>
+        <div v-if="this.$route.name === 'index'" class="listItem-Icons">
+          <div @click="toggleTheme" class="icon-Container" title="change theme">
+            <div
+              class="icon"
+              v-html="require('~/assets/images/icon-close.svg?include')"
+            ></div>
+          </div>
+        </div>
       </div>
     </li>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    toggleTheme() {
+      this.$emit("clicked")
+    }
+  }
+}
+</script>

@@ -43,7 +43,7 @@ export default {
     post: Object
   },
   mounted() {
-    console.log(this.post)
+    // console.log(this.post)
   }
 }
 </script>
