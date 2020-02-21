@@ -7,18 +7,38 @@
             <div class="listItem-Title listItem-Details" @click="sortTitle">
               <p title="sort by project">project</p>
             </div>
-            <div class="listItem-Category listItem-Details" @click="sortCategory">
+            <div
+              class="listItem-Category listItem-Details"
+              @click="sortCategory"
+            >
               <p title="sort by role">role</p>
             </div>
           </div>
           <div class="listItem-Icons" v-bind:class="{ active: searchHasInput }">
-            <input type="text" v-model="search" ref="search" placeholder="filter by name" />
-            <div @click="searchFocus" class="icon-Container" title="search projects">
-              <img src="~assets/images/search-red.png" class="icon" />
+            <input
+              type="text"
+              v-model="search"
+              ref="search"
+              placeholder="filter by name"
+            />
+            <div
+              @click="searchFocus"
+              class="icon-Container"
+              title="search projects"
+            >
+              <div
+                class="icon"
+                v-html="require('~/assets/images/icon-search.svg?include')"
+              ></div>
             </div>
           </div>
         </li>
-        <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+        <li
+          is="IndexListItem"
+          v-for="post in filteredList"
+          :key="post.id"
+          :post="post"
+        ></li>
       </ul>
     </section>
   </div>

@@ -29,10 +29,15 @@ img[lazy="loaded"]
     justify-content: space-between
     border-top: 1px currentColor solid
     cursor: pointer
-    transition: background-color $transition-hover
-    will-change: background-color
-    &:hover
-      background-color: green
+    &_Project
+      transition: background-color $transition-hover
+      will-change: background-color
+      &:hover
+        background-color: green
+    &_Filter
+      p, input::placeholder, svg
+        color: black
+        opacity: .33
     &-DetailsWrapper
       display: flex
       flex-grow: 1
@@ -44,8 +49,6 @@ img[lazy="loaded"]
     &-Details
       flex-shrink: 0
       flex-basis: 50%
-    &_Filter
-      border: red 1px solid
     &-Icons
       position: absolute
       top: 0
