@@ -16,22 +16,54 @@ img[lazy="loaded"]
   // transition: opacity $transition-lazy // just like slider element
   opacity: 1
 
+// THEME
 main
-  &.active
+  transition: color .4s ease .2s
+  will-change: color
+  &.one
+    color: black
     .background-One
       transform: translate3d(0%, 0%, 0)
+      transition: transform $transition-theme
+  &.two
+    color: white
+    .background-Two
+      transform: translate3d(0%, 0%, 0)
+      transition: transform $transition-theme
+  &.three
+    color: white
+    .background-Three
+      transform: translate3d(0%, 0%, 0)
+      transition: transform $transition-theme
+  &.four
+    color: white
+    .background-Four
+      transform: translate3d(0%, 0%, 0)
+      transition: transform $transition-theme
 
-.background-One
+.background
   position: fixed
   top: 0
   left: 0
   right: 0
   bottom: 0
-  background-color: hsla(0,0%,0%,.25)
   z-index: -2
-  transition: transform $transition-theme
+  transition: transform $transition-theme 1s
   transform: translate3d(-100%, 0%, 0)
-  trans
+  will-change: transform
+  &-One
+    background-color: white
+  &-Two
+    background-color: #B7B7B7
+  &-Three
+    background-color: #424242
+  &-Four
+    background-color: black
+
+.icon
+  &.arrow
+    fill: currentColor
+
 // BUILDING BLOCKS
 .list
   display: flex
