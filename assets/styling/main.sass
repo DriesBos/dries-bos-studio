@@ -17,47 +17,62 @@ img[lazy="loaded"]
   opacity: 1
 
 // BUILDING BLOCKS
-.icons-Row
+.list
   display: flex
-  align-items: center
-  justify-content: center
-  transition: opacity $transition-hover, display $transition-hover
-  padding-right: var(--spacing-two)
-  @media screen and ( max-width: $breakpoint-mobile)
-    padding-right: var(--spacing-one)
-    opacity: 1
-.icon-Container
-  display: flex
-  align-items: center
-  justify-content: center
-  cursor: pointer
-  height: 100%
-  margin-left: var(--spacing-two)
-  @media screen and ( max-width: $breakpoint-mobile)
-    margin-left: var(--spacing-one)
-.icon-Container:first-child
-  margin-left: 0
-.icon
-  position: relative
-  width: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-  height: calc(20px + (26 - 20) * ((100vw - 700px) / (1400 - 700)))
-  opacity: 1
-  svg, img
-    position: absolute
-    left: 0
-    top: 0
+  flex-direction: column
+  width: 100%
+  .list-Item
+    position: relative
     width: 100%
-    height: auto
-.icon
-  .hover
-    opacity: 0
-    transition: opacity $transition-hover
-.icon:hover
-  .hover
+    display: flex
+    align-items: center
+    border-top: 1px currentColor solid
+    padding-left: var(--spacing-two)
+    padding-right: var(--spacing-two)
+    padding-top: var(--spacing-one)
+    padding-bottom: var(--spacing-one)
+    cursor: pointer
+  .list-Details
+    flex-shrink: 0
+    flex-basis: 50%
+  .list-Icons
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    display: flex
+    align-items: center
+    padding-right: var(--spacing-two)
+  .icon-Container
+    display: flex
+    align-items: center
+    justify-content: center
+    cursor: pointer
+    height: 100%
+    margin-left: var(--spacing-two)
+  .icon
+    position: relative
+    width: 1em
+    height: 1em
     opacity: 1
+    svg, img
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: auto
+
+header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  &.list .list-Item
+    padding-top: var(--spacing-two) !important
 
 // VIEWS
 .view
+  margin-top: 300px
   &-Container
     position: relative
     display: flex
@@ -68,290 +83,3 @@ img[lazy="loaded"]
     flex-direction: column
     align-items: center
     width: 100%
-
-    // LISTS
-    .list
-      display: flex
-      flex-direction: column
-      width: 100%
-      .list-Item
-        position: relative
-        width: 100%
-        .list-Outer // Outer
-          position: relative
-          display: flex
-          align-items: center
-          z-index: $zindex-header
-          background: white
-          border-top: 1px currentColor solid
-          .list-Details
-            position: relative
-            padding-top: var(--spacing-one)
-            padding-bottom: var(--spacing-one)
-            p
-              text-transform: lowercase
-            @media screen and ( max-width: $breakpoint-mobile )
-              margin-left: var(--spacing-two)
-            @media screen and ( min-width: $breakpoint-laptop )
-              margin-left: 144px
-          .list-Details:first-child
-            margin-left: var(--spacing-two)
-          .list-Year
-            min-width: 42px
-            flex-shrink: 0
-          .list-Title
-            margin-left: var(--spacing-three)
-          .list-Title, .list-Logo
-            p
-              text-transform: capitalize
-          .list-Nav, .list-Mail
-            display: flex
-            flex-wrap: nowrap
-            p, a
-              margin-right: 1em
-              cursor: pointer
-              user-select: none
-            p:last-child, a:last-child
-              margin-right: 0
-          .list-Logo p
-            cursor: pointer
-          .list-Category
-            flex-grow: 1
-            flex-shrink: 0
-            margin-left: var(--spacing-three)
-          .list-Nav, .list-Mail, .list-Logo
-            @media (hover: hover)
-              p, a
-                transition: color $transition-hover
-                &:hover
-                  color: $font-hover
-          @media screen and ( max-width: $breakpoint-mobile )
-            .list-Title
-              flex-grow: 1
-            .list-Category
-              text-align: right
-              margin-right: var(--spacing-two)
-              flex-grow: 0
-            .list-Nav
-              margin-right: var(--spacing-two)
-        .list-Inner // Inner
-          z-index: $zindex-projects
-          &_Content
-            display: flex
-            flex-wrap: nowrap
-            padding-top: var(--spacing-one)
-            padding-bottom: var(--spacing-two)
-            background: white
-          .slider-Container
-            border-right: 2px solid white
-            border-left: 2px solid white
-          .list-Year
-            margin-left: var(--spacing-two)
-            flex-shrink: 0
-            min-width: 42px
-            p
-              opacity: 0
-              cursor: default
-            @media screen and ( max-width: $breakpoint-mobile )
-              display: none
-          .list-Content
-            margin-left: var(--spacing-three)
-            padding-right: var(--spacing-two)
-            @media screen and ( max-width: $breakpoint-mobile )
-              margin-left: var(--spacing-two)
-
-      .list-Item_Project
-        .list-Outer
-          cursor: pointer
-          &.active
-            cursor: default
-
-      .list-Item_Header
-        box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
-        will-change: transform
-        transition: transform .35s ease-out .25s
-        z-index: $zindex-header
-        .list-Outer
-          justify-content: space-between
-          padding-right: var(--spacing-two)
-          @media screen and ( max-width: $breakpoint-mobile )
-            padding-right: 0
-        &[data-toggle-filter="true"]
-          transform: translateY(calc(0px - (4vmin + 1.5em)))
-          @media screen and ( max-width: $breakpoint-mobile )
-            transform: translateY(-65px)
-          @media screen and ( min-width: $breakpoint-laptop )
-            transform: translateY(-91px)
-
-      .list-Item_Filter
-        p, input, img
-          opacity: .4
-          user-select: none
-        img
-          transition: opacity $transition-hover, filter $transition-hover
-          -webkit-filter: grayscale(1)
-          filter: greyscale(1)
-        .list-Outer
-          .list-Search
-            flex-basis: auto
-            display: flex
-            align-items: center
-            flex-wrap: nowrap
-            padding-right: var(--spacing-two)
-            cursor: default
-            min-width: 0
-            @media (hover: hover)
-              .icon-Container:hover img
-                -webkit-filter: grayscale(0)
-                filter: greyscale(0)
-            &.active
-              .icon-Container img
-                opacity: 1
-                -webkit-filter: grayscale(0)
-                filter: greyscale(0)
-              input
-                opacity: 1
-                cursor: text
-            @media screen and ( max-width: $breakpoint-mobile )
-              display: none
-            @media (hover: hover)
-              .icon-Container:hover
-                img
-                  opacity: 1
-            input
-              transition: opacity $transition-hover
-              opacity: 0
-              cursor: default
-              padding-left: var(--spacing-one)
-              min-width: 0
-              color: $font-hover
-            input:focus
-              opacity: 1
-              cursor: text
-            input::placeholder
-              opacity: .4
-              color: black
-          .list-Details
-            p
-              text-transform: lowercase
-            p:nth-child(2)
-              position: absolute
-              opacity: 0
-              top: 0
-              left: 0
-              padding-top: var(--spacing-one)
-              padding-bottom: var(--spacing-one)
-              color: $font-hover
-            &:hover
-              @media (hover: hover)
-                p:first-child
-                  opacity: 0
-                  cursor: default
-                p:nth-child(2)
-                  opacity: 1
-                  cursor: pointer
-
-      .list-Item_Project
-        .icons-Row
-          opacity: 0
-          svg
-            fill: $font-hover
-        .slider-Container
-          svg
-            fill: $font-hover
-        &:hover
-          .icons-Row
-            opacity: 1
-        .list-Outer
-          @media (hover: hover)
-            p
-              transition: color $transition-hover
-            &:hover p
-              color: $font-hover
-        @media screen and ( max-width: $breakpoint-mobile )
-          .list-Outer
-            .icons-Row
-              display: none
-          .list-Outer.active
-            .list-Category
-              display: none
-            .icons-Row
-              display: inline
-
-      .list-Item_Project#site-sprint-service
-        .list-Outer
-          background: linear-gradient(90deg, rgba(148,106,170,1) 0%, rgba(50,86,103,1) 23%, rgba(165,130,48,1) 46%, rgba(165,130,48,1) 87%, rgba(253,85,6,1) 94%)
-          .list-Year, .list-Category
-            opacity: 0
-          .icons-Row
-            opacity: 1
-            @media screen and ( max-width: $breakpoint-mobile )
-              display: inline
-            svg
-              fill: white
-        .list-Outer.active
-          .icons-Row
-            opacity: 0
-          @media screen and ( max-width: $breakpoint-mobile )
-            .list-Year
-              display: none
-            .list-Title
-              margin-left: var(--spacing-two)
-        &:hover
-          .list-Outer.active
-            .icons-Row
-              opacity: 1
-        .list-Inner
-          background: linear-gradient(90deg, rgba(148,106,170,1) 0%, rgba(50,86,103,1) 23%, rgba(165,130,48,1) 46%, rgba(165,130,48,1) 87%, rgba(253,85,6,1) 94%)
-          .list-Inner_Content
-            background: linear-gradient(90deg, rgba(148,106,170,1) 0%, rgba(50,86,103,1) 23%, rgba(165,130,48,1) 46%, rgba(165,130,48,1) 87%, rgba(253,85,6,1) 94%)
-        .list-Inner, .list-Outer
-          .list-Details
-            p, a
-              color: white
-        .slider-Container
-          border: 0
-          svg
-            fill: white
-
-      .list-Item:nth-last-child(2)
-        box-shadow: 0px 45px 2px hsla(0, 0%, 0%, .5)
-        z-index: $zindex-projects
-        .list-Inner
-          border-bottom: 2px solid white
-
-      .list-Item_Footer
-        margin-top: calc(0px + (4vmin + 1.5em))
-        .list-Outer
-          justify-content: space-between
-        .list-Mail
-          a
-            transition: opacity $transition-hover
-          a:last-child
-            position: absolute
-            margin-top: var(--spacing-one)
-            top: 0
-            left: 0
-          .state-normal
-            opacity: 1
-            transition: opacity $transition-hover
-            @media screen and ( max-width: $breakpoint-mobile )
-              opacity: 0
-          .state-hover
-            opacity: 0
-            transition: opacity $transition-hover
-            @media screen and ( max-width: $breakpoint-mobile )
-              opacity: 1
-          &:hover
-            .state-normal
-              opacity: 0
-            .state-hover
-              opacity: 1
-        .icons-Row
-          .icon-Container:last-child
-            margin-left: var(--spacing-three)
-
-        @media screen and ( max-width: $breakpoint-mobile )
-          margin-top: 65px
-        @media screen and ( min-width: $breakpoint-laptop )
-          margin-top: 91px

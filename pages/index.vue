@@ -1,55 +1,18 @@
 <template>
-  <div class="view-Container">
+  <div class="view view-Container">
     <section class="view-Index">
       <ul class="list">
-        <li class="list-Item list-Item_Header" :data-toggle-filter="toggleFilter">
-          <div class="list-Outer">
-            <div class="list-Logo list-Details">
-              <p
-                v-scroll-to="{
-          el: '.view-Index',
-          duration: 600
-        }"
-                title="thats me!"
-              >Dries Bos</p>
-            </div>
-            <div class="list-Nav list-Details">
-              <p
-                v-scroll-to="{
-          el: '.list-Item_Filter',
-          duration: 600
-        }"
-              >projects</p>
-              <p
-                v-scroll-to="{
-          el: '.list-Item_Footer',
-          duration: 600,
-          easing: 'ease-in'
-
-        }"
-              >Contact</p>
-            </div>
-          </div>
-        </li>
         <li class="list-Item list-Item_Filter">
-          <div class="list-Outer">
-            <div class="list-Year list-Details">
-              <p>date</p>
-              <p @click="sortYear" title="sort by date">sort</p>
-            </div>
-            <div class="list-Title list-Details">
-              <p>project</p>
-              <p @click="sortTitle" title="sort by project">sort</p>
-            </div>
-            <div class="list-Category list-Details">
-              <p>role</p>
-              <p @click="sortCategory" title="sort by type">sort</p>
-            </div>
-            <div class="list-Search" v-bind:class="{ active: searchHasInput }">
-              <input type="text" v-model="search" ref="search" placeholder="filter by name" />
-              <div @click="searchFocus" class="icon-Container" title="search projects">
-                <img src="~assets/images/search-red.png" class="icon" />
-              </div>
+          <div class="list-Title list-Details" @click="sortTitle">
+            <p title="sort by project">project</p>
+          </div>
+          <div class="list-Category list-Details" @click="sortCategory">
+            <p title="sort by role">role</p>
+          </div>
+          <div class="list-Icons" v-bind:class="{ active: searchHasInput }">
+            <input type="text" v-model="search" ref="search" placeholder="filter by name" />
+            <div @click="searchFocus" class="icon-Container" title="search projects">
+              <img src="~assets/images/search-red.png" class="icon" />
             </div>
           </div>
         </li>
@@ -189,25 +152,6 @@ export default {
         this.toggleFooter = false
       }
     },
-    // LIST ELEMENTS UNIFORM WIDTH
-    unsetWidth(e) {
-      // Unset width first to prevent width accumilation
-      const list = document.getElementsByClassName(`${e}`)
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.width = "unset"
-      }
-    },
-    widestElement(e) {
-      const list = document.getElementsByClassName(`${e}`)
-      const listWidths = []
-      for (let i = 0; i < list.length; i++) {
-        listWidths.push(list[i].offsetWidth)
-      }
-      var widest = Math.max(...listWidths) + 1
-      for (var i = 0; i < list.length; i++) {
-        list[i].style.width = `${widest}px`
-      }
-    },
     // FILTER
     sortYear() {
       this.sortByYear = true
@@ -272,22 +216,10 @@ export default {
     this.startPosition()
   },
   mounted() {
-    this.widestElement(`list-Year`)
-    this.widestElement(`list-Title`)
-    window.addEventListener("resize", () => {
-      this.unsetWidth(`list-Year`)
-      this.unsetWidth(`list-Title`)
-      this.widestElement(`list-Year`)
-      this.widestElement(`list-Title`)
-    })
     window.addEventListener("scroll", () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
       this.onScrollToggleFooter()
-    })
-    window.addEventListener("input", () => {
-      this.widestElement(`list-Year`)
-      this.widestElement(`list-Title`)
     })
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
@@ -296,20 +228,10 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    window.removeEventListener("resize", () => {
-      this.unsetWidth(`list-Year`)
-      this.unsetWidth(`list-Title`)
-      this.widestElement(`list-Year`)
-      this.widestElement(`list-Title`)
-    })
     window.removeEventListener("scroll", () => {
       this.onScrollToggleFilter()
       this.onScrollToggleProfile()
       this.onScrollToggleFooter()
-    })
-    window.removeEventListener("input", () => {
-      this.widestElement(`list-Year`)
-      this.widestElement(`list-Title`)
     })
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
