@@ -1,5 +1,22 @@
 <template>
-  <p>BLOG SPECIFIC PAGE</p>
+  <div class="view view-Container">
+    <section class="view-Project">
+      <div class="projectItem">
+        <div class="projectItem-Text">
+          <markdown-item :input="story.content.content" />
+        </div>
+        <ul
+          v-for="(image, index) in story.content.images"
+          :key="index"
+          class="projectItem-Images"
+        >
+          <li>
+            <img :src="image.filename" />
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>

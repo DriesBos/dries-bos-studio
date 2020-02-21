@@ -5,8 +5,19 @@
         <div class="listItem-Logo listItem-Details">
           <p title="thats me!">
             Dries Bos
-            <span>— Web & Interaction Development</span>
+            <span v-if="this.$route.name === 'blog-slug'"
+              >— {{ $route.params.slug }}</span
+            >
+            <span v-else>— Web & Interaction Development</span>
           </p>
+        </div>
+        <div v-if="this.$route.name === 'blog-slug'" class="listItem-Icons">
+          <nuxt-link to="/" class="icon-Container" title="close project">
+            <div
+              class="icon"
+              v-html="require('~/assets/images/icon-close.svg?include')"
+            ></div>
+          </nuxt-link>
         </div>
       </div>
     </li>

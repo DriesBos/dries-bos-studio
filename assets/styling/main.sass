@@ -67,6 +67,8 @@ img[lazy="loaded"]
     &_Header
       .listItem-DetailsWrapper
         padding-top: var(--spacing-two)
+      p
+        text-transform: capitalize
     &_Project
       transition: background-color $transition-hover
       will-change: background-color
@@ -101,3 +103,11 @@ header
     flex-direction: column
     align-items: center
     width: 100%
+  &-Project
+    .projectItem
+      &-Text
+        padding-left: var(--spacing-two)
+        padding-right: var(--spacing-two)
+        margin-bottom: var(--spacing-two)
+    img
+      opacity: 1
