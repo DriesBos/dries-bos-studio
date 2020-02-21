@@ -1,12 +1,14 @@
 <template>
-  <li :key="post.id" :id="post.id" class="list-Item list-Item_Project">
-    <div v-if="post.title" class="list-Title list-Details ellipsis">
-      <p>{{ post.title }}</p>
-    </div>
-    <div v-if="post.category" class="list-Category list-Details ellipsis">
-      <p>{{ post.category }}</p>
-    </div>
-    <div class="list-Icons">
+  <li :key="post.id" :id="post.id" class="listItem listItem_Project">
+    <nuxt-link :to="`/blog/${post.id}`" class="listItem-DetailsWrapper" tag="div">
+      <div v-if="post.title" class="listItem-Title listItem-Details ellipsis">
+        <p>{{ post.title }}</p>
+      </div>
+      <div v-if="post.category" class="listItem-Category listItem-Details ellipsis">
+        <p>{{ post.category }}</p>
+      </div>
+    </nuxt-link>
+    <div class="listItem-Icons">
       <div class="icon-Container" title="view project">
         <svg width="25" height="25" viewBox="0 0 25 25" class="icon">
           <path
@@ -26,6 +28,9 @@ export default {
   name: "IndexListItem",
   props: {
     post: Object
+  },
+  mounted() {
+    console.log(this.post)
   }
 }
 </script>

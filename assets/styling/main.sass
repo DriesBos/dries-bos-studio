@@ -21,46 +21,57 @@ img[lazy="loaded"]
   display: flex
   flex-direction: column
   width: 100%
-  .list-Item
+  .listItem
     position: relative
     width: 100%
     display: flex
     align-items: center
+    justify-content: space-between
     border-top: 1px currentColor solid
-    padding-left: var(--spacing-two)
-    padding-right: var(--spacing-two)
-    padding-top: var(--spacing-one)
-    padding-bottom: var(--spacing-one)
     cursor: pointer
-  .list-Details
-    flex-shrink: 0
-    flex-basis: 50%
-  .list-Icons
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    display: flex
-    align-items: center
-    padding-right: var(--spacing-two)
-  .icon-Container
-    display: flex
-    align-items: center
-    justify-content: center
-    cursor: pointer
-    height: 100%
-    margin-left: var(--spacing-two)
-  .icon
-    position: relative
-    width: 1em
-    height: 1em
-    opacity: 1
-    svg, img
+    transition: background-color $transition-hover
+    will-change: background-color
+    &:hover
+      background-color: green
+    &-DetailsWrapper
+      display: flex
+      flex-grow: 1
+      align-items: center
+      padding-left: var(--spacing-two)
+      padding-right: var(--spacing-two)
+      padding-top: var(--spacing-one)
+      padding-bottom: var(--spacing-one)
+    &-Details
+      flex-shrink: 0
+      flex-basis: 50%
+    &_Filter
+      border: red 1px solid
+    &-Icons
       position: absolute
-      left: 0
       top: 0
-      width: 100%
-      height: auto
+      right: 0
+      bottom: 0
+      display: flex
+      align-items: center
+      padding-right: var(--spacing-two)
+      .icon-Container
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        height: 100%
+        margin-left: var(--spacing-two)
+      .icon
+        position: relative
+        width: 1em
+        height: 1em
+        opacity: 1
+        svg, img
+          position: absolute
+          left: 0
+          top: 0
+          width: 100%
+          height: auto
 
 header
   position: fixed

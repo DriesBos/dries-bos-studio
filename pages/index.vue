@@ -2,14 +2,16 @@
   <div class="view view-Container">
     <section class="view-Index">
       <ul class="list">
-        <li class="list-Item list-Item_Filter">
-          <div class="list-Title list-Details" @click="sortTitle">
-            <p title="sort by project">project</p>
+        <li class="listItem listItem_Filter">
+          <div class="listItem-DetailsWrapper">
+            <div class="listItem-Title listItem-Details" @click="sortTitle">
+              <p title="sort by project">project</p>
+            </div>
+            <div class="listItem-Category listItem-Details" @click="sortCategory">
+              <p title="sort by role">role</p>
+            </div>
           </div>
-          <div class="list-Category list-Details" @click="sortCategory">
-            <p title="sort by role">role</p>
-          </div>
-          <div class="list-Icons" v-bind:class="{ active: searchHasInput }">
+          <div class="listItem-Icons" v-bind:class="{ active: searchHasInput }">
             <input type="text" v-model="search" ref="search" placeholder="filter by name" />
             <div @click="searchFocus" class="icon-Container" title="search projects">
               <img src="~assets/images/search-red.png" class="icon" />

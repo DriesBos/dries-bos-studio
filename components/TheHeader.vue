@@ -1,6 +1,6 @@
 <template>
   <header class="list">
-    <li class="list-Item list-Item_Header">
+    <li class="listItem listItem_Header">
       <div class="list-Logo list-Details">
         <p title="thats me!">
           Dries Bos
