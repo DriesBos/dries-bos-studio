@@ -5,7 +5,7 @@
     </div>
     <nuxt-link :to="`/projects/${post.id}`" class="listItem-DetailsWrapper" tag="div">
       <div class="listItem-Number listItem-Details ellipsis">
-        <p>001</p>
+        <p>{{ index }}</p>
       </div>
       <div v-if="post.title" class="listItem-Title listItem-Details ellipsis">
         <p>{{ post.title }}</p>
@@ -26,7 +26,8 @@
 export default {
   name: "IndexListItem",
   props: {
-    post: Object
+    post: Object,
+    index: Number
   },
   mounted() {
     // console.log(this.post)
