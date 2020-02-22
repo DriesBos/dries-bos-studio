@@ -28,7 +28,7 @@ export default {
 
     return context.app.$storyapi
       .get(endpoint, {
-        version: "draft"
+        version: "published"
       })
       .then(res => {
         return res.data
