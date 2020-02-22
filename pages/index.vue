@@ -5,14 +5,22 @@
         <li class="listItem listItem_Filter">
           <div class="listItem-DetailsWrapper">
             <div class="listItem-Details"></div>
-            <div class="listItem-Title listItem-Details" @click="sortTitle">
+            <div
+              class="listItem-Title listItem-Details"
+              :class="{ active: sortByTitle }"
+              @click="sortTitle"
+            >
               <p title="sort by project">project</p>
             </div>
-            <div class="listItem-Category listItem-Details" @click="sortCategory">
+            <div
+              class="listItem-Category listItem-Details"
+              :class="{ active: sortByCategory }"
+              @click="sortCategory"
+            >
               <p title="sort by role">role</p>
             </div>
           </div>
-          <div class="listItem-Icons" v-bind:class="{ active: toggleSearch }">
+          <div class="listItem-Icons" :class="{ active: toggleSearch }">
             <input type="text" v-model="search" ref="search" placeholder="filter by name" />
             <div @click="searchIconClick" class="icon-Container" title="search projects">
               <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
@@ -119,6 +127,7 @@ export default {
     this.startPosition()
   },
   mounted() {
+    console.log(this.sortByTitle, this.sortByCategory)
     // this.addIndexToProjects()
     // window.addEventListener("scroll", () => {
     // })
@@ -161,12 +170,14 @@ export default {
       this.sortByTitle = true
       this.sortByCategory = false
       this.toggleSortingTitle = !this.toggleSortingTitle
+      console.log(this.sortByTitle, this.sortByCategory)
     },
     sortCategory() {
       this.sortByYear = false
       this.sortByTitle = false
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
+      console.log(this.sortByTitle, this.sortByCategory)
     },
     // SEARCH
     searchIconClick() {
