@@ -143,7 +143,7 @@ module.exports = {
     [
       "@nuxtjs/google-analytics",
       {
-        id: "UA-151943071-1"
+        id: process.env.GA_ID
       }
     ]
   ]
