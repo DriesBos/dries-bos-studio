@@ -17,15 +17,12 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import JQuery from "jquery"
-let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
   scrollToTop: true,
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
-
     return context.app.$storyapi
       .get(endpoint, {
         version: "published"
@@ -53,9 +50,9 @@ export default {
     return {
       story: { content: {} }
     }
+  },
+  mounted() {
+    console.log(this.story)
   }
-  // mounted() {
-  //   console.log(this.story)
-  // }
 }
 </script>

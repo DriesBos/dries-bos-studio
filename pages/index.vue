@@ -35,11 +35,10 @@
 
 <script>
 import IndexListItem from "~/components/IndexListItem.vue"
-import JQuery from "jquery"
 import { mapState } from "vuex"
-let $ = JQuery
 
 export default {
+  scrollToTop: true,
   components: {
     IndexListItem: IndexListItem
   },
@@ -170,14 +169,12 @@ export default {
       this.sortByTitle = true
       this.sortByCategory = false
       this.toggleSortingTitle = !this.toggleSortingTitle
-      console.log(this.sortByTitle, this.sortByCategory)
     },
     sortCategory() {
       this.sortByYear = false
       this.sortByTitle = false
       this.sortByCategory = true
       this.toggleSortingCategory = !this.toggleSortingCategory
-      console.log(this.sortByTitle, this.sortByCategory)
     },
     // SEARCH
     searchIconClick() {
