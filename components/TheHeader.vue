@@ -34,13 +34,20 @@ export default {
       slug: null
     }
   },
+  watch: {
+    $route(to, from) {
+      this.processedSlug()
+    }
+  },
   methods: {
     toggleTheme() {
       this.$emit("clicked")
     },
     processedSlug() {
-      let str = this.$route.params.slug
-      this.slug = str.replace(/-/g, " ")
+      if (this.$route.name === "projects-slug") {
+        let str = this.$route.params.slug
+        this.slug = str.replace(/-/g, " ")
+      }
     }
   },
   mounted() {
