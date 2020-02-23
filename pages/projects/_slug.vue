@@ -10,14 +10,14 @@
           :to="`/${story.content.prev_link.cached_url}`"
           class="projectItem-Nav projectItem-Nav_Prev"
         >
-          <div class="icon" v-html="require('~/assets/images/icon-arrow.svg?include')" />
+          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow.svg?include')" />
         </nuxt-link>
         <nuxt-link
           v-if="story.content.next_link.id !== ''"
           :to="`/${story.content.next_link.cached_url}`"
           class="projectItem-Nav projectItem-Nav_Next"
         >
-          <div class="icon" v-html="require('~/assets/images/icon-arrow.svg?include')" />
+          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow.svg?include')" />
         </nuxt-link>
         <ul class="projectItem-Images">
           <li v-for="(image, index) in story.content.images" :key="index">

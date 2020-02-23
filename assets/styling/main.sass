@@ -65,7 +65,8 @@ main
   width: 1em
   height: 1em
   opacity: 1
-  transition: fill $transition-fade, stroke $transition-fade
+  transition: fill $transition-fade, stroke $transition-fade, color $transition-fade
+  will-change: fill, stroke, color
   &.arrow, &.close
     fill: currentColor
   &.theme
@@ -73,6 +74,8 @@ main
     stroke: var(--support-color)
   &.search
     stroke: var(--support-color)
+  &:hover
+    color: var(--support-color)
   svg, img
     position: absolute
     left: 0
