@@ -2,10 +2,9 @@
 @import '~/assets/styling/typography.sass'
 @import '~/assets/styling/transitions.sass'
 
-// GENERAL
-html, body, #__layout
+html, body, #__layout, #__nuxt, .main // Avoiding 100vh to better suit mobile browsers
   position: relative
-  min-height: 100%
+  height: 100%
 
 img
   // transition: opacity $transition-lazy // just like slider element
@@ -84,6 +83,20 @@ main
     height: auto
 
 // BUILDING BLOCKS
+.textItem
+  margin: var(--spacing-two)
+  position: relative
+  text-align: center
+  .markdown, a
+    width: 100%
+  a
+    text-decoration: underline
+  &-Container
+    min-height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+
 .list
   display: flex
   flex-direction: column
