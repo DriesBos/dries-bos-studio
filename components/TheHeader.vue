@@ -5,7 +5,10 @@
         <div class="listItem-Logo listItem-Details">
           <nuxt-link to="/">
             Dries Bos
-            <span v-if="this.$route.name === 'projects-slug'">— {{ $route.params.slug }}</span>
+            <span v-if="this.$route.name === 'projects-slug'">
+              and
+              <span class="listItem-Logo_Capitalize">{{ slug }}</span>
+            </span>
             <span v-else>— Web & Interaction Development</span>
           </nuxt-link>
         </div>
@@ -26,10 +29,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      slug: null
+    }
+  },
   methods: {
     toggleTheme() {
       this.$emit("clicked")
+    },
+    processedSlug() {
+      let str = this.$route.params.slug
+      this.slug = str.replace(/-/g, " ")
     }
+  },
+  mounted() {
+    this.processedSlug()
   }
 }
 </script>
