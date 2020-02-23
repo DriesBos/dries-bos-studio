@@ -4,7 +4,13 @@
       <ul class="list">
         <li class="listItem listItem_Filter">
           <div class="listItem-DetailsWrapper">
-            <div class="listItem-Details"></div>
+            <div
+              class="listItem-Year listItem-Details"
+              :class="{ active: sortByYear }"
+              @click="sortYear"
+            >
+              <p title="sort by year">year</p>
+            </div>
             <div
               class="listItem-Title listItem-Details"
               :class="{ active: sortByTitle }"
@@ -126,7 +132,7 @@ export default {
     this.startPosition()
   },
   mounted() {
-    console.log(this.sortByTitle, this.sortByCategory)
+    console.log(this.posts)
     // this.addIndexToProjects()
     // window.addEventListener("scroll", () => {
     // })
@@ -156,7 +162,6 @@ export default {
     //     let count = arr.lenght - i
     //     arr.push(count)
     //   }
-    //   console.log(arr)
     // },
     sortYear() {
       this.sortByYear = true
@@ -197,10 +202,6 @@ export default {
         let scrollPosition = document.documentElement.scrollTop
       }
     }
-    // mouseLeftDocument() {
-    // },
-    // mouseEntersDocument() {
-    // }
   }
 }
 </script>

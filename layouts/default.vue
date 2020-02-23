@@ -38,7 +38,6 @@ export default {
       } else {
         this.currentTheme = "One"
       }
-      // console.log(this.themeNumber, this.currentTheme)
     }
   }
 }

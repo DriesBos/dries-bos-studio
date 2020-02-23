@@ -1,17 +1,14 @@
 <template>
   <li :key="post.id" :id="post.id" class="listItem listItem_Project">
-    <div class="listItem-Thumb">
-      <img :src="post.cover_image" alt />
-    </div>
     <nuxt-link :to="`/projects/${post.id}`" class="listItem-DetailsWrapper" tag="div">
-      <div class="listItem-Number listItem-Details ellipsis">
-        <p>{{ index }}</p>
+      <div class="listItem-Year listItem-Details ellipsis">
+        <p>{{ post.year || ""}}</p>
       </div>
       <div v-if="post.title" class="listItem-Title listItem-Details ellipsis">
-        <p>{{ post.title }}</p>
+        <p>{{ post.title || "" }}</p>
       </div>
       <div v-if="post.category" class="listItem-Category listItem-Details ellipsis">
-        <p>{{ post.category }}</p>
+        <p>{{ post.category || "" }}</p>
       </div>
     </nuxt-link>
     <div class="listItem-Icons">
@@ -26,11 +23,10 @@
 export default {
   name: "IndexListItem",
   props: {
-    post: Object,
-    index: Number
+    post: Object
   },
   mounted() {
-    // console.log(this.post)
+    console.log()
   }
 }
 </script>

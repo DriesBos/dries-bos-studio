@@ -66,7 +66,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story)
+    // console.log("STORY", this.story, "POST", this.post)
   }
 }
 </script>
