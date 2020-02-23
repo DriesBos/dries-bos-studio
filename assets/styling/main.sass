@@ -71,6 +71,8 @@ main
   &.theme
     fill: var(--support-color)
     stroke: var(--support-color)
+  &.search
+    stroke: var(--support-color)
   svg, img
     position: absolute
     left: 0
@@ -161,6 +163,8 @@ main
         &.active
           input, svg
             opacity: 1
+          svg
+            color: var(--support-color)
 
 header
   position: fixed
