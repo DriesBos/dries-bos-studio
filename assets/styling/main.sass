@@ -61,12 +61,22 @@ main
     background-color: black
 
 .icon
+  position: relative
+  width: 1em
+  height: 1em
+  opacity: 1
   transition: fill $transition-fade, stroke $transition-fade
   &.arrow, &.close
     fill: currentColor
   &.theme
     fill: var(--support-color)
     stroke: var(--support-color)
+  svg, img
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: auto
 
 // BUILDING BLOCKS
 .list
@@ -124,17 +134,6 @@ main
         cursor: pointer
         height: 100%
         margin-left: var(--spacing-two)
-      .icon
-        position: relative
-        width: 1em
-        height: 1em
-        opacity: 1
-        svg, img
-          position: absolute
-          left: 0
-          top: 0
-          width: 100%
-          height: auto
     &_Header
       .listItem-DetailsWrapper
         padding-top: var(--spacing-two)
@@ -193,6 +192,17 @@ header
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
         margin-bottom: var(--spacing-two)
+      &-Nav
+        position: fixed
+        top: 50%
+        padding: var(--spacing-two)
+        transform: translateY(-50%)
+        &_Prev
+          left: 0
+          svg
+            transform: rotate(180deg)
+        &_Next
+          right: 0
       &-Images
         display: flex
         flex-direction: column
