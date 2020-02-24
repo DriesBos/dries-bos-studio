@@ -23,7 +23,7 @@
           </nuxt-link>
         </div>
         <div v-if="this.$route.name === 'index'" class="listItem-Icons">
-          <nuxt-link to="/about">
+          <nuxt-link to="/profile">
             <p>profile</p>
           </nuxt-link>
           <div @click="toggleTheme" class="icon-Container" title="change theme">
