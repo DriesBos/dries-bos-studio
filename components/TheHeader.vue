@@ -4,15 +4,11 @@
       <div class="listItem-DetailsWrapper">
         <div class="listItem-Logo listItem-Details">
           <nuxt-link to="/">
-            Dries Bos
+            <span v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'">Dries</span>
+            <span v-if="this.$route.name === 'index'">Bos — Web & Interaction Development</span>
             <span v-if="this.$route.name === 'projects-slug'">
               and
               <span class="listItem-Logo_Capitalize">{{ slug }}</span>
-            </span>
-            <span v-else
-              >— Web & Interaction Development &nbsp; &nbsp; &nbsp; &nbsp;
-              &nbsp;
-              <nuxt-link to="/about">about</nuxt-link>
             </span>
           </nuxt-link>
         </div>
@@ -23,18 +19,15 @@
           class="listItem-Icons"
         >
           <nuxt-link to="/" class="icon-Container" title="close project">
-            <div
-              class="icon close"
-              v-html="require('~/assets/images/icon-close.svg?include')"
-            ></div>
+            <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
           </nuxt-link>
         </div>
         <div v-if="this.$route.name === 'index'" class="listItem-Icons">
+          <nuxt-link to="/about">
+            <p>profile</p>
+          </nuxt-link>
           <div @click="toggleTheme" class="icon-Container" title="change theme">
-            <div
-              class="icon theme"
-              v-html="require('~/assets/images/icon-theme.svg?include')"
-            ></div>
+            <div class="icon theme" v-html="require('~/assets/images/icon-theme.svg?include')"></div>
           </div>
         </div>
       </div>

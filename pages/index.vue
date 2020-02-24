@@ -132,7 +132,7 @@ export default {
     this.startPosition()
   },
   mounted() {
-    console.log(this.posts)
+    window.scrollTo(0, 0)
     // this.addIndexToProjects()
     // window.addEventListener("scroll", () => {
     // })
