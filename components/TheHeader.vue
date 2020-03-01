@@ -1,45 +1,39 @@
 <template>
-  <header class="list">
-    <li class="listItem listItem_Header">
-      <div class="listItem-DetailsWrapper">
-        <div class="listItem-Logo listItem-Details">
-          <nuxt-link to="/">
-            <span v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'">Dries</span>
-            <span v-if="this.$route.name === 'index'">Bos — Web & Interaction Development</span>
-            <span v-if="this.$route.name === 'projects-slug'">
-              and
-              <span class="listItem-Logo_Capitalize">{{ slug }}</span>
-            </span>
-          </nuxt-link>
-        </div>
-        <div
-          v-if="
-            this.$route.name === 'projects-slug' || this.$route.name === 'all'
-          "
-          class="listItem-Icons"
-        >
-          <nuxt-link to="/" class="icon-Container" title="close project">
-            <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
-          </nuxt-link>
-        </div>
-        <div v-if="this.$route.name === 'index'" class="listItem-Icons">
-          <div class="listItem-Toggle" @click="toggleDisplay">
-            <div class="listItem-Toggle_Item" :class="{ active: !toggleView }">
-              <p>list</p>
-            </div>
-            <div class="listItem-Toggle_Item" :class="{ active: toggleView }">
-              <p>grid</p>
-            </div>
+  <header class="header">
+    <ul>
+      <nuxt-link to="/" class="header-Logo" tag="li">
+        <span v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'">Dries</span>
+        <span v-if="this.$route.name === 'index'">Bos — Web & Interaction Development</span>
+        <span v-if="this.$route.name === 'projects-slug'">
+          and
+          <span class="listItem-Logo_Capitalize">{{ slug }}</span>
+        </span>
+      </nuxt-link>
+      <li
+        v-if="this.$route.name === 'projects-slug' || this.$route.name === 'all'"
+        class="header-Close"
+      >
+        <nuxt-link to="/" title="close project">
+          <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
+        </nuxt-link>
+      </li>
+      <li v-if="this.$route.name === 'index'" @click="toggleDisplay">
+        <div class="header-Toggle">
+          <div class="header-Toggle_Item" :class="{ active: !toggleView }">
+            <p>list</p>
           </div>
-          <nuxt-link to="/profile">
-            <p>profile</p>
-          </nuxt-link>
-          <div @click="toggleTheme" class="icon-Container" title="change theme">
-            <div class="icon theme" v-html="require('~/assets/images/icon-theme.svg?include')"></div>
+          <div class="header-Toggle_Item" :class="{ active: toggleView }">
+            <p>grid</p>
           </div>
         </div>
-      </div>
-    </li>
+      </li>
+      <nuxt-link v-if="this.$route.name === 'index'" to="/profile" tag="li">
+        <p>profile</p>
+      </nuxt-link>
+      <li v-if="this.$route.name === 'index'" @click="toggleTheme">
+        <div class="header-Theme" title="change theme"></div>
+      </li>
+    </ul>
   </header>
 </template>
 

@@ -129,25 +129,6 @@ main
     &-Category
       @media screen and ( max-width: $breakpoint-tablet)
         display: none
-    &-Toggle
-      height: 27px
-      border-radius: 1000px
-      display: inline-flex
-      border: 1px solid black
-      margin-right: 50px
-      margin-top: 1px
-      cursor: pointer
-      &_Item
-        padding-left: 30px
-        padding-right: 30px
-        border-radius: 1000px
-        p
-          line-height: 1.3
-          // text-transform: uppercase
-          // font-size: .8em
-        &.active
-          background: var(--support-color)
-          color: var(--support-type)
     &-Icons
       position: absolute
       top: 0
@@ -163,20 +144,20 @@ main
         cursor: pointer
         height: 100%
         margin-left: var(--spacing-two)
-    &_Header
-      .listItem-DetailsWrapper
-        padding-top: var(--spacing-two)
-      .listItem-Details
-        flex-basis: 100%
-      .listItem-Logo_Capitalize
-        text-transform: capitalize
-      .listItem-Icons
-        padding-top: var(--spacing-two)
-        align-items: flex-start
-        a, .icon-Container
-          height: auto
-        svg
-          margin-top: .3em
+    // &_Header
+    //   .listItem-DetailsWrapper
+    //     padding-top: var(--spacing-two)
+    //   .listItem-Details
+    //     flex-basis: 100%
+    //   .listItem-Logo_Capitalize
+    //     text-transform: capitalize
+    //   .listItem-Icons
+    //     padding-top: var(--spacing-two)
+    //     align-items: flex-start
+    //     a, .icon-Container
+    //       height: auto
+    //     svg
+    //       margin-top: .3em
     &_Project
       border-top: 1px currentColor solid
       cursor: pointer
@@ -199,14 +180,50 @@ main
           svg
             color: var(--support-color)
 
-header
+.header
   position: fixed
   top: 0
   left: 0
   right: 0
   z-index: 1
-  &.list .list-Item
-    padding-top: var(--spacing-two) !important
+  box-sizing: border-box
+  ul
+    display: flex
+    li
+      padding-top: var(--spacing-two)
+      padding-bottom: var(--spacing-two)
+      padding-left: var(--spacing-one)
+      padding-right: var(--spacing-one)
+      cursor: pointer
+    li:first-child
+      padding-left: var(--spacing-two)
+      flex-grow: 1
+    li:last-child
+      padding-right: var(--spacing-two)
+  &-Toggle
+    height: 100%
+    border-radius: 1000px
+    display: inline-flex
+    border: 1px solid var(--type)
+    &_Item
+      padding-left: 30px
+      padding-right: 30px
+      border-radius: 1000px
+      &.active
+        background: var(--support-color)
+        color: var(--support-type)
+      p
+        line-height: 1
+        transform: translateY(3px)
+  &-Theme
+    background-color: var(--support-color)
+    height: 100%
+    border: 1px solid var(--type)
+    width: 1.495em
+    border-radius: 1000px
+
+  // &.list .list-Item
+  //   padding-top: var(--spacing-two) !important
 
 // VIEWS
 .view
