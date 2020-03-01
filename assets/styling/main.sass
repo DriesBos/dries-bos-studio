@@ -219,12 +219,15 @@ main
 .grid
   display: flex
   flex-direction: column
+  img
+    opacity: 1
   li
     position: relative
     cursor: pointer
     &:hover
       p
         color: var(--support-color)
+        text-decoration: underline
     p
       position: absolute
       transition: color $transition-hover
@@ -293,23 +296,13 @@ main
       transform: translateX(-100%)
       bottom: var(--spacing-two)
       left: -4vmin
-  li:nth-child(11)
-    width: 100%
-    p
-      right: var(--spacing-two)
-      bottom: -4vmin
-      transform: translateY(100%)
-  li:nth-child(12)
+  li:last-child
     width: calc((100% / 3) * 2)
+    align-self: flex-start
     p
+      right: -4vmin
       bottom: var(--spacing-two)
       transform: translateX(100%)
-      right: -4vmin
-  li:nth-child(13)
-    width: calc(100% / 3)
-    align-self: flex-end
-  img
-    opacity: 1
 
 // VIEWS
 .view
