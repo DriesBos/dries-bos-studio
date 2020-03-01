@@ -108,6 +108,7 @@ main
   box-sizing: border-box
   ul
     display: flex
+    flex-wrap: wrap
     li
       padding-top: var(--spacing-two)
       padding-bottom: var(--spacing-two)
@@ -117,6 +118,7 @@ main
     li:first-child
       padding-left: var(--spacing-two)
       flex-grow: 1
+      flex-shrink: 0
     li:last-child
       padding-right: var(--spacing-two)
   &-Toggle
