@@ -1,10 +1,7 @@
 <template>
   <div class="view view-Container">
     <section class="view-Index">
-      <ul class="grid">
-        <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-      </ul>
-      <!-- <ul class="list">
+      <ul v-if="toggleView" class="list">
         <li class="listItem listItem_Filter">
           <div class="listItem-DetailsWrapper">
             <div
@@ -37,7 +34,10 @@
           </div>
         </li>
         <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-      </ul>-->
+      </ul>
+      <ul v-else class="grid">
+        <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+      </ul>
     </section>
   </div>
 </template>
@@ -74,7 +74,8 @@ export default {
   },
   computed: {
     ...mapState({
-      posts: state => state.posts.list
+      posts: state => state.posts.list,
+      toggleView: state => state.toggleView
     }),
     // TODO: KISS
     sortedArray: function() {

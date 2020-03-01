@@ -68,7 +68,7 @@ export default {
     },
     toggleDisplay() {
       this.toggleView = !this.toggleView
-      this.$emit("toggleView")
+      this.$store.commit("toggleTheView")
     }
   },
   mounted() {
