@@ -134,6 +134,11 @@ main
       p
         line-height: 1
         transform: translateY(3px)
+  &-Profile
+    transition: color $transition-hover
+    &:hover
+      p
+        color: var(--support-color)
   &-Theme
     background-color: var(--support-color)
     height: 100%
@@ -216,6 +221,7 @@ main
   flex-direction: column
   li
     position: relative
+    cursor: pointer
     &:hover
       p
         color: var(--support-color)

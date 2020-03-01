@@ -27,7 +27,7 @@
           </div>
         </div>
       </li>
-      <nuxt-link v-if="this.$route.name === 'index'" to="/profile" tag="li">
+      <nuxt-link v-if="this.$route.name === 'index'" to="/profile" class="header-Profile" tag="li">
         <p>profile</p>
       </nuxt-link>
       <li v-if="this.$route.name === 'index'" @click="toggleTheme">
