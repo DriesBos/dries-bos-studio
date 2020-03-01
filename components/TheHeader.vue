@@ -6,7 +6,7 @@
         <span v-if="this.$route.name === 'index'">Bos — Web & Interaction Development</span>
         <span v-if="this.$route.name === 'projects-slug'">
           and
-          <span class="listItem-Logo_Capitalize">{{ slug }}</span>
+          <span class="header-Logo_Capitalize">{{ slug }}</span>
         </span>
       </nuxt-link>
       <li
