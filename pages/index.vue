@@ -1,43 +1,45 @@
 <template>
   <div class="view view-Container">
     <section class="view-Index">
-      <ul v-if="toggleView" class="list">
-        <li class="listItem listItem_Filter">
-          <div class="listItem-DetailsWrapper">
-            <div
-              class="listItem-Year listItem-Details"
-              :class="{ active: sortByYear }"
-              @click="sortYear"
-            >
-              <p title="sort by year">year</p>
+      <transition name="view" mode="out-in">
+        <ul v-if="toggleView" class="list" key="list">
+          <li class="listItem listItem_Filter">
+            <div class="listItem-DetailsWrapper">
+              <div
+                class="listItem-Year listItem-Details"
+                :class="{ active: sortByYear }"
+                @click="sortYear"
+              >
+                <p title="sort by year">year</p>
+              </div>
+              <div
+                class="listItem-Title listItem-Details"
+                :class="{ active: sortByTitle }"
+                @click="sortTitle"
+              >
+                <p title="sort by project">project</p>
+              </div>
+              <div
+                class="listItem-Category listItem-Details"
+                :class="{ active: sortByCategory }"
+                @click="sortCategory"
+              >
+                <p title="sort by role">role</p>
+              </div>
             </div>
-            <div
-              class="listItem-Title listItem-Details"
-              :class="{ active: sortByTitle }"
-              @click="sortTitle"
-            >
-              <p title="sort by project">project</p>
+            <div class="listItem-Icons" :class="{ active: toggleSearch }">
+              <input type="text" v-model="search" ref="search" placeholder="filter by name" />
+              <div @click="searchIconClick" class="icon-Container" title="search projects">
+                <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
+              </div>
             </div>
-            <div
-              class="listItem-Category listItem-Details"
-              :class="{ active: sortByCategory }"
-              @click="sortCategory"
-            >
-              <p title="sort by role">role</p>
-            </div>
-          </div>
-          <div class="listItem-Icons" :class="{ active: toggleSearch }">
-            <input type="text" v-model="search" ref="search" placeholder="filter by name" />
-            <div @click="searchIconClick" class="icon-Container" title="search projects">
-              <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
-            </div>
-          </div>
-        </li>
-        <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-      </ul>
-      <ul v-else class="grid">
-        <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-      </ul>
+          </li>
+          <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+        </ul>
+        <ul v-else class="grid" key="grid">
+          <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+        </ul>
+      </transition>
     </section>
   </div>
 </template>
