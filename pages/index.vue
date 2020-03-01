@@ -1,7 +1,10 @@
 <template>
   <div class="view view-Container">
     <section class="view-Index">
-      <ul class="list">
+      <ul class="grid">
+        <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
+      </ul>
+      <!-- <ul class="list">
         <li class="listItem listItem_Filter">
           <div class="listItem-DetailsWrapper">
             <div
@@ -34,19 +37,24 @@
           </div>
         </li>
         <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-      </ul>
+      </ul>-->
     </section>
   </div>
 </template>
 
 <script>
 import IndexListItem from "~/components/IndexListItem.vue"
+import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
 
 export default {
   scrollToTop: true,
   components: {
-    IndexListItem: IndexListItem
+    IndexListItem: IndexListItem,
+    IndexGridItem: IndexGridItem
+  },
+  props: {
+    view: Boolean
   },
   data: function() {
     return {
@@ -133,6 +141,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+    console.log(this.view)
     // this.addIndexToProjects()
     // window.addEventListener("scroll", () => {
     // })

@@ -1,11 +1,11 @@
 <template>
-  <main :class="currentTheme">
+  <main :class="[currentTheme, currentView]">
     <div class="background background-Two"></div>
     <div class="background background-Three"></div>
     <div class="background background-Four"></div>
-    <the-header @clicked="changeTheme" />
+    <the-header @toggleTheme="changeTheme" @toggleView="changeView" />
     <transition name="page" mode="out-in">
-      <nuxt />
+      <nuxt :view="currentView" />
     </transition>
   </main>
 </template>
@@ -19,7 +19,15 @@ export default {
   data() {
     return {
       themeNumber: 0,
-      currentTheme: "one"
+      currentTheme: "one",
+      currentView: false
+    }
+  },
+  computed: {
+    myProps() {
+      if (this.$route.name === "index") {
+        return { view: this.currentView }
+      }
     }
   },
   methods: {
@@ -38,6 +46,9 @@ export default {
       } else {
         this.currentTheme = "One"
       }
+    },
+    changeView() {
+      this.currentView = !this.currentView
     }
   }
 }

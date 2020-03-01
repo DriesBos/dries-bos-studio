@@ -23,6 +23,14 @@
           </nuxt-link>
         </div>
         <div v-if="this.$route.name === 'index'" class="listItem-Icons">
+          <div class="listItem-Toggle" @click="toggleDisplay">
+            <div class="listItem-Toggle_Item" :class="{ active: !toggleView }">
+              <p>list</p>
+            </div>
+            <div class="listItem-Toggle_Item" :class="{ active: toggleView }">
+              <p>grid</p>
+            </div>
+          </div>
           <nuxt-link to="/profile">
             <p>profile</p>
           </nuxt-link>
@@ -39,7 +47,8 @@
 export default {
   data() {
     return {
-      slug: null
+      slug: null,
+      toggleView: false
     }
   },
   watch: {
@@ -49,13 +58,17 @@ export default {
   },
   methods: {
     toggleTheme() {
-      this.$emit("clicked")
+      this.$emit("toggleTheme")
     },
     processedSlug() {
       if (this.$route.name === "projects-slug") {
         let str = this.$route.params.slug
         this.slug = str.replace(/-/g, " ")
       }
+    },
+    toggleDisplay() {
+      this.toggleView = !this.toggleView
+      this.$emit("toggleView")
     }
   },
   mounted() {

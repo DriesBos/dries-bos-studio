@@ -129,20 +129,25 @@ main
     &-Category
       @media screen and ( max-width: $breakpoint-tablet)
         display: none
-    &-Thumb
-      position: fixed
-      top: 25%
-      left: 25%
-      bottom: 25%
-      right: 25%
-      opacity: 0
-      pointer-events: none
-      z-index: -1
-      img
-        opacity: 0
-        width: 100%
-        height: 100%
-        object-fit: cover
+    &-Toggle
+      height: 27px
+      border-radius: 1000px
+      display: inline-flex
+      border: 1px solid black
+      margin-right: 50px
+      margin-top: 1px
+      cursor: pointer
+      &_Item
+        padding-left: 30px
+        padding-right: 30px
+        border-radius: 1000px
+        p
+          line-height: 1.3
+          // text-transform: uppercase
+          // font-size: .8em
+        &.active
+          background: var(--support-color)
+          color: var(--support-type)
     &-Icons
       position: absolute
       top: 0
@@ -259,3 +264,98 @@ header
             align-self: flex-end
     img
       opacity: 1
+
+.grid
+  display: flex
+  flex-direction: column
+  li
+    position: relative
+    &:hover
+      p
+        color: var(--support-color)
+    p
+      position: absolute
+      transition: color $transition-hover
+  li:nth-child(1)
+    p
+      bottom: -23px
+      left: var(--spacing-two)
+      transform: translateY(100%)
+  li:nth-child(2)
+    width: calc((100% / 3) * 2)
+    align-self: flex-end
+    p
+      bottom: -23px
+      transform: translateY(100%)
+      left: var(--spacing-two)
+  li:nth-child(3)
+    width: calc(100% / 3)
+    p
+      bottom: var(--spacing-two)
+      right: -4vmin
+      transform: translateX(100%)
+  li:nth-child(4)
+    width: calc((100% / 3) * 2)
+    p
+      bottom: -23px
+      transform: translateY(100%)
+      left: var(--spacing-two)
+  li:nth-child(5)
+    width: calc(100% / 3)
+    align-self: flex-end
+    p
+      bottom: var(--spacing-two)
+      left: -4vmin
+      transform: translateX(-100%)
+  li:nth-child(6)
+    width: 100%
+    align-self: flex-end
+    p
+      bottom: -23px
+      left: var(--spacing-two)
+      transform: translateY(100%)
+  li:nth-child(7)
+    width: calc((100% / 3) * 2)
+    align-self: flex-end
+    p
+      bottom: -23px
+      transform: translateY(100%)
+      right: var(--spacing-two)
+  li:nth-child(8)
+    width: calc((100% / 3) * 2)
+    p
+      bottom: -23px
+      left: var(--spacing-two)
+      transform: translateY(100%)
+  li:nth-child(9)
+    width: calc(100% / 3)
+    align-self: flex-end
+    p
+      right: var(--spacing-two)
+      top: -23px
+      transform: translateY(-100%)
+  li:nth-child(10)
+    width: calc((100% / 3) * 2)
+    align-self: flex-end
+    p
+      transform: translateX(-100%)
+      bottom: var(--spacing-two)
+      left: -4vmin
+  li:nth-child(11)
+    width: 100%
+    p
+      right: var(--spacing-two)
+      bottom: -4vmin
+      transform: translateY(100%)
+  li:nth-child(12)
+    width: calc((100% / 3) * 2)
+    p
+      bottom: var(--spacing-two)
+      transform: translateX(100%)
+      right: -4vmin
+  li:nth-child(13)
+    width: calc(100% / 3)
+    align-self: flex-end
+  img
+    opacity: 1
+    background: blue
