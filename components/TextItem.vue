@@ -2,8 +2,6 @@
   <section v-editable="blok" class="textItem-Container">
     <div class="textItem">
       <markdown-item :input="blok.text" />
-      <br />
-      <a href="mailto:info@driesbos.com">info@driesbos.com</a>
     </div>
   </section>
 </template>
