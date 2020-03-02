@@ -17,12 +17,12 @@
           <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
         </nuxt-link>
       </li>
-      <li v-if="this.$route.name === 'index'" @click="toggleDisplay">
+      <li v-if="this.$route.name === 'index'" @click="toggleTheView">
         <div class="header-Toggle">
-          <div class="header-Toggle_Item" :class="{ active: !toggleView }">
+          <div class="header-Toggle_Item" :class="{ active: viewState }">
             <p>list</p>
           </div>
-          <div class="header-Toggle_Item" :class="{ active: toggleView }">
+          <div class="header-Toggle_Item" :class="{ active: !viewState }">
             <p>grid</p>
           </div>
         </div>
@@ -38,13 +38,18 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
+
 export default {
   data() {
     return {
-      slug: null,
-      toggleView: false
+      slug: null
     }
   },
+  fetch({ store }) {
+    store.commit("toggleTheView")
+  },
+  computed: mapState(["viewState"]),
   watch: {
     $route(to, from) {
       this.processedSlug()
@@ -60,8 +65,7 @@ export default {
         this.slug = str.replace(/-/g, " ")
       }
     },
-    toggleDisplay() {
-      this.toggleView = !this.toggleView
+    toggleTheView() {
       this.$store.commit("toggleTheView")
     }
   },

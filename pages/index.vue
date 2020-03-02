@@ -2,7 +2,7 @@
   <div class="view view-Container">
     <section class="view-Index">
       <transition name="view" mode="out-in">
-        <ul v-if="toggleView" class="list" key="list">
+        <ul v-if="viewState" class="list" key="list">
           <li class="listItem listItem_Filter">
             <div class="listItem-DetailsWrapper">
               <div
@@ -76,7 +76,8 @@ export default {
   },
   computed: {
     ...mapState({
-      posts: state => state.posts.list
+      posts: state => state.posts.list,
+      viewState: state => state.viewState
     }),
     // TODO: KISS
     sortedArray: function() {
