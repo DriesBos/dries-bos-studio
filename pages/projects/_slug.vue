@@ -72,7 +72,6 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
-    // console.log("STORY", this.story, "POST", this.post)
   },
   methods: {
     transformImage(image, option) {

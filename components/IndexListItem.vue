@@ -25,8 +25,6 @@ export default {
   props: {
     post: Object
   },
-  mounted() {
-    console.log()
-  }
+  mounted() {}
 }
 </script>
