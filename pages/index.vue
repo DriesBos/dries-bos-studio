@@ -76,8 +76,7 @@ export default {
   },
   computed: {
     ...mapState({
-      posts: state => state.posts.list,
-      toggleView: state => state.toggleView
+      posts: state => state.posts.list
     }),
     // TODO: KISS
     sortedArray: function() {
@@ -144,7 +143,6 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
-    console.log(this.view)
     // this.addIndexToProjects()
     // window.addEventListener("scroll", () => {
     // })
