@@ -307,6 +307,11 @@ main
       right: -4vmin
       bottom: var(--spacing-two)
       transform: translateX(100%)
+  @media screen and ( max-width: $breakpoint-mobile)
+    li
+      width: 100% !important
+      p
+        display: none
 
 // VIEWS
 .view
@@ -349,8 +354,6 @@ main
         display: flex
         flex-direction: column
         @media screen and ( max-width: $breakpoint-mobile)
-          li
-            margin-bottom: var(--spacing-two)
           li:last-child
             margin-bottom: 0
         @media screen and ( min-width: $breakpoint-mobile)
