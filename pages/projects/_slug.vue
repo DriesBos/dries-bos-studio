@@ -21,12 +21,11 @@
         </nuxt-link>
         <ul class="projectItem-Images">
           <li v-for="(image, index) in story.content.images" :key="index">
-            <!-- <img :src="image.filename" :alt="image.name" /> -->
             <img
               :srcset="`${transformImage(image.filename, '1668x0')} 1668w, ${transformImage(image.filename, '1440x0')} 1440w, ${transformImage(image.filename, '1280x0')} 1280w, ${transformImage(image.filename, '960x0')} 960w, ${transformImage(image.filename, '800x0')} 800w, ${transformImage(image.filename, '690x0')} 690w`"
               sizes="100vw"
               :data-src="image.filename"
-              alt="Project image"
+              :alt="image.name"
             />
           </li>
         </ul>
