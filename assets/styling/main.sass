@@ -27,7 +27,7 @@ main
   width: 1em
   height: 1em
   opacity: 1
-  transition: fill $transition-fade, stroke $transition-fade, color $transition-fade
+  transition: fill $transition-fade, stroke $transition-fade
   will-change: fill, stroke, color
   &.arrow, &.close
     fill: currentColor
@@ -100,10 +100,9 @@ main
         line-height: 1
         transform: translateY(3px)
   &-Profile
-    transition: color $transition-hover
     &:hover
-      p
-        color: var(--support-color)
+      transition: color $transition-hover
+      color: var(--support-color)
   &-Theme
     background-color: var(--support-color)
     height: 100%
