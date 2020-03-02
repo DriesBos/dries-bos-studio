@@ -8,57 +8,18 @@ html, body, #__layout, #__nuxt, .main // Avoiding 100vh to better suit mobile br
   height: 100%
 
 img
-  // transition: opacity $transition-lazy // just like slider element
   opacity: 0
   width: 100%
 
 img[lazy="loaded"]
-  // transition: opacity $transition-lazy // just like slider element
   opacity: 1
 
 // THEME
 main
-  transition: color .4s ease .2s
-  will-change: color
-  &.one
-    color: black
-    .background-One
-      transform: translate3d(0%, 0%, 0)
-      transition: transform $transition-theme // Dublicate for delay
-  &.two
-    color: white
-    .background-Two
-      transform: translate3d(0%, 0%, 0)
-      transition: transform $transition-theme
-  &.three
-    color: white
-    .background-Three
-      transform: translate3d(0%, 0%, 0)
-      transition: transform $transition-theme
-  &.four
-    color: white
-    .background-Four
-      transform: translate3d(0%, 0%, 0)
-      transition: transform $transition-theme
-
-.background
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  z-index: -2
-  transition: transform $transition-theme 1s
-  transform: translate3d(-100%, 0%, 0)
-  will-change: transform
-  &-One
-    background-color: white
-  &-Two
-    background-color: #ADADAD
-  &-Three
-    background-color: #424242
-  &-Four
-    background-color: black
+  color: var(--type)
+  background-color: var(--background-color)
+  transition: all $transition-theme
+  will-change: color, background-color
 
 // BUILDING BLOCKS
 .icon
@@ -316,7 +277,7 @@ main
 // VIEWS
 .view
   width: 100%
-  margin-top: 300px
+  padding-top: 300px
   &-Container
     position: relative
     display: flex

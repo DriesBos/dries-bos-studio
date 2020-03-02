@@ -1,8 +1,5 @@
 <template>
   <main :class="currentTheme">
-    <div class="background background-Two"></div>
-    <div class="background background-Three"></div>
-    <div class="background background-Four"></div>
     <the-header @toggleTheme="changeTheme" />
     <transition name="page" mode="out-in">
       <nuxt />
