@@ -7,12 +7,13 @@
     tag="li"
   >
     <p>{{ post.title }}</p>
-    <img
+    <img :src="post.cover_image" />
+    <!-- <img
       :srcset="`${transformImage(post.cover_image, '1668x0')} 1668w, ${transformImage(post.cover_image, '1440x0')} 1440w, ${transformImage(post.cover_image, '1280x0')} 1280w, ${transformImage(post.cover_image, '960x0')} 960w, ${transformImage(post.cover_image, '800x0')} 800w, ${transformImage(post.cover_image, '690x0')} 690w`"
       sizes="100vw"
       :data-src="post.cover_image"
       :alt="post.title"
-    />
+    />-->
   </nuxt-link>
 </template>
 
@@ -24,16 +25,16 @@ export default {
   },
   mounted() {
     console.log(this.post)
-  },
-  methods: {
-    transformImage(image, option) {
-      if (!image) return ""
-      if (!option) return ""
-
-      let imageService = "//img2.storyblok.com/"
-      let path = image.replace("//a.storyblok.com", "")
-      return imageService + option + path
-    }
   }
+  // methods: {
+  //   transformImage(image, option) {
+  //     if (!image) return ""
+  //     if (!option) return ""
+
+  //     let imageService = "//img2.storyblok.com/"
+  //     let path = image.replace("//a.storyblok.com", "")
+  //     return imageService + option + path
+  //   }
+  // }
 }
 </script>

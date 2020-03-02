@@ -21,12 +21,13 @@
         </nuxt-link>
         <ul class="projectItem-Images">
           <li v-for="(image, index) in story.content.images" :key="index">
-            <img
+            <img :src="image.filename" :alt="image.name" />
+            <!-- <img
               :srcset="`${transformImage(image.filename, '1668x0')} 1668w, ${transformImage(image.filename, '1440x0')} 1440w, ${transformImage(image.filename, '1280x0')} 1280w, ${transformImage(image.filename, '960x0')} 960w, ${transformImage(image.filename, '800x0')} 800w, ${transformImage(image.filename, '690x0')} 690w`"
               sizes="100vw"
               :data-src="image.filename"
               :alt="image.name"
-            />
+            />-->
           </li>
         </ul>
       </div>
@@ -73,16 +74,16 @@ export default {
   mounted() {
     window.scrollTo(0, 0)
     // console.log("STORY", this.story, "POST", this.post)
-  },
-  methods: {
-    transformImage(image, option) {
-      if (!image) return ""
-      if (!option) return ""
-
-      let imageService = "//img2.storyblok.com/"
-      let path = image.replace("//a.storyblok.com", "")
-      return imageService + option + path
-    }
   }
+  // methods: {
+  //   transformImage(image, option) {
+  //     if (!image) return ""
+  //     if (!option) return ""
+
+  //     let imageService = "//img2.storyblok.com/"
+  //     let path = image.replace("//a.storyblok.com", "")
+  //     return imageService + option + path
+  //   }
+  // }
 }
 </script>
