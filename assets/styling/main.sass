@@ -59,57 +59,6 @@ main
     justify-content: center
     align-items: center
 
-// HEADER
-.header
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  z-index: 1
-  box-sizing: border-box
-  ul
-    display: flex
-    flex-wrap: wrap
-    li
-      padding-top: var(--spacing-two)
-      padding-bottom: var(--spacing-two)
-      padding-left: var(--spacing-one)
-      padding-right: var(--spacing-one)
-      cursor: pointer
-    li:first-child
-      padding-left: var(--spacing-two)
-      flex-grow: 1
-      flex-shrink: 0
-    li:last-child
-      padding-right: var(--spacing-two)
-  &-Logo_Capitalize
-    text-transform: capitalize
-  &-Toggle
-    height: 100%
-    border-radius: 1000px
-    display: inline-flex
-    border: 1px solid var(--type)
-    &_Item
-      padding-left: 30px
-      padding-right: 30px
-      border-radius: 1000px
-      &.active
-        background: var(--support-color)
-        color: var(--support-type)
-      p
-        line-height: 1
-        transform: translateY(3px)
-  &-Profile
-    &:hover
-      transition: color $transition-hover
-      color: var(--support-color)
-  &-Theme
-    background-color: var(--support-color)
-    height: 100%
-    border: 1px solid var(--type)
-    width: 1.495em
-    border-radius: 1000px
-
 // INDEX
 .list
   display: flex
@@ -133,14 +82,13 @@ main
       padding-top: var(--spacing-one)
       padding-bottom: var(--spacing-one)
       cursor: pointer
+      &.active
+        color: var(--support-color)
+        a, p, input
+          opacity: 1
       @media screen and ( max-width: $breakpoint-tablet)
         flex-basis: auto
         padding-right: var(--spacing-two)
-      @media ( hover: hover )
-        .active
-          color: var(--support-color)
-          a, p, input
-            opacity: 1
       &:nth-child(1)
         @media screen and ( max-width: $breakpoint-tablet)
           width: calc(#{var(--spacing-three)} + 2.6em)
@@ -166,14 +114,15 @@ main
       border-top: 1px currentColor solid
       cursor: pointer
       &:hover
-        background-color: var(--support-color)
-        a, p, svg
-          color: var(--support-type)
+        @media ( hover: hover )
+          background-color: var(--support-color)
+          a, p, svg
+            color: var(--support-type)
     &_Filter
       border-top: 1px currentColor solid
       p, input::placeholder, svg, input
         color: currentColor
-        opacity: .33
+        opacity: .25
         transition: opacity $transition-fade
       .listItem-Icons
         input

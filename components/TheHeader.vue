@@ -79,3 +79,64 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styling/variables.sass'
+
+.header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1
+  box-sizing: border-box
+  ul
+    display: flex
+    flex-wrap: wrap
+    @media screen and ( max-width: $breakpoint-header)
+      justify-content: flex-end
+    li
+      padding-top: var(--spacing-two)
+      padding-bottom: var(--spacing-two)
+      padding-left: var(--spacing-one)
+      padding-right: var(--spacing-one)
+      cursor: pointer
+    li:first-child
+      padding-left: var(--spacing-two)
+      flex-grow: 1
+      flex-shrink: 0
+      @media screen and ( max-width: $breakpoint-header)
+        flex-grow: 0
+        padding-bottom: 0
+    li:last-child
+      padding-right: var(--spacing-two)
+  &-Logo_Capitalize
+    text-transform: capitalize
+  &-Toggle
+    height: 100%
+    border-radius: 1000px
+    display: inline-flex
+    border: 1px solid var(--type)
+    min-height: 24px
+    &_Item
+      padding-left: 30px
+      padding-right: 30px
+      border-radius: 1000px
+      &.active
+        background: var(--support-color)
+        color: var(--support-type)
+      p
+        line-height: 1
+        transform: translateY(3px)
+  &-Profile
+    &:hover
+      transition: color $transition-hover
+      color: var(--support-color)
+  &-Theme
+    background-color: var(--support-color)
+    height: 100%
+    min-height: 24px // Prevents collapse when single item in a row
+    border: 1px solid var(--type)
+    width: 1.495em
+    border-radius: 1000px
+</style>
