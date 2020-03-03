@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class>
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
         <span v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'">Dries</span>
@@ -93,8 +93,6 @@ export default {
   ul
     display: flex
     flex-wrap: wrap
-    @media screen and ( max-width: $breakpoint-header)
-      justify-content: flex-end
     li
       padding-top: var(--spacing-two)
       padding-bottom: var(--spacing-two)
@@ -105,9 +103,6 @@ export default {
       padding-left: var(--spacing-two)
       flex-grow: 1
       flex-shrink: 0
-      @media screen and ( max-width: $breakpoint-header)
-        flex-grow: 0
-        padding-bottom: 0
     li:last-child
       padding-right: var(--spacing-two)
   &-Logo_Capitalize
