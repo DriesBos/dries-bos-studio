@@ -2,7 +2,9 @@
   <main :class="currentTheme">
     <the-header @toggleTheme="changeTheme" />
     <transition name="page" mode="out-in">
-      <nuxt />
+      <div class="transitionWrapper">
+        <nuxt />
+      </div>
     </transition>
   </main>
 </template>

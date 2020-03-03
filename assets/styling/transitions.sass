@@ -1,16 +1,24 @@
 @import '~/assets/styling/variables.sass'
-@import '~/assets/styling/variables.sass'
 
-// Page
-.page-enter-active, .page-leave-active
-  transition: opacity $transition-page
+// view
+.view-enter-active
+  transition: transform $transition-slide-in
 
-.page-enter, .page-leave-to
-  opacity: 0
-
-  // view
-.view-enter-active, .view-leave-active
-  transition: opacity $transition-page
+.view-leave-active
+  transition: transform $transition-slide-out
 
 .view-enter, .view-leave-to
-  opacity: 0
+  transform: translateY(100%)
+
+// Page
+.page-enter-active
+  transition: transform $transition-slide-in
+
+.page-leave-active
+  transition: transform $transition-slide-out
+
+.page-enter
+  transform: translateX(100%)
+
+.page-leave-to
+  transform: translateX(-100%)
