@@ -20,10 +20,10 @@
       <li v-if="this.$route.name === 'index'" @click="toggleTheView">
         <div class="header-Toggle">
           <div class="header-Toggle_Item" :class="{ active: viewState }">
-            <p>list</p>
+            <p>text</p>
           </div>
           <div class="header-Toggle_Item" :class="{ active: !viewState }">
-            <p>grid</p>
+            <p>img</p>
           </div>
         </div>
       </li>

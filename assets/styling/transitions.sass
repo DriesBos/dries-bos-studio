@@ -21,11 +21,24 @@
 .page-enter-active
   transition: transform $transition-slide-in
 
-.page-leave-active
+.left-leave-active
   transition: transform $transition-slide-out
 
-.page-enter
+.left-enter
   transform: translateX(100%)
 
-.page-leave-to
+.left-leave-to
   transform: translateX(-100%)
+
+// SLIDE-RIGHT
+.slide-right-enter-active
+  transition: transform $transition-slide-in
+
+.slide-right-leave-active
+  transition: transform $transition-slide-out
+
+.slide-right-enter
+  transform: translateX(-100%)
+
+.slide-right-leave-to
+  transform: translateX(100%)
