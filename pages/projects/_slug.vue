@@ -35,6 +35,7 @@
 </template>
 
 <script>
+// STORYBLOK ASYNC CHECKED WITH https://www.storyblok.com/tp/nuxt-js-multilanguage-website-tutorial
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 
 export default {
@@ -44,9 +45,11 @@ export default {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
     let version =
       context.query._storyblok || context.isDev ? "draft" : "published"
+
     return context.app.$storyapi
       .get(endpoint, {
-        version: version
+        version: version,
+        cv: context.store.state.cacheVersion
       })
       .then(res => {
         return res.data
