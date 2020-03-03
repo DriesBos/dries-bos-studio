@@ -10,15 +10,35 @@
 .view-enter, .view-leave-to
   transform: translateY(100%)
 
-// Page
-.page-enter-active
+// FADE
+.fade-enter-active, .fade-leave-active
+  transition: opacity .5s ease
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+
+// SLIDE-LEFT
+.slide-left-enter-active
   transition: transform $transition-slide-in
 
-.page-leave-active
+.slide-left-leave-active
   transition: transform $transition-slide-out
 
-.page-enter
+.slide-left-enter
   transform: translateX(100%)
 
-.page-leave-to
+.slide-left-leave-to
   transform: translateX(-100%)
+
+// SLIDE-RIGHT
+.slide-right-enter-active
+  transition: transform $transition-slide-in
+
+.slide-right-leave-active
+  transition: transform $transition-slide-out
+
+.slide-right-enter
+  transform: translateX(-100%)
+
+.slide-right-leave-to
+  transform: translateX(100%)
