@@ -11,6 +11,13 @@
   transform: translateY(100%)
 
 // FADE
+.page-enter-active, .page-leave-active
+  transition: opacity .33s ease
+
+.page-enter, .page-leave-to
+  opacity: 0
+
+// FADE
 .fade-enter-active, .fade-leave-active
   transition: opacity .5s ease
 
@@ -18,16 +25,16 @@
   opacity: 0
 
 // SLIDE-LEFT
-.slide-left-enter-active
+.left-enter-active
   transition: transform $transition-slide-in
 
-.slide-left-leave-active
+.left-leave-active
   transition: transform $transition-slide-out
 
-.slide-left-enter
+.left-enter
   transform: translateX(100%)
 
-.slide-left-leave-to
+.left-leave-to
   transform: translateX(-100%)
 
 // SLIDE-RIGHT
