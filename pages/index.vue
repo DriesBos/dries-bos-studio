@@ -77,7 +77,7 @@ export default {
   computed: {
     ...mapState({
       posts: state => state.posts.list,
-      viewState: state => state.viewState
+      viewState: state => state.view.viewState
     }),
     // TODO: KISS
     sortedArray: function() {

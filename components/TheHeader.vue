@@ -49,7 +49,11 @@ export default {
   fetch({ store }) {
     store.commit("toggleTheView")
   },
-  computed: mapState(["viewState"]),
+  computed: {
+    ...mapState({
+      viewState: state => state.view.viewState
+    })
+  },
   watch: {
     $route(to, from) {
       this.processedSlug()
@@ -65,8 +69,9 @@ export default {
         this.slug = str.replace(/-/g, " ")
       }
     },
+    // ...mapMutations("view", ["set", "toggleTheView"]),
     toggleTheView() {
-      this.$store.commit("toggleTheView")
+      this.$store.commit("view/toggleTheView")
     }
   },
   mounted() {

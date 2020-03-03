@@ -1,14 +1,4 @@
 export default {
-  state: {
-    // put variables and collections here
-    viewState: true
-  },
-  mutations: {
-    // put sychronous functions for changing state e.g. add, edit, delete
-    toggleTheView(state) {
-      state.viewState = !state.viewState
-    }
-  },
   actions: {
     // put asynchronous functions that can call one or more mutation functions
     async nuxtServerInit({ commit }, { app }) {
