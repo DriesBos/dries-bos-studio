@@ -125,21 +125,25 @@ main
       display: flex
       flex-grow: 1
       align-items: center
-      padding-left: var(--spacing-two)
       padding-right: var(--spacing-two)
-      padding-top: var(--spacing-one)
-      padding-bottom: var(--spacing-one)
     &-Details
       flex-shrink: 0
       flex-basis: calc(100% / 4)
+      padding-left: var(--spacing-two)
+      padding-top: var(--spacing-one)
+      padding-bottom: var(--spacing-one)
       cursor: pointer
       @media screen and ( max-width: $breakpoint-tablet)
         flex-basis: auto
-        margin-right: var(--spacing-two)
-      &.active
-        color: var(--support-color)
-        a, p, input
-          opacity: 1
+        padding-right: var(--spacing-two)
+      @media ( hover: hover )
+        .active
+          color: var(--support-color)
+          a, p, input
+            opacity: 1
+      &:nth-child(1)
+        @media screen and ( max-width: $breakpoint-tablet)
+          width: calc(#{var(--spacing-three)} + 2.6em)
     &-Category
       @media screen and ( max-width: $breakpoint-tablet)
         display: none
