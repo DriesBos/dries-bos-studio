@@ -24,11 +24,11 @@ main
 // BUILDING BLOCKS
 .icon
   position: relative
-  width: 1em
-  height: 1em
   opacity: 1
-  transition: fill $transition-fade, stroke $transition-fade
+  transition: fill $transition-fade, stroke $transition-fade, color $transition-fade
   will-change: fill, stroke, color
+  height: 1.25em
+  width: 1.25em
   &.arrow, &.close
     fill: currentColor
   &.theme
@@ -101,15 +101,14 @@ main
       right: 0
       bottom: 0
       display: flex
-      align-items: center
-      padding-right: var(--spacing-two)
       .icon-Container
         display: flex
         align-items: center
         justify-content: center
         cursor: pointer
         height: 100%
-        margin-left: var(--spacing-two)
+        padding-left: var(--spacing-two)
+        padding-right: var(--spacing-two)
     &_Project
       border-top: 1px currentColor solid
       cursor: pointer
