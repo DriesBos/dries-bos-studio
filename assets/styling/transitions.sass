@@ -10,6 +10,13 @@
 .view-enter, .view-leave-to
   transform: translateY(100%)
 
+// Fade
+.fade-enter-active, .fade-leave-active
+  transition: opacity $transition-fade
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+
 // Page
 .page-enter-active
   transition: transform $transition-slide-in

@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class>
+  <header class="header">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
         <span v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'">Dries</span>

@@ -1,7 +1,7 @@
 <template>
   <main :class="currentTheme">
     <the-header @toggleTheme="changeTheme" />
-    <transition name="page" mode="out-in">
+    <transition name="fade" mode="out-in">
       <div class="transitionWrapper">
         <nuxt />
       </div>
