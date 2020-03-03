@@ -42,9 +42,11 @@ export default {
   scrollToTop: true,
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
+    let version =
+      context.query._storyblok || context.isDev ? "draft" : "published"
     return context.app.$storyapi
       .get(endpoint, {
-        version: "published"
+        version: version
       })
       .then(res => {
         return res.data
