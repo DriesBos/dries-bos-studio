@@ -52,15 +52,15 @@ main
   flex-direction: column
   flex-shrink: 0
   width: 100%
-  background: var(--background-color)
-  transition: background $transition-theme
-  will-change: background
   .listItem
     position: relative
     width: 100%
     display: flex
     align-items: center
     justify-content: space-between
+    background: var(--background-color)
+    transition: background $transition-theme
+    will-change: background
     &-DetailsWrapper
       display: flex
       flex-grow: 1
@@ -126,13 +126,14 @@ main
 .grid
   display: flex
   flex-direction: column
+  justify-content: flex-start
+  flex-shrink: 0
   background: var(--background-color)
-  transition: background $transition-theme
-  will-change: background
   img
     transition: opacity $transition-lazy
   li
     cursor: pointer
+    width: 100%
   @media screen and ( min-width: $breakpoint-mobile)
     li:nth-child(2)
       width: calc((100% / 3) * 2)
