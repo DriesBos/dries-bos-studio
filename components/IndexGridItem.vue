@@ -62,8 +62,6 @@ export default {
   flex-direction: column
   li
     cursor: pointer
-  li:first-child
-    min-height: 50vw
   li:nth-child(2)
     width: calc((100% / 3) * 2)
     align-self: flex-end
