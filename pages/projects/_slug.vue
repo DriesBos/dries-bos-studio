@@ -45,7 +45,6 @@ export default {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
     let version =
       context.query._storyblok || context.isDev ? "draft" : "published"
-
     return context.app.$storyapi
       .get(endpoint, {
         version: version,
