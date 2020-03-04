@@ -10,7 +10,7 @@
         </span>
       </nuxt-link>
       <li
-        v-if="this.$route.name === 'projects-slug' || this.$route.name === 'all'"
+        v-if="this.$route.name === 'projects-slug' || this.$route.name === 'slug'"
         class="header-Close"
       >
         <nuxt-link to="/" title="close project">

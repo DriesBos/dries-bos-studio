@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="view view-Dynamic">
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
@@ -8,6 +8,7 @@
     ></component>
   </div>
 </template>
+
 
 <script>
 const loadData = function({ api, cacheVersion, errorCallback, version, path }) {
@@ -37,7 +38,6 @@ const loadData = function({ api, cacheVersion, errorCallback, version, path }) {
 }
 
 export default {
-  transition: "fade",
   asyncData(context) {
     // Check if we are in the editing mode
     let editMode = false
@@ -74,6 +74,7 @@ export default {
     return { story: { content: {} } }
   },
   mounted() {
+    console.log(this.story)
     this.$storybridge.on(["input", "published", "change"], event => {
       if (event.action == "input") {
         if (event.story.id === this.story.id) {

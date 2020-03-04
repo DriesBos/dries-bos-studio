@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok" class="content-Page">
+  <section v-editable="blok" class="page">
     <component
       :is="blok.component | dashify"
       v-for="blok in blok.body"
@@ -14,17 +14,5 @@ export default {
   props: {
     blok: Object
   }
-  // head() {
-  //   return {
-  //     title: this.blok.metadata.title,
-  //     meta: [
-  //       {
-  //         hid: "description",
-  //         name: "description",
-  //         content: this.blok.metadata.description
-  //       }
-  //     ]
-  //   }
-  // }
 }
 </script>
