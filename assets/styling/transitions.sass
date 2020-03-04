@@ -3,42 +3,39 @@
 // view
 .view-enter-active
   transition: transform $transition-slide-in
-
 .view-leave-active
   transition: transform $transition-slide-out
-
 .view-enter, .view-leave-to
   transform: translateY(100%)
 
 // Fade
 .fade-enter-active, .fade-leave-active
   transition: opacity $transition-fade
-
 .fade-enter, .fade-leave-to
   opacity: 0
 
 // Page
-.page-enter-active
-  transition: transform $transition-slide-in
+.page-enter-active, .page-leave-active
+  transition: opacity $transition-fade
+.page-enter, .page-leave-to
+  opacity: 0
 
+// SLIDE-LEFT
+.right-enter-active
+  transition: transform $transition-slide-in
 .left-leave-active
   transition: transform $transition-slide-out
-
 .left-enter
   transform: translateX(100%)
-
 .left-leave-to
   transform: translateX(-100%)
 
 // SLIDE-RIGHT
-.slide-right-enter-active
+.right-enter-active
   transition: transform $transition-slide-in
-
-.slide-right-leave-active
+.right-leave-active
   transition: transform $transition-slide-out
-
-.slide-right-enter
+.right-enter
   transform: translateX(-100%)
-
-.slide-right-leave-to
+.right-leave-to
   transform: translateX(100%)
