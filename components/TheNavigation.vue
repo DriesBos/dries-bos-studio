@@ -2,19 +2,31 @@
   <header class="header">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
-        <span v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'">Dries</span>
-        <span v-if="this.$route.name === 'index'">Bos — Web & Interaction Development</span>
+        <span
+          v-if="
+            this.$route.name === 'index' || this.$route.name === 'projects-slug'
+          "
+          >Dries</span
+        >
+        <span v-if="this.$route.name === 'index'"
+          >Bos — Web & Interaction Development</span
+        >
         <span v-if="this.$route.name === 'projects-slug'">
           and
           <span class="header-Logo_Capitalize">{{ slug }}</span>
         </span>
       </nuxt-link>
       <li
-        v-if="this.$route.name === 'projects-slug' || this.$route.name === 'slug'"
+        v-if="
+          this.$route.name === 'projects-slug' || this.$route.name === 'slug'
+        "
         class="header-Close"
       >
         <nuxt-link to="/" title="close project">
-          <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
+          <div
+            class="icon close"
+            v-html="require('~/assets/images/icon-close.svg?include')"
+          ></div>
         </nuxt-link>
       </li>
       <li v-if="this.$route.name === 'index'" @click="toggleTheView">
@@ -27,7 +39,12 @@
           </div>
         </div>
       </li>
-      <nuxt-link v-if="this.$route.name === 'index'" to="/profile" class="header-Profile" tag="li">
+      <nuxt-link
+        v-if="this.$route.name === 'index'"
+        to="/profile"
+        class="header-Profile"
+        tag="li"
+      >
         <p>profile</p>
       </nuxt-link>
       <li v-if="this.$route.name === 'index'" @click="toggleTheme">
@@ -91,7 +108,6 @@ export default {
   left: 0
   right: 0
   z-index: 1
-  box-sizing: border-box
   ul
     display: flex
     flex-wrap: wrap

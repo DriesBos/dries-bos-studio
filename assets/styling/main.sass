@@ -50,6 +50,7 @@ main
 .list
   display: flex
   flex-direction: column
+  flex-shrink: 0
   width: 100%
   .listItem
     position: relative
@@ -126,33 +127,34 @@ main
     transition: opacity $transition-lazy
   li
     cursor: pointer
-  li:nth-child(2)
-    width: calc((100% / 3) * 2)
-    align-self: flex-end
-  li:nth-child(3)
-    width: calc(100% / 3)
-  li:nth-child(4)
-    width: calc((100% / 3) * 2)
-  li:nth-child(5)
-    width: calc(100% / 3)
-    align-self: flex-end
-  li:nth-child(6)
-    width: 100%
-    align-self: flex-end
-  li:nth-child(7)
-    width: calc((100% / 3) * 2)
-    align-self: flex-end
-  li:nth-child(8)
-    width: calc((100% / 3) * 2)
-  li:nth-child(9)
-    width: calc(100% / 3)
-    align-self: flex-end
-  li:nth-child(10)
-    width: calc((100% / 3) * 2)
-    align-self: flex-end
-  li:last-child
-    width: calc((100% / 3) * 2)
-    align-self: flex-start
+  @media screen and ( min-width: $breakpoint-mobile)
+    li:nth-child(2)
+      width: calc((100% / 3) * 2)
+      align-self: flex-end
+    li:nth-child(3)
+      width: calc(100% / 3)
+    li:nth-child(4)
+      width: calc((100% / 3) * 2)
+    li:nth-child(5)
+      width: calc(100% / 3)
+      align-self: flex-end
+    li:nth-child(6)
+      width: 100%
+      align-self: flex-end
+    li:nth-child(7)
+      width: calc((100% / 3) * 2)
+      align-self: flex-end
+    li:nth-child(8)
+      width: calc((100% / 3) * 2)
+    li:nth-child(9)
+      width: calc(100% / 3)
+      align-self: flex-end
+    li:nth-child(10)
+      width: calc((100% / 3) * 2)
+      align-self: flex-end
+    li:last-child
+      width: calc((100% / 3) * 2)
+      align-self: flex-start
   @media screen and ( max-width: $breakpoint-mobile)
     li
       width: 100%
