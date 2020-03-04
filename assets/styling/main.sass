@@ -1,7 +1,7 @@
 @import '~/assets/styling/variables.sass'
 
 // GENERAL
-html, body, #__layout, #__nuxt, .main // Avoiding 100vh to better suit mobile browsers
+html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoiding 100vh to better suit mobile browsers
   position: relative
   height: 100%
 
@@ -34,18 +34,19 @@ main
     height: auto
 
 .textItem
-  margin: var(--spacing-two)
   position: relative
   text-align: center
+  color: var(--type)
+  padding: var(--spacing-two)
+  margin: auto
   .markdown, a
     width: 100%
   a
     text-decoration: underline
   &-Container
-    min-height: 100vh
     display: flex
-    justify-content: center
-    align-items: center
+    position: relative
+    height: 100%
 
 // INDEX
 .list
@@ -123,7 +124,6 @@ main
 // VIEWS
 .view
   width: 100%
-  min-height: 100vh
   &-Container
     position: relative
     display: flex
