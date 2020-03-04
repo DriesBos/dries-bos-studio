@@ -20,8 +20,14 @@
 .page-enter, .page-leave-to
   opacity: 0
 
+// // Temp
+// .page-enter-active
+//   animation: acrossIn .45s ease-out both
+// .page-leave-active
+//   animation: acrossOut .65s ease-in both
+
 // SLIDE-LEFT
-.right-enter-active
+.left-enter-active
   transition: transform $transition-slide-in
 .left-leave-active
   transition: transform $transition-slide-out
@@ -39,3 +45,19 @@
   transform: translateX(-100%)
 .right-leave-to
   transform: translateX(100%)
+
+// Keyframes
+
+@keyframes acrossIn
+  0%
+    transform: translate3d(100%, 0, 0)
+
+  100%
+    transform: translate3d(0, 0, 0)
+
+@keyframes acrossOut
+  0%
+    transform: translate3d(0, 0, 0)
+
+  100%
+    transform: translate3d(-100%, 0, 0)
