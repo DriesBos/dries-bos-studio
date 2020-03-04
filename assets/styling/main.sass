@@ -151,6 +151,8 @@ main
         padding-right: var(--spacing-two)
         margin-bottom: var(--spacing-two)
         color: var(--type)
+        @media screen and ( max-width: $breakpoint-mobile)
+          margin-bottom: var(--spacing-three)
       &-Nav
         position: fixed
         top: 50%
@@ -170,6 +172,14 @@ main
         li
           margin-bottom: 1px
         @media screen and ( max-width: $breakpoint-mobile)
+          li:nth-child(2)
+            width: calc((100% * 0.8)
+            align-self: flex-end
+          li:nth-child(4)
+            width: calc(100% * 0.8)
+          li:nth-child(5)
+            width: calc(100% * 0.8)
+            align-self: flex-end
           li:last-child
             margin-bottom: 0
         @media screen and ( min-width: $breakpoint-mobile)
