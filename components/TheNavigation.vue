@@ -101,6 +101,7 @@ export default {
       padding-left: var(--spacing-one)
       padding-right: var(--spacing-one)
       cursor: pointer
+      color: var(--type)
     li:first-child
       padding-left: var(--spacing-two)
       flex-grow: 1
