@@ -132,6 +132,7 @@ export default {
     display: inline-flex
     border: 1px solid var(--type)
     min-height: 24px
+    background: var(--background-color)
     &_Item
       padding-left: 30px
       padding-right: 30px
