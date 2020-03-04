@@ -52,6 +52,9 @@ main
   flex-direction: column
   flex-shrink: 0
   width: 100%
+  background: var(--background-color)
+  transition: background $transition-theme
+  will-change: background
   .listItem
     position: relative
     width: 100%
@@ -123,6 +126,9 @@ main
 .grid
   display: flex
   flex-direction: column
+  background: var(--background-color)
+  transition: background $transition-theme
+  will-change: background
   img
     transition: opacity $transition-lazy
   li
