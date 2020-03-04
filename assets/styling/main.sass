@@ -35,7 +35,8 @@ main
   &.search
     stroke: var(--support-color)
   &:hover
-    color: var(--support-color)
+    @media ( hover: hover )
+      color: var(--support-color)
   svg, img
     position: absolute
     left: 0
@@ -140,9 +141,10 @@ main
     cursor: pointer
     margin-bottom: 1px
     &:hover
-      p
-        color: var(--support-color)
-        text-decoration: underline
+      @media ( hover: hover )
+        p
+          color: var(--support-color)
+          text-decoration: underline
     p
       position: absolute
       transition: color $transition-hover
@@ -266,8 +268,9 @@ main
         &_Next
           right: 0
         &:hover
-          .icon
-            color: var(--support-color)
+          @media ( hover: hover )
+            .icon
+              color: var(--support-color)
       &-Images
         display: flex
         flex-direction: column
