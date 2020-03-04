@@ -8,6 +8,10 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
 img
   opacity: 0
   width: 100%
+  transition: opacity $transition-lazy
+
+img[lazy=loading]
+  background-color: var(--support-color)
 
 img[lazy="loaded"]
   opacity: 1
@@ -141,8 +145,6 @@ main
   &-Project
     padding-top: 300px
     width: 100%
-    img
-      opacity: 1
     .projectItem
       &-Text
         padding-left: var(--spacing-two)

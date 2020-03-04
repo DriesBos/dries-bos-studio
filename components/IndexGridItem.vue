@@ -6,12 +6,31 @@
     class="gridItem gridItem_Project"
     tag="li"
   >
-    <img
-      :srcset="`${transformImage(post.cover_image, '1668x0')} 1668w, ${transformImage(post.cover_image, '1440x0')} 1440w, ${transformImage(post.cover_image, '1280x0')} 1280w, ${transformImage(post.cover_image, '960x0')} 960w, ${transformImage(post.cover_image, '800x0')} 800w, ${transformImage(post.cover_image, '690x0')} 690w`"
-      sizes="100vw"
-      :data-src="post.cover_image"
-      :alt="post.title"
-    />
+    <div v-lazy-container="{ selector: 'img' }">
+      <img
+        :srcset="
+          `${transformImage(
+            post.cover_image,
+            '1668x0'
+          )} 1668w, ${transformImage(
+            post.cover_image,
+            '1440x0'
+          )} 1440w, ${transformImage(
+            post.cover_image,
+            '1280x0'
+          )} 1280w, ${transformImage(
+            post.cover_image,
+            '960x0'
+          )} 960w, ${transformImage(
+            post.cover_image,
+            '800x0'
+          )} 800w, ${transformImage(post.cover_image, '690x0')} 690w`
+        "
+        sizes="100vw"
+        :data-src="post.cover_image"
+        :alt="post.title"
+      />
+    </div>
   </nuxt-link>
 </template>
 
@@ -41,8 +60,6 @@ export default {
 .grid
   display: flex
   flex-direction: column
-  img
-    opacity: 1
   li
     cursor: pointer
   li:first-child
