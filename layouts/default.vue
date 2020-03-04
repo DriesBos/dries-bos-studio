@@ -1,6 +1,6 @@
 <template>
   <main :class="currentTheme">
-    <the-header @toggleTheme="changeTheme" />
+    <the-navigation @toggleTheme="changeTheme" />
     <transition>
       <!-- <transition
       @before-enter="beforeEnter"
@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import TheHeader from "~/components/TheHeader.vue"
+import TheNavigation from "~/components/TheNavigation.vue"
 export default {
   components: {
-    "the-header": TheHeader
+    "the-navigation": TheNavigation
   },
   // transition: {
   //   mode: "out-in",
