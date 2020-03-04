@@ -8,10 +8,6 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
 img
   opacity: 0
   width: 100%
-  transition: opacity $transition-lazy
-
-img[lazy=loading]
-  background-color: var(--support-color)
 
 img[lazy="loaded"]
   opacity: 1
@@ -167,8 +163,15 @@ main
       &-Images
         display: flex
         flex-direction: column
+        img
+          transition: opacity $transition-lazy
         li
           margin-bottom: 1px
+        li:first-child
+          img
+            transition: none
+        li:last-child
+          margin-bottom: 0
         @media screen and ( max-width: $breakpoint-mobile)
           li:last-child
             margin-bottom: 0

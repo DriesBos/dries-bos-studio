@@ -60,6 +60,8 @@ export default {
 .grid
   display: flex
   flex-direction: column
+  img
+    transition: opacity $transition-lazy
   li
     cursor: pointer
   li:nth-child(2)
