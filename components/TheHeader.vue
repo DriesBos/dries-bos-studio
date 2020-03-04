@@ -69,9 +69,11 @@ export default {
         this.slug = str.replace(/-/g, " ")
       }
     },
-    // ...mapMutations("view", ["set", "toggleTheView"]),
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
+      setTimeout(function() {
+        window.scrollTo(0, 0)
+      }, 330)
     }
   },
   mounted() {

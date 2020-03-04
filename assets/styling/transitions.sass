@@ -2,11 +2,12 @@
 
 // view
 .view-enter-active
-  transition: transform $transition-slide-in
+  transition: transform .33s ease-out, opacity 0s ease
 .view-leave-active
-  transition: transform $transition-slide-out
+  transition: transform .33s ease-in, opacity .1s ease .23s
 .view-enter, .view-leave-to
-  transform: translateY(100%)
+  transform: translateY(calc(100vh - 300px))
+  opacity: 0
 
 // Fade
 .fade-enter-active, .fade-leave-active
