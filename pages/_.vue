@@ -37,6 +37,7 @@ const loadData = function({ api, cacheVersion, errorCallback, version, path }) {
 }
 
 export default {
+  transition: "fade",
   asyncData(context) {
     // Check if we are in the editing mode
     let editMode = false
