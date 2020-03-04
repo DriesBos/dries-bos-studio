@@ -1,7 +1,18 @@
 <template>
   <main :class="currentTheme">
     <the-header @toggleTheme="changeTheme" />
-    <transition name="left" mode="out-in">
+    <transition>
+      <!-- <transition
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @enter-cancelled="enterCancelled"
+      @before-Leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
+      @leave-cancelled="leaveCancelled"
+      :css="false"
+      >-->
       <div class="transitionWrapper">
         <nuxt />
       </div>
@@ -14,6 +25,24 @@ import TheHeader from "~/components/TheHeader.vue"
 export default {
   components: {
     "the-header": TheHeader
+  },
+  // transition: {
+  //   mode: "out-in",
+  //   css: false,
+  //   afterEnter(el) {
+  //     console.log("afterEnter", el)
+  //   },
+  //   afterLeave(el) {
+  //     console.log("afterLeave", el)
+  //   }
+  // },
+  transition(to, from) {
+    if (!from) {
+      console.log("LEFT")
+      return "left"
+    }
+    console.log("RIGHT")
+    return +to.query.page < +from.query.page ? "right" : "left"
   },
   data() {
     return {
