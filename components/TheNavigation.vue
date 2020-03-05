@@ -6,12 +6,13 @@
           v-if="
             this.$route.name === 'index' || this.$route.name === 'projects-slug'
           "
-          >Dries</span
-        >
-        <span v-if="this.$route.name === 'index'"
-          >Bos — Web & Interaction Development</span
-        >
-        <span v-if="this.$route.name === 'projects-slug'">
+          title="that's me!"
+        >Dries</span>
+        <span
+          v-if="this.$route.name === 'index'"
+          title="that's me!"
+        >Bos — Web & Interaction Development</span>
+        <span v-if="this.$route.name === 'projects-slug'" title="me and ...">
           and
           <span class="header-Logo_Capitalize">{{ slug }}</span>
         </span>
@@ -21,15 +22,13 @@
           this.$route.name === 'projects-slug' || this.$route.name === 'slug'
         "
         class="header-Close"
+        title="close project"
       >
-        <nuxt-link to="/" title="close project">
-          <div
-            class="icon close"
-            v-html="require('~/assets/images/icon-close.svg?include')"
-          ></div>
+        <nuxt-link to="/">
+          <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
         </nuxt-link>
       </li>
-      <li v-if="this.$route.name === 'index'" @click="toggleTheView">
+      <li v-if="this.$route.name === 'index'" @click="toggleTheView" title="toggle text & images">
         <div class="header-Toggle">
           <div class="header-Toggle_Item" :class="{ active: viewState }">
             <p>text</p>
@@ -41,14 +40,15 @@
       </li>
       <nuxt-link
         v-if="this.$route.name === 'index'"
-        to="/profile"
+        to="/about"
         class="header-Profile"
         tag="li"
+        title="about me"
       >
-        <p>profile</p>
+        <p>about</p>
       </nuxt-link>
-      <li v-if="this.$route.name === 'index'" @click="toggleTheme">
-        <div class="header-Theme" title="change theme"></div>
+      <li v-if="this.$route.name === 'index'" @click="toggleTheme" title="change theme">
+        <div class="header-Theme"></div>
       </li>
     </ul>
   </header>
