@@ -88,10 +88,23 @@ export default {
           $("#darkMode").removeClass("active")
         }, 3000)
       }
+    },
+    // BROWSER APIS
+    windowIsVisible() {
+      if (document.visibilityState === "hidden") {
+        document.title = "👀 You there?"
+      } else {
+        document.title = "🧑‍🚀 Dries Bos — Web & Interaction Developer"
+        let scrollPosition = document.documentElement.scrollTop
+      }
     }
   },
   mounted() {
     this.checkDarkMode()
+    document.addEventListener("visibilitychange", this.windowIsVisible)
+  },
+  destroyed() {
+    document.removeEventListener("visibilitychange", this.windowIsVisible)
   }
 }
 </script>
