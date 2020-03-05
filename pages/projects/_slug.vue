@@ -2,7 +2,7 @@
   <div class="view view-Container">
     <section class="view-Project">
       <div class="projectItem">
-        <div class="projectItem-Text">
+        <div id="projectItem-Text" class="projectItem-Text">
           <markdown-item :input="story.content.content" />
         </div>
         <nuxt-link
@@ -21,7 +21,7 @@
         >
           <div class="icon arrow" v-html="require('~/assets/images/icon-arrow.svg?include')" />
         </nuxt-link>
-        <ul class="projectItem-Images">
+        <ul id="projectItem-Images" class="projectItem-Images">
           <li v-for="(image, index) in story.content.images" :key="index">
             <div v-lazy-container="{ selector: 'img' }">
               <img
@@ -97,6 +97,11 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+    this.measureHeight()
+    window.addEventListener("resize", this.measureHeight)
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.measureHeight)
   },
   methods: {
     transformImage(image, option) {
@@ -106,6 +111,12 @@ export default {
       let imageService = "//img2.storyblok.com/"
       let path = image.replace("//a.storyblok.com", "")
       return imageService + option + path
+    },
+    measureHeight() {
+      const element = document.getElementById("projectItem-Text")
+      const image = document.getElementById("projectItem-Images")
+      const height = element.offsetHeight
+      image.style.top = height + 300 + "px"
     }
   }
 }

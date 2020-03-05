@@ -69,9 +69,9 @@ main
     display: flex
     align-items: center
     justify-content: space-between
-    background: var(--background-color)
-    transition: background $transition-theme
-    will-change: background
+    // background: var(--background-color)
+    // transition: background $transition-theme
+    // will-change: background
     &-Thumb
       position: absolute
       opacity: 0
@@ -167,7 +167,7 @@ main
   flex-direction: column
   justify-content: flex-start
   flex-shrink: 0
-  background: var(--background-color)
+  // background: var(--background-color)
   img
     transition: opacity $transition-lazy
   li
@@ -209,8 +209,8 @@ main
 .view
   width: 100%
   section
-    background: var(--background-color)
-    transition: background $transition-theme
+    // background: var(--background-color)
+    // transition: background $transition-theme
   &-Container
     position: relative
     display: flex
@@ -227,9 +227,13 @@ main
     width: 100%
     .projectItem
       &-Text
+        position: fixed
+        top: 300px
+        left: 0
+        right: 0
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
-        margin-bottom: var(--spacing-two)
+        padding-bottom: var(--spacing-two)
         color: var(--type)
         @media screen and ( max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-three)
@@ -240,6 +244,7 @@ main
         transform: translateY(-50%)
         color: white
         mix-blend-mode: difference
+        z-index: +1
         &_Prev
           left: 0
           svg
@@ -247,6 +252,10 @@ main
         &_Next
           right: 0
       &-Images
+        position: absolute
+        left: 0
+        right: 0
+        top: 300px
         display: flex
         flex-direction: column
         img
