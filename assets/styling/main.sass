@@ -52,6 +52,14 @@ main
   flex-direction: column
   flex-shrink: 0
   width: 100%
+  li
+    @for $i from 1 through 100
+      &:nth-child(#{$i})
+        .listItem-Thumb
+          left: random(70) + 15 + vw
+          top: random(100) - 250 + px
+          &_Container
+            width: random(100) + 150 + px
   .listItem
     position: relative
     width: 100%
@@ -61,6 +69,36 @@ main
     background: var(--background-color)
     transition: background $transition-theme
     will-change: background
+    &-Thumb
+      position: absolute
+      opacity: 0
+      transition: opacity .33s ease
+      top: 0
+      left: 0
+      z-index: +1
+      pointer-events: none
+      transform: translate(-50%, -50%)
+      &_Container
+        position: relative
+        background: var(--support-color)
+        border-radius: 1000px
+        border: 1px solid var(--type)
+        height: 0
+        width: 0
+        padding-bottom: 100%
+        z-index: 999
+      img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        border-radius: 1000px
+        object-fit: cover
+        opacity: 1
+    &:hover
+      .listItem-Thumb
+        opacity: 1
     &-DetailsWrapper
       display: flex
       flex-grow: 1
