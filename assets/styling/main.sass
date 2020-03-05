@@ -94,8 +94,9 @@ img[lazy="loaded"]
           .listItem-Thumb_Container
             width: random(5) + 9 + vw
         &:hover
-          .listItem-Thumb
-            transform: translate(-50%, -50%) scale(1.2)
+          @media ( hover: hover )
+            .listItem-Thumb
+              transform: translate(-50%, -50%) scale(1.2)
   .listItem
     position: relative
     width: 100%
@@ -133,7 +134,8 @@ img[lazy="loaded"]
         opacity: 1
     &:hover
       .listItem-Thumb
-        opacity: 1
+        @media ( hover: hover )
+          opacity: 1
     &-DetailsWrapper
       display: flex
       flex-grow: 1
