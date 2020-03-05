@@ -1,5 +1,6 @@
 <template>
   <main :class="currentTheme">
+    <div class="background"></div>
     <the-navigation @toggleTheme="changeTheme" />
     <transition>
       <!-- <transition
