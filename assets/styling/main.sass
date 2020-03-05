@@ -58,8 +58,12 @@ main
         .listItem-Thumb
           left: random(70) + 15 + vw
           top: random(100) - 250 + px
-          &_Container
-            width: random(100) + 150 + px
+          .listItem-Thumb_Container
+            width: random(5) + 9 + vw
+        &:hover
+          .listItem-Thumb
+            transform: translate(-50%, -50%) scale(1.2)
+
   .listItem
     position: relative
     width: 100%
@@ -72,21 +76,19 @@ main
     &-Thumb
       position: absolute
       opacity: 0
-      transition: opacity .33s ease
+      transition: all .16s ease-in
       top: 0
       left: 0
       z-index: +1
       pointer-events: none
-      transform: translate(-50%, -50%)
+      transform: translate(-50%, -50%) scale(1)
       &_Container
         position: relative
-        background: var(--support-color)
         border-radius: 1000px
         border: 1px solid var(--type)
         height: 0
-        width: 0
+        translate: width 1s ease
         padding-bottom: 100%
-        z-index: 999
       img
         position: absolute
         top: 0
