@@ -25,6 +25,30 @@ img[lazy="loaded"]
   width: 100%
   min-height: 50vh
 
+#darkMode
+  position: fixed
+  display: flex
+  justify-content: center
+  align-items: center
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 999
+  pointer-events: none
+  opacity: 0
+  transform: translateY(10px)
+  transition: all .165s ease .33s
+  &.active
+    opacity: 1
+    transform: translateY(0)
+  > div
+    border: 1px solid var(--type)
+    background: var(--support-color)
+    border-radius: 1000px
+    padding-left: 30px
+    padding-right: 30px
+
 // BUILDING BLOCKS
 .icon
   position: relative
