@@ -116,7 +116,7 @@ export default {
       const element = document.getElementById("projectItem-Text")
       const image = document.getElementById("projectItem-Images")
       const height = element.offsetHeight
-      image.style.top = height + 300 + "px"
+      image.style.top = height + "px"
     }
   }
 }
