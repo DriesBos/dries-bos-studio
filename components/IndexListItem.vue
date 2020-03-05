@@ -20,11 +20,6 @@
         </div>
       </div>
     </nuxt-link>
-    <div class="listItem-Thumb">
-      <div class="listItem-Thumb_Container">
-        <img :src="post.cover_image" />
-      </div>
-    </div>
   </li>
 </template>
 

@@ -85,18 +85,6 @@ img[lazy="loaded"]
   flex-shrink: 0
   width: 100%
   min-height: 0
-  li
-    @for $i from 1 through 100
-      &:nth-child(#{$i})
-        .listItem-Thumb
-          left: random(70) + 15 + vw
-          top: random(50) - 25 + vh
-          .listItem-Thumb_Container
-            width: random(5) + 9 + vw
-        &:hover
-          @media ( hover: hover )
-            .listItem-Thumb
-              transform: translate(-50%, -50%) scale(1.2)
   .listItem
     position: relative
     width: 100%
@@ -107,35 +95,6 @@ img[lazy="loaded"]
     // background: var(--background-color)
     // transition: background $transition-theme
     // will-change: background
-    &-Thumb
-      position: absolute
-      opacity: 0
-      transition: all .16s ease-in
-      top: 0
-      left: 0
-      z-index: +1
-      pointer-events: none
-      transform: translate(-50%, -50%) scale(1)
-      &_Container
-        position: relative
-        border-radius: 1000px
-        border: 1px solid var(--type)
-        height: 0
-        translate: width 1s ease
-        padding-bottom: 100%
-      img
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        border-radius: 1000px
-        object-fit: cover
-        opacity: 1
-    &:hover
-      .listItem-Thumb
-        @media ( hover: hover )
-          opacity: 1
     &-DetailsWrapper
       display: flex
       flex-grow: 1
