@@ -257,11 +257,15 @@ img[lazy="loaded"]
     display: flex
     flex-direction: column
     align-items: center
-    padding-top: 30vh
+    padding-top: 30vmin
     width: 100%
+    @media screen and ( max-width: $breakpoint-mobile)
+      padding-top: 40vmin
   &-Project
-    padding-top: 30vh
+    padding-top: 30vmin
     width: 100%
+    @media screen and ( max-width: $breakpoint-mobile)
+      padding-top: 40vmin
     .projectItem
       &-Text
         position: fixed
@@ -270,10 +274,11 @@ img[lazy="loaded"]
         right: 0
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
-        padding-top: 30vh
+        padding-top: 30vmin
         padding-bottom: var(--spacing-two)
         color: var(--type)
         @media screen and ( max-width: $breakpoint-mobile)
+          padding-top: 40vmin
           margin-bottom: var(--spacing-three)
       &-Nav
         position: fixed
