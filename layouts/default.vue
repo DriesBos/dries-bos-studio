@@ -86,7 +86,7 @@ export default {
         $("#darkMode").addClass("active")
         setTimeout(function() {
           $("#darkMode").removeClass("active")
-        }, 3000)
+        }, 2000)
       }
     },
     // BROWSER APIS
