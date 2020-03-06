@@ -144,7 +144,7 @@ img[lazy="loaded"]
           a, p, svg
             color: var(--support-type)
     &_Filter
-      border-top: 1px var(--type) solid
+      border-top: 0
       p, input::placeholder, svg, input
         opacity: .25
         transition: opacity $transition-fade
@@ -241,6 +241,8 @@ img[lazy="loaded"]
         color: white
         mix-blend-mode: difference
         z-index: +1
+        .icon
+          width: 2.5em
         &_Prev
           left: 0
           svg
