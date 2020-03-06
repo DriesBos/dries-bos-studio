@@ -1,5 +1,11 @@
 <template>
   <main :class="currentTheme">
+    <div class="background"></div>
+    <div id="darkMode">
+      <div>
+        <p>darkmode detected</p>
+      </div>
+    </div>
     <the-navigation @toggleTheme="changeTheme" />
     <transition>
       <!-- <transition
@@ -22,6 +28,9 @@
 
 <script>
 import TheNavigation from "~/components/TheNavigation.vue"
+import JQuery from "jquery"
+let $ = JQuery
+
 export default {
   components: {
     "the-navigation": TheNavigation
@@ -66,7 +75,36 @@ export default {
       } else {
         this.currentTheme = "One"
       }
+    },
+    checkDarkMode() {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        this.themeNumber = 2
+        this.currentTheme = "three"
+        $("#darkMode").addClass("active")
+        setTimeout(function() {
+          $("#darkMode").removeClass("active")
+        }, 3000)
+      }
+    },
+    // BROWSER APIS
+    windowIsVisible() {
+      if (document.visibilityState === "hidden") {
+        document.title = "👀 You there?"
+      } else {
+        document.title = "🧑‍🚀 Dries Bos — Web & Interaction Developer"
+        let scrollPosition = document.documentElement.scrollTop
+      }
     }
+  },
+  mounted() {
+    this.checkDarkMode()
+    document.addEventListener("visibilitychange", this.windowIsVisible)
+  },
+  destroyed() {
+    document.removeEventListener("visibilitychange", this.windowIsVisible)
   }
 }
 </script>

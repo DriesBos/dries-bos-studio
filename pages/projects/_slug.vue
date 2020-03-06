@@ -11,7 +11,7 @@
           class="projectItem-Nav projectItem-Nav_Prev"
           title="previous project"
         >
-          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow.svg?include')" />
+          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
         </nuxt-link>
         <nuxt-link
           v-if="story.content.next_link.id !== ''"
@@ -19,7 +19,7 @@
           class="projectItem-Nav projectItem-Nav_Next"
           title="next project"
         >
-          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow.svg?include')" />
+          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
         </nuxt-link>
         <ul id="projectItem-Images" class="projectItem-Images">
           <li v-for="(image, index) in story.content.images" :key="index">
@@ -116,7 +116,7 @@ export default {
       const element = document.getElementById("projectItem-Text")
       const image = document.getElementById("projectItem-Images")
       const height = element.offsetHeight
-      image.style.top = height + 300 + "px"
+      image.style.top = height + "px"
     }
   }
 }

@@ -203,15 +203,6 @@ export default {
       } else {
         this.searchHasInput = false
       }
-    },
-    // BROWSER APIS
-    windowIsVisible() {
-      if (document.visibilityState === "hidden") {
-        document.title = "👀 You there?"
-      } else {
-        document.title = "🧑‍🚀 Dries Bos — Web & Interaction Developer"
-        let scrollPosition = document.documentElement.scrollTop
-      }
     }
   }
 }

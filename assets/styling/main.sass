@@ -13,10 +13,41 @@ img[lazy="loaded"]
   opacity: 1
 
 // THEME
-main
+.background
+  position: fixed
   background: var(--background-color)
   transition: background $transition-theme
   will-change: background
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  width: 100%
+  min-height: 50vh
+
+#darkMode
+  position: fixed
+  display: flex
+  justify-content: center
+  align-items: center
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 999
+  pointer-events: none
+  opacity: 0
+  transform: translateY(12px)
+  transition: all .165s ease .33s
+  &.active
+    opacity: 1
+    transform: translateY(0)
+  > div
+    border: 1px solid var(--type)
+    background: var(--support-color)
+    border-radius: 1000px
+    padding-left: 30px
+    padding-right: 30px
 
 // BUILDING BLOCKS
 .icon
@@ -37,6 +68,7 @@ main
   color: var(--type)
   padding: var(--spacing-two)
   margin: auto
+  min-height: 0
   .markdown, a
     width: 100%
   a
@@ -52,54 +84,14 @@ main
   flex-direction: column
   flex-shrink: 0
   width: 100%
-  li
-    @for $i from 1 through 100
-      &:nth-child(#{$i})
-        .listItem-Thumb
-          left: random(70) + 15 + vw
-          top: random(50) - 25 + vh
-          .listItem-Thumb_Container
-            width: random(5) + 9 + vw
-        &:hover
-          .listItem-Thumb
-            transform: translate(-50%, -50%) scale(1.2)
+  min-height: 0
   .listItem
     position: relative
     width: 100%
     display: flex
     align-items: center
     justify-content: space-between
-    // background: var(--background-color)
-    // transition: background $transition-theme
-    // will-change: background
-    &-Thumb
-      position: absolute
-      opacity: 0
-      transition: all .16s ease-in
-      top: 0
-      left: 0
-      z-index: +1
-      pointer-events: none
-      transform: translate(-50%, -50%) scale(1)
-      &_Container
-        position: relative
-        border-radius: 1000px
-        border: 1px solid var(--type)
-        height: 0
-        translate: width 1s ease
-        padding-bottom: 100%
-      img
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        border-radius: 1000px
-        object-fit: cover
-        opacity: 1
-    &:hover
-      .listItem-Thumb
-        opacity: 1
+    min-height: 0
     &-DetailsWrapper
       display: flex
       flex-grow: 1
@@ -112,6 +104,7 @@ main
       padding-top: var(--spacing-one)
       padding-bottom: var(--spacing-one)
       cursor: pointer
+      min-height: 0
       p, a, input
         color: var(--type)
       &.active
@@ -151,7 +144,7 @@ main
           a, p, svg
             color: var(--support-type)
     &_Filter
-      border-top: 1px var(--type) solid
+      border-top: 0
       p, input::placeholder, svg, input
         opacity: .25
         transition: opacity $transition-fade
@@ -167,12 +160,13 @@ main
   flex-direction: column
   justify-content: flex-start
   flex-shrink: 0
-  // background: var(--background-color)
+  min-height: 0
   img
     transition: opacity $transition-lazy
   li
     cursor: pointer
     width: 100%
+    min-height: 0
   @media screen and ( min-width: $breakpoint-mobile)
     li:nth-child(2)
       width: calc((100% / 3) * 2)
@@ -208,9 +202,6 @@ main
 // VIEWS
 .view
   width: 100%
-  section
-    // background: var(--background-color)
-    // transition: background $transition-theme
   &-Container
     position: relative
     display: flex
@@ -220,31 +211,38 @@ main
     display: flex
     flex-direction: column
     align-items: center
-    padding-top: 300px
+    padding-top: 30vh
     width: 100%
+    // @media screen and ( max-width: $breakpoint-mobile)
+      // padding-top: 40vmin
   &-Project
-    padding-top: 300px
+    padding-top: 30vh
     width: 100%
+    // @media screen and ( max-width: $breakpoint-mobile)
+      // padding-top: 40vmin
     .projectItem
       &-Text
         position: fixed
-        top: 300px
+        top: 0
         left: 0
         right: 0
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
+        padding-top: 30vh
         padding-bottom: var(--spacing-two)
         color: var(--type)
         @media screen and ( max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-three)
       &-Nav
         position: fixed
-        top: 50%
+        top: 50vh
         padding: var(--spacing-two)
         transform: translateY(-50%)
         color: white
         mix-blend-mode: difference
         z-index: +1
+        .icon
+          width: 2.5em
         &_Prev
           left: 0
           svg
@@ -262,6 +260,7 @@ main
           transition: opacity $transition-lazy
         li
           margin-bottom: 1px
+          min-height: 0
         li:first-child
           img
             transition: none
