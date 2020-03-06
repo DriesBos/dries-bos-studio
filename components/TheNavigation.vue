@@ -48,7 +48,9 @@
         <p>about</p>
       </nuxt-link>
       <li v-if="this.$route.name === 'index'" @click="toggleTheme" title="change theme">
-        <div class="header-Theme"></div>
+        <div class="header-Theme">
+          <div class="header-Theme_Half"></div>
+        </div>
       </li>
     </ul>
   </header>
@@ -148,10 +150,22 @@ export default {
       transition: color $transition-hover
       color: var(--support-color)
   &-Theme
+    position: relative
     background-color: var(--support-color)
     height: 100%
     min-height: 24px // Prevents collapse when single item in a row
     border: 1px solid var(--type)
     width: 1.495em
     border-radius: 1000px
+    overflow: hidden
+    &_Half
+      position: absolute
+      left: 0
+      top: 0
+      height: 100%
+      width: 50%
+      transition: background-color $transition-theme
+      background-color: var(--background-color)
+      transform: rotate(-45deg)
+      transform-origin: 100% 50%
 </style>
