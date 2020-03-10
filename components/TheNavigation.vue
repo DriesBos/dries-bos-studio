@@ -1,5 +1,5 @@
 <template>
-  <header class="header header-Normal mix-blend-mode">
+  <header class="header header-Normal">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
         <span
@@ -129,7 +129,6 @@ export default {
       padding-left: var(--spacing-one)
       padding-right: var(--spacing-one)
       cursor: pointer
-      color: var(--type)
     li:first-child
       padding-left: var(--spacing-two)
       flex-grow: 1
@@ -150,16 +149,16 @@ export default {
     height: 100%
     border-radius: 1000px
     display: inline-flex
-    border: 1px solid var(--type)
     min-height: 24px
+    border: 1px solid var(--type)
     background: var(--background-color)
     &_Item
       padding-left: 30px
       padding-right: 30px
       border-radius: 1000px
       &.active
-        background: var(--support-color)
         color: var(--support-type)
+        background: var(--support-color)
       p
         line-height: 1
         transform: translateY(3px)
@@ -187,6 +186,7 @@ export default {
       transform: rotate(-45deg)
       transform-origin: 100% 50%
   &-Normal
+    color: var(--type)
     z-index: 2
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     position: absolute
@@ -214,7 +214,8 @@ export default {
       border-radius: 1000px
 
 .spaced
-  .mix-blend-mode
+  .header-Normal
+    color: white
     mix-blend-mode: difference
 
 @keyframes vibrate

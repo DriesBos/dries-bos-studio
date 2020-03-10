@@ -1,5 +1,5 @@
 <template>
-  <main :class="currentTheme">
+  <main :class="[currentTheme, { spaced: spaceState }]">
     <div class="background"></div>
     <div id="darkMode">
       <div>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import TheNavigation from "~/components/TheNavigation.vue"
 import ThePseudoNavigation from "~/components/ThePseudoNavigation.vue"
 import JQuery from "jquery"
@@ -37,19 +38,24 @@ export default {
   //     console.log("afterLeave", el)
   //   }
   // },
-  transition(to, from) {
-    if (!from) {
-      console.log("LEFT")
-      return "left"
-    }
-    console.log("RIGHT")
-    return +to.query.page < +from.query.page ? "right" : "left"
-  },
+  // transition(to, from) {
+  //   if (!from) {
+  //     console.log("LEFT")
+  //     return "left"
+  //   }
+  //   console.log("RIGHT")
+  //   return +to.query.page < +from.query.page ? "right" : "left"
+  // },
   data() {
     return {
       themeNumber: 0,
       currentTheme: "one"
     }
+  },
+  computed: {
+    ...mapState({
+      spaceState: state => state.space.spaceState
+    })
   },
   methods: {
     changeTheme() {
