@@ -1,5 +1,5 @@
 <template>
-  <header class="header mix-blend-mode">
+  <header class="header header-Normal mix-blend-mode">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
         <span
@@ -37,6 +37,9 @@
       >
         <p>about</p>
       </nuxt-link>
+      <li class="header-Space" v-if="this.$route.name === 'index'" @click="toggleTheSpace">
+        <div class="icon space" v-html="require('~/assets/images/icon-rocket.svg?include')"></div>
+      </li>
       <li v-if="this.$route.name === 'index'" @click="toggleTheView" title="toggle text & images">
         <div class="header-Toggle">
           <div class="header-Toggle_Item" :class="{ active: viewState }">
@@ -88,6 +91,14 @@ export default {
         this.slug = str.replace(/-/g, " ")
       }
     },
+    toggleTheSpace() {
+      this.$store.commit("space/toggleTheSpace")
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      })
+    },
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
       setTimeout(function() {
@@ -109,7 +120,6 @@ export default {
   top: 0
   left: 0
   right: 0
-  z-index: +1
   ul
     display: flex
     flex-wrap: wrap
@@ -128,6 +138,14 @@ export default {
       padding-right: var(--spacing-two)
   &-Logo_Capitalize
     text-transform: capitalize
+  &-Space
+    #fire
+      opacity: 0
+    &:hover
+      animation: vibrate .3s infinite
+      #fire
+        animation: flicker .1s infinite
+        opacity: 1
   &-Toggle
     height: 100%
     border-radius: 1000px
@@ -168,12 +186,15 @@ export default {
       background-color: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
+  &-Normal
+    z-index: 2
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     position: absolute
     top: 0
     left: 0
     right: 0
     pointer-events: none
+    z-index: 0
     li
       padding: 0 !important
       margin-top: var(--spacing-two)
@@ -195,4 +216,17 @@ export default {
 .spaced
   .mix-blend-mode
     mix-blend-mode: difference
+
+@keyframes vibrate
+  0%
+    transform: translateX(-.75%)
+  50%
+    transform: translateX(0%)
+  100%
+    transform: translateX(-.75%)
+@keyframes flicker
+  0%
+    opacity: 1
+  100%
+    opacity: 0.6
 </style>

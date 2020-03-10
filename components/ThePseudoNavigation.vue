@@ -22,3 +22,15 @@
     </ul>
   </header>
 </template>
+
+<script>
+import { mapState } from "vuex"
+
+export default {
+  computed: {
+    ...mapState({
+      viewState: state => state.view.viewState
+    })
+  }
+}
+</script>
