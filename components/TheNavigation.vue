@@ -187,20 +187,21 @@ export default {
       transform-origin: 100% 50%
   &-Normal
     color: var(--type)
-    z-index: 2
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     position: absolute
     top: 0
     left: 0
     right: 0
     pointer-events: none
-    z-index: 0
+    isolation: isolate
+    z-index: +2
     li
       padding: 0 !important
       margin-top: var(--spacing-two)
       margin-bottom: var(--spacing-two)
       margin-left: var(--spacing-one)
       margin-right: var(--spacing-one)
+      isolation: isolate
     li:nth-child(1)
       opacity: 0
     li:nth-child(2)

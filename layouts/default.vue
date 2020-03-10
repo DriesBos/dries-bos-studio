@@ -6,13 +6,13 @@
         <p>darkmode detected</p>
       </div>
     </div>
-    <the-navigation @toggleTheme="changeTheme" />
-    <the-pseudo-navigation />
     <transition>
       <div class="transitionWrapper">
         <nuxt />
       </div>
     </transition>
+    <the-navigation @toggleTheme="changeTheme" />
+    <the-pseudo-navigation />
   </main>
 </template>
 
