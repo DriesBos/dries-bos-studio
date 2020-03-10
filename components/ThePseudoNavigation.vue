@@ -1,0 +1,24 @@
+<template>
+  <header class="header">
+    <ul class="header-Pseudo">
+      <li>
+        <p>about</p>
+      </li>
+      <li>
+        <div class="header-Toggle">
+          <div class="header-Toggle_Item" :class="{ active: viewState }">
+            <p>text</p>
+          </div>
+          <div class="header-Toggle_Item" :class="{ active: !viewState }">
+            <p>img</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="header-Theme">
+          <div class="header-Theme_Half"></div>
+        </div>
+      </li>
+    </ul>
+  </header>
+</template>

@@ -7,18 +7,8 @@
       </div>
     </div>
     <the-navigation @toggleTheme="changeTheme" />
+    <the-pseudo-navigation />
     <transition>
-      <!-- <transition
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @enter-cancelled="enterCancelled"
-      @before-Leave="beforeLeave"
-      @leave="leave"
-      @after-leave="afterLeave"
-      @leave-cancelled="leaveCancelled"
-      :css="false"
-      >-->
       <div class="transitionWrapper">
         <nuxt />
       </div>
@@ -28,12 +18,14 @@
 
 <script>
 import TheNavigation from "~/components/TheNavigation.vue"
+import ThePseudoNavigation from "~/components/ThePseudoNavigation.vue"
 import JQuery from "jquery"
 let $ = JQuery
 
 export default {
   components: {
-    "the-navigation": TheNavigation
+    "the-navigation": TheNavigation,
+    "the-pseudo-navigation": ThePseudoNavigation
   },
   // transition: {
   //   mode: "out-in",

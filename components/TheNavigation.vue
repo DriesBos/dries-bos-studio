@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header mix-blend-mode">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
         <span
@@ -28,6 +28,15 @@
           <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
         </nuxt-link>
       </li>
+      <nuxt-link
+        v-if="this.$route.name === 'index'"
+        to="/about"
+        class="header-Profile"
+        tag="li"
+        title="about me"
+      >
+        <p>about</p>
+      </nuxt-link>
       <li v-if="this.$route.name === 'index'" @click="toggleTheView" title="toggle text & images">
         <div class="header-Toggle">
           <div class="header-Toggle_Item" :class="{ active: viewState }">
@@ -38,15 +47,6 @@
           </div>
         </div>
       </li>
-      <nuxt-link
-        v-if="this.$route.name === 'index'"
-        to="/about"
-        class="header-Profile"
-        tag="li"
-        title="about me"
-      >
-        <p>about</p>
-      </nuxt-link>
       <li v-if="this.$route.name === 'index'" @click="toggleTheme" title="change theme">
         <div class="header-Theme">
           <div class="header-Theme_Half"></div>
@@ -168,4 +168,31 @@ export default {
       background-color: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
+  &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    pointer-events: none
+    li
+      padding: 0 !important
+      margin-top: var(--spacing-two)
+      margin-bottom: var(--spacing-two)
+      margin-left: var(--spacing-one)
+      margin-right: var(--spacing-one)
+    li:nth-child(1)
+      opacity: 0
+    li:nth-child(2)
+      background: var(--background-pseudo)
+      border-radius: 1000px
+      &.active
+        background: red
+    li:nth-child(3)
+      margin-right: var(--spacing-two)
+      background: var(--background-pseudo)
+      border-radius: 1000px
+
+.spaced
+  .mix-blend-mode
+    mix-blend-mode: difference
 </style>
