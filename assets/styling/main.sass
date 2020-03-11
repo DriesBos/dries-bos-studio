@@ -60,8 +60,8 @@ img[lazy="loaded"]
   margin-top: 0
 .spaced
   .grid, .projectItem-Images
-    padding-left: var(--spacing-two)
-    padding-right: var(--spacing-two)
+    // padding-left: var(--spacing-two)
+    // padding-right: var(--spacing-two)
     li
       margin-bottom: var(--spacing-two) !important
     li:first-child
@@ -269,6 +269,7 @@ img[lazy="loaded"]
     cursor: pointer
     width: 100%
     min-height: 0
+    align-self: center
   @media screen and ( min-width: $breakpoint-mobile)
     li:nth-child(2)
       width: calc((100% / 3) * 2)
@@ -300,6 +301,46 @@ img[lazy="loaded"]
   @media screen and ( max-width: $breakpoint-mobile)
     li
       width: 100%
+.spaced
+  .grid
+    @media screen and ( min-width: $breakpoint-mobile)
+      li:nth-child(1)
+        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
+      li:nth-child(2)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        margin-right: var(--spacing-two)
+      li:nth-child(3)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(4)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(5)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
+        margin-right: var(--spacing-two)
+      li:nth-child(6)
+        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
+        align-self: center
+      li:nth-child(7)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        margin-right: var(--spacing-two)
+      li:nth-child(8)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(9)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
+        margin-right: var(--spacing-two)
+      li:nth-child(10)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+      li:nth-child(11)
+        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
+        align-self: center
+      li:last-child
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        margin-left: var(--spacing-two)
 
 // VIEWS
 .view
@@ -367,3 +408,23 @@ main.spaced.four
   .projectItem
     &-Nav
       color: black
+.spaced
+  .projectItem-Images
+    @media screen and ( min-width: $breakpoint-mobile)
+      li:nth-child(1)
+        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
+        align-self: center
+      li:nth-child(2)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        margin-right: var(--spacing-two)
+      li:nth-child(3)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(4)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(5)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
+        margin-right: var(--spacing-two)
