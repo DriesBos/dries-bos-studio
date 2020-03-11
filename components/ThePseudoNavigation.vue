@@ -1,6 +1,6 @@
 <template>
-  <header class="header">
-    <ul class="header-Pseudo">
+  <header class="header header-Pseudo">
+    <ul v-if="this.$route.name === 'index'">
       <li>
         <p>about</p>
       </li>

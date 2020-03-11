@@ -9,6 +9,12 @@
   transform: translateY(calc(100vh - 300px))
   opacity: 0
 
+// spaced view
+.viewSpaced-enter-active, .viewSpaced-leave-active
+  transition: opacity $transition-fade
+.viewSpaced-enter, .viewSpaced-leave-to
+  opacity: 0
+
 // Fade
 .fade-enter-active, .fade-leave-active
   transition: opacity $transition-fade

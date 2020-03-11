@@ -61,6 +61,8 @@
 
 <script>
 import { mapState } from "vuex"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   data() {
@@ -73,7 +75,8 @@ export default {
   },
   computed: {
     ...mapState({
-      viewState: state => state.view.viewState
+      viewState: state => state.view.viewState,
+      spaceState: state => state.space.spaceState
     })
   },
   watch: {
@@ -92,12 +95,39 @@ export default {
       }
     },
     toggleTheSpace() {
-      this.$store.commit("space/toggleTheSpace")
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-      })
+      if (window.innerWidth > 1200) {
+        this.$store.commit("space/toggleTheSpace")
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
+        if (this.spaceState === true) {
+          $("#messages").addClass("activeTwo")
+          setTimeout(function() {
+            $("#messages").removeClass("activeTwo")
+          }, 2000)
+        } else {
+          $("#messages").addClass("activeThree")
+          setTimeout(function() {
+            $("#messages").removeClass("activeThree")
+          }, 2000)
+        }
+      } else {
+        $("#messages").addClass("activeFour")
+        setTimeout(function() {
+          $("#messages").removeClass("activeFour")
+        }, 2000)
+      }
+    },
+    toggleTheSpaceOnResize() {
+      if (window.innerWidth < 1200 && this.spaceState === true) {
+        this.$store.commit("space/turnOffTheSpace")
+        $("#messages").addClass("activeThree")
+        setTimeout(function() {
+          $("#messages").removeClass("activeThree")
+        }, 2000)
+      }
     },
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
@@ -108,6 +138,10 @@ export default {
   },
   mounted() {
     this.processedSlug()
+    window.addEventListener("resize", this.toggleTheSpaceOnResize)
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.toggleTheSpaceOnResize)
   }
 }
 </script>
@@ -186,15 +220,17 @@ export default {
       transform: rotate(-45deg)
       transform-origin: 100% 50%
   &-Normal
+    z-index: +3
     color: var(--type)
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
-    position: absolute
-    top: 0
-    left: 0
-    right: 0
-    pointer-events: none
     isolation: isolate
     z-index: +2
+    pointer-events: none
+    ul
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
     li
       padding: 0 !important
       margin-top: var(--spacing-two)

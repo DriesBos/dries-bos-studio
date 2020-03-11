@@ -5,6 +5,12 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
   position: relative
   height: 100%
 
+main
+  display: flex
+  flex-direction: column
+  align-items: center
+  background: black // TEMP
+
 img
   opacity: 0
   width: 100%
@@ -23,31 +29,57 @@ img[lazy="loaded"]
   right: 0
   bottom: 0
   width: 100%
-  min-height: 50vh
+  pointer-events: none
+.spaced
+  .background
+    background: var(--background-space)
 
-#darkMode
+// SPACED
+.spaceWrapper
+  width: 100%
+  max-width: 100%
+  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical
+  background: var(--background-color) // TEMP
+  margin-top: 0
+  z-index: 1 // Gives a higher stack than the background
+.spaced
+  .spaceWrapper
+    max-width: 1000px
+    margin-top: 30vh
+
+// MESSENGES
+.messages
   position: fixed
-  display: flex
-  justify-content: center
-  align-items: center
   top: 0
   left: 0
   right: 0
   bottom: 0
   z-index: 999
   pointer-events: none
-  opacity: 0
-  transform: translateY(12px)
-  transition: all .165s ease .33s
-  &.active
-    opacity: 1
-    transform: translateY(0)
-  > div
+  &-Item
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
     border: 1px solid var(--type)
     background: var(--support-color)
     border-radius: 1000px
     padding-left: 30px
     padding-right: 30px
+    opacity: 0
+    transition: opacity $transition-general, transform $transition-general
+  &.activeOne
+    .messages-Item:nth-child(1)
+      opacity: 1
+  &.activeTwo
+    .messages-Item:nth-child(2)
+      opacity: 1
+  &.activeThree
+    .messages-Item:nth-child(3)
+      opacity: 1
+  &.activeFour
+    .messages-Item:nth-child(4)
+      opacity: 1
 
 // BUILDING BLOCKS
 .icon

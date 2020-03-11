@@ -5,5 +5,8 @@ export const state = () => ({
 export const mutations = {
   toggleTheSpace(state) {
     state.spaceState = !state.spaceState
+  },
+  turnOffTheSpace(state) {
+    state.spaceState = false
   }
 }

@@ -1,13 +1,22 @@
 <template>
   <main :class="[currentTheme, { spaced: spaceState }]">
     <div class="background"></div>
-    <div id="darkMode">
-      <div>
+    <div id="messages" class="messages">
+      <div class="messages-Item">
         <p>darkmode detected</p>
+      </div>
+      <div class="messages-Item">
+        <p>spacemode activated</p>
+      </div>
+      <div class="messages-Item">
+        <p>spacemode deactivated</p>
+      </div>
+      <div class="messages-Item">
+        <p>spacemode requires wider window</p>
       </div>
     </div>
     <transition>
-      <div class="transitionWrapper">
+      <div class="spaceWrapper">
         <nuxt />
       </div>
     </transition>
@@ -81,9 +90,9 @@ export default {
       ) {
         this.themeNumber = 2
         this.currentTheme = "three"
-        $("#darkMode").addClass("active")
+        $("#messages").addClass("activeOne")
         setTimeout(function() {
-          $("#darkMode").removeClass("active")
+          $("#messages").removeClass("activeOne")
         }, 2000)
       }
     },

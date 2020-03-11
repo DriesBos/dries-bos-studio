@@ -22,6 +22,8 @@ $transition-slide-out: .33s ease-in
 $transition-slide-in: .33s ease-out
 $transition-general: .33s ease
 $transition-lazy: .33s ease-out
+$transition-space-sideways: .33s ease
+$transition-space-vertical: .33s ease .33s
 
 $breakpoint-header: 750px
 $breakpoint-mobile: 800px
@@ -41,24 +43,28 @@ body
 // Support colors
 main, main.one
   --background-color: white
+  --background-space: black
   --background-pseudo: white
   --support-color: #6E33FF
   --support-type: white
   --type: black
 main.two
   --background-color: #A8A9AD
+  --background-space: black
   --background-pseudo: white
   --support-color: #00FE65
   --support-type: black
   --type: black
 main.three
   --background-color: #424242
+  --background-space: black
   --background-pseudo: white
   --support-color: #DDFF01
   --support-type: black
   --type: white
 main.four
   --background-color: black
+  --background-space: white
   --background-pseudo: white
   --support-color: #FF001E
   --support-type: white

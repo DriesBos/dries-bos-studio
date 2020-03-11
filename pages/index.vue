@@ -1,7 +1,7 @@
 <template>
   <div class="view view-Container">
     <section class="view-Index">
-      <transition name="view" mode="out-in">
+      <transition :name="viewTransition" mode="out-in">
         <ul v-if="viewState" class="list" key="list">
           <li class="listItem listItem_Filter">
             <div class="listItem-DetailsWrapper">
@@ -71,13 +71,16 @@ export default {
       sortByCategory: false,
       // Search data
       search: "",
-      searchHasInput: false
+      searchHasInput: false,
+      // Transition name
+      viewTransition: "view"
     }
   },
   computed: {
     ...mapState({
       posts: state => state.posts.list,
-      viewState: state => state.view.viewState
+      viewState: state => state.view.viewState,
+      spaceState: state => state.space.spaceState
     }),
     // TODO: KISS
     sortedArray: function() {
@@ -144,9 +147,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
-    // this.addIndexToProjects()
-    // window.addEventListener("scroll", () => {
-    // })
+    document.addEventListener("onclick", this.viewTransitionToggle)
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -154,14 +155,21 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    // window.removeEventListener("scroll", () => {
-    // })
+    document.removeEventListener("onclick", this.viewTransitionToggle)
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
   },
   methods: {
+    // LIST
+    viewTransitionToggle() {
+      if (this.spaceState === true) {
+        this.viewTransition = "viewSpaced"
+      } else {
+        this.viewTransition = "view"
+      }
+    },
     // INIT
     startPosition() {
       window.scroll(0, 0)
