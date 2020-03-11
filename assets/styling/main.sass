@@ -22,7 +22,7 @@ img[lazy="loaded"]
 .background
   position: fixed
   background: var(--background-color)
-  transition: background $transition-theme
+  transition: background $transition-theme .33s
   will-change: background
   top: 0
   left: 0
@@ -32,6 +32,7 @@ img[lazy="loaded"]
   pointer-events: none
 .spaced
   .background
+    transition: background 0s ease
     background: var(--background-space)
 
 // SPACED
