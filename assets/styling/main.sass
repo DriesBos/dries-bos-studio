@@ -9,6 +9,9 @@ main
   display: flex
   flex-direction: column
   align-items: center
+  font-size: calc(17px + (19 - 17) * ((100vw - 700px) / (1200 - 700)))
+  &.spaced
+    font-size: 19px
 
 img
   opacity: 0
@@ -47,7 +50,7 @@ img[lazy="loaded"]
     color: var(--type)
 .spaced
   .spaceWrapper
-    min-width: 1200px
+    max-width: 1200px
     margin-top: calc(30vh + 200px)
     padding-top: 0
 .grid, .projectItem-Images
