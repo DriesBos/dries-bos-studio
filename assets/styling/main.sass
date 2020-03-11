@@ -155,15 +155,6 @@ img[lazy="loaded"]
     top: 0
     width: 100%
     height: auto
-  &.space
-    #fire
-      opacity: 0
-    &:hover
-      @media ( hover: hover )
-        animation: vibrate .3s infinite
-        #fire
-          animation: flicker .1s infinite
-          opacity: 1
 
 .textItem
   position: relative
@@ -435,6 +426,3 @@ main.spaced.four
       li:nth-child(5)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
         margin-right: var(--spacing-two)
-
-#fire
-  display: none !important
