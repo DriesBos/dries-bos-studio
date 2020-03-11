@@ -12,7 +12,7 @@
         <p>spacemode deactivated</p>
       </div>
       <div class="messages-Item">
-        <p>spacemode requires wider window</p>
+        <p>spacemode requires a larger window</p>
       </div>
     </div>
     <transition>

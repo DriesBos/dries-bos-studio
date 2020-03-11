@@ -40,12 +40,12 @@ img[lazy="loaded"]
   position: relative
   width: 100%
   max-width: 100%
-  background: var(--background-color) // TEMP
+  background: var(--background-color)
   margin-top: 0
   padding-top: 30vh
   margin-bottom: 0
   z-index: 1 // Gives a higher stack than the background
-  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical
+  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical, background $transition-theme
 .spaced
   .spaceWrapper
     max-width: 1000px
@@ -122,7 +122,7 @@ img[lazy="loaded"]
     position: absolute
     top: 50%
     left: 50%
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -30%)
     border: 1px solid var(--type)
     color: var(--support-type)
     background: var(--support-color)
@@ -130,19 +130,24 @@ img[lazy="loaded"]
     padding-left: 30px
     padding-right: 30px
     opacity: 0
-    transition: opacity $transition-general, transform $transition-general
+    text-align: center
+    transition: opacity $transition-messages, transform $transition-messages
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1
+      transform: translate(-50%, -50%)
   &.activeTwo
     .messages-Item:nth-child(2)
       opacity: 1
+      transform: translate(-50%, -50%)
   &.activeThree
     .messages-Item:nth-child(3)
       opacity: 1
+      transform: translate(-50%, -50%)
   &.activeFour
     .messages-Item:nth-child(4)
       opacity: 1
+      transform: translate(-50%, -50%)
 
 // BUILDING BLOCKS
 .icon
