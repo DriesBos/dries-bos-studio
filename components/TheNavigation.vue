@@ -175,10 +175,11 @@ export default {
     #fire
       opacity: 0
     &:hover
-      animation: vibrate .3s infinite
-      #fire
-        animation: flicker .1s infinite
-        opacity: 1
+      @media ( hover: hover )
+        animation: vibrate .3s infinite
+        #fire
+          animation: flicker .1s infinite
+          opacity: 1
   &-Toggle
     height: 100%
     border-radius: 1000px
@@ -199,8 +200,9 @@ export default {
         transform: translateY(3px)
   &-Profile
     &:hover
-      transition: color $transition-hover
-      color: var(--support-color)
+      @media ( hover: hover )
+        transition: color $transition-hover
+        color: var(--support-color)
   &-Theme
     position: relative
     background-color: var(--support-color)
@@ -210,6 +212,10 @@ export default {
     width: 1.495em
     border-radius: 1000px
     overflow: hidden
+    transition: transform .11s ease-in
+    &:hover
+      @media ( hover: hover )
+        transform: rotate(180deg)
     &_Half
       position: absolute
       left: 0
@@ -227,6 +233,8 @@ export default {
     isolation: isolate
     z-index: +3
     pointer-events: none
+    @media screen and ( max-width: 850px)
+      display: none
     ul
       position: absolute
       top: 0
@@ -251,6 +259,12 @@ export default {
       margin-right: var(--spacing-two)
       background: var(--background-pseudo)
       border-radius: 1000px
+      pointer-events: auto
+      .header-Theme
+        transition: transform .11s ease-in
+        &:hover
+          @media ( hover: hover )
+            transform: rotate(180deg)
 
 .spaced
   .header-Normal
@@ -269,4 +283,9 @@ export default {
     opacity: 1
   100%
     opacity: 0.6
+@keyframes rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(180deg)
 </style>
