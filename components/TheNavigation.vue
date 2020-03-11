@@ -175,10 +175,11 @@ export default {
     #fire
       opacity: 0
     &:hover
-      animation: vibrate .3s infinite
-      #fire
-        animation: flicker .1s infinite
-        opacity: 1
+      @media ( hover: hover )
+        animation: vibrate .3s infinite
+        #fire
+          animation: flicker .1s infinite
+          opacity: 1
   &-Toggle
     height: 100%
     border-radius: 1000px

@@ -58,8 +58,6 @@ img[lazy="loaded"]
   margin-top: 0
 .spaced
   .grid, .projectItem-Images
-    // padding-left: var(--spacing-two)
-    // padding-right: var(--spacing-two)
     li
       margin-bottom: var(--spacing-two) !important
     li:first-child
@@ -158,6 +156,15 @@ img[lazy="loaded"]
     top: 0
     width: 100%
     height: auto
+  &.space
+    #fire
+      opacity: 0
+    &:hover
+      @media ( hover: hover )
+        animation: vibrate .3s infinite
+        #fire
+          animation: flicker .1s infinite
+          opacity: 1
 
 .textItem
   position: relative
