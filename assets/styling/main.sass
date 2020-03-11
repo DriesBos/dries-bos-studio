@@ -83,7 +83,7 @@ img[lazy="loaded"]
     top: 0
     bottom: 0
     left: 0
-    transition: border-left .33s ease
+    // transition: border-left $transition-theme
     border-left: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
   &::after
@@ -92,7 +92,7 @@ img[lazy="loaded"]
     top: 0
     bottom: 0
     right: 0
-    transition: border-right .33s ease
+    // transition: border-right $transition-theme
     border-right: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
 .spaced
@@ -123,7 +123,7 @@ img[lazy="loaded"]
     border-radius: 1000px
     padding-left: 30px
     padding-right: 30px
-    opacity: 1
+    opacity: 0
     transition: opacity $transition-general, transform $transition-general
   &.activeOne
     .messages-Item:nth-child(1)
