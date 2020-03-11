@@ -273,11 +273,11 @@ export default {
 
 @keyframes vibrate
   0%
-    transform: translateX(-.75%)
+    transform: translateX(-1%)
   50%
     transform: translateX(0%)
   100%
-    transform: translateX(-.75%)
+    transform: translateX(-1%)
 @keyframes flicker
   0%
     opacity: 1
