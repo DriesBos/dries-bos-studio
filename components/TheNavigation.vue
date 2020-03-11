@@ -95,7 +95,7 @@ export default {
       }
     },
     toggleTheSpace() {
-      if (window.innerWidth > 1200) {
+      if (window.innerWidth > 1350) {
         this.$store.commit("space/toggleTheSpace")
         window.scrollTo({
           top: 0,
@@ -121,7 +121,7 @@ export default {
       }
     },
     toggleTheSpaceOnResize() {
-      if (window.innerWidth < 1200 && this.spaceState === true) {
+      if (window.innerWidth < 1350 && this.spaceState === true) {
         this.$store.commit("space/turnOffTheSpace")
         $("#messages").addClass("activeThree")
         setTimeout(function() {

@@ -48,7 +48,7 @@ img[lazy="loaded"]
   transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical, background $transition-theme
 .spaced
   .spaceWrapper
-    max-width: 1000px
+    max-width: 1200px
     margin-top: calc(30vh + 200px)
     padding-top: 0
     margin-bottom: var(--spacing-two)
@@ -60,16 +60,14 @@ img[lazy="loaded"]
   margin-top: 0
 .spaced
   .grid, .projectItem-Images
-    padding-left: var(--spacing-one)
-    padding-right: var(--spacing-one)
+    padding-left: var(--spacing-two)
+    padding-right: var(--spacing-two)
     li
-      margin-bottom: var(--spacing-one) !important
+      margin-bottom: var(--spacing-two) !important
     li:first-child
-      margin-top: var(--spacing-one)
+      margin-top: var(--spacing-two)
   .projectItem-Text
     margin-top: var(--spacing-two)
-    margin-bottom: var(--spacing-one) !important
-    padding-left: var(--spacing-one) !important
 
 .spaceForm
   position: absolute
@@ -89,7 +87,6 @@ img[lazy="loaded"]
     top: 0
     bottom: 0
     left: 0
-    // transition: border-left $transition-theme
     border-left: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
   &::after
@@ -98,7 +95,6 @@ img[lazy="loaded"]
     top: 0
     bottom: 0
     right: 0
-    // transition: border-right $transition-theme
     border-right: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
 .spaced
@@ -312,18 +308,10 @@ img[lazy="loaded"]
     flex-direction: column
     align-items: center
     width: 100%
-    // @media screen and ( max-width: $breakpoint-mobile)
-      // padding-top: 40vmin
   &-Project
     width: 100%
-    // @media screen and ( max-width: $breakpoint-mobile)
-      // padding-top: 40vmin
     .projectItem
       &-Text
-        // position: fixed
-        // top: 0
-        // left: 0
-        // right: 0
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
         margin-bottom: var(--spacing-two)
@@ -347,10 +335,6 @@ img[lazy="loaded"]
         &_Next
           right: 0
       &-Images
-        // position: absolute
-        // left: 0
-        // right: 0
-        // top: 300px
         display: flex
         flex-direction: column
         img
@@ -358,9 +342,6 @@ img[lazy="loaded"]
         li
           margin-bottom: 1px
           min-height: 0
-        // li:first-child
-        //   img
-        //     transition: none
         li:last-child
           margin-bottom: 0
         @media screen and ( max-width: $breakpoint-mobile)
@@ -377,3 +358,7 @@ img[lazy="loaded"]
           li:nth-child(5)
             width: calc(100% / 3)
             align-self: flex-end
+main.spaced.four
+  .projectItem
+    &-Nav
+      color: black
