@@ -49,21 +49,27 @@ img[lazy="loaded"]
 .spaced
   .spaceWrapper
     max-width: 1000px
-    margin-top: 30vh
+    margin-top: calc(30vh + 200px)
     padding-top: 0
     margin-bottom: var(--spacing-two)
 .grid, .projectItem-Images
   li:first-child
     margin-top: 0
     transition: margin-top $transition-space-vertical
+.projectItem-Text
+  margin-top: 0
 .spaced
   .grid, .projectItem-Images
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
     li
-      margin-bottom: var(--spacing-one)
+      margin-bottom: var(--spacing-one) !important
     li:first-child
       margin-top: var(--spacing-one)
+  .projectItem-Text
+    margin-top: var(--spacing-two)
+    margin-bottom: var(--spacing-one) !important
+    padding-left: var(--spacing-one) !important
 
 .spaceForm
   position: absolute
@@ -256,9 +262,6 @@ img[lazy="loaded"]
     cursor: pointer
     width: 100%
     min-height: 0
-  li:first-child
-    img
-      opacity: 1
   @media screen and ( min-width: $breakpoint-mobile)
     li:nth-child(2)
       width: calc((100% / 3) * 2)
@@ -312,13 +315,13 @@ img[lazy="loaded"]
       // padding-top: 40vmin
     .projectItem
       &-Text
-        position: fixed
-        top: 0
-        left: 0
-        right: 0
+        // position: fixed
+        // top: 0
+        // left: 0
+        // right: 0
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
-        padding-bottom: var(--spacing-two)
+        margin-bottom: var(--spacing-two)
         color: var(--type)
         @media screen and ( max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-three)
@@ -339,10 +342,10 @@ img[lazy="loaded"]
         &_Next
           right: 0
       &-Images
-        position: absolute
-        left: 0
-        right: 0
-        top: 300px
+        // position: absolute
+        // left: 0
+        // right: 0
+        // top: 300px
         display: flex
         flex-direction: column
         img
@@ -350,9 +353,9 @@ img[lazy="loaded"]
         li
           margin-bottom: 1px
           min-height: 0
-        li:first-child
-          img
-            transition: none
+        // li:first-child
+        //   img
+        //     transition: none
         li:last-child
           margin-bottom: 0
         @media screen and ( max-width: $breakpoint-mobile)
