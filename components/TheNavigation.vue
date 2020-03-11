@@ -223,7 +223,7 @@ export default {
       height: 100%
       width: 50%
       transition: background $transition-theme
-      background-: var(--background-color)
+      background: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
   &-Normal
