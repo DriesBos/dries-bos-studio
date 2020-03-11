@@ -30,7 +30,7 @@ img[lazy="loaded"]
   pointer-events: none
 .spaced
   .background
-    transition: background 0s ease
+    transition: background $transition-theme
     background: var(--background-space)
 
 // SPACED
@@ -85,7 +85,7 @@ img[lazy="loaded"]
     left: 0
     border-left: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
-    transition: border-left $transition-space-sideways
+    transition: border-left $transition-theme
   &::after
     content: ""
     position: absolute
@@ -94,11 +94,10 @@ img[lazy="loaded"]
     right: 0
     border-right: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
-    transition: border-right $transition-space-sideways
+    transition: border-right $transition-theme
 .spaced
   .spaceForm
     border-bottom: 1px solid var(--type)
-    transition: border-bottom .2s ease .3s
     &::before
       border-left: 150px solid var(--background-space)
     &::after
