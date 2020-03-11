@@ -17,7 +17,6 @@
     </div>
     <transition>
       <div class="spaceWrapper">
-        <div class="spaceForm"></div>
         <nuxt />
       </div>
     </transition>
@@ -38,24 +37,6 @@ export default {
     "the-navigation": TheNavigation,
     "the-pseudo-navigation": ThePseudoNavigation
   },
-  // transition: {
-  //   mode: "out-in",
-  //   css: false,
-  //   afterEnter(el) {
-  //     console.log("afterEnter", el)
-  //   },
-  //   afterLeave(el) {
-  //     console.log("afterLeave", el)
-  //   }
-  // },
-  // transition(to, from) {
-  //   if (!from) {
-  //     console.log("LEFT")
-  //     return "left"
-  //   }
-  //   console.log("RIGHT")
-  //   return +to.query.page < +from.query.page ? "right" : "left"
-  // },
   data() {
     return {
       themeNumber: 0,
@@ -66,6 +47,17 @@ export default {
     ...mapState({
       spaceState: state => state.space.spaceState
     })
+  },
+  mounted() {
+    this.checkDarkMode()
+    document.addEventListener("visibilitychange", this.windowIsVisible)
+    document.addEventListener("mouseleave", this.mouseLeftDocument)
+    document.addEventListener("mouseenter", this.mouseEntersDocument)
+  },
+  destroyed() {
+    document.removeEventListener("visibilitychange", this.windowIsVisible)
+    document.removeEventListener("mouseleave", this.mouseLeftDocument)
+    document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
     changeTheme() {
@@ -103,16 +95,18 @@ export default {
         document.title = "👀 You there?"
       } else {
         document.title = "🧑‍🚀 Dries Bos — Web & Interaction Developer"
-        let scrollPosition = document.documentElement.scrollTop
+      }
+    },
+    mouseLeftDocument() {
+      if (this.spaceState === true) {
+        $("#floatBlock").removeClass("active")
+      }
+    },
+    mouseEntersDocument() {
+      if (this.spaceState === true) {
+        $("#floatBlock").addClass("active")
       }
     }
-  },
-  mounted() {
-    this.checkDarkMode()
-    document.addEventListener("visibilitychange", this.windowIsVisible)
-  },
-  destroyed() {
-    document.removeEventListener("visibilitychange", this.windowIsVisible)
   }
 }
 </script>

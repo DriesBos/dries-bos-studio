@@ -1,42 +1,48 @@
 <template>
   <div class="view view-Container">
     <section class="view-Index">
+      <ul id="floatBlock" class="list">
+        <div class="spaceForm"></div>
+        <li class="listItem listItem_Filter">
+          <div class="spaceForm"></div>
+          <div class="listItem-DetailsWrapper">
+            <div
+              class="listItem-Year listItem-Details"
+              :class="{ active: sortByYear }"
+              @click="sortYear"
+            >
+              <p title="sort by year">year</p>
+            </div>
+            <div
+              class="listItem-Title listItem-Details"
+              :class="{ active: sortByTitle }"
+              @click="sortTitle"
+            >
+              <p title="sort by project">project</p>
+            </div>
+            <div
+              class="listItem-Category listItem-Details"
+              :class="{ active: sortByCategory }"
+              @click="sortCategory"
+            >
+              <p title="sort by role">role</p>
+            </div>
+          </div>
+          <div class="listItem-Icons" :class="{ active: toggleSearch }">
+            <input type="text" v-model="search" ref="search" placeholder="filter by name" />
+            <div @click="searchIconClick" class="icon-Container" title="search projects">
+              <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
       <transition name="view" mode="out-in">
         <ul v-if="viewState" class="list" key="list">
-          <li class="listItem listItem_Filter">
-            <div class="listItem-DetailsWrapper">
-              <div
-                class="listItem-Year listItem-Details"
-                :class="{ active: sortByYear }"
-                @click="sortYear"
-              >
-                <p title="sort by year">year</p>
-              </div>
-              <div
-                class="listItem-Title listItem-Details"
-                :class="{ active: sortByTitle }"
-                @click="sortTitle"
-              >
-                <p title="sort by project">project</p>
-              </div>
-              <div
-                class="listItem-Category listItem-Details"
-                :class="{ active: sortByCategory }"
-                @click="sortCategory"
-              >
-                <p title="sort by role">role</p>
-              </div>
-            </div>
-            <div class="listItem-Icons" :class="{ active: toggleSearch }">
-              <input type="text" v-model="search" ref="search" placeholder="filter by name" />
-              <div @click="searchIconClick" class="icon-Container" title="search projects">
-                <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
-              </div>
-            </div>
-          </li>
+          <div class="spaceForm"></div>
           <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
         </ul>
         <ul v-else class="grid" key="grid">
+          <div class="spaceForm"></div>
           <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
         </ul>
       </transition>
@@ -48,6 +54,8 @@
 import IndexListItem from "~/components/IndexListItem.vue"
 import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   scrollToTop: true,
@@ -145,6 +153,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+    window.addEventListener("scroll", this.toggleBlock)
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -152,12 +161,22 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
+    window.removeEventListener("scroll", this.toggleBlock)
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
   },
   methods: {
+    // SCROLL
+    toggleBlock() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition > 0) {
+        $("#floatBlock").addClass("active")
+      } else {
+        $("#floatBlock").removeClass("active")
+      }
+    },
     // INIT
     startPosition() {
       window.scroll(0, 0)

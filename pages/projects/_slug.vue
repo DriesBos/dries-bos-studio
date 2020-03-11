@@ -2,7 +2,8 @@
   <div class="view view-Container">
     <section class="view-Project">
       <div class="projectItem">
-        <div id="projectItem-Text" class="projectItem-Text">
+        <div id="floatBlock" class="projectItem-Text">
+          <div class="spaceForm"></div>
           <markdown-item :input="story.content.content" />
         </div>
         <nuxt-link
@@ -22,6 +23,7 @@
           <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
         </nuxt-link>
         <ul id="projectItem-Images" class="projectItem-Images">
+          <div class="spaceForm"></div>
           <li v-for="(image, index) in story.content.images" :key="index">
             <div v-lazy-container="{ selector: 'img' }">
               <img
@@ -58,6 +60,8 @@
 <script>
 // STORYBLOK ASYNC CHECKED WITH https://www.storyblok.com/tp/nuxt-js-multilanguage-website-tutorial
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
@@ -97,8 +101,20 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+    window.addEventListener("scroll", this.toggleBlock)
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.toggleBlock)
   },
   methods: {
+    toggleBlock() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition > 0) {
+        $("#floatBlock").addClass("active")
+      } else {
+        $("#floatBlock").removeClass("active")
+      }
+    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""

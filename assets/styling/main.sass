@@ -24,7 +24,7 @@ img[lazy="loaded"]
 .background
   position: fixed
   background: var(--background-color)
-  transition: background $transition-theme .2s
+  transition: background $transition-theme
   top: 0
   left: 0
   right: 0
@@ -41,11 +41,10 @@ img[lazy="loaded"]
   position: relative
   width: 100%
   max-width: 100%
-  background: var(--background-color)
   margin-top: 0
   padding-top: 30vh
   z-index: 1 // Gives a higher stack than the background
-  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical, background $transition-theme
+  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical
   p, a, input
     color: var(--type)
 .spaced
@@ -66,7 +65,12 @@ img[lazy="loaded"]
     li:first-child
       margin-top: var(--spacing-two)
   .projectItem-Text
-    margin-top: var(--spacing-two)
+    padding-top: var(--spacing-two)
+    // border-top: 1px solid var(--type)
+    // border-bottom: 1px solid var(--type)
+    // margin-bottom: -1px
+  // .projectItem-Images
+  //   border-top: 1px solid var(--type)
 
 .spaceForm
   position: absolute
@@ -76,10 +80,10 @@ img[lazy="loaded"]
   height: 200px
   width: 100%
   transform: translateY(-100%)
+  border-bottom: 1px solid var(--type)
   background: var(--background-color)
-  border-bottom: 1px solid var(--background-color)
   transition: border-bottom $transition-theme, background $transition-theme
-  z-index: +2
+  z-index: -1
   &::before
     content: ""
     position: absolute
@@ -88,7 +92,7 @@ img[lazy="loaded"]
     left: 0
     border-left: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
-    transition: border-left $transition-theme
+    transition: border-left $transition-space-vertical
   &::after
     content: ""
     position: absolute
@@ -97,10 +101,9 @@ img[lazy="loaded"]
     right: 0
     border-right: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
-    transition: border-right $transition-theme
+    transition: border-right $transition-space-vertical
 .spaced
   .spaceForm
-    border-bottom: 1px solid var(--type)
     &::before
       border-left: 150px solid var(--background-space)
     &::after
@@ -176,6 +179,7 @@ img[lazy="loaded"]
 
 // INDEX
 .list
+  position: relative
   display: flex
   flex-direction: column
   flex-shrink: 0
@@ -188,6 +192,8 @@ img[lazy="loaded"]
     align-items: center
     justify-content: space-between
     min-height: 0
+    background: var(--background-color)
+    transition: background $transition-theme
     &-DetailsWrapper
       display: flex
       flex-grow: 1
@@ -234,9 +240,10 @@ img[lazy="loaded"]
       cursor: pointer
       &:hover
         @media ( hover: hover )
-          background: var(--support-color)
-          a, p, svg
-            color: var(--support-type)
+          .listItem-DetailsWrapper
+            background: var(--support-color)
+            a, p, svg
+              color: var(--support-type)
     &_Filter
       border-top: 0
       p, input::placeholder, svg, input
@@ -254,13 +261,25 @@ img[lazy="loaded"]
         &.active
           input, svg
             opacity: 1
+.spaced
+  #floatBlock
+    transition: transform $transition-block-float
+    will-change: transform
+    z-index: +2
+    margin-bottom: -1px
+    border-bottom: 1px var(--type) solid
+    &.active
+      transform: translateY(-60px)
 
 .grid
+  position: relative
   display: flex
   flex-direction: column
   justify-content: flex-start
   flex-shrink: 0
   min-height: 0
+  // transition: background $transition-theme
+  background: var(--background-color)
   img
     transition: opacity $transition-lazy
   li
@@ -269,31 +288,31 @@ img[lazy="loaded"]
     min-height: 0
     align-self: center
   @media screen and ( min-width: $breakpoint-mobile)
-    li:nth-child(2)
+    li:nth-child(3)
       width: calc((100% / 3) * 2)
       align-self: flex-end
-    li:nth-child(3)
-      width: calc(100% / 3)
-      align-self: flex-start
     li:nth-child(4)
-      width: calc((100% / 3) * 2)
+      width: calc(100% / 3)
       align-self: flex-start
     li:nth-child(5)
+      width: calc((100% / 3) * 2)
+      align-self: flex-start
+    li:nth-child(6)
       width: calc(100% / 3)
       align-self: flex-end
-    li:nth-child(6)
-      width: 100%
-      align-self: flex-end
     li:nth-child(7)
-      width: calc((100% / 3) * 2)
+      width: 100%
       align-self: flex-end
     li:nth-child(8)
       width: calc((100% / 3) * 2)
-      align-self: flex-start
+      align-self: flex-end
     li:nth-child(9)
+      width: calc((100% / 3) * 2)
+      align-self: flex-start
+    li:nth-child(10)
       width: calc(100% / 3)
       align-self: flex-end
-    li:nth-child(10)
+    li:nth-child(11)
       width: calc((100% / 3) * 2)
       align-self: flex-end
     li:last-child
@@ -304,39 +323,45 @@ img[lazy="loaded"]
       width: 100%
 .spaced
   .grid
+    padding-top: var(--spacing-two)
+    border-top: 1px solid var(--type)
     @media screen and ( min-width: $breakpoint-mobile)
-      li:nth-child(1)
-        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
       li:nth-child(2)
+        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
+      li:nth-child(3)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
         margin-right: var(--spacing-two)
-      li:nth-child(3)
-        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
-        align-self: flex-start
-        margin-left: var(--spacing-two)
+        align-self: flex-end
       li:nth-child(4)
-        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
         align-self: flex-start
         margin-left: var(--spacing-two)
       li:nth-child(5)
-        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
-        margin-right: var(--spacing-two)
-      li:nth-child(6)
-        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
-        align-self: center
-      li:nth-child(7)
-        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
-        margin-right: var(--spacing-two)
-      li:nth-child(8)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
         align-self: flex-start
         margin-left: var(--spacing-two)
-      li:nth-child(9)
+      li:nth-child(6)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
         margin-right: var(--spacing-two)
+      li:nth-child(7)
+        width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
+        align-self: center
+      li:nth-child(8)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        margin-right: var(--spacing-two)
+        align-self: flex-end
+      li:nth-child(9)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
       li:nth-child(10)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        margin-right: var(--spacing-two)
       li:nth-child(11)
+        width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(12)
         width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
         align-self: center
       li:last-child
@@ -360,11 +385,12 @@ img[lazy="loaded"]
     width: 100%
     .projectItem
       &-Text
+        position: relative
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
-        margin-bottom: var(--spacing-two)
+        padding-bottom: var(--spacing-two)
         @media screen and ( max-width: $breakpoint-mobile)
-          margin-bottom: var(--spacing-three)
+          padding-bottom: var(--spacing-three)
       &-Nav
         position: fixed
         top: 50vh
@@ -382,6 +408,7 @@ img[lazy="loaded"]
         &_Next
           right: 0
       &-Images
+        position: relative
         display: flex
         flex-direction: column
         img
@@ -395,14 +422,14 @@ img[lazy="loaded"]
           li:last-child
             margin-bottom: 0
         @media screen and ( min-width: $breakpoint-mobile)
-          li:nth-child(2)
+          li:nth-child(3)
             width: calc((100% / 3) * 2)
             align-self: flex-end
-          li:nth-child(3)
-            width: calc(100% / 3)
           li:nth-child(4)
-            width: calc((100% / 3) * 2)
+            width: calc(100% / 3)
           li:nth-child(5)
+            width: calc((100% / 3) * 2)
+          li:nth-child(6)
             width: calc(100% / 3)
             align-self: flex-end
 main.spaced.four
@@ -410,22 +437,29 @@ main.spaced.four
     &-Nav
       color: black
 .spaced
+  .projectItem-Text
+    background: var(--background-color)
+    transition: background $transition-theme
   .projectItem-Images
+    background: var(--background-color)
+    transition: background $transition-theme
+    padding-top: var(--spacing-two)
     @media screen and ( min-width: $breakpoint-mobile)
-      li:nth-child(1)
+      li:nth-child(2)
         width: calc(((100% - (2 * #{var(--spacing-two)})) / 3) * 3)
         align-self: center
-      li:nth-child(2)
+      li:nth-child(3)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
         margin-right: var(--spacing-two)
-      li:nth-child(3)
+        align-self: flex-end
+      li:nth-child(4)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
         align-self: flex-start
         margin-left: var(--spacing-two)
-      li:nth-child(4)
+      li:nth-child(5)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 2)
         align-self: flex-start
         margin-left: var(--spacing-two)
-      li:nth-child(5)
+      li:nth-child(6)
         width: calc(((100% - (3 * #{var(--spacing-two)})) / 3) * 1)
         margin-right: var(--spacing-two)

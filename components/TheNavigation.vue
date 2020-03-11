@@ -95,6 +95,9 @@ export default {
       }
     },
     toggleTheSpace() {
+      if (this.spaceState === true) {
+        $("#floatBlock").removeClass("active")
+      }
       if (window.innerWidth > 1350) {
         this.$store.commit("space/toggleTheSpace")
         window.scrollTo({
