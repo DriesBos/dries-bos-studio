@@ -190,6 +190,7 @@ export default {
       padding-left: 30px
       padding-right: 30px
       border-radius: 1000px
+      color: var(--type)
       &.active
         color: var(--support-type)
         background: var(--support-color)
@@ -244,7 +245,8 @@ export default {
       background: var(--background-pseudo)
       border-radius: 1000px
       &.active
-        background: red
+        color: var(--support-type)
+        background: var(--support-color)
     li:nth-child(3)
       margin-right: var(--spacing-two)
       background: var(--background-pseudo)
