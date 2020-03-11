@@ -172,6 +172,8 @@ export default {
   &-Logo_Capitalize
     text-transform: capitalize
   &-Space
+    @media screen and ( max-width: $breakpoint-mobile)
+      display: none
     #fire
       opacity: 0
     &:hover
