@@ -28,9 +28,6 @@ export default {
   name: "IndexListItem",
   props: {
     post: Object
-  },
-  mounted() {
-    console.log(this.post)
   }
 }
 </script>
