@@ -9,7 +9,6 @@ main
   display: flex
   flex-direction: column
   align-items: center
-  background: black // TEMP
 
 img
   opacity: 0
@@ -22,8 +21,7 @@ img[lazy="loaded"]
 .background
   position: fixed
   background: var(--background-color)
-  transition: background $transition-theme .33s
-  will-change: background
+  transition: background $transition-theme .2s
   top: 0
   left: 0
   right: 0
@@ -46,6 +44,8 @@ img[lazy="loaded"]
   margin-bottom: 0
   z-index: 1 // Gives a higher stack than the background
   transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical, background $transition-theme
+  p, a, input
+    color: var(--type)
 .spaced
   .spaceWrapper
     max-width: 1200px
@@ -80,7 +80,7 @@ img[lazy="loaded"]
   background: var(--background-color)
   border-bottom: 1px solid var(--background-color)
   transition: border-bottom $transition-theme, background $transition-theme
-  z-index: 999999
+  z-index: +2
   &::before
     content: ""
     position: absolute
@@ -89,6 +89,7 @@ img[lazy="loaded"]
     left: 0
     border-left: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
+    transition: border-left $transition-space-sideways
   &::after
     content: ""
     position: absolute
@@ -97,9 +98,11 @@ img[lazy="loaded"]
     right: 0
     border-right: 0vh solid var(--background-space)
     border-bottom: 200px solid transparent
+    transition: border-right $transition-space-sideways
 .spaced
   .spaceForm
     border-bottom: 1px solid var(--type)
+    transition: border-bottom .2s ease .3s
     &::before
       border-left: 150px solid var(--background-space)
     &::after
@@ -161,7 +164,6 @@ img[lazy="loaded"]
 .textItem
   position: relative
   text-align: center
-  color: var(--type)
   padding: var(--spacing-two)
   margin: auto
   min-height: 0
@@ -201,8 +203,6 @@ img[lazy="loaded"]
       padding-bottom: var(--spacing-one)
       cursor: pointer
       min-height: 0
-      p, a, input
-        color: var(--type)
       &.active
         a, p, input
           opacity: 1
@@ -236,14 +236,14 @@ img[lazy="loaded"]
       cursor: pointer
       &:hover
         @media ( hover: hover )
-          background-color: var(--support-color)
+          background: var(--support-color)
           a, p, svg
             color: var(--support-type)
     &_Filter
       border-top: 0
       p, input::placeholder, svg, input
         opacity: .25
-        transition: opacity $transition-fade, color $transition-fade
+        transition: opacity $transition-hover, color $transition-hover
       .listItem-Details
         &:hover
           @media ( hover: hover )
@@ -321,7 +321,6 @@ img[lazy="loaded"]
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
         margin-bottom: var(--spacing-two)
-        color: var(--type)
         @media screen and ( max-width: $breakpoint-mobile)
           margin-bottom: var(--spacing-three)
       &-Nav

@@ -205,7 +205,7 @@ export default {
         color: var(--support-color)
   &-Theme
     position: relative
-    background-color: var(--support-color)
+    background: var(--support-color)
     height: 100%
     min-height: 24px // Prevents collapse when single item in a row
     border: 1px solid var(--type)
@@ -222,8 +222,8 @@ export default {
       top: 0
       height: 100%
       width: 50%
-      transition: background-color $transition-theme
-      background-color: var(--background-color)
+      transition: background $transition-theme
+      background-: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
   &-Normal
@@ -250,14 +250,14 @@ export default {
     li:nth-child(1)
       opacity: 0
     li:nth-child(2)
-      background: var(--background-pseudo)
+      background: white
       border-radius: 1000px
       &.active
         color: var(--support-type)
         background: var(--support-color)
     li:nth-child(3)
       margin-right: var(--spacing-two)
-      background: var(--background-pseudo)
+      background: white
       border-radius: 1000px
       pointer-events: auto
       .header-Theme

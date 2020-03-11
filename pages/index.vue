@@ -1,7 +1,7 @@
 <template>
   <div class="view view-Container">
     <section class="view-Index">
-      <transition :name="viewTransition" mode="out-in">
+      <transition name="view" mode="out-in">
         <ul v-if="viewState" class="list" key="list">
           <li class="listItem listItem_Filter">
             <div class="listItem-DetailsWrapper">
@@ -71,9 +71,7 @@ export default {
       sortByCategory: false,
       // Search data
       search: "",
-      searchHasInput: false,
-      // Transition name
-      viewTransition: "view"
+      searchHasInput: false
     }
   },
   computed: {
@@ -147,7 +145,6 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
-    document.addEventListener("onclick", this.viewTransitionToggle)
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -155,21 +152,12 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    document.removeEventListener("onclick", this.viewTransitionToggle)
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
   },
   methods: {
-    // LIST
-    viewTransitionToggle() {
-      if (this.spaceState === true) {
-        this.viewTransition = "viewSpaced"
-      } else {
-        this.viewTransition = "view"
-      }
-    },
     // INIT
     startPosition() {
       window.scroll(0, 0)
