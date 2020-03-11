@@ -220,11 +220,11 @@ export default {
       transform: rotate(-45deg)
       transform-origin: 100% 50%
   &-Normal
-    z-index: +3
+    z-index: +2
     color: var(--type)
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     isolation: isolate
-    z-index: +2
+    z-index: +3
     pointer-events: none
     ul
       position: absolute
