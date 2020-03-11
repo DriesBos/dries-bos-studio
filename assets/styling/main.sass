@@ -243,7 +243,13 @@ img[lazy="loaded"]
       border-top: 0
       p, input::placeholder, svg, input
         opacity: .25
-        transition: opacity $transition-fade
+        transition: opacity $transition-fade, color $transition-fade
+      .listItem-Details
+        &:hover
+          @media ( hover: hover )
+            p
+              opacity: 1
+              color: var(--support-color)
       .listItem-Icons
         input
           opacity: 0
