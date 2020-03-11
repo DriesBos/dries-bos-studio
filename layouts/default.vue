@@ -22,7 +22,7 @@
       </div>
     </transition>
     <the-navigation @toggleTheme="changeTheme" />
-    <the-pseudo-navigation />
+    <the-pseudo-navigation @toggleTheme="changeTheme" />
   </main>
 </template>
 
