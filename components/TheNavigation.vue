@@ -172,7 +172,7 @@ export default {
   &-Logo_Capitalize
     text-transform: capitalize
   &-Space
-    @media screen and ( max-width: $breakpoint-mobile)
+    @media screen and ( max-width: $breakpoint-tablet)
       display: none
     #fire
       opacity: 0
