@@ -174,12 +174,12 @@ export default {
   &-Space
     @media screen and ( max-width: $breakpoint-tablet)
       display: none
-    #fire
+    #fireIcon
       opacity: 0
     &:hover
       @media ( hover: hover )
         animation: vibrate .3s infinite
-        #fire
+        #fireIcon
           animation: flicker .1s infinite
           opacity: 1
   &-Toggle
