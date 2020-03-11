@@ -17,6 +17,7 @@
     </div>
     <transition>
       <div class="spaceWrapper">
+        <div class="spaceForm"></div>
         <nuxt />
       </div>
     </transition>

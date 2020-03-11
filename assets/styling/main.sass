@@ -37,23 +37,71 @@ img[lazy="loaded"]
 
 // SPACED
 .spaceWrapper
+  position: relative
   width: 100%
   max-width: 100%
-  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical
   background: var(--background-color) // TEMP
   margin-top: 0
+  padding-top: 30vh
   margin-bottom: 0
   z-index: 1 // Gives a higher stack than the background
+  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical, padding-top $transition-space-vertical
 .spaced
   .spaceWrapper
     max-width: 1000px
     margin-top: 30vh
+    padding-top: 0
     margin-bottom: var(--spacing-two)
-  .grid
-    padding-left: var(--spacing-two)
-    padding-right: var(--spacing-two)
+.grid, .projectItem-Images
+  li:first-child
+    margin-top: 0
+    transition: margin-top $transition-space-vertical
+.spaced
+  .grid, .projectItem-Images
+    padding-left: var(--spacing-one)
+    padding-right: var(--spacing-one)
     li
-      margin-bottom: var(--spacing-two)
+      margin-bottom: var(--spacing-one)
+    li:first-child
+      margin-top: var(--spacing-one)
+
+.spaceForm
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  height: 200px
+  width: 100%
+  transform: translateY(-100%)
+  background: var(--background-color)
+  border-bottom: 1px solid var(--background-color)
+  transition: border-bottom $transition-theme, background $transition-theme
+  z-index: 999999
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    transition: border-left .33s ease
+    border-left: 0vh solid var(--background-space)
+    border-bottom: 200px solid transparent
+  &::after
+    content: ""
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    transition: border-right .33s ease
+    border-right: 0vh solid var(--background-space)
+    border-bottom: 200px solid transparent
+.spaced
+  .spaceForm
+    border-bottom: 1px solid var(--type)
+    &::before
+      border-left: 150px solid var(--background-space)
+    &::after
+      border-right: 150px solid var(--background-space)
 
 // MESSENGES
 .messages
@@ -254,12 +302,10 @@ img[lazy="loaded"]
     display: flex
     flex-direction: column
     align-items: center
-    padding-top: 30vh
     width: 100%
     // @media screen and ( max-width: $breakpoint-mobile)
       // padding-top: 40vmin
   &-Project
-    padding-top: 30vh
     width: 100%
     // @media screen and ( max-width: $breakpoint-mobile)
       // padding-top: 40vmin
@@ -271,7 +317,6 @@ img[lazy="loaded"]
         right: 0
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
-        padding-top: 30vh
         padding-bottom: var(--spacing-two)
         color: var(--type)
         @media screen and ( max-width: $breakpoint-mobile)
