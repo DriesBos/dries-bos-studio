@@ -74,7 +74,6 @@ export default {
     return { story: { content: {} } }
   },
   mounted() {
-    // console.log(this.story)
     this.$storybridge.on(["input", "published", "change"], event => {
       if (event.action == "input") {
         if (event.story.id === this.story.id) {

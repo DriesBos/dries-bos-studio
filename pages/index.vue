@@ -175,13 +175,6 @@ export default {
       window.scroll(0, 0)
     },
     // FILTER
-    // addIndexToProjects() {
-    //   let arr = this.posts
-    //   for (let i = 0; i < arr.length; i++) {
-    //     let count = arr.lenght - i
-    //     arr.push(count)
-    //   }
-    // },
     sortYear() {
       this.sortByYear = true
       this.sortByTitle = false
