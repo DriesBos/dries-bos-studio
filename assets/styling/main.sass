@@ -39,14 +39,21 @@ img[lazy="loaded"]
 .spaceWrapper
   width: 100%
   max-width: 100%
-  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical
+  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, margin-bottom $transition-space-vertical
   background: var(--background-color) // TEMP
   margin-top: 0
+  margin-bottom: 0
   z-index: 1 // Gives a higher stack than the background
 .spaced
   .spaceWrapper
     max-width: 1000px
     margin-top: 30vh
+    margin-bottom: var(--spacing-two)
+  .grid
+    padding-left: var(--spacing-two)
+    padding-right: var(--spacing-two)
+    li
+      margin-bottom: var(--spacing-two)
 
 // MESSENGES
 .messages
