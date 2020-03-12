@@ -3,10 +3,10 @@
     :to="`/projects/${post.id}`"
     :key="post.id"
     :id="post.id"
-    class="gridItem gridItem_Project"
+    class="gridItem gridItem_Project imageGrid-Item"
     tag="li"
   >
-    <div v-lazy-container="{ selector: 'img' }">
+    <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
       <img
         :srcset="
           `${transformImage(

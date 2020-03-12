@@ -6,9 +6,16 @@
     </section>
     <section class="projectItem-Images">
       <div class="spaceForm"></div>
-      <ul>
-        <li v-for="(image, index) in story.content.images" :key="index">
-          <div v-lazy-container="{ selector: 'img' }">
+      <ul class="imageGrid">
+        <li
+          v-for="(image, index) in story.content.images"
+          class="imageGrid-Item"
+          :key="index"
+        >
+          <div
+            v-lazy-container="{ selector: 'img' }"
+            class="imageGrid-Item_Wrapper"
+          >
             <img
               :srcset="
                 `${transformImage(
@@ -140,32 +147,6 @@ main
       position: relative
       p
         padding: var(--spacing-one) var(--spacing-two)
-      &-Images
-        ul
-          display: flex
-          flex-direction: column
-          align-items: center
-          img
-            transition: opacity $transition-lazy
-          li
-            margin-bottom: 1px
-            min-height: 0
-            width: 100%
-          li:last-child
-            margin-bottom: 0
-          @media screen and ( min-width: $breakpoint-mobile)
-            li:nth-child(2)
-              width: calc((100% / 3) * 2)
-              align-self: flex-end
-            li:nth-child(3)
-              width: calc(100% / 3)
-              align-self: flex-start
-            li:nth-child(4)
-              width: calc((100% / 3) * 2)
-              align-self: flex-start
-            li:nth-child(5)
-              width: calc(100% / 3)
-              align-self: flex-end
     &-Nav
       position: fixed
       top: 50%
@@ -186,25 +167,4 @@ main.spaced.four
   .projectItem
     &-Nav
       color: black
-.spaced
-  .projectItem-Images
-    @media screen and ( min-width: $breakpoint-mobile)
-      li:nth-child(1)
-        width: calc(100% - (2 * #{var(--spacing-two)})) !important
-        align-self: center
-      li:nth-child(2)
-        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)}) !important
-        margin-right: var(--spacing-two)
-        align-self: flex-end
-      li:nth-child(3)
-        width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
-        align-self: flex-start
-        margin-left: var(--spacing-two)
-      li:nth-child(4)
-        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)}) !important
-        align-self: flex-start
-        margin-left: var(--spacing-two)
-      li:nth-child(5)
-        width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
-        margin-right: var(--spacing-two)
 </style>
