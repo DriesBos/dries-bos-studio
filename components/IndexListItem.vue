@@ -93,8 +93,6 @@ export default {
     &_Project
       cursor: pointer
       border-bottom: 1px solid var(--type)
-      &:first-child
-        border-top: 1px solid var(--type)
       &:last-child
         border-bottom: 0px
       &:hover
