@@ -20,7 +20,6 @@ $transition-lazy: .2s ease-in // Page + image fade-in's
 $transition-theme: .2s ease-in
 $transition-space-sideways: .2s ease
 $transition-space-vertical: .3s ease-in .2s
-$transition-messages: .165s ease-out
 $transition-block-float: .33s ease-in
 $transition-block-float-border: .33s ease-in
 
@@ -33,6 +32,8 @@ $breakpoint-laptop: 1440px
 // Indexes
 $zindex-spaceform: 0
 $zindex-section: 2
+$z-index-pseudoheader: 3
+$z-index-nav: 999
 
 // Custom variables
 body
@@ -45,25 +46,25 @@ body
     --spacing-three: 2em
 
 // Support colors
-main, main.one
+body, body.one
   --background-color: white
   --type: black
   --background-space: black
   --support-color: #6E33FF
   --support-type: white
-main.two
+body.two
   --background-color: #A8A9AD
   --type: black
   --background-space: black
   --support-color: #00FE65
   --support-type: black
-main.three
+body.three
   --background-color: #424242
   --type: white
   --background-space: black
   --support-color: #DDFF01
   --support-type: black
-main.four
+body.four
   --background-color: black
   --type: white
   --background-space: white

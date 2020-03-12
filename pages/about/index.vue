@@ -89,3 +89,21 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+main
+  .view-About
+    section
+      display: flex
+      padding-left: var(--spacing-two)
+      padding-right: var(--spacing-two)
+      border-bottom: 1px solid var(--type)
+      border-top: 0
+      p
+        padding-top: var(--spacing-one)
+        padding-bottom: var(--spacing-one)
+      p:first-child, p:nth-child(2)
+        flex-basis: calc(100% / 4)
+    section:last-child
+      border-bottom: 0
+</style>

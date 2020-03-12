@@ -4,22 +4,6 @@
       <div class="spaceForm"></div>
       <markdown-item :input="story.content.content" />
     </section>
-    <nuxt-link
-      v-if="story.content.prev_link.id !== ''"
-      :to="`/${story.content.prev_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Prev"
-      title="previous project"
-    >
-      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-    </nuxt-link>
-    <nuxt-link
-      v-if="story.content.next_link.id !== ''"
-      :to="`/${story.content.next_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Next"
-      title="next project"
-    >
-      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-    </nuxt-link>
     <section class="projectItem-Images">
       <div class="spaceForm"></div>
       <ul>
@@ -52,6 +36,22 @@
         </li>
       </ul>
     </section>
+    <nuxt-link
+      v-if="story.content.prev_link.id !== ''"
+      :to="`/${story.content.prev_link.cached_url}`"
+      class="projectItem-Nav projectItem-Nav_Prev"
+      title="previous project"
+    >
+      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+    </nuxt-link>
+    <nuxt-link
+      v-if="story.content.next_link.id !== ''"
+      :to="`/${story.content.next_link.cached_url}`"
+      class="projectItem-Nav projectItem-Nav_Next"
+      title="next project"
+    >
+      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+    </nuxt-link>
   </div>
 </template>
 
@@ -124,3 +124,81 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styling/variables.sass'
+
+main
+  .projectItem
+    &-Text
+      position: relative
+      p
+        padding: var(--spacing-one) var(--spacing-two)
+      &-Images
+        ul
+          display: flex
+          flex-direction: column
+          align-items: center
+          img
+            transition: opacity $transition-lazy
+          li
+            margin-bottom: 1px
+            min-height: 0
+            width: 100%
+          li:last-child
+            margin-bottom: 0
+          @media screen and ( min-width: $breakpoint-mobile)
+            li:nth-child(2)
+              width: calc((100% / 3) * 2)
+              align-self: flex-end
+            li:nth-child(3)
+              width: calc(100% / 3)
+              align-self: flex-start
+            li:nth-child(4)
+              width: calc((100% / 3) * 2)
+              align-self: flex-start
+            li:nth-child(5)
+              width: calc(100% / 3)
+              align-self: flex-end
+      &-Nav
+        position: fixed
+        top: 50vh
+        padding: var(--spacing-two)
+        transform: translateY(-50%)
+        color: white
+        mix-blend-mode: difference
+        z-index: $z-index-nav
+        .icon
+          width: 2.5em
+        &_Prev
+          left: 0
+          svg
+            transform: rotate(180deg)
+        &_Next
+          right: 0
+main.spaced.four
+  .projectItem
+    &-Nav
+      color: black
+.spaced
+  .projectItem-Images
+    @media screen and ( min-width: $breakpoint-mobile)
+      li:nth-child(1)
+        width: calc(100% - (2 * #{var(--spacing-two)})) !important
+        align-self: center
+      li:nth-child(2)
+        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)}) !important
+        margin-right: var(--spacing-two)
+        align-self: flex-end
+      li:nth-child(3)
+        width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(4)
+        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)}) !important
+        align-self: flex-start
+        margin-left: var(--spacing-two)
+      li:nth-child(5)
+        width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
+        margin-right: var(--spacing-two)
+</style>

@@ -32,7 +32,7 @@
       >
         <p>about</p>
       </nuxt-link>
-      <li class="header-Space" v-if="this.$route.name === 'index'" @click="toggleTheSpace">
+      <li class="header-Space" @click="toggleTheSpace">
         <div class="icon space" v-html="require('~/assets/images/icon-rocket.svg?include')"></div>
       </li>
       <li v-if="this.$route.name === 'index'" @click="toggleTheView" title="toggle text & images">
@@ -157,6 +157,9 @@ export default {
   top: 0
   left: 0
   right: 0
+  color: var(--type)
+  p, h1, a, input, svg
+    color: var(--type)
   ul
     display: flex
     flex-wrap: wrap
@@ -233,7 +236,6 @@ export default {
       transform-origin: 100% 50%
   &-Normal
     z-index: +2
-    color: var(--type)
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     isolation: isolate
     z-index: +3
@@ -272,9 +274,11 @@ export default {
             transform: rotate(180deg)
 
 .spaced
-  .header-Normal
+  .header
     color: white
     mix-blend-mode: difference
+    p, h1, a, input, svg
+      color: white
 
 @keyframes vibrate
   0%

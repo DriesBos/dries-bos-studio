@@ -3,12 +3,25 @@
 // GENERAL
 html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoiding 100vh to better suit mobile browsers
   position: relative
+  width: 100%
   height: 100%
 
 main
   font-size: calc(17px + (19 - 17) * ((100vw - 700px) / (1200 - 700)))
 main.spaced
   font-size: 19px
+
+.icon
+  position: relative
+  opacity: 1
+  height: 1.25em
+  width: 1.25em
+  svg, img
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: auto
 
 img
   opacity: 0
@@ -18,16 +31,26 @@ img[lazy="loaded"]
   opacity: 1
 
 // THEME
+body
+  background: var(--background-space)
+  transition: background $transition-theme
+
 main
+  position: relative
+  height: 100%
   display: flex
   flex-direction: column
   align-items: center
   background: var(--background-space)
   transition: background $transition-theme
+  color: var(--type)
+  p, h1, a, input, svg
+    color: var(--type)
   section
     position: relative
     width: 100%
     max-width: 100%
+    border-top: 1px solid blue
     background: var(--background-color)
     transition: background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
     .spaceForm
@@ -56,18 +79,23 @@ main
         right: 0
         border-right: 0px solid var(--background-space)
   section:first-child
-    padding-top: 30vh !important
+    padding-top: 30vh
     margin-top: 0
     z-index: +1
+  .view-Container
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
   &.spaced
     section
       max-width: 1200px
       &.active
         transform: translateY(-60px)
     .spaceForm
+      border-bottom: 1px solid var(--type)
       &::before, &::after
         transition: border-left $transition-theme, border-right $transition-theme
-        // transition: border-left $transition-space-vertical, border-right $transition-space-vertical
       &::before
         border-left: 150px solid var(--background-space)
       &::after
@@ -76,196 +104,7 @@ main
       padding-top: 0
       margin-top: calc(30vh + 200px)
       margin-bottom: -1px
-
-// .spaced
-//   #floatBlock
-    // transition: transform $transition-block-float, background $transition-theme
-    // will-change: transform
-    // z-index: +2
-    // margin-bottom: -1px
-    // border-bottom: 1px var(--type) solid
-    // &.active
-    //   transform: translateY(-60px)
-
-// // SPACED
-// .spaceWrapper
-//   position: relative
-//   width: 100%
-//   max-width: 100%
-//   margin-top: 0
-//   padding-top: 30vh
-//   z-index: 1 // Gives a higher stack than the background
-//   transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, padding-top $transition-space-vertical
-//   p, a, input
-//     color: var(--type)
-// .spaced
-//   .spaceWrapper
-//     max-width: 1200px
-//     margin-top: calc(30vh + 200px)
-//     padding-top: 0
-
-// .grid, .projectItem-Images
-//   li:first-child
-//     margin-top: 0
-//     transition: margin-top $transition-space-vertical
-// .projectItem-Text
-//   margin-top: 0
-// .spaced
-//   .grid, .projectItem-Images
-//     li
-//       margin-bottom: var(--spacing-two) !important
-//     li:first-child
-//       margin-top: var(--spacing-two)
-//   .projectItem-Text
-//     padding-top: var(--spacing-two)
-
-// MESSENGES
-.messages
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  z-index: 999
-  pointer-events: none
-  &-Item
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -25%)
-    border: 1px solid var(--type)
-    color: var(--support-type)
-    background: var(--support-color)
-    border-radius: 1000px
-    padding-left: 30px
-    padding-right: 30px
-    opacity: 0
-    text-align: center
-    transition: opacity $transition-messages, transform $transition-messages
-  &.activeOne
-    .messages-Item:nth-child(1)
-      opacity: 1
-      transform: translate(-50%, -50%)
-  &.activeTwo
-    .messages-Item:nth-child(2)
-      opacity: 1
-      transform: translate(-50%, -50%)
-  &.activeThree
-    .messages-Item:nth-child(3)
-      opacity: 1
-      transform: translate(-50%, -50%)
-  &.activeFour
-    .messages-Item:nth-child(4)
-      opacity: 1
-      transform: translate(-50%, -50%)
-
-// BUILDING BLOCKS
-.icon
-  position: relative
-  opacity: 1
-  height: 1.25em
-  width: 1.25em
-  svg, img
-    position: absolute
-    left: 0
-    top: 0
-    width: 100%
-    height: auto
-
-.textItem
-  position: relative
-  text-align: center
-  padding: var(--spacing-two)
-  margin: auto
-  min-height: 0
-  .markdown, a
-    width: 100%
-  a
-    text-decoration: underline
-  &-Container
-    display: flex
-    position: relative
-    height: 100%
-
-// INDEX
-.list
-  position: relative
-  display: flex
-  flex-direction: column
-  flex-shrink: 0
-  width: 100%
-  min-height: 0
-  .listItem
-    position: relative
-    width: 100%
-    display: flex
-    align-items: center
-    justify-content: space-between
-    min-height: 0
-    &-DetailsWrapper
-      display: flex
-      flex-grow: 1
-      align-items: center
-      padding-right: var(--spacing-two)
-    &-Details
-      flex-shrink: 0
-      flex-basis: calc(100% / 4)
-      padding-left: var(--spacing-two)
-      padding-top: var(--spacing-one)
-      padding-bottom: var(--spacing-one)
-      cursor: pointer
-      min-height: 0
-      &.active
-        a, p, input
-          opacity: 1
-          color: var(--support-color)
-      @media screen and ( max-width: $breakpoint-tablet)
-        flex-basis: auto
-        padding-right: var(--spacing-two)
-      &:nth-child(1)
-        @media screen and ( max-width: $breakpoint-tablet)
-          width: calc(#{var(--spacing-three)} + 2.6em)
-    &-Category
-      @media screen and ( max-width: $breakpoint-tablet)
-        display: none
-    &-Icons
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      display: flex
-      .icon-Container
-        display: flex
-        align-items: center
-        justify-content: center
-        cursor: pointer
-        height: 100%
-        padding-left: var(--spacing-two)
-        padding-right: var(--spacing-two)
-        color: var(--type)
-    &_Project
-      // border-top: 1px var(--type) solid
-      cursor: pointer
-      &:hover
-        @media ( hover: hover )
-          .listItem-DetailsWrapper
-            background: var(--support-color)
-            a, p, svg
-              color: var(--support-type)
-    &_Filter
-      p, input::placeholder, svg, input
-        transition: color $transition-hover
-      .listItem-Details
-        &:hover
-          @media ( hover: hover )
-            p
-              color: var(--support-color)
-      .listItem-Icons
-        input
-          opacity: 0
-        &.active
-          input, svg
-            opacity: 1
+      border-bottom: 1px solid var(--type)
 
 .grid
   position: relative
@@ -274,7 +113,6 @@ main
   justify-content: flex-start
   flex-shrink: 0
   min-height: 0
-  // border-top: 1px var(--type) solid
   img
     transition: opacity $transition-lazy
   li
@@ -360,110 +198,3 @@ main
       li:last-child
         width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
         margin-left: var(--spacing-two)
-
-// VIEW PROJECT
-.view
-  width: 100%
-  &-Container
-    position: relative
-    display: flex
-    flex-direction: column
-    align-items: center
-    .projectItem
-      &-Text
-        position: relative
-        padding: var(--spacing-one) var(--spacing-two)
-        // @media screen and ( max-width: $breakpoint-mobile)
-        //   padding-bottom: var(--spacing-three)
-      &-Images
-        ul
-          display: flex
-          flex-direction: column
-          align-items: center
-          img
-            transition: opacity $transition-lazy
-          li
-            margin-bottom: 1px
-            min-height: 0
-            width: 100%
-          li:last-child
-            margin-bottom: 0
-          @media screen and ( min-width: $breakpoint-mobile)
-            li:nth-child(2)
-              width: calc((100% / 3) * 2)
-              align-self: flex-end
-            li:nth-child(3)
-              width: calc(100% / 3)
-              align-self: flex-start
-            li:nth-child(4)
-              width: calc((100% / 3) * 2)
-              align-self: flex-start
-            li:nth-child(5)
-              width: calc(100% / 3)
-              align-self: flex-end
-      &-Nav
-        position: fixed
-        top: 50vh
-        padding: var(--spacing-two)
-        transform: translateY(-50%)
-        color: white
-        mix-blend-mode: difference
-        z-index: +1
-        .icon
-          width: 2.5em
-        &_Prev
-          left: 0
-          svg
-            transform: rotate(180deg)
-        &_Next
-          right: 0
-main.spaced.four
-  .projectItem
-    &-Nav
-      color: black
-.spaced
-  .projectItem-Images
-    // border-top: 1px var(--type) solid
-    @media screen and ( min-width: $breakpoint-mobile)
-      li:nth-child(1)
-        width: calc(100% - (2 * #{var(--spacing-two)})) !important
-        align-self: center
-      li:nth-child(2)
-        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)}) !important
-        margin-right: var(--spacing-two)
-        align-self: flex-end
-      li:nth-child(3)
-        width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
-        align-self: flex-start
-        margin-left: var(--spacing-two)
-      li:nth-child(4)
-        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)}) !important
-        align-self: flex-start
-        margin-left: var(--spacing-two)
-      li:nth-child(5)
-        width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
-        margin-right: var(--spacing-two)
-
-// VIEW ABOUT
-main.about
-  header
-    color: var(--support-type)
-  .view
-    &-About
-      section
-        padding: var(--spacing-one) var(--spacing-two)
-        // border-top: 1px solid var(--support-type)
-        display: flex
-        p, a
-          color: var(--support-type)
-        p:first-child, p:nth-child(2)
-          flex-basis: calc(100% / 4)
-main.spaced.about
-  header
-    color: var(--type)
-  .view
-    &-About
-      section
-        // border-top: 1px solid var(--type)
-        p, a
-          color: var(--type)

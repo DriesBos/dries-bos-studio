@@ -1,20 +1,7 @@
 <template>
   <main :class="[currentTheme, { spaced: spaceState }, { about: isAboutPage }]">
-    <div id="messages" class="messages">
-      <div class="messages-Item">
-        <p>darkmode detected</p>
-      </div>
-      <div class="messages-Item">
-        <p>spacemode activated</p>
-      </div>
-      <div class="messages-Item">
-        <p>spacemode deactivated</p>
-      </div>
-      <div class="messages-Item">
-        <p>spacemode requires a larger window</p>
-      </div>
-    </div>
-    <transition>
+    <the-notifications />
+    <transition name="page" mode="out-in">
       <nuxt />
     </transition>
     <the-navigation @toggleTheme="changeTheme" />
@@ -23,16 +10,18 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
 import TheNavigation from "~/components/TheNavigation.vue"
 import ThePseudoNavigation from "~/components/ThePseudoNavigation.vue"
+import TheNotifications from "~/components/TheNotifications.vue"
+import { mapState } from "vuex"
 import JQuery from "jquery"
 let $ = JQuery
 
 export default {
   components: {
     "the-navigation": TheNavigation,
-    "the-pseudo-navigation": ThePseudoNavigation
+    "the-pseudo-navigation": ThePseudoNavigation,
+    "the-notifications": TheNotifications
   },
   data() {
     return {
