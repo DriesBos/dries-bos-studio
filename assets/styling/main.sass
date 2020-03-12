@@ -30,7 +30,7 @@ img[lazy="loaded"]
 .background
   position: fixed
   background: var(--background-color)
-  transition: background $transition-space-vertical
+  transition: background $transition-theme .2s
   top: 0
   left: 0
   right: 0
@@ -39,7 +39,7 @@ img[lazy="loaded"]
   pointer-events: none
 .spaced
   .background
-    transition: background 0s ease
+    transition: background $transition-theme
     background: var(--background-space)
 
 // SPACED
@@ -93,18 +93,18 @@ img[lazy="loaded"]
     top: 0
     bottom: 0
     left: 0
-    border-left: 0vh solid var(--background-space)
+    border-left: 0
     border-bottom: 200px solid transparent
-    transition: border-left 0s ease
+    transition: border-left $transition-theme
   &::after
     content: ""
     position: absolute
     top: 0
     bottom: 0
     right: 0
-    border-right: 0vh solid var(--background-space)
+    border-right: 0
     border-bottom: 200px solid transparent
-    transition: border-right 0s ease
+    transition: border-right $transition-theme
 .spaced
   .spaceForm
     border-bottom: 1px solid var(--type)
@@ -262,7 +262,7 @@ img[lazy="loaded"]
             opacity: 1
 .spaced
   #floatBlock
-    transition: transform $transition-block-float
+    transition: transform $transition-block-float, background $transition-theme
     will-change: transform
     z-index: +2
     margin-bottom: -1px
