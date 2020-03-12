@@ -51,8 +51,9 @@ main
     width: 100%
     max-width: 100%
     // border-top: 1px solid blue
+    border-bottom: 0px solid var(--type)
     background: var(--background-color)
-    transition: background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
+    transition: border-bottom $transition-theme, background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
     .spaceForm
       position: absolute
       top: 0
@@ -62,7 +63,8 @@ main
       width: 100%
       transform: translateY(-100%)
       background: var(--background-color)
-      transition: background $transition-theme
+      border-bottom: 0px solid var(--type)
+      transition: background $transition-theme, border-bottom $transition-theme
       pointer-events: none
       z-index: 0
       // display: none
