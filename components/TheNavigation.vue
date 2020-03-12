@@ -32,8 +32,8 @@
       >
         <p>about</p>
       </nuxt-link>
-      <li class="header-Space" @click="toggleTheSpace">
-        <div class="icon space" v-html="require('~/assets/images/icon-rocket.svg?include')"></div>
+      <li v-if="this.$route.name === 'index'" class="header-Space" @click="toggleTheSpace">
+        <div class="icon space" v-html="require('~/assets/images/icon-rocketfire.svg?include')"></div>
       </li>
       <li v-if="this.$route.name === 'index'" @click="toggleTheView" title="toggle text & images">
         <div class="header-Toggle">

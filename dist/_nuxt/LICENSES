@@ -1,5 +1,5 @@
 /*!
-  * vue-router v3.1.5
+  * vue-router v3.1.6
   * (c) 2020 Evan You
   * @license MIT
   */
@@ -11,6 +11,17 @@
   */
 
 /*!
+ * Sizzle CSS Selector Engine v2.3.4
+ * https://sizzlejs.com/
+ *
+ * Copyright JS Foundation and other contributors
+ * Released under the MIT license
+ * https://js.foundation/
+ *
+ * Date: 2019-04-08
+ */
+
+/*!
  * Vue-Lazyload.js v1.3.3
  * (c) 2019 Awe <hilongjw@gmail.com>
  * Released under the MIT License.
@@ -20,6 +31,20 @@
  * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
+ */
+
+/*!
+ * jQuery JavaScript Library v3.4.1
+ * https://jquery.com/
+ *
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
+ *
+ * Copyright JS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
+ *
+ * Date: 2019-05-01T21:04Z
  */
 
 /*!

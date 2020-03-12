@@ -24,7 +24,7 @@
     "jquery": "^3.4.1",
     "marked": "^0.8.0",
     "nuxt": "^2.11.0",
-    "storyblok-nuxt": "^1.0.2",
+    "storyblok-nuxt": "^1.2.0",
     "vue-carousel": "^0.18.0",
     "vue-lazyload": "^1.3.1",
     "vue-scrollto": "^2.17.1"
@@ -33,18 +33,18 @@
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/google-analytics": "^2.2.3",
     "babel-eslint": "^10.0.3",
-    "cross-env": "^7.0.1",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-vue": "^6.0.1",
+    "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "sass": "^1.25.0",
+    "sass": "^1.26.3",
     "sass-loader": "^8.0.2"
   }
 }
