@@ -1,5 +1,5 @@
 <template>
-  <div class="view view-Container">
+  <div class="view view-Container view-Project">
     <section id="floatBlock" class="projectItem-Text text">
       <div class="spaceForm"></div>
       <markdown-item :input="story.content.content" />

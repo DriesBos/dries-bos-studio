@@ -1,6 +1,5 @@
 <template>
-  <main :class="[currentTheme, { spaced: spaceState }]">
-    <div class="background"></div>
+  <main :class="[currentTheme, { spaced: spaceState }, { about: isAboutPage }]">
     <div id="messages" class="messages">
       <div class="messages-Item">
         <p>darkmode detected</p>
@@ -16,9 +15,7 @@
       </div>
     </div>
     <transition>
-      <div class="spaceWrapper">
-        <nuxt />
-      </div>
+      <nuxt />
     </transition>
     <the-navigation @toggleTheme="changeTheme" />
     <the-pseudo-navigation @toggleTheme="changeTheme" />
@@ -40,7 +37,8 @@ export default {
   data() {
     return {
       themeNumber: 0,
-      currentTheme: "one"
+      currentTheme: "one",
+      isAboutPage: false
     }
   },
   computed: {
@@ -50,6 +48,7 @@ export default {
   },
   mounted() {
     this.checkDarkMode()
+    this.checkAboutPage()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -59,7 +58,27 @@ export default {
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
+  watch: {
+    $route() {
+      if (this.$route.name === "about") {
+        this.isAboutPage = true
+        $("body").addClass("about")
+      } else {
+        this.isAboutPage = false
+        $("body").removeClass("about")
+      }
+    }
+  },
   methods: {
+    checkAboutPage() {
+      if (this.$route.name === "about") {
+        this.isAboutPage = true
+        $("body").addClass("about")
+      } else {
+        this.isAboutPage = false
+        $("body").removeClass("about")
+      }
+    },
     changeTheme() {
       if (this.themeNumber < 3) {
         this.themeNumber++
@@ -68,12 +87,28 @@ export default {
       }
       if (this.themeNumber === 1) {
         this.currentTheme = "two"
+        $("body").removeClass("one")
+        $("body").addClass("two")
+        $("body").removeClass("three")
+        $("body").removeClass("four")
       } else if (this.themeNumber === 2) {
         this.currentTheme = "three"
+        $("body").removeClass("one")
+        $("body").removeClass("two")
+        $("body").addClass("three")
+        $("body").removeClass("four")
       } else if (this.themeNumber === 3) {
         this.currentTheme = "four"
+        $("body").removeClass("one")
+        $("body").removeClass("two")
+        $("body").removeClass("three")
+        $("body").addClass("four")
       } else {
         this.currentTheme = "One"
+        $("body").addClass("one")
+        $("body").removeClass("two")
+        $("body").removeClass("three")
+        $("body").removeClass("four")
       }
     },
     checkDarkMode() {
@@ -83,6 +118,10 @@ export default {
       ) {
         this.themeNumber = 2
         this.currentTheme = "three"
+        $("body").removeClass("one")
+        $("body").removeClass("two")
+        $("body").addClass("three")
+        $("body").removeClass("four")
         $("#messages").addClass("activeOne")
         setTimeout(function() {
           $("#messages").removeClass("activeOne")

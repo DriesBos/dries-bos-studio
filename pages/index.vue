@@ -1,5 +1,5 @@
 <template>
-  <div class="view view-Container">
+  <div class="view view-Container view-Index">
     <section id="floatBlock">
       <div class="spaceForm"></div>
       <ul class="list">

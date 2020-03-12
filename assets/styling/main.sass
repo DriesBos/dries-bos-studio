@@ -6,18 +6,9 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
   height: 100%
 
 main
-  display: flex
-  flex-direction: column
-  align-items: center
   font-size: calc(17px + (19 - 17) * ((100vw - 700px) / (1200 - 700)))
 main.spaced
   font-size: 19px
-
-section
-  position: relative
-  width: 100%
-  background: var(--background-color)
-  transition: background $transition-theme
 
 img
   opacity: 0
@@ -27,91 +18,106 @@ img[lazy="loaded"]
   opacity: 1
 
 // THEME
-.background
-  position: fixed
-  background: var(--background-color)
-  transition: background $transition-theme .2s
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  width: 100%
-  pointer-events: none
-.spaced
-  .background
-    transition: background $transition-theme
-    background: var(--background-space)
-
-// SPACED
-.spaceWrapper
-  position: relative
-  width: 100%
-  max-width: 100%
-  margin-top: 0
-  padding-top: 30vh
-  z-index: 1 // Gives a higher stack than the background
-  transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, padding-top $transition-space-vertical
-  p, a, input
-    color: var(--type)
-.spaced
-  .spaceWrapper
-    max-width: 1200px
-    margin-top: calc(30vh + 200px)
-    padding-top: 0
-.grid, .projectItem-Images
-  li:first-child
+main
+  display: flex
+  flex-direction: column
+  align-items: center
+  background: var(--background-space)
+  transition: background $transition-theme
+  section
+    position: relative
+    width: 100%
+    max-width: 100%
+    background: var(--background-color)
+    transition: background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
+    .spaceForm
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      height: 200px
+      width: 100%
+      transform: translateY(-100%)
+      background: var(--background-color)
+      transition: background $transition-theme
+      pointer-events: none
+      &::before, &::after
+        content: ""
+        position: absolute
+        top: 0
+        bottom: 0
+        border-bottom: 200px solid transparent
+        transition: border-left $transition-space-vertical, border-right $transition-space-vertical
+        // transition: border-left $transition-theme, border-right $transition-theme
+      &::before
+        left: 0
+        border-left: 0px solid var(--background-space)
+      &::after
+        right: 0
+        border-right: 0px solid var(--background-space)
+  section:first-child
+    padding-top: 30vh !important
     margin-top: 0
-    transition: margin-top $transition-space-vertical
-.projectItem-Text
-  margin-top: 0
-.spaced
-  .grid, .projectItem-Images
-    li
-      margin-bottom: var(--spacing-two) !important
-    li:first-child
-      margin-top: var(--spacing-two)
-  .projectItem-Text
-    padding-top: var(--spacing-two)
+    z-index: +1
+  &.spaced
+    section
+      max-width: 1200px
+      &.active
+        transform: translateY(-60px)
+    .spaceForm
+      &::before, &::after
+        transition: border-left $transition-theme, border-right $transition-theme
+        // transition: border-left $transition-space-vertical, border-right $transition-space-vertical
+      &::before
+        border-left: 150px solid var(--background-space)
+      &::after
+        border-right: 150px solid var(--background-space)
+    section:first-child
+      padding-top: 0
+      margin-top: calc(30vh + 200px)
+      margin-bottom: -1px
 
-.spaceForm
-  position: absolute
-  top: 1px
-  left: 0
-  right: 0
-  height: 200px
-  width: 100%
-  transform: translateY(-100%)
-  background: var(--background-color)
-  transition: border-bottom $transition-theme, background $transition-theme
-  z-index: -1
-  pointer-events: none
-  &.hidden
-    opacity: 0
-  &::before
-    content: ""
-    position: absolute
-    top: 0
-    bottom: 0
-    left: 0
-    border-left: 0
-    border-bottom: 200px solid transparent
-    transition: border-left $transition-theme
-  &::after
-    content: ""
-    position: absolute
-    top: 0
-    bottom: 0
-    right: 0
-    border-right: 0
-    border-bottom: 200px solid transparent
-    transition: border-right $transition-theme
-.spaced
-  .spaceForm
-    border-bottom: 1px solid var(--type)
-    &::before
-      border-left: 150px solid var(--background-space)
-    &::after
-      border-right: 150px solid var(--background-space)
+// .spaced
+//   #floatBlock
+    // transition: transform $transition-block-float, background $transition-theme
+    // will-change: transform
+    // z-index: +2
+    // margin-bottom: -1px
+    // border-bottom: 1px var(--type) solid
+    // &.active
+    //   transform: translateY(-60px)
+
+// // SPACED
+// .spaceWrapper
+//   position: relative
+//   width: 100%
+//   max-width: 100%
+//   margin-top: 0
+//   padding-top: 30vh
+//   z-index: 1 // Gives a higher stack than the background
+//   transition: max-width $transition-space-sideways, margin-top $transition-space-vertical, padding-top $transition-space-vertical
+//   p, a, input
+//     color: var(--type)
+// .spaced
+//   .spaceWrapper
+//     max-width: 1200px
+//     margin-top: calc(30vh + 200px)
+//     padding-top: 0
+
+// .grid, .projectItem-Images
+//   li:first-child
+//     margin-top: 0
+//     transition: margin-top $transition-space-vertical
+// .projectItem-Text
+//   margin-top: 0
+// .spaced
+//   .grid, .projectItem-Images
+//     li
+//       margin-bottom: var(--spacing-two) !important
+//     li:first-child
+//       margin-top: var(--spacing-two)
+//   .projectItem-Text
+//     padding-top: var(--spacing-two)
 
 // MESSENGES
 .messages
@@ -238,7 +244,7 @@ img[lazy="loaded"]
         padding-right: var(--spacing-two)
         color: var(--type)
     &_Project
-      border-top: 1px var(--type) solid
+      // border-top: 1px var(--type) solid
       cursor: pointer
       &:hover
         @media ( hover: hover )
@@ -260,15 +266,6 @@ img[lazy="loaded"]
         &.active
           input, svg
             opacity: 1
-.spaced
-  #floatBlock
-    transition: transform $transition-block-float, background $transition-theme
-    will-change: transform
-    z-index: +2
-    margin-bottom: -1px
-    border-bottom: 1px var(--type) solid
-    &.active
-      transform: translateY(-60px)
 
 .grid
   position: relative
@@ -277,7 +274,7 @@ img[lazy="loaded"]
   justify-content: flex-start
   flex-shrink: 0
   min-height: 0
-  border-top: 1px var(--type) solid
+  // border-top: 1px var(--type) solid
   img
     transition: opacity $transition-lazy
   li
@@ -364,7 +361,7 @@ img[lazy="loaded"]
         width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
         margin-left: var(--spacing-two)
 
-// VIEWS
+// VIEW PROJECT
 .view
   width: 100%
   &-Container
@@ -375,11 +372,9 @@ img[lazy="loaded"]
     .projectItem
       &-Text
         position: relative
-        padding-left: var(--spacing-two)
-        padding-right: var(--spacing-two)
-        padding-bottom: var(--spacing-two)
-        @media screen and ( max-width: $breakpoint-mobile)
-          padding-bottom: var(--spacing-three)
+        padding: var(--spacing-one) var(--spacing-two)
+        // @media screen and ( max-width: $breakpoint-mobile)
+        //   padding-bottom: var(--spacing-three)
       &-Images
         ul
           display: flex
@@ -428,7 +423,7 @@ main.spaced.four
       color: black
 .spaced
   .projectItem-Images
-    border-top: 1px var(--type) solid
+    // border-top: 1px var(--type) solid
     @media screen and ( min-width: $breakpoint-mobile)
       li:nth-child(1)
         width: calc(100% - (2 * #{var(--spacing-two)})) !important
@@ -448,3 +443,27 @@ main.spaced.four
       li:nth-child(5)
         width: calc((100% - (4 * #{var(--spacing-two)})) / 3) !important
         margin-right: var(--spacing-two)
+
+// VIEW ABOUT
+main.about
+  header
+    color: var(--support-type)
+  .view
+    &-About
+      section
+        padding: var(--spacing-one) var(--spacing-two)
+        // border-top: 1px solid var(--support-type)
+        display: flex
+        p, a
+          color: var(--support-type)
+        p:first-child, p:nth-child(2)
+          flex-basis: calc(100% / 4)
+main.spaced.about
+  header
+    color: var(--type)
+  .view
+    &-About
+      section
+        // border-top: 1px solid var(--type)
+        p, a
+          color: var(--type)

@@ -2,12 +2,7 @@
   <header class="header header-Normal">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
-        <span
-          v-if="
-            this.$route.name === 'index' || this.$route.name === 'projects-slug'
-          "
-          title="that's me!"
-        >Dries</span>
+        <span title="that's me!">Dries</span>
         <span
           v-if="this.$route.name === 'index'"
           title="that's me!"
@@ -19,7 +14,7 @@
       </nuxt-link>
       <li
         v-if="
-          this.$route.name === 'projects-slug' || this.$route.name === 'slug'
+          this.$route.name === 'projects-slug' || this.$route.name === 'about'
         "
         class="header-Close"
         title="close project"
@@ -95,6 +90,11 @@ export default {
       }
     },
     toggleTheSpace() {
+      if (this.spaceState === true) {
+        $("body").removeClass("spaced")
+      } else {
+        $("body").addClass("spaced")
+      }
       if (this.spaceState === true) {
         $("#floatBlock").removeClass("active")
       }
