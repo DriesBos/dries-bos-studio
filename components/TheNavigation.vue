@@ -137,6 +137,12 @@ export default {
       setTimeout(function() {
         window.scrollTo(0, 0)
       }, 330)
+      if (this.spaceState === false) {
+        $("main").addClass("tempBackground")
+        setTimeout(function() {
+          $("main").removeClass("tempBackground")
+        }, 565)
+      }
     }
   },
   mounted() {
