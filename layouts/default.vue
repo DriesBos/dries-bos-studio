@@ -49,7 +49,7 @@ export default {
   },
   watch: {
     $route() {
-      if (this.$route.name === "about") {
+      if (this.$route.name === "about" && this.spaceState === false) {
         this.isAboutPage = true
         $("body").addClass("about")
       } else {
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     checkAboutPage() {
-      if (this.$route.name === "about") {
+      if (this.$route.name === "about" && this.spaceState === false) {
         this.isAboutPage = true
         $("body").addClass("about")
       } else {
