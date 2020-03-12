@@ -44,14 +44,12 @@ main
   background: var(--background-space)
   transition: background $transition-theme
   color: var(--type)
-  z-index: -2 // Sections -1, sections first-child 0, header + 1
   p, h1, a, input, svg
     color: var(--type)
   section
     position: relative
     width: 100%
     max-width: 100%
-    z-index: -1
     border-top: 1px solid blue
     background: var(--background-color)
     transition: background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
@@ -66,6 +64,8 @@ main
       background: var(--background-color)
       transition: background $transition-theme
       pointer-events: none
+      z-index: 0
+      // display: none
       &::before, &::after
         content: ""
         position: absolute
@@ -83,7 +83,7 @@ main
   section:first-child
     padding-top: 30vh
     margin-top: 0
-    z-index: 0
+    z-index: 1
   .view-Container
     position: relative
     display: flex

@@ -158,6 +158,7 @@ export default {
   left: 0
   right: 0
   color: var(--type)
+  z-index: +1
   p, h1, a, input, svg
     color: var(--type)
   ul
@@ -274,13 +275,10 @@ export default {
   .header
     color: white
     mix-blend-mode: difference
+    min-height: 100px
+    z-index: 999
     p, h1, a, input, svg
       color: white
-    &-Normal
-      z-index: +2
-    &-Pseudo
-      z-index: +1
-      border: 1px solid red
 
 @keyframes vibrate
   0%
