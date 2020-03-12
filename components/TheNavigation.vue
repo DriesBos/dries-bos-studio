@@ -275,6 +275,8 @@ export default {
   .header-Normal
     color: white
     mix-blend-mode: difference
+    a, p, h1, input, svg
+      color: white
 @keyframes vibrate
   0%
     transform: translateX(-1%)
