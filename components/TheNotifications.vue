@@ -32,7 +32,6 @@ $transition-messages: .165s ease-out
     left: 50%
     transform: translate(-50%, -25%)
     border: 1px solid var(--type)
-    color: var(--support-type)
     background: var(--support-color)
     border-radius: 1000px
     padding-left: 30px
@@ -40,6 +39,9 @@ $transition-messages: .165s ease-out
     opacity: 0
     text-align: center
     transition: opacity $transition-messages, transform $transition-messages
+    color: var(--support-type)
+    p, h1
+      color: var(--support-type)
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1
