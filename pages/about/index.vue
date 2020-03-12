@@ -106,4 +106,5 @@ main
         flex-basis: calc(100% / 4)
     section:last-child
       border-bottom: 0
+      flex-grow: 1
 </style>
