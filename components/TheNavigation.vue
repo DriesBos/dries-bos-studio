@@ -199,6 +199,8 @@ export default {
       &.active
         color: var(--support-type)
         background: var(--support-color)
+        p
+          color: var(--support-type)
       p
         line-height: 1
         transform: translateY(3px)
