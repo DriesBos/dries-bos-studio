@@ -17,18 +17,18 @@
     <section>
       <p>contact</p>
       <p>
-        <a href>info@driesbos.com</a> —
-        <a href>+31(0)636101262</a>
+        <a href="mailto:info@driesbos.com">info@driesbos.com</a> —
+        <a href="tel:0031636101262">+31(0)636101262</a>
       </p>
     </section>
     <section>
       <p>stay in contact</p>
       <p>
-        <a href>Instagram</a> —
-        <a href>Behance</a> —
-        <a href>Codepen</a> —
-        <a href>GitHub</a> —
-        <a href>LinkedIn</a>
+        <a href="https://instagram.com/driesbosstudio">Instagram</a> —
+        <a href="https://behance.net/driesbos">Behance</a> —
+        <a href="https://codepen.io/driesbos">Codepen</a> —
+        <a href="https://github.com/DriesBos">GitHub</a> —
+        <a href="https://linkedin.com/in/dries-bos">LinkedIn</a>
       </p>
     </section>
   </div>
@@ -102,7 +102,13 @@ main
       p
         padding-top: var(--spacing-one)
         padding-bottom: var(--spacing-one)
-      p:first-child, p:nth-child(2)
+      a
+        text-decoration: underline
+    section:nth-child(1), section:nth-child(2)
+      p:nth-child(2)
+        flex-basis: calc(100% / 4)
+    section:nth-child(3), section:nth-child(4), section:nth-child(5)
+      p:nth-child(1)
         flex-basis: calc(100% / 4)
     section:last-child
       border-bottom: 0
