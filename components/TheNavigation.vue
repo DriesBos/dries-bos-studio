@@ -151,7 +151,6 @@ export default {
 
 <style lang="sass">
 @import '~/assets/styling/variables.sass'
-
 .header
   position: fixed
   top: 0
@@ -235,8 +234,8 @@ export default {
     z-index: +2
     color: var(--type)
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
-    z-index: +3
     isolation: isolate
+    z-index: +3
     pointer-events: none
     @media screen and ( max-width: 850px)
       display: none
@@ -270,12 +269,10 @@ export default {
         &:hover
           @media ( hover: hover )
             transform: rotate(180deg)
-
 .spaced
-  .header
+  .header-Normal
     color: white
     mix-blend-mode: difference
-
 @keyframes vibrate
   0%
     transform: translateX(-1%)
