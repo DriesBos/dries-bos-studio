@@ -234,11 +234,8 @@ export default {
       background: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
-  &-Normal
-    z-index: +2
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     isolation: isolate
-    z-index: +3
     pointer-events: none
     @media screen and ( max-width: 850px)
       display: none
@@ -279,6 +276,11 @@ export default {
     mix-blend-mode: difference
     p, h1, a, input, svg
       color: white
+    &-Normal
+      z-index: +2
+    &-Pseudo
+      z-index: +1
+      border: 1px solid red
 
 @keyframes vibrate
   0%
