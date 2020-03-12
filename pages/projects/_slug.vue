@@ -1,33 +1,32 @@
 <template>
   <div class="view view-Container">
-    <section class="view-Project">
-      <div class="projectItem">
-        <div id="floatBlock" class="projectItem-Text">
-          <div class="spaceForm"></div>
-          <markdown-item :input="story.content.content" />
-        </div>
-        <nuxt-link
-          v-if="story.content.prev_link.id !== ''"
-          :to="`/${story.content.prev_link.cached_url}`"
-          class="projectItem-Nav projectItem-Nav_Prev"
-          title="previous project"
-        >
-          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-        </nuxt-link>
-        <nuxt-link
-          v-if="story.content.next_link.id !== ''"
-          :to="`/${story.content.next_link.cached_url}`"
-          class="projectItem-Nav projectItem-Nav_Next"
-          title="next project"
-        >
-          <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-        </nuxt-link>
-        <ul id="projectItem-Images" class="projectItem-Images">
-          <div class="spaceForm"></div>
-          <li v-for="(image, index) in story.content.images" :key="index">
-            <div v-lazy-container="{ selector: 'img' }">
-              <img
-                :srcset="
+    <section id="floatBlock" class="projectItem-Text text">
+      <div class="spaceForm"></div>
+      <markdown-item :input="story.content.content" />
+    </section>
+    <nuxt-link
+      v-if="story.content.prev_link.id !== ''"
+      :to="`/${story.content.prev_link.cached_url}`"
+      class="projectItem-Nav projectItem-Nav_Prev"
+      title="previous project"
+    >
+      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+    </nuxt-link>
+    <nuxt-link
+      v-if="story.content.next_link.id !== ''"
+      :to="`/${story.content.next_link.cached_url}`"
+      class="projectItem-Nav projectItem-Nav_Next"
+      title="next project"
+    >
+      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+    </nuxt-link>
+    <section class="projectItem-Images">
+      <div class="spaceForm"></div>
+      <ul>
+        <li v-for="(image, index) in story.content.images" :key="index">
+          <div v-lazy-container="{ selector: 'img' }">
+            <img
+              :srcset="
                   `${transformImage(
                     image.filename,
                     '1668x0'
@@ -45,14 +44,13 @@
                     '800x0'
                   )} 800w, ${transformImage(image.filename, '690x0')} 690w`
                 "
-                sizes="100vw"
-                :data-src="image.filename"
-                :alt="image.name"
-              />
-            </div>
-          </li>
-        </ul>
-      </div>
+              sizes="100vw"
+              :data-src="image.filename"
+              :alt="image.name"
+            />
+          </div>
+        </li>
+      </ul>
     </section>
   </div>
 </template>

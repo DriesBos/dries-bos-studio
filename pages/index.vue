@@ -1,10 +1,9 @@
 <template>
   <div class="view view-Container">
-    <section class="view-Index">
-      <ul id="floatBlock" class="list">
-        <div class="spaceForm"></div>
+    <section id="floatBlock">
+      <div class="spaceForm"></div>
+      <ul class="list">
         <li class="listItem listItem_Filter">
-          <div class="spaceForm"></div>
           <div class="listItem-DetailsWrapper">
             <div
               class="listItem-Year listItem-Details"
@@ -36,17 +35,21 @@
           </div>
         </li>
       </ul>
-      <transition name="view" mode="out-in">
-        <ul v-if="viewState" class="list" key="list">
-          <div class="spaceForm"></div>
+    </section>
+    <transition name="view" mode="out-in">
+      <section v-if="viewState" key="list">
+        <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
+        <ul class="list">
           <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
         </ul>
-        <ul v-else class="grid" key="grid">
-          <div class="spaceForm"></div>
+      </section>
+      <section v-else key="grid">
+        <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
+        <ul class="grid">
           <li is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
         </ul>
-      </transition>
-    </section>
+      </section>
+    </transition>
   </div>
 </template>
 
