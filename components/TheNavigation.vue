@@ -157,10 +157,6 @@ export default {
   top: 0
   left: 0
   right: 0
-  color: var(--type)
-  z-index: +1
-  p, h1, a, input, svg
-    color: var(--type)
   ul
     display: flex
     flex-wrap: wrap
@@ -235,7 +231,11 @@ export default {
       background: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
+  &-Normal
+    z-index: +2
+    color: var(--type)
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
+    z-index: +3
     isolation: isolate
     pointer-events: none
     @media screen and ( max-width: 850px)
@@ -275,10 +275,6 @@ export default {
   .header
     color: white
     mix-blend-mode: difference
-    min-height: 100px
-    z-index: 999
-    p, h1, a, input, svg
-      color: white
 
 @keyframes vibrate
   0%
