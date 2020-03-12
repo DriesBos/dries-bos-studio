@@ -165,7 +165,7 @@ main
       .imageGrid-Item_Wrapper
         width: calc((100% / 3) * 2)
         align-self: flex-end
-    li:last-child
+    li:nth-child(11)
       .imageGrid-Item_Wrapper
         width: calc((100% / 3) * 2)
         align-self: flex-start
@@ -228,6 +228,3 @@ main
         .imageGrid-Item_Wrapper
           width: calc(100% - (2 * #{var(--spacing-two)}))
           align-self: center
-      li:last-child
-        width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
-        margin-left: var(--spacing-two)
