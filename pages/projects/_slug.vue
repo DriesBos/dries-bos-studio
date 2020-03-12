@@ -11,23 +11,23 @@
           <div v-lazy-container="{ selector: 'img' }">
             <img
               :srcset="
-                  `${transformImage(
-                    image.filename,
-                    '1668x0'
-                  )} 1668w, ${transformImage(
-                    image.filename,
-                    '1440x0'
-                  )} 1440w, ${transformImage(
-                    image.filename,
-                    '1280x0'
-                  )} 1280w, ${transformImage(
-                    image.filename,
-                    '960x0'
-                  )} 960w, ${transformImage(
-                    image.filename,
-                    '800x0'
-                  )} 800w, ${transformImage(image.filename, '690x0')} 690w`
-                "
+                `${transformImage(
+                  image.filename,
+                  '1668x0'
+                )} 1668w, ${transformImage(
+                  image.filename,
+                  '1440x0'
+                )} 1440w, ${transformImage(
+                  image.filename,
+                  '1280x0'
+                )} 1280w, ${transformImage(
+                  image.filename,
+                  '960x0'
+                )} 960w, ${transformImage(
+                  image.filename,
+                  '800x0'
+                )} 800w, ${transformImage(image.filename, '690x0')} 690w`
+              "
               sizes="100vw"
               :data-src="image.filename"
               :alt="image.name"
@@ -42,7 +42,10 @@
       class="projectItem-Nav projectItem-Nav_Prev"
       title="previous project"
     >
-      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+      <div
+        class="icon arrow"
+        v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+      />
     </nuxt-link>
     <nuxt-link
       v-if="story.content.next_link.id !== ''"
@@ -50,7 +53,10 @@
       class="projectItem-Nav projectItem-Nav_Next"
       title="next project"
     >
-      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+      <div
+        class="icon arrow"
+        v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+      />
     </nuxt-link>
   </div>
 </template>
@@ -160,22 +166,22 @@ main
             li:nth-child(5)
               width: calc(100% / 3)
               align-self: flex-end
-      &-Nav
-        position: fixed
-        top: 50vh
-        padding: var(--spacing-two)
-        transform: translateY(-50%)
-        color: white
-        mix-blend-mode: difference
-        z-index: $z-index-nav
-        .icon
-          width: 2.5em
-        &_Prev
-          left: 0
-          svg
-            transform: rotate(180deg)
-        &_Next
-          right: 0
+    &-Nav
+      position: fixed
+      top: 50%
+      padding: var(--spacing-two)
+      transform: translateY(-50%)
+      color: white
+      mix-blend-mode: difference
+      z-index: $z-index-nav
+      .icon
+        width: 2.5em
+      &_Prev
+        left: 0
+        svg
+          transform: rotate(180deg)
+      &_Next
+        right: 0
 main.spaced.four
   .projectItem
     &-Nav
