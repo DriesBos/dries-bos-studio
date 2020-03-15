@@ -132,7 +132,4 @@ main
           padding-right: var(--spacing-two)
           @media screen and ( max-width: $breakpoint-tablet)
             flex-basis: auto
-    section:last-child
-      border-bottom: 0
-      flex-grow: 1
 </style>
