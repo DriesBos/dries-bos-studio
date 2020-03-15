@@ -8,5 +8,8 @@ export const mutations = {
   },
   turnOffTheSpace(state) {
     state.spaceState = false
+  },
+  turnOnTheSpace(state) {
+    state.spaceState = true
   }
 }

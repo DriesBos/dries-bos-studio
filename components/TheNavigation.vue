@@ -90,33 +90,32 @@ export default {
       }
     },
     toggleTheSpace() {
-      if (this.spaceState === true) {
-        $("#floatBlock").removeClass("active")
-      }
       if (window.innerWidth > 1350) {
-        this.$store.commit("space/toggleTheSpace")
         window.scrollTo({
           top: 0,
           left: 0,
           behavior: "smooth"
         })
         if (this.spaceState === true) {
+          // Disable spacemode
+          this.$store.commit("space/turnOffTheSpace")
           $("body").removeClass("spaced")
-        } else {
-          $("body").addClass("spaced")
-        }
-        if (this.spaceState === true) {
-          $("#messages").addClass("activeTwo")
-          setTimeout(function() {
-            $("#messages").removeClass("activeTwo")
-          }, 2000)
-        } else {
+          $("#floatBlock").removeClass("active")
           $("#messages").addClass("activeThree")
           setTimeout(function() {
             $("#messages").removeClass("activeThree")
           }, 2000)
+        } else {
+          // Spacemode activation
+          this.$store.commit("space/turnOnTheSpace")
+          $("body").addClass("spaced")
+          $("#messages").addClass("activeTwo")
+          setTimeout(function() {
+            $("#messages").removeClass("activeTwo")
+          }, 2000)
         }
       } else {
+        // Message: "spacemode requires a larger window"
         $("#messages").addClass("activeFour")
         setTimeout(function() {
           $("#messages").removeClass("activeFour")
@@ -124,8 +123,11 @@ export default {
       }
     },
     toggleTheSpaceOnResize() {
+      // Disable spacemode
       if (window.innerWidth < 1350 && this.spaceState === true) {
         this.$store.commit("space/turnOffTheSpace")
+        $("body").removeClass("spaced")
+        $("#floatBlock").removeClass("active")
         $("#messages").addClass("activeThree")
         setTimeout(function() {
           $("#messages").removeClass("activeThree")
