@@ -105,6 +105,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import '~/assets/styling/variables.sass'
+
 main
   .view-About
     section
@@ -115,19 +117,21 @@ main
         padding-top: var(--spacing-one)
         padding-bottom: var(--spacing-one)
         min-height: 0
-        p
-          padding-left: var(--spacing-one)
-          padding-right: var(--spacing-one)
+        padding-left: var(--spacing-one)
+        padding-right: var(--spacing-one)
         a
           text-decoration: underline
         &_Left
           flex-basis: calc(100% * .25)
-          p
-            padding-left: var(--spacing-two)
+          padding-left: var(--spacing-two)
+          @media screen and ( max-width: $breakpoint-tablet)
+            flex-basis: calc(#{var(--spacing-three)} + 4em)
+            flex-shrink: 0
         &_Right
           flex-basis: calc(100% * .75)
-          p
-            padding-right: var(--spacing-two)
+          padding-right: var(--spacing-two)
+          @media screen and ( max-width: $breakpoint-tablet)
+            flex-basis: auto
     section:last-child
       border-bottom: 0
       flex-grow: 1
