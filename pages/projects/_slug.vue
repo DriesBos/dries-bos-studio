@@ -145,13 +145,13 @@ main
       .icon
         width: 2.5em
         opacity: 1
-        // color: white !important
+        svg
+          color: white !important
+          opacity: 1
       &_Prev
         left: 0
         svg
           transform: rotate(180deg)
-          opacity: 1
-          color: white !important
       &_Next
         right: 0
 main.spaced.four
