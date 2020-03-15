@@ -91,11 +91,6 @@ export default {
     },
     toggleTheSpace() {
       if (this.spaceState === true) {
-        $("body").removeClass("spaced")
-      } else {
-        $("body").addClass("spaced")
-      }
-      if (this.spaceState === true) {
         $("#floatBlock").removeClass("active")
       }
       if (window.innerWidth > 1350) {
@@ -105,6 +100,11 @@ export default {
           left: 0,
           behavior: "smooth"
         })
+        if (this.spaceState === true) {
+          $("body").removeClass("spaced")
+        } else {
+          $("body").addClass("spaced")
+        }
         if (this.spaceState === true) {
           $("#messages").addClass("activeTwo")
           setTimeout(function() {
