@@ -136,11 +136,15 @@ main
         padding: var(--spacing-one) var(--spacing-two)
     &-Nav
       position: fixed
-      top: 50%
-      padding: var(--spacing-two)
-      transform: translateY(-50%)
+      padding: var(--spacing-two)var(--spacing-two)
       mix-blend-mode: difference
       z-index: 999
+      @media screen and ( min-width: $breakpoint-mobile)
+        top: 50%
+        transform: translateY(-50%)
+      @media screen and ( max-width: $breakpoint-mobile)
+        bottom: 0
+
       .icon
         width: 2.5em
         opacity: 1
