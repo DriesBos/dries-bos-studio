@@ -243,7 +243,7 @@ export default {
       background: var(--support-color)
       border-radius: 1000px
       transform: translateX(0)
-      transition: all .3s ease-out
+      transition: all .23s ease-out
       &.active
         transform: translateX(-100%)
   &-Profile
