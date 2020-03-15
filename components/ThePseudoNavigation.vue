@@ -6,6 +6,7 @@
       </li>
       <li title="toggle text & images">
         <div class="header-Toggle">
+          <div class="header-Toggle_Toggler" :class="{ active: viewState }"></div>
           <div class="header-Toggle_Item" :class="{ active: viewState }">
             <p>text</p>
           </div>

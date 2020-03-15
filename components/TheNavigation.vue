@@ -50,8 +50,14 @@
           </svg>
         </div>
       </li>
-      <li v-if="this.$route.name === 'index'" @click="toggleTheView" title="toggle text & images">
+      <li
+        v-if="this.$route.name === 'index'"
+        @click="toggleTheView"
+        :class="{ active: viewState }"
+        title="toggle text & images"
+      >
         <div class="header-Toggle">
+          <div class="header-Toggle_Toggler" :class="{ active: viewState }"></div>
           <div class="header-Toggle_Item" :class="{ active: viewState }">
             <p>text</p>
           </div>
@@ -208,6 +214,7 @@ export default {
           animation: flicker .1s infinite
           opacity: 1
   &-Toggle
+    position: relative
     height: 100%
     border-radius: 1000px
     display: inline-flex
@@ -221,12 +228,24 @@ export default {
       color: var(--type)
       &.active
         color: var(--support-type)
-        background: var(--support-color)
+        // background: var(--support-color)
         p
           color: var(--support-type)
       p
         line-height: 1
         transform: translateY(3px)
+    &_Toggler
+      position: absolute
+      right: 0
+      top: 0
+      bottom: 0
+      width: 50%
+      background: var(--support-color)
+      border-radius: 1000px
+      transform: translateX(0)
+      transition: all .3s ease-out
+      &.active
+        transform: translateX(-100%)
   &-Profile
     &:hover
       @media ( hover: hover )
