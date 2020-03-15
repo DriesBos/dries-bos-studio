@@ -105,7 +105,7 @@ export default {
       }
     },
     toggleTheSpace() {
-      if (window.innerWidth > 1350) {
+      if (window.innerWidth > 1000) {
         window.scrollTo({
           top: 0,
           left: 0,
@@ -139,7 +139,7 @@ export default {
     },
     toggleTheSpaceOnResize() {
       // Disable spacemode
-      if (window.innerWidth < 1350 && this.spaceState === true) {
+      if (window.innerWidth < 1000 && this.spaceState === true) {
         this.$store.commit("space/turnOffTheSpace")
         $("body").removeClass("spaced")
         $("#floatBlock").removeClass("active")

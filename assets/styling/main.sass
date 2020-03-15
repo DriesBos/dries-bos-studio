@@ -92,7 +92,14 @@ main
     display: flex
     flex-direction: column
     align-items: center
+    padding-left: 0
+    padding-right: 0
+    transition: padding-left $transition-space-sideways, padding-right $transition-space-sideways
+  // SPACED CSS
   &.spaced
+    .view-Container
+      padding-left: var(--spacing-three)
+      padding-right: var(--spacing-three)
     section
       max-width: 1200px
       &.active
