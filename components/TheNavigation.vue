@@ -225,15 +225,15 @@ export default {
       padding-left: 30px
       padding-right: 30px
       border-radius: 1000px
-      color: var(--type)
-      &.active
-        color: var(--support-type)
-        // background: var(--support-color)
-        p
-          color: var(--support-type)
       p
         line-height: 1
         transform: translateY(3px)
+        color: var(--type)
+        transition: all .23s ease
+      &.active
+        color: var(--support-type)
+        p
+          color: var(--support-type)
     &_Toggler
       position: absolute
       right: 0
