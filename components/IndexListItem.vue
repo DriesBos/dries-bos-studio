@@ -53,15 +53,14 @@ export default {
       display: flex
       flex-grow: 1
       align-items: center
-      padding-right: var(--spacing-two)
     &-Details
       flex-shrink: 0
-      flex-basis: calc(100% / 4)
-      padding-left: var(--spacing-two)
-      padding-top: var(--spacing-one)
+      flex-basis: calc(100% * .25)
       padding-bottom: var(--spacing-one)
       cursor: pointer
       min-height: 0
+      padding-left: var(--spacing-one)
+      padding-top: var(--spacing-one)
       &.active
         a, p, input
           opacity: 1
@@ -70,9 +69,11 @@ export default {
         flex-basis: auto
         padding-right: var(--spacing-two)
       &:nth-child(1)
+        padding-left: var(--spacing-two)
         @media screen and ( max-width: $breakpoint-tablet)
           width: calc(#{var(--spacing-three)} + 2.6em)
     &-Category
+      flex-grow: 1
       @media screen and ( max-width: $breakpoint-tablet)
         display: none
     &-Icons

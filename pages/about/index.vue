@@ -2,34 +2,48 @@
   <div class="view view-Container view-About">
     <section id="floatBlock">
       <div class="spaceForm"></div>
-      <p>short</p>
-      <markdown-item :input="story.content.short" />
+      <div class="about-Details about-Details_Left">
+        <p>short</p>
+      </div>
+      <markdown-item :input="story.content.short" class="about-Details about-Details_Right" />
     </section>
     <section>
       <div class="spaceForm"></div>
-      <p>long</p>
-      <markdown-item :input="story.content.long" />
+      <div class="about-Details about-Details_Left">
+        <p>long</p>
+      </div>
+      <markdown-item :input="story.content.long" class="about-Details about-Details_Right" />
     </section>
     <section>
-      <p>services</p>
-      <markdown-item :input="story.content.services" />
+      <div class="about-Details about-Details_Left">
+        <p>services</p>
+      </div>
+      <markdown-item :input="story.content.services" class="about-Details about-Details_Right" />
     </section>
     <section>
-      <p>contact</p>
-      <p>
-        <a href="mailto:info@driesbos.com">info@driesbos.com</a> —
-        <a href="tel:0031636101262">+31(0)636101262</a>
-      </p>
+      <div class="about-Details about-Details_Left">
+        <p>contact</p>
+      </div>
+      <div class="about-Details about-Details_Right">
+        <p>
+          <a href="mailto:info@driesbos.com">info@driesbos.com</a> —
+          <a href="tel:0031636101262">+31(0)636101262</a>
+        </p>
+      </div>
     </section>
     <section>
-      <p>stay in contact</p>
-      <p>
-        <a href="https://instagram.com/driesbosstudio">Instagram</a> —
-        <a href="https://behance.net/driesbos">Behance</a> —
-        <a href="https://codepen.io/driesbos">Codepen</a> —
-        <a href="https://github.com/DriesBos">GitHub</a> —
-        <a href="https://linkedin.com/in/dries-bos">LinkedIn</a>
-      </p>
+      <div class="about-Details about-Details_Left">
+        <p>stay in contact</p>
+      </div>
+      <div class="about-Details about-Details_Right">
+        <p>
+          <a href="https://instagram.com/driesbosstudio">Instagram</a> —
+          <a href="https://behance.net/driesbos">Behance</a> —
+          <a href="https://codepen.io/driesbos">Codepen</a> —
+          <a href="https://github.com/DriesBos">GitHub</a> —
+          <a href="https://linkedin.com/in/dries-bos">LinkedIn</a>
+        </p>
+      </div>
     </section>
   </div>
 </template>
@@ -95,21 +109,25 @@ main
   .view-About
     section
       display: flex
-      padding-left: var(--spacing-two)
-      padding-right: var(--spacing-two)
       border-bottom: 1px solid var(--type)
       border-top: 0
-      p
+      .about-Details
         padding-top: var(--spacing-one)
         padding-bottom: var(--spacing-one)
-      a
-        text-decoration: underline
-    section:nth-child(1), section:nth-child(2)
-      p:nth-child(2)
-        flex-basis: calc(100% / 4)
-    section:nth-child(3), section:nth-child(4), section:nth-child(5)
-      p:nth-child(1)
-        flex-basis: calc(100% / 4)
+        min-height: 0
+        p
+          padding-left: var(--spacing-one)
+          padding-right: var(--spacing-one)
+        a
+          text-decoration: underline
+        &_Left
+          flex-basis: calc(100% * .25)
+          p
+            padding-left: var(--spacing-two)
+        &_Right
+          flex-basis: calc(100% * .75)
+          p
+            padding-right: var(--spacing-two)
     section:last-child
       border-bottom: 0
       flex-grow: 1
