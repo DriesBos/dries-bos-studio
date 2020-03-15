@@ -26,7 +26,7 @@
       </div>
       <div class="about-Details about-Details_Right">
         <p>
-          <a href="mailto:info@driesbos.com">info@driesbos.com</a> —
+          <a href="mailto:info@driesbos.com">info@driesbos.com</a>,
           <a href="tel:0031636101262">+31(0)636101262</a>
         </p>
       </div>
@@ -37,10 +37,10 @@
       </div>
       <div class="about-Details about-Details_Right">
         <p>
-          <a href="https://instagram.com/driesbosstudio">Instagram</a> —
-          <a href="https://behance.net/driesbos">Behance</a> —
-          <a href="https://codepen.io/driesbos">Codepen</a> —
-          <a href="https://github.com/DriesBos">GitHub</a> —
+          <a href="https://instagram.com/driesbosstudio">Instagram</a>,
+          <a href="https://behance.net/driesbos">Behance</a>,
+          <a href="https://codepen.io/driesbos">Codepen</a>,
+          <a href="https://github.com/DriesBos">GitHub</a>,
           <a href="https://linkedin.com/in/dries-bos">LinkedIn</a>
         </p>
       </div>
