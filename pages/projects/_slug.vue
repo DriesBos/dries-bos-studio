@@ -139,7 +139,6 @@ main
       top: 50%
       padding: var(--spacing-two)
       transform: translateY(-50%)
-      // color: white !important
       mix-blend-mode: difference
       z-index: 999
       .icon
