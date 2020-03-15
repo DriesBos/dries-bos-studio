@@ -4,18 +4,27 @@
       <div class="spaceForm"></div>
       <markdown-item :input="story.content.content" />
     </section>
+    <nuxt-link
+      v-if="story.content.prev_link.id !== ''"
+      :to="`/${story.content.prev_link.cached_url}`"
+      class="projectItem-Nav projectItem-Nav_Prev"
+      title="previous project"
+    >
+      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+    </nuxt-link>
+    <nuxt-link
+      v-if="story.content.next_link.id !== ''"
+      :to="`/${story.content.next_link.cached_url}`"
+      class="projectItem-Nav projectItem-Nav_Next"
+      title="next project"
+    >
+      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+    </nuxt-link>
     <section class="projectItem-Images">
       <div class="spaceForm"></div>
       <ul class="imageGrid">
-        <li
-          v-for="(image, index) in story.content.images"
-          class="imageGrid-Item"
-          :key="index"
-        >
-          <div
-            v-lazy-container="{ selector: 'img' }"
-            class="imageGrid-Item_Wrapper"
-          >
+        <li v-for="(image, index) in story.content.images" class="imageGrid-Item" :key="index">
+          <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
             <img
               :srcset="
                 `${transformImage(
@@ -43,28 +52,6 @@
         </li>
       </ul>
     </section>
-    <nuxt-link
-      v-if="story.content.prev_link.id !== ''"
-      :to="`/${story.content.prev_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Prev"
-      title="previous project"
-    >
-      <div
-        class="icon arrow"
-        v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-      />
-    </nuxt-link>
-    <nuxt-link
-      v-if="story.content.next_link.id !== ''"
-      :to="`/${story.content.next_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Next"
-      title="next project"
-    >
-      <div
-        class="icon arrow"
-        v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-      />
-    </nuxt-link>
   </div>
 </template>
 
@@ -152,15 +139,19 @@ main
       top: 50%
       padding: var(--spacing-two)
       transform: translateY(-50%)
-      color: white
+      // color: white !important
       mix-blend-mode: difference
-      z-index: $z-index-nav
+      z-index: 999
       .icon
         width: 2.5em
+        opacity: 1
+        // color: white !important
       &_Prev
         left: 0
         svg
           transform: rotate(180deg)
+          opacity: 1
+          color: white !important
       &_Next
         right: 0
 main.spaced.four
