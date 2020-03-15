@@ -28,21 +28,9 @@
             </div>
           </div>
           <div class="listItem-Icons" :class="{ active: toggleSearch }">
-            <input
-              type="text"
-              v-model="search"
-              ref="search"
-              placeholder="filter by name"
-            />
-            <div
-              @click="searchIconClick"
-              class="icon-Container"
-              title="search projects"
-            >
-              <div
-                class="icon"
-                v-html="require('~/assets/images/icon-search.svg?include')"
-              ></div>
+            <input type="text" v-model="search" ref="search" placeholder="filter by name" />
+            <div @click="searchIconClick" class="icon-Container" title="search projects">
+              <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
             </div>
           </div>
         </li>
@@ -52,23 +40,13 @@
       <section v-if="viewState" key="list">
         <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
         <ul class="list">
-          <li
-            is="IndexListItem"
-            v-for="post in filteredList"
-            :key="post.id"
-            :post="post"
-          ></li>
+          <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
         </ul>
       </section>
       <section v-else key="grid">
         <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
         <ul class="imageGrid">
-          <div
-            is="IndexGridItem"
-            v-for="post in filteredList"
-            :key="post.id"
-            :post="post"
-          ></div>
+          <div is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
         </ul>
       </section>
     </transition>
@@ -191,6 +169,7 @@ export default {
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
+    document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
     // SCROLL

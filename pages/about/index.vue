@@ -33,7 +33,7 @@
     </section>
     <section>
       <div class="about-Details about-Details_Left">
-        <p>stay in contact</p>
+        <p>social</p>
       </div>
       <div class="about-Details about-Details_Right">
         <p>
