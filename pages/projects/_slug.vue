@@ -132,8 +132,9 @@ main
   .projectItem
     &-Text
       position: relative
-      p
-        padding: var(--spacing-one) var(--spacing-two)
+      padding-left: var(--spacing-two)
+      padding-right: var(--spacing-two)
+      padding-bottom: var(--spacing-two)
     &-Nav
       position: fixed
       padding: var(--spacing-two)var(--spacing-two)
