@@ -135,6 +135,12 @@ main
       padding-left: var(--spacing-two)
       padding-right: var(--spacing-two)
       padding-bottom: var(--spacing-two)
+      a
+        // text-decoration: none
+        text-decoration-color: var(--support-color)
+        // color: var(--support-type)
+        // background: var(--support-color)
+        // border-bottom: 1px solid var(--type)
     &-Nav
       position: fixed
       padding: var(--spacing-two)var(--spacing-two)
