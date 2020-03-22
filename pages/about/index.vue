@@ -22,6 +22,15 @@
     </section>
     <section>
       <div class="about-Details about-Details_Left">
+        <p>
+          awards &
+          <br />features
+        </p>
+      </div>
+      <markdown-item :input="story.content.awards" class="about-Details about-Details_Right" />
+    </section>
+    <section>
+      <div class="about-Details about-Details_Left">
         <p>contact</p>
       </div>
       <div class="about-Details about-Details_Right">
