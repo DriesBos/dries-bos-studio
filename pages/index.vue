@@ -36,6 +36,7 @@
         </li>
       </ul>
     </section>
+
     <transition name="view" mode="out-in">
       <section v-if="viewState" key="list">
         <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
@@ -57,6 +58,7 @@
 import IndexListItem from "~/components/IndexListItem.vue"
 import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
+import { gsap } from "gsap"
 import JQuery from "jquery"
 let $ = JQuery
 

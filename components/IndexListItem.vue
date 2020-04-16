@@ -1,20 +1,13 @@
 <template>
   <li :key="post.id" :id="post.id" class="listItem listItem_Project">
-    <nuxt-link
-      :to="`/projects/${post.id}`"
-      class="listItem-DetailsWrapper"
-      tag="div"
-    >
+    <nuxt-link :to="`/projects/${post.id}`" class="listItem-DetailsWrapper" tag="div">
       <div class="listItem-Year listItem-Details ellipsis">
         <p title="project year">{{ post.year || "" }}</p>
       </div>
       <div v-if="post.title" class="listItem-Title listItem-Details ellipsis">
         <p title="project title">{{ post.title || "" }}</p>
       </div>
-      <div
-        v-if="post.category"
-        class="listItem-Category listItem-Details ellipsis"
-      >
+      <div v-if="post.category" class="listItem-Category listItem-Details ellipsis">
         <p title="project category">{{ post.category || "" }}</p>
       </div>
       <div class="listItem-Icons">
