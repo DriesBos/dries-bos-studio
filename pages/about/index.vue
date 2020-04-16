@@ -5,29 +5,20 @@
       <div class="about-Details about-Details_Left">
         <p>short</p>
       </div>
-      <markdown-item
-        :input="story.content.short"
-        class="about-Details about-Details_Right"
-      />
+      <markdown-item :input="story.content.short" class="about-Details about-Details_Right" />
     </section>
     <section>
       <div class="spaceForm"></div>
       <div class="about-Details about-Details_Left">
         <p>long</p>
       </div>
-      <markdown-item
-        :input="story.content.long"
-        class="about-Details about-Details_Right"
-      />
+      <markdown-item :input="story.content.long" class="about-Details about-Details_Right" />
     </section>
     <section>
       <div class="about-Details about-Details_Left">
         <p>services</p>
       </div>
-      <markdown-item
-        :input="story.content.services"
-        class="about-Details about-Details_Right"
-      />
+      <markdown-item :input="story.content.services" class="about-Details about-Details_Right" />
     </section>
     <section>
       <div class="about-Details about-Details_Left">
@@ -36,10 +27,7 @@
           <br />features
         </p>
       </div>
-      <markdown-item
-        :input="story.content.awards"
-        class="about-Details about-Details_Right"
-      />
+      <markdown-item :input="story.content.awards" class="about-Details about-Details_Right" />
     </section>
     <section>
       <div class="about-Details about-Details_Left">
@@ -47,9 +35,7 @@
       </div>
       <div class="about-Details about-Details_Right">
         <p>
-          <a class="slideIn" href="mailto:info@driesbos.com"
-            >info@driesbos.com</a
-          >,
+          <a class="slideIn" href="mailto:info@driesbos.com">info@driesbos.com</a>,
           <a class="slideIn" href="tel:0031636101262">+31(0)636101262</a>
         </p>
       </div>
@@ -60,14 +46,11 @@
       </div>
       <div class="about-Details about-Details_Right">
         <p>
-          <a class="slideIn" href="https://instagram.com/driesbosstudio"
-            >Instagram</a
-          >, <a class="slideIn" href="https://behance.net/driesbos">Behance</a>,
+          <a class="slideIn" href="https://instagram.com/driesbosstudio">Instagram</a>,
+          <a class="slideIn" href="https://behance.net/driesbos">Behance</a>,
           <a class="slideIn" href="https://codepen.io/driesbos">Codepen</a>,
           <a class="slideIn" href="https://github.com/DriesBos">GitHub</a>,
-          <a class="slideIn" href="https://linkedin.com/in/dries-bos"
-            >LinkedIn</a
-          >
+          <a class="slideIn" href="https://linkedin.com/in/dries-bos">LinkedIn</a>
         </p>
       </div>
     </section>
@@ -114,7 +97,7 @@ export default {
   mounted() {
     gsap.to(".slideIn", {
       "--var-about": "100%",
-      duration: 0.3,
+      duration: 0.66,
       delay: 0.1,
       ease: "ease"
     })
@@ -165,8 +148,9 @@ main
             border-bottom: 1px solid var(--support-type)
           &:hover
             &:after
-              animation: hyperHyperLink .6s ease
-              animation-iteration-count: 1
+              @media ( hover: hover )
+                animation: hyperHyperLink .66s ease
+                animation-iteration-count: 1
         &_Left
           flex-basis: calc(100% * .25)
           padding-left: var(--spacing-two)

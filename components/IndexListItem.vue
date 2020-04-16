@@ -37,6 +37,15 @@ export default {
       duration: 1,
       stagger: 0.1
     })
+    window.addEventListener("load", event => {
+      document.querySelector(".listItem").style.opacity = 1
+    })
+  },
+  methods: {
+    // setListItemOpacity() {
+    //   this.document.querySelector(".listItem").style.opacity = 1
+    //   // console.log("SET", document.getElementsByClassName("listItem"))
+    // }
   }
 }
 </script>

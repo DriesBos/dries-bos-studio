@@ -58,7 +58,6 @@
 import IndexListItem from "~/components/IndexListItem.vue"
 import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
-import { gsap } from "gsap"
 import JQuery from "jquery"
 let $ = JQuery
 
