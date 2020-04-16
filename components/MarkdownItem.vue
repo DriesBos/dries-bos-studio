@@ -30,7 +30,7 @@ export default {
   mounted() {
     gsap.to(".markdown", {
       "--var": "100%",
-      duration: 0.66,
+      duration: 0.3,
       stagger: 1,
       ease: "ease"
     })
@@ -61,6 +61,6 @@ export default {
       border-bottom: 1px solid var(--support-color)
     &:hover
       &:after
-        animation: hyperHyperLink .66s ease
+        animation: hyperHyperLink .6s ease
         animation-iteration-count: 1
 </style>

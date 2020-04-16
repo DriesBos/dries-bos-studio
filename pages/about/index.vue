@@ -114,7 +114,7 @@ export default {
   mounted() {
     gsap.to(".slideIn", {
       "--var-about": "100%",
-      duration: 0.66,
+      duration: 0.3,
       delay: 0.1,
       ease: "ease"
     })
@@ -165,7 +165,7 @@ main
             border-bottom: 1px solid var(--support-type)
           &:hover
             &:after
-              animation: hyperHyperLink .66s ease
+              animation: hyperHyperLink .6s ease
               animation-iteration-count: 1
         &_Left
           flex-basis: calc(100% * .25)
