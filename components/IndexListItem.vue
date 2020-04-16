@@ -1,13 +1,20 @@
 <template>
   <li :key="post.id" :id="post.id" class="listItem listItem_Project">
-    <nuxt-link :to="`/projects/${post.id}`" class="listItem-DetailsWrapper" tag="div">
+    <nuxt-link
+      :to="`/projects/${post.id}`"
+      class="listItem-DetailsWrapper"
+      tag="div"
+    >
       <div class="listItem-Year listItem-Details ellipsis">
-        <p title="project year">{{ post.year || ""}}</p>
+        <p title="project year">{{ post.year || "" }}</p>
       </div>
       <div v-if="post.title" class="listItem-Title listItem-Details ellipsis">
         <p title="project title">{{ post.title || "" }}</p>
       </div>
-      <div v-if="post.category" class="listItem-Category listItem-Details ellipsis">
+      <div
+        v-if="post.category"
+        class="listItem-Category listItem-Details ellipsis"
+      >
         <p title="project category">{{ post.category || "" }}</p>
       </div>
       <div class="listItem-Icons">
@@ -24,10 +31,19 @@
 </template>
 
 <script>
+import { gsap } from "gsap"
+
 export default {
   name: "IndexListItem",
   props: {
     post: Object
+  },
+  mounted() {
+    gsap.to(".listItem", {
+      opacity: 1,
+      duration: 1,
+      stagger: 0.1
+    })
   }
 }
 </script>
@@ -49,6 +65,7 @@ export default {
     align-items: center
     justify-content: space-between
     min-height: 0
+    opacity: 0
     &-DetailsWrapper
       display: flex
       flex-grow: 1
