@@ -1,5 +1,5 @@
 <template>
-  <header class="header header-Normal">
+  <header class="header">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
         <span title="that's me!">Dries</span>
@@ -23,33 +23,6 @@
           <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
         </nuxt-link>
       </li>
-      <nuxt-link
-        v-if="this.$route.name === 'index'"
-        to="/about"
-        class="header-Profile"
-        tag="li"
-        title="about me"
-      >
-        <p>about</p>
-      </nuxt-link>
-      <li v-if="this.$route.name === 'index'" class="header-Space" @click="toggleTheSpace">
-        <div class="icon space">
-          <svg viewBox="0 0 25 25">
-            <g fill="currentColor" fill-rule="evenodd">
-              <path
-                d="M19,23.75 L14.41625,21.909375 C15.2475,20.0925 15.84125,18.21625 16.209375,16.304375 L19,23.75 M4.58375,21.909375 L0,23.75 L2.790625,16.304375 C3.15875,18.21625 3.7525,20.0925 4.58375,21.909375 M9.5,0 C9.5,0 15.4375,2.375 15.4375,11.875 C15.4375,15.55625 14.546875,18.703125 13.454375,21.173125 C13.0625,22.028125 12.219375,22.5625 11.28125,22.5625 L7.71875,22.5625 C6.780625,22.5625 5.9375,22.028125 5.545625,21.173125 C4.465,18.703125 3.5625,15.55625 3.5625,11.875 C3.5625,2.375 9.5,0 9.5,0 M9.5,11.875 C10.80625,11.875 11.875,10.80625 11.875,9.5 C11.875,8.19375 10.80625,7.125 9.5,7.125 C8.19375,7.125 7.125,8.19375 7.125,9.5 C7.125,10.80625 8.19375,11.875 9.5,11.875 Z"
-                transform="translate(15.500000, 9.402796) rotate(45.000000) translate(-15.500000, -9.402796) translate(6.000000, -2.597204)"
-                fill-rule="nonzero"
-              />
-              <path
-                id="fireIcon"
-                d="M2.40621997,17.0798105 L6.40621997,17.0798105 L7.26618602,24.0056373 C5.96079715,20.8838854 4.99046103,19.3272067 4.35517766,19.3356011 C3.71989429,19.3439955 2.81910657,20.9253986 1.65281451,24.0798105 L2.40621997,17.0798105 Z"
-                transform="translate(4.459500, 20.579810) rotate(45.000000) translate(-4.459500, -20.579810)"
-              />
-            </g>
-          </svg>
-        </div>
-      </li>
       <li
         v-if="this.$route.name === 'index'"
         @click="toggleTheView"
@@ -71,6 +44,41 @@
           <div class="header-Theme_Half"></div>
         </div>
       </li>
+      <li v-if="this.$route.name === 'index'" class="header-Space" @click="toggleTheSpace">
+        <div class="icon space">
+          <svg viewBox="0 0 25 25">
+            <g fill="currentColor" fill-rule="evenodd">
+              <path
+                d="M19,23.75 L14.41625,21.909375 C15.2475,20.0925 15.84125,18.21625 16.209375,16.304375 L19,23.75 M4.58375,21.909375 L0,23.75 L2.790625,16.304375 C3.15875,18.21625 3.7525,20.0925 4.58375,21.909375 M9.5,0 C9.5,0 15.4375,2.375 15.4375,11.875 C15.4375,15.55625 14.546875,18.703125 13.454375,21.173125 C13.0625,22.028125 12.219375,22.5625 11.28125,22.5625 L7.71875,22.5625 C6.780625,22.5625 5.9375,22.028125 5.545625,21.173125 C4.465,18.703125 3.5625,15.55625 3.5625,11.875 C3.5625,2.375 9.5,0 9.5,0 M9.5,11.875 C10.80625,11.875 11.875,10.80625 11.875,9.5 C11.875,8.19375 10.80625,7.125 9.5,7.125 C8.19375,7.125 7.125,8.19375 7.125,9.5 C7.125,10.80625 8.19375,11.875 9.5,11.875 Z"
+                transform="translate(15.500000, 9.402796) rotate(45.000000) translate(-15.500000, -9.402796) translate(6.000000, -2.597204)"
+                fill-rule="nonzero"
+              />
+              <path
+                id="fireIcon"
+                d="M2.40621997,17.0798105 L6.40621997,17.0798105 L7.26618602,24.0056373 C5.96079715,20.8838854 4.99046103,19.3272067 4.35517766,19.3356011 C3.71989429,19.3439955 2.81910657,20.9253986 1.65281451,24.0798105 L2.40621997,17.0798105 Z"
+                transform="translate(4.459500, 20.579810) rotate(45.000000) translate(-4.459500, -20.579810)"
+              />
+            </g>
+          </svg>
+        </div>
+      </li>
+      <nuxt-link
+        v-if="this.$route.name === 'index'"
+        to="/about"
+        class="header-Profile"
+        tag="li"
+        title="about me"
+      >
+        <div class="icon profile">
+          <svg viewBox="0 0 25 25">
+            <path
+              d="M12.25,0 C13.625,0 14.75,1.125 14.75,2.5 C14.75,3.875 13.625,5 12.25,5 C10.875,5 9.75,3.875 9.75,2.5 C9.75,1.125 10.875,0 12.25,0 Z M23.5,8.75 L16,8.75 L16,25 L13.5,25 L13.5,17.5 L11,17.5 L11,25 L8.5,25 L8.5,8.75 L1,8.75 L1,6.25 L23.5,6.25 L23.5,8.75 Z"
+              fill="currentColor"
+              fill-rule="nonzero"
+            />
+          </svg>
+        </div>
+      </nuxt-link>
     </ul>
   </header>
 </template>
@@ -196,35 +204,27 @@ export default {
       cursor: pointer
     li:first-child
       padding-left: var(--spacing-two)
-      flex-grow: 1
-      flex-shrink: 0
     li:last-child
       padding-right: var(--spacing-two)
-  &-Logo_Capitalize
+  &-Logo
+    flex-grow: 1
+    flex-shrink: 0
     text-transform: capitalize
-  &-Space
-    @media screen and ( max-width: $breakpoint-tablet)
-      display: none
-    #fireIcon
-      opacity: 0
-    &:hover
-      @media ( hover: hover )
-        animation: vibrate .3s infinite
-        #fireIcon
-          animation: flicker .1s infinite
-          opacity: 1
   &-Toggle
     position: relative
     height: 100%
-    border-radius: 1000px
+    border-radius: 25px
     display: inline-flex
-    min-height: 24px
     border: 1px solid var(--type)
+    box-sizing: border-box
     background: var(--background-color)
+    overflow: hidden
     &_Item
       padding-left: 30px
       padding-right: 30px
-      border-radius: 1000px
+      @media screen and ( max-width: $breakpoint-tablet)
+        padding-left: 17px
+        padding-right: 17px
       p
         line-height: 1
         transform: translateY(3px)
@@ -241,23 +241,18 @@ export default {
       bottom: 0
       width: 50%
       background: var(--support-color)
-      border-radius: 1000px
+      border-radius: 25px
       transform: translateX(0)
       transition: all .23s ease-out
       &.active
         transform: translateX(-100%)
-  &-Profile
-    &:hover
-      @media ( hover: hover )
-        transition: color $transition-hover
-        color: var(--support-color)
   &-Theme
     position: relative
     background: var(--support-color)
     height: 100%
     min-height: 24px // Prevents collapse when single item in a row
     border: 1px solid var(--type)
-    width: 1.495em
+    width: 1.6rem
     border-radius: 1000px
     overflow: hidden
     transition: transform .11s ease-in
@@ -274,51 +269,53 @@ export default {
       background: var(--background-color)
       transform: rotate(-45deg)
       transform-origin: 100% 50%
+  &-Space
+    @media screen and ( max-width: $breakpoint-tablet)
+      display: none
+    #fireIcon
+      opacity: 0
+    &:hover
+      @media ( hover: hover )
+        animation: vibrate .3s infinite
+        #fireIcon
+          animation: flicker .1s infinite
+          opacity: 1
+  &-Profile
+    &:hover
+      @media ( hover: hover )
+        transition: color $transition-hover
+        color: var(--support-color)
   &-Normal
-    z-index: +2
+    z-index: +5
     color: var(--type)
   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
     isolation: isolate
-    z-index: +3
+    z-index: +6
     pointer-events: none
+    li
+      opacity: 0
     @media screen and ( max-width: 850px)
       display: none
-    ul
       position: absolute
       top: 0
       left: 0
       right: 0
-    li
-      padding: 0 !important
-      margin-top: var(--spacing-two)
-      margin-bottom: var(--spacing-two)
-      margin-left: var(--spacing-one)
-      margin-right: var(--spacing-one)
-      isolation: isolate
-    li:nth-child(1)
-      opacity: 0
-    li:nth-child(2)
-      background: white
-      border-radius: 1000px
-      &.active
-        color: var(--support-type)
-        background: var(--support-color)
-    li:nth-child(3)
-      margin-right: var(--spacing-two)
-      background: white
-      border-radius: 1000px
-      pointer-events: auto
-      .header-Theme
-        transition: transform .11s ease-in
-        &:hover
-          @media ( hover: hover )
-            transform: rotate(180deg)
 .spaced
   .header-Normal
     color: white
     mix-blend-mode: difference
-    a, p, h1, input, svg
+    a, p, h1, input, svg,
       color: white
+    .header-Theme, .header-Toggle
+      border: 1px solid white
+  .header-Pseudo
+    li:nth-child(2)
+      opacity: 1
+    li:nth-child(3)
+      opacity: 1
+    .header-Toggle, .header-Theme
+      border: 1px solid rgba(0,0,0,0)
+
 @keyframes vibrate
   0%
     transform: translateX(-1%)

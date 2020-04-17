@@ -4,14 +4,14 @@
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
-    <the-navigation @toggleTheme="changeTheme" />
-    <the-pseudo-navigation @toggleTheme="changeTheme" />
+    <!-- Two headers. One without mix-blend-mode -->
+    <the-navigation @toggleTheme="changeTheme" class="header-Normal" />
+    <the-navigation @toggleTheme="changeTheme" class="header-Pseudo" />
   </main>
 </template>
 
 <script>
 import TheNavigation from "~/components/TheNavigation.vue"
-import ThePseudoNavigation from "~/components/ThePseudoNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
 import { mapState } from "vuex"
 import JQuery from "jquery"
@@ -20,7 +20,6 @@ let $ = JQuery
 export default {
   components: {
     "the-navigation": TheNavigation,
-    "the-pseudo-navigation": ThePseudoNavigation,
     "the-notifications": TheNotifications
   },
   data() {
