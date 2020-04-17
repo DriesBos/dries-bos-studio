@@ -53,7 +53,7 @@ main
     flex-shrink: 0
     // border-top: 1px solid blue
     border-bottom: 0px solid var(--type)
-    background: var(--background-color)
+    // background: var(--background-color)
     transition: border-bottom $transition-theme, background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
     .spaceForm
       position: absolute
@@ -137,9 +137,13 @@ main.about
   .view-About section
     border-bottom: 1px solid var(--support-type)
 
+#floatBlock
+  background: var(--background-color)
+
 .imageGrid
   min-height: 0
   z-index: -1
+  background-color: var(--background-color)
   .imageGrid-Item
     margin-bottom: 0
     transition: margin-bottom $transition-space-vertical
@@ -151,7 +155,6 @@ main.about
   &-Item
     width: 100%
     min-height: 0
-
     display: flex
     flex-direction: column
     align-items: center
@@ -206,6 +209,9 @@ main.about
       width: 100%
 .spaced
   .imageGrid
+    margin-bottom: var(--spacing-two)
+    background-color: rgba(0,0,0,0)
+    .imageGrid-Item
     @media screen and ( min-width: $breakpoint-mobile)
       li:nth-child(1)
         .imageGrid-Item_Wrapper

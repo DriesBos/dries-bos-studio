@@ -135,6 +135,7 @@ main
       padding-left: var(--spacing-two)
       padding-right: var(--spacing-two)
       padding-bottom: var(--spacing-two)
+      background: var(--background-color)
     &-Nav
       position: fixed
       padding: var(--spacing-two)var(--spacing-two)

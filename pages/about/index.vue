@@ -98,7 +98,7 @@ export default {
     gsap.to(".slideIn", {
       "--var-about": "100%",
       duration: 0.66,
-      delay: 0.33,
+      delay: 0.165,
       ease: "ease"
     })
     window.scrollTo(0, 0)

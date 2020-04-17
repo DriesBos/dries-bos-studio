@@ -68,6 +68,7 @@ export default {
     justify-content: space-between
     min-height: 0
     opacity: 0
+    background: var(--background-color)
     &-DetailsWrapper
       display: flex
       flex-grow: 1
