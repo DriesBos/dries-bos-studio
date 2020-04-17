@@ -12,7 +12,7 @@
     position: fixed
     top: 0
     right: 0
-    z-index: +5 // 1 higher than header for mouse interaction
+    z-index: +7 // 1 higher than header for mouse interaction
     padding: var(--spacing-two)
 
 .close-Navigation_Blend

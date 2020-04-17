@@ -21,10 +21,10 @@
       >
         <div class="header-Toggle hovered">
           <div class="header-Toggle_Toggler" :class="{ active: viewState }"></div>
-          <div class="header-Toggle_Item" :class="{ active: viewState }">
+          <div class="header-Toggle_Item hovered" :class="{ active: viewState }">
             <p>text</p>
           </div>
-          <div class="header-Toggle_Item" :class="{ active: !viewState }">
+          <div class="header-Toggle_Item hovered" :class="{ active: !viewState }">
             <p>img</p>
           </div>
         </div>
@@ -35,13 +35,13 @@
         class="hovered"
         title="change theme"
       >
-        <div class="header-Theme">
-          <div class="header-Theme_Half"></div>
+        <div class="header-Theme hovered">
+          <div class="header-Theme_Half hovered"></div>
         </div>
       </li>
       <li v-if="this.$route.name === 'index'" class="header-Space" @click="toggleTheSpace">
         <div class="icon space hovered">
-          <svg viewBox="0 0 25 25">
+          <svg class="hovered" viewBox="0 0 25 25">
             <g fill="currentColor" fill-rule="evenodd">
               <path
                 d="M19,23.75 L14.41625,21.909375 C15.2475,20.0925 15.84125,18.21625 16.209375,16.304375 L19,23.75 M4.58375,21.909375 L0,23.75 L2.790625,16.304375 C3.15875,18.21625 3.7525,20.0925 4.58375,21.909375 M9.5,0 C9.5,0 15.4375,2.375 15.4375,11.875 C15.4375,15.55625 14.546875,18.703125 13.454375,21.173125 C13.0625,22.028125 12.219375,22.5625 11.28125,22.5625 L7.71875,22.5625 C6.780625,22.5625 5.9375,22.028125 5.545625,21.173125 C4.465,18.703125 3.5625,15.55625 3.5625,11.875 C3.5625,2.375 9.5,0 9.5,0 M9.5,11.875 C10.80625,11.875 11.875,10.80625 11.875,9.5 C11.875,8.19375 10.80625,7.125 9.5,7.125 C8.19375,7.125 7.125,8.19375 7.125,9.5 C7.125,10.80625 8.19375,11.875 9.5,11.875 Z"
@@ -104,6 +104,14 @@ export default {
     }
   },
   methods: {
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("interact")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("interact")
+    },
     toggleTheme() {
       this.$emit("toggleTheme")
     },
@@ -173,9 +181,13 @@ export default {
   },
   mounted() {
     this.processedSlug()
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
   },
   destroyed() {
+    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
   }
 }
@@ -188,6 +200,7 @@ export default {
   top: 0
   left: 0
   right: 0
+  pointer-events: none
   ul
     display: flex
     flex-wrap: wrap
@@ -196,6 +209,7 @@ export default {
       padding-bottom: var(--spacing-two)
       padding-left: var(--spacing-one)
       padding-right: var(--spacing-one)
+      pointer-events: auto
     li:first-child
       padding-left: var(--spacing-two)
     li:last-child
@@ -204,6 +218,9 @@ export default {
     flex-grow: 1
     flex-shrink: 0
     text-transform: capitalize
+    pointer-events: none
+    span
+      pointer-events: auto
   &-Toggle
     position: relative
     height: 1.495em // Prevents collapse when single item in a row
