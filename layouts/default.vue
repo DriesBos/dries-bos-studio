@@ -69,7 +69,7 @@ export default {
       }
     },
     changeTheme() {
-      if (this.themeNumber < 3) {
+      if (this.themeNumber < 2) {
         this.themeNumber++
       } else {
         this.themeNumber = 0
@@ -86,12 +86,6 @@ export default {
         $("body").removeClass("two")
         $("body").addClass("three")
         $("body").removeClass("four")
-      } else if (this.themeNumber === 3) {
-        this.currentTheme = "four"
-        $("body").removeClass("one")
-        $("body").removeClass("two")
-        $("body").removeClass("three")
-        $("body").addClass("four")
       } else {
         this.currentTheme = "One"
         $("body").addClass("one")
