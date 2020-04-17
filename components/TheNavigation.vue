@@ -273,6 +273,7 @@ export default {
     border-radius: 1000px
     overflow: hidden
     transition: transform .11s ease-in
+    pointer-events: auto
     &:hover
       @media ( hover: hover )
         transform: rotate(180deg)
@@ -287,6 +288,7 @@ export default {
       transform: rotate(-45deg)
       transform-origin: 100% 50%
   &-Space
+    pointer-events: auto
     @media screen and ( max-width: $breakpoint-tablet)
       display: none
     #fireIcon
@@ -298,6 +300,7 @@ export default {
           animation: flicker .1s infinite
           opacity: 1
   &-Profile
+    pointer-events: auto
     &:hover
       @media ( hover: hover )
         transition: color $transition-hover
@@ -309,8 +312,9 @@ export default {
     isolation: isolate
     z-index: +6
     pointer-events: none
-    li
+    li:nth-child(1), li:nth-child(4), li:nth-child(5)
       opacity: 0
+      pointer-events: none
     @media screen and ( max-width: 850px)
       display: none
       position: absolute
