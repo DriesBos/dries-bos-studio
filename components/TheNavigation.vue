@@ -13,17 +13,6 @@
         </span>
       </nuxt-link>
       <li
-        v-if="
-          this.$route.name === 'projects-slug' || this.$route.name === 'about'
-        "
-        class="header-Close"
-        title="close project"
-      >
-        <nuxt-link to="/">
-          <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
-        </nuxt-link>
-      </li>
-      <li
         v-if="this.$route.name === 'index'"
         @click="toggleTheView"
         :class="{ active: viewState }"

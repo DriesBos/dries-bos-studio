@@ -7,10 +7,16 @@
     <!-- Two headers. One without mix-blend-mode -->
     <the-navigation @toggleTheme="changeTheme" class="header-Normal" />
     <the-navigation @toggleTheme="changeTheme" class="header-Pseudo" />
+    <the-close-navigation
+      v-if="this.$route.name === 'projects-slug'"
+      class="close-Navigation_Blend"
+    />
+    <the-close-navigation v-if="this.$route.name === 'about'" class="close-Navigation_Normal" />
   </main>
 </template>
 
 <script>
+import TheCloseNavigation from "~/components/TheCloseNavigation.vue"
 import TheNavigation from "~/components/TheNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
 import { mapState } from "vuex"
@@ -19,6 +25,7 @@ let $ = JQuery
 
 export default {
   components: {
+    "the-close-navigation": TheCloseNavigation,
     "the-navigation": TheNavigation,
     "the-notifications": TheNotifications
   },
