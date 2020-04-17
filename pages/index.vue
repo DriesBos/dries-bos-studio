@@ -6,21 +6,21 @@
         <li class="listItem listItem_Filter">
           <div class="listItem-DetailsWrapper">
             <div
-              class="listItem-Year listItem-Details"
+              class="listItem-Year listItem-Details hovered"
               :class="{ active: sortByYear }"
               @click="sortYear"
             >
               <p title="sort by year">year</p>
             </div>
             <div
-              class="listItem-Title listItem-Details"
+              class="listItem-Title listItem-Details hovered"
               :class="{ active: sortByTitle }"
               @click="sortTitle"
             >
               <p title="sort by project">project</p>
             </div>
             <div
-              class="listItem-Category listItem-Details"
+              class="listItem-Category listItem-Details hovered"
               :class="{ active: sortByCategory }"
               @click="sortCategory"
             >

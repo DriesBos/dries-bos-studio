@@ -1,5 +1,5 @@
 <template>
-  <li :key="post.id" :id="post.id" class="listItem listItem_Project">
+  <li :key="post.id" :id="post.id" class="listItem listItem_Project hovered">
     <nuxt-link :to="`/projects/${post.id}`" class="listItem-DetailsWrapper" tag="div">
       <div class="listItem-Year listItem-Details ellipsis">
         <p title="project year">{{ post.year || "" }}</p>
@@ -77,7 +77,6 @@ export default {
       flex-shrink: 0
       flex-basis: calc(100% * .25)
       padding-bottom: var(--spacing-one)
-      cursor: pointer
       min-height: 0
       padding-left: var(--spacing-one)
       padding-top: var(--spacing-one)
@@ -106,13 +105,11 @@ export default {
         display: flex
         align-items: center
         justify-content: center
-        cursor: pointer
         height: 100%
         padding-left: var(--spacing-two)
         padding-right: var(--spacing-two)
         color: var(--type)
     &_Project
-      cursor: pointer
       border-bottom: 1px solid var(--type)
       &:first-child
         border-top: 1px solid var(--type)

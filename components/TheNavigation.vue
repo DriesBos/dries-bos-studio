@@ -2,14 +2,15 @@
   <header class="header">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
-        <span title="that's me!">Dries</span>
+        <span class="hovered" title="that's me!">Dries</span>
         <span
+          class="hovered"
           v-if="this.$route.name === 'index'"
           title="that's me!"
         >Bos — Web & Interaction Development</span>
-        <span v-if="this.$route.name === 'projects-slug'" title="me and ...">
+        <span class="hovered" v-if="this.$route.name === 'projects-slug'" title="me and ...">
           and
-          <span class="header-Logo_Capitalize">{{ slug }}</span>
+          <span class="header-Logo_Capitalize hovered">{{ slug }}</span>
         </span>
       </nuxt-link>
       <li
@@ -18,7 +19,7 @@
         :class="{ active: viewState }"
         title="toggle text & images"
       >
-        <div class="header-Toggle">
+        <div class="header-Toggle hovered">
           <div class="header-Toggle_Toggler" :class="{ active: viewState }"></div>
           <div class="header-Toggle_Item" :class="{ active: viewState }">
             <p>text</p>
@@ -28,13 +29,18 @@
           </div>
         </div>
       </li>
-      <li v-if="this.$route.name === 'index'" @click="toggleTheme" title="change theme">
+      <li
+        v-if="this.$route.name === 'index'"
+        @click="toggleTheme"
+        class="hovered"
+        title="change theme"
+      >
         <div class="header-Theme">
           <div class="header-Theme_Half"></div>
         </div>
       </li>
       <li v-if="this.$route.name === 'index'" class="header-Space" @click="toggleTheSpace">
-        <div class="icon space">
+        <div class="icon space hovered">
           <svg viewBox="0 0 25 25">
             <g fill="currentColor" fill-rule="evenodd">
               <path
@@ -58,7 +64,7 @@
         tag="li"
         title="about me"
       >
-        <div class="icon profile">
+        <div class="icon profile hovered">
           <svg viewBox="0 0 25 25">
             <path
               d="M12.25,0 C13.625,0 14.75,1.125 14.75,2.5 C14.75,3.875 13.625,5 12.25,5 C10.875,5 9.75,3.875 9.75,2.5 C9.75,1.125 10.875,0 12.25,0 Z M23.5,8.75 L16,8.75 L16,25 L13.5,25 L13.5,17.5 L11,17.5 L11,25 L8.5,25 L8.5,8.75 L1,8.75 L1,6.25 L23.5,6.25 L23.5,8.75 Z"
@@ -190,7 +196,6 @@ export default {
       padding-bottom: var(--spacing-two)
       padding-left: var(--spacing-one)
       padding-right: var(--spacing-one)
-      cursor: pointer
     li:first-child
       padding-left: var(--spacing-two)
     li:last-child

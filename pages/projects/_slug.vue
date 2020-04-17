@@ -7,7 +7,7 @@
     <nuxt-link
       v-if="story.content.prev_link.id !== ''"
       :to="`/${story.content.prev_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Prev"
+      class="projectItem-Nav projectItem-Nav_Prev hovered"
       title="previous project"
     >
       <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
@@ -15,7 +15,7 @@
     <nuxt-link
       v-if="story.content.next_link.id !== ''"
       :to="`/${story.content.next_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Next"
+      class="projectItem-Nav projectItem-Nav_Next hovered"
       title="next project"
     >
       <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
@@ -169,12 +169,16 @@ main
       @media screen and ( max-width: $breakpoint-mobile)
         bottom: 0
         padding: var(--spacing-four)var(--spacing-two)
-
+      &:hover
+        mix-blend-mode: initial
+        .icon
+          svg
+            color: var(--support-color)
       .icon
         width: 2.5em
         opacity: 1
         svg
-          color: white !important
+          color: white
           opacity: 1
       &_Prev
         left: 0

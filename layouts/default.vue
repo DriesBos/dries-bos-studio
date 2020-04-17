@@ -12,6 +12,7 @@
       class="close-Navigation_Blend"
     />
     <the-close-navigation v-if="this.$route.name === 'about'" class="close-Navigation_Normal" />
+    <div class="cursor" />
   </main>
 </template>
 
@@ -21,6 +22,7 @@ import TheNavigation from "~/components/TheNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
 import { mapState } from "vuex"
 import JQuery from "jquery"
+import gsap from "gsap"
 let $ = JQuery
 
 export default {
@@ -43,18 +45,24 @@ export default {
   },
   mounted() {
     this.checkDarkMode()
+    this.customCursor()
     this.checkAboutPage()
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
+    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   watch: {
     $route() {
+      this.removeChangeCursor()
       if (this.$route.name === "about" && this.spaceState === false) {
         this.isAboutPage = true
         $("body").addClass("about")
@@ -65,6 +73,23 @@ export default {
     }
   },
   methods: {
+    checkDarkMode() {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        this.themeNumber = 2
+        this.currentTheme = "three"
+        $("body").removeClass("one")
+        $("body").removeClass("two")
+        $("body").addClass("three")
+        $("body").removeClass("four")
+        $("#messages").addClass("activeOne")
+        setTimeout(function() {
+          $("#messages").removeClass("activeOne")
+        }, 2000)
+      }
+    },
     checkAboutPage() {
       if (this.$route.name === "about" && this.spaceState === false) {
         this.isAboutPage = true
@@ -73,6 +98,24 @@ export default {
         this.isAboutPage = false
         $("body").removeClass("about")
       }
+    },
+    customCursor() {
+      let $cursor = $(".cursor")
+      function moveCursor(e) {
+        gsap.to($cursor, 0, {
+          left: e.clientX,
+          top: e.clientY
+        })
+      }
+      $(window).on("mousemove", moveCursor)
+    },
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("interact")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("interact")
     },
     changeTheme() {
       if (this.themeNumber < 2) {
@@ -98,23 +141,6 @@ export default {
         $("body").removeClass("two")
         $("body").removeClass("three")
         $("body").removeClass("four")
-      }
-    },
-    checkDarkMode() {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        this.themeNumber = 2
-        this.currentTheme = "three"
-        $("body").removeClass("one")
-        $("body").removeClass("two")
-        $("body").addClass("three")
-        $("body").removeClass("four")
-        $("#messages").addClass("activeOne")
-        setTimeout(function() {
-          $("#messages").removeClass("activeOne")
-        }, 2000)
       }
     },
     // BROWSER APIS

@@ -30,6 +30,32 @@ img
 img[lazy="loaded"]
   opacity: 1
 
+// CURSOR
+.cursor
+  position: fixed
+  width: 1em
+  height: 1em
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  border-radius: 100px
+  background: var(--support-color)
+  // border: 1px solid var(--support-type)
+  pointer-events: none
+  transition: width $transition-cursor, height $transition-cursor
+  will-change: width, height
+  z-index: 999
+  opacity: 1
+  transition: background .2s ease, width .2s ease, height .2s ease
+  &.interact
+    // display: none
+  @media ( hover: none )
+    display: none
+
+body.about
+  .cursor
+    background: var(--support-type)
+
 // THEME
 body
   background: var(--background-space)
@@ -44,6 +70,7 @@ main
   background: var(--background-space)
   transition: background $transition-theme
   color: var(--type)
+  cursor: none
   p, h1, a, input, svg
     color: var(--type)
   section
@@ -159,7 +186,6 @@ main.about
     border-bottom: 1px solid rgba(0,0,0,0)
     &_Wrapper
       width: 100%
-      cursor: pointer
       transition: width $transition-space-sideways
   @media screen and ( min-width: $breakpoint-mobile)
     li:nth-child(1)

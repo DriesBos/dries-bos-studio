@@ -1,5 +1,5 @@
 <template>
-  <li class="close-Navigation" title="close page">
+  <li class="close-Navigation hovered" title="close page">
     <nuxt-link to="/">
       <div class="icon close" v-html="require('~/assets/images/icon-close.svg?include')"></div>
     </nuxt-link>
@@ -12,10 +12,15 @@
     position: fixed
     top: 0
     right: 0
-    z-index: +2
+    z-index: +5 // 1 higher than header for mouse interaction
     padding: var(--spacing-two)
-    &_Blend
-      mix-blend-mode: difference
-      svg
-        color: white
+
+.close-Navigation_Blend
+  mix-blend-mode: difference
+  svg
+    color: white
+  &:hover
+    mix-blend-mode: initial
+    svg
+      color: var(--support-color)
 </style>
