@@ -236,18 +236,13 @@ export default {
     background: var(--background-color)
     overflow: hidden
     &_Item
-      padding-left: 30px
-      padding-right: 30px
-      @media screen and ( max-width: $breakpoint-tablet)
-        padding-left: 17px
-        padding-right: 17px
+      padding-left: 1.4em
+      padding-right: 1.4em
       p
         line-height: 1
-        transform: translateY(0.182em)
+        transform: translateY(0.165em)
         color: var(--type)
         transition: all .23s ease
-        @media screen and ( max-width: $breakpoint-tablet)
-          transform: translateY(0.15em)
       &.active
         color: var(--support-type)
         p
