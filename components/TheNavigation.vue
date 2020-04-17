@@ -307,14 +307,14 @@ export default {
     a, p, h1, input, svg,
       color: white
     .header-Theme, .header-Toggle
-      border: 1px solid white
+      border: 1px solid rgba(0,0,0,0)
   .header-Pseudo
     li:nth-child(2)
       opacity: 1
     li:nth-child(3)
       opacity: 1
     .header-Toggle, .header-Theme
-      border: 1px solid rgba(0,0,0,0)
+      border: 1px solid var(--type)
 
 @keyframes vibrate
   0%
