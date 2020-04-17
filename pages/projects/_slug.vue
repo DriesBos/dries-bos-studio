@@ -129,13 +129,13 @@ export default {
     backOnEscape(event) {
       if (event.keyCode === 27) {
         this.$router.push({ name: "index" })
-      } else if (event.keyCode === 39 || event.keyCode === 40) {
+      } else if (event.keyCode === 39) {
         if (this.story.content.next_link.cached_url) {
           this.$router.push({
             path: `/${this.story.content.next_link.cached_url}`
           })
         }
-      } else if (event.keyCode === 37 || event.keyCode === 38) {
+      } else if (event.keyCode === 37) {
         if (this.story.content.prev_link.cached_url) {
           this.$router.push({
             path: `/${this.story.content.prev_link.cached_url}`
