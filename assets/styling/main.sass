@@ -206,57 +206,43 @@ main.about
       width: 100%
 .spaced
   .imageGrid
-    .imageGrid-Item
-      margin-bottom: var(--spacing-two)
-    .imageGrid-Item:first-child
-      margin-top: var(--spacing-two)
     @media screen and ( min-width: $breakpoint-mobile)
       li:nth-child(1)
         .imageGrid-Item_Wrapper
-          width: calc(100% - (2 * #{var(--spacing-two)}))
+          width: 100%
       li:nth-child(2)
         .imageGrid-Item_Wrapper
-          width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
-          margin-right: var(--spacing-two)
+          width: 66.6666%
           align-self: flex-end
       li:nth-child(3)
         .imageGrid-Item_Wrapper
-          width: calc((100% - (4 * #{var(--spacing-two)})) / 3)
+          width: 33.3333%
           align-self: flex-start
-          margin-left: var(--spacing-two)
       li:nth-child(4)
         .imageGrid-Item_Wrapper
-          width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
+          width: 66.6666%
           align-self: flex-start
-          margin-left: var(--spacing-two)
       li:nth-child(5)
         .imageGrid-Item_Wrapper
-          width: calc((100% - (4 * #{var(--spacing-two)})) / 3)
-          margin-right: var(--spacing-two)
+          width: 33.3333%
       li:nth-child(6)
         .imageGrid-Item_Wrapper
-          width: calc(100% - (2 * #{var(--spacing-two)}))
           align-self: center
       li:nth-child(7)
         .imageGrid-Item_Wrapper
-          width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
-          margin-right: var(--spacing-two)
+          width: 66.6666%
           align-self: flex-end
       li:nth-child(8)
         .imageGrid-Item_Wrapper
-          width: calc((100% - (4 * #{var(--spacing-two)})) / 3)
+          width: 33.3333%
           align-self: flex-start
-          margin-left: var(--spacing-two)
       li:nth-child(9)
         .imageGrid-Item_Wrapper
-          width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
-          margin-right: var(--spacing-two)
+          width: 66.6666%
       li:nth-child(10)
         .imageGrid-Item_Wrapper
-          width: calc((((100% - (4 * #{var(--spacing-two)})) / 3) * 2) + #{var(--spacing-two)})
+          width: 66.6666%
           align-self: flex-start
-          margin-left: var(--spacing-two)
       li:nth-child(11)
         .imageGrid-Item_Wrapper
-          width: calc(100% - (2 * #{var(--spacing-two)}))
           align-self: center
