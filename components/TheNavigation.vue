@@ -17,6 +17,7 @@
         v-if="this.$route.name === 'index'"
         @click="toggleTheView"
         :class="{ active: viewState }"
+        class="hovered"
         title="toggle text & images"
       >
         <div class="header-Toggle hovered">
@@ -39,7 +40,7 @@
           <div class="header-Theme_Half hovered"></div>
         </div>
       </li>
-      <li v-if="this.$route.name === 'index'" class="header-Space" @click="toggleTheSpace">
+      <li v-if="this.$route.name === 'index'" class="header-Space hovered" @click="toggleTheSpace">
         <div class="icon space hovered">
           <svg class="hovered" viewBox="0 0 25 25">
             <g fill="currentColor" fill-rule="evenodd">
@@ -60,7 +61,7 @@
       <nuxt-link
         v-if="this.$route.name === 'index'"
         to="/about"
-        class="header-Profile"
+        class="header-Profile hovered"
         tag="li"
         title="about me"
       >
