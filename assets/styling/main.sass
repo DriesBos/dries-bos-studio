@@ -211,7 +211,9 @@ main.about
   .imageGrid
     margin-bottom: var(--spacing-two)
     background-color: rgba(0,0,0,0)
+    width: 100%
     .imageGrid-Item
+      width: 100%
     @media screen and ( min-width: $breakpoint-mobile)
       li:nth-child(1)
         .imageGrid-Item_Wrapper
@@ -237,7 +239,7 @@ main.about
       li:nth-child(7)
         .imageGrid-Item_Wrapper
           width: 66.6666%
-          align-self: flex-end
+          align-self: flex-start
       li:nth-child(8)
         .imageGrid-Item_Wrapper
           width: 33.3333%
@@ -247,8 +249,22 @@ main.about
           width: 66.6666%
       li:nth-child(10)
         .imageGrid-Item_Wrapper
-          width: 66.6666%
+          width: 100%
           align-self: flex-start
       li:nth-child(11)
+        .imageGrid-Item_Wrapper
+          width: 33.3333%
+          align-self: flex-start
+      li:nth-child(12)
+        .imageGrid-Item_Wrapper
+          width: 66.6666%
+          align-self: flex-end
+      li:nth-child(13)
+        .imageGrid-Item_Wrapper
+          align-self: center
+      li:nth-child(14)
+        .imageGrid-Item_Wrapper
+          align-self: center
+      li:nth-child(15)
         .imageGrid-Item_Wrapper
           align-self: center
