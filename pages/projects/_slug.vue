@@ -170,10 +170,11 @@ main
         bottom: 0
         padding: var(--spacing-four)var(--spacing-two)
       &:hover
-        mix-blend-mode: initial
-        .icon
-          svg
-            color: var(--support-color)
+        @media ( hover: none )
+          mix-blend-mode: initial
+          .icon
+            svg
+              color: var(--support-color)
       .icon
         width: 2.5em
         opacity: 1
