@@ -31,8 +31,7 @@ export default {
     gsap.to(".markdown", {
       "--var": "100%",
       duration: 0.66,
-      stagger: 1,
-      delay: 0.1,
+      delay: 0.33,
       ease: "ease"
     })
   }
