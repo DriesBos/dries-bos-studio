@@ -51,9 +51,7 @@ main
     width: 100%
     max-width: 100%
     flex-shrink: 0
-    // border-top: 1px solid blue
     border-bottom: 0px solid var(--type)
-    // background: var(--background-color)
     transition: border-bottom $transition-theme, background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
     .spaceForm
       position: absolute
@@ -143,7 +141,7 @@ main.about
 .imageGrid
   min-height: 0
   z-index: -1
-  background-color: var(--background-color)
+  background: var(--background-color)
   .imageGrid-Item
     margin-bottom: 0
     transition: margin-bottom $transition-space-vertical
@@ -158,113 +156,69 @@ main.about
     display: flex
     flex-direction: column
     align-items: center
+    border-bottom: 1px solid rgba(0,0,0,0)
     &_Wrapper
       width: 100%
       cursor: pointer
       transition: width $transition-space-sideways
-      border-bottom: 1px solid rgba(0,0,0,0)
   @media screen and ( min-width: $breakpoint-mobile)
+    li:nth-child(1)
+      .imageGrid-Item_Wrapper
+        width: 100%
     li:nth-child(2)
       .imageGrid-Item_Wrapper
-        width: calc((100% / 3) * 2)
+        width: 66.6666%
         align-self: flex-end
     li:nth-child(3)
       .imageGrid-Item_Wrapper
-        width: calc(100% / 3)
+        width: 33.3333%
         align-self: flex-start
     li:nth-child(4)
       .imageGrid-Item_Wrapper
-        width: calc((100% / 3) * 2)
+        width: 66.6666%
         align-self: flex-start
     li:nth-child(5)
       .imageGrid-Item_Wrapper
-        width: calc(100% / 3)
-        align-self: flex-end
+        width: 33.3333%
     li:nth-child(6)
       .imageGrid-Item_Wrapper
-        width: 100%
-        align-self: flex-end
+        align-self: center
     li:nth-child(7)
       .imageGrid-Item_Wrapper
-        width: calc((100% / 3) * 2)
-        align-self: flex-end
+        width: 66.6666%
+        align-self: flex-start
     li:nth-child(8)
       .imageGrid-Item_Wrapper
-        width: calc((100% / 3) * 2)
+        width: 33.3333%
         align-self: flex-start
     li:nth-child(9)
       .imageGrid-Item_Wrapper
-        width: calc(100% / 3)
-        align-self: flex-end
+        width: 66.6666%
     li:nth-child(10)
       .imageGrid-Item_Wrapper
-        width: calc((100% / 3) * 2)
-        align-self: flex-end
+        width: 100%
+        align-self: flex-start
     li:nth-child(11)
       .imageGrid-Item_Wrapper
-        width: calc((100% / 3) * 2)
+        width: 33.3333%
         align-self: flex-start
+    li:nth-child(12)
+      .imageGrid-Item_Wrapper
+        width: 66.6666%
+        align-self: flex-end
+    li:nth-child(13)
+      .imageGrid-Item_Wrapper
+        align-self: center
+    li:nth-child(14)
+      .imageGrid-Item_Wrapper
+        align-self: center
+    li:nth-child(15)
+      .imageGrid-Item_Wrapper
+        align-self: center
   @media screen and ( max-width: $breakpoint-mobile)
     li
       width: 100%
 .spaced
   .imageGrid
     margin-bottom: var(--spacing-two)
-    background-color: rgba(0,0,0,0)
-    width: 100%
-    .imageGrid-Item
-      width: 100%
-    @media screen and ( min-width: $breakpoint-mobile)
-      li:nth-child(1)
-        .imageGrid-Item_Wrapper
-          width: 100%
-      li:nth-child(2)
-        .imageGrid-Item_Wrapper
-          width: 66.6666%
-          align-self: flex-end
-      li:nth-child(3)
-        .imageGrid-Item_Wrapper
-          width: 33.3333%
-          align-self: flex-start
-      li:nth-child(4)
-        .imageGrid-Item_Wrapper
-          width: 66.6666%
-          align-self: flex-start
-      li:nth-child(5)
-        .imageGrid-Item_Wrapper
-          width: 33.3333%
-      li:nth-child(6)
-        .imageGrid-Item_Wrapper
-          align-self: center
-      li:nth-child(7)
-        .imageGrid-Item_Wrapper
-          width: 66.6666%
-          align-self: flex-start
-      li:nth-child(8)
-        .imageGrid-Item_Wrapper
-          width: 33.3333%
-          align-self: flex-start
-      li:nth-child(9)
-        .imageGrid-Item_Wrapper
-          width: 66.6666%
-      li:nth-child(10)
-        .imageGrid-Item_Wrapper
-          width: 100%
-          align-self: flex-start
-      li:nth-child(11)
-        .imageGrid-Item_Wrapper
-          width: 33.3333%
-          align-self: flex-start
-      li:nth-child(12)
-        .imageGrid-Item_Wrapper
-          width: 66.6666%
-          align-self: flex-end
-      li:nth-child(13)
-        .imageGrid-Item_Wrapper
-          align-self: center
-      li:nth-child(14)
-        .imageGrid-Item_Wrapper
-          align-self: center
-      li:nth-child(15)
-        .imageGrid-Item_Wrapper
-          align-self: center
+    background: rgba(0,0,0,0)
