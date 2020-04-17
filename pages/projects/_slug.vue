@@ -98,18 +98,29 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story)
     window.scrollTo(0, 0)
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
+    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },
   methods: {
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("interact")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("interact")
+    },
     toggleBlock() {
       let scrollPosition = document.documentElement.scrollTop
       if (scrollPosition > 0) {

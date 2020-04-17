@@ -47,15 +47,11 @@ export default {
     this.checkDarkMode()
     this.customCursor()
     this.checkAboutPage()
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
@@ -108,10 +104,6 @@ export default {
         })
       }
       $(window).on("mousemove", moveCursor)
-    },
-    changeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.addClass("interact")
     },
     removeChangeCursor() {
       let $cursor = $(".cursor")

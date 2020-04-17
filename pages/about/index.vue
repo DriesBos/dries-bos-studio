@@ -60,6 +60,8 @@
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import { gsap } from "gsap"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
@@ -102,14 +104,26 @@ export default {
       ease: "ease"
     })
     window.scrollTo(0, 0)
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("keydown", this.backOnEscape)
   },
   destroyed() {
+    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("keydown", this.backOnEscape)
   },
   methods: {
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("interact")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("interact")
+    },
     toggleBlock() {
       let scrollPosition = document.documentElement.scrollTop
       if (scrollPosition > 0) {

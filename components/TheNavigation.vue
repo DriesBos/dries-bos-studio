@@ -224,6 +224,8 @@ export default {
         transform: translateY(0.182em)
         color: var(--type)
         transition: all .23s ease
+        @media screen and ( max-width: $breakpoint-tablet)
+          transform: translateY(0.17em)
       &.active
         color: var(--support-type)
         p
