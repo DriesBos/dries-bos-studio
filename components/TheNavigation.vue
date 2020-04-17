@@ -201,7 +201,7 @@ export default {
     text-transform: capitalize
   &-Toggle
     position: relative
-    height: 100%
+    height: 1.495em // Prevents collapse when single item in a row
     border-radius: 25px
     display: inline-flex
     border: 1px solid var(--type)
@@ -216,7 +216,7 @@ export default {
         padding-right: 17px
       p
         line-height: 1
-        transform: translateY(3px)
+        transform: translateY(0.182em)
         color: var(--type)
         transition: all .23s ease
       &.active
@@ -238,10 +238,9 @@ export default {
   &-Theme
     position: relative
     background: var(--support-color)
-    height: 100%
-    min-height: 24px // Prevents collapse when single item in a row
+    width: 1.495em
+    height: 1.495em // Prevents collapse when single item in a row
     border: 1px solid var(--type)
-    width: 1.6rem
     border-radius: 1000px
     overflow: hidden
     transition: transform .11s ease-in
