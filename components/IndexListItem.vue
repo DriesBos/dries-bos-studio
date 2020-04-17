@@ -76,10 +76,10 @@ export default {
     &-Details
       flex-shrink: 0
       flex-basis: calc(100% * .25)
-      padding-bottom: var(--spacing-one)
       min-height: 0
       padding-left: var(--spacing-one)
-      padding-top: var(--spacing-one)
+      padding-top: var(--spacing-list)
+      padding-bottom: var(--spacing-list)
       &.active
         a, p, input
           opacity: 1

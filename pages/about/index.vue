@@ -151,8 +151,8 @@ main
       border-bottom: 1px solid var(--type)
       border-top: 0
       .about-Details
-        padding-top: var(--spacing-one)
-        padding-bottom: var(--spacing-one)
+        padding-bottom: calc(#{var(--spacing-list)} * 2)
+        padding-top: var(--spacing-list)
         min-height: 0
         padding-left: var(--spacing-one)
         padding-right: var(--spacing-one)
@@ -183,4 +183,9 @@ main
           padding-right: var(--spacing-two)
           @media screen and ( max-width: $breakpoint-tablet)
             flex-basis: auto
+    section:first-child
+      .about-Details
+        padding-top: 0
+    section:last-child
+      border-bottom: 0
 </style>
