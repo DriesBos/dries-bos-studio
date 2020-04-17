@@ -103,9 +103,11 @@ export default {
     })
     window.scrollTo(0, 0)
     window.addEventListener("scroll", this.toggleBlock)
+    document.addEventListener("keydown", this.backOnEscape)
   },
   destroyed() {
     window.removeEventListener("scroll", this.toggleBlock)
+    document.removeEventListener("keydown", this.backOnEscape)
   },
   methods: {
     toggleBlock() {
@@ -114,6 +116,11 @@ export default {
         $("#floatBlock").addClass("active")
       } else {
         $("#floatBlock").removeClass("active")
+      }
+    },
+    backOnEscape(event) {
+      if (event.keyCode === 27) {
+        this.$router.push({ name: "index" })
       }
     }
   }
