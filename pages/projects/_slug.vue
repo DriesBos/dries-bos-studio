@@ -146,6 +146,7 @@ main
         transform: translateY(-50%)
       @media screen and ( max-width: $breakpoint-mobile)
         bottom: 0
+        padding: var(--spacing-four)var(--spacing-two)
 
       .icon
         width: 2.5em
