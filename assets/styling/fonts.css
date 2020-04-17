@@ -1,6 +1,13 @@
 @font-face {
-  font-family: 'Graphik';
-  src: url('~assets/fonts/Graphik-Regular-Web.woff2') format('woff2');
+  font-family: "Graphik";
+  src: url("~assets/fonts/Graphik-Regular-Web.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("~assets/fonts/Helvetica-Neue.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
