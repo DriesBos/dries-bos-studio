@@ -2,7 +2,11 @@
   <header class="header">
     <ul>
       <nuxt-link to="/" class="header-Logo" tag="li">
-        <span class="hovered" title="that's me!">Dries</span>
+        <span
+          v-if="this.$route.name === 'index' || this.$route.name === 'projects-slug'"
+          class="hovered"
+          title="that's me!"
+        >Dries</span>
         <span
           class="hovered"
           v-if="this.$route.name === 'index'"
