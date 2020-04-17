@@ -181,7 +181,7 @@ main
         bottom: 0
         padding: var(--spacing-four)var(--spacing-two)
       &:hover
-        @media ( hover: none )
+        @media ( hover: hover )
           mix-blend-mode: initial
           .icon
             svg

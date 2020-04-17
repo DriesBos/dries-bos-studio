@@ -20,7 +20,7 @@
   svg
     color: white
   &:hover
-    @media ( hover: none )
+    @media ( hover: hover )
       mix-blend-mode: initial
       svg
         color: var(--support-color)
