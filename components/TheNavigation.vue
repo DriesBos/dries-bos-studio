@@ -226,7 +226,7 @@ export default {
   &-Toggle
     position: relative
     height: 1.495em // Prevents collapse when single item in a row
-    border-radius: 25px
+    border-radius: 1000px
     display: inline-flex
     border: 1px solid var(--type)
     box-sizing: border-box
@@ -251,11 +251,11 @@ export default {
       bottom: 0
       width: 50%
       background: var(--support-color)
-      border-radius: 25px
+      border-radius: 1000px
       transform: translateX(0)
       transition: all .23s ease-out
       &.active
-        transform: translateX(-100%)
+        transform: translateX(-101%)
   &-Theme
     position: relative
     background: var(--support-color)
