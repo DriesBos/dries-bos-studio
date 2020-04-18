@@ -7,11 +7,7 @@
           class="hovered"
           title="that's me!"
         >Dries</span>
-        <span
-          class="hovered"
-          v-if="this.$route.name === 'index'"
-          title="that's me!"
-        >Bos — Web & Interaction Development</span>
+        <span class="hovered" v-if="this.$route.name === 'index'" title="that's me!">Bos</span>
         <span class="hovered" v-if="this.$route.name === 'projects-slug'" title="me and ...">
           and
           <span class="header-Logo_Capitalize hovered">{{ slug }}</span>
@@ -222,8 +218,9 @@ export default {
   &-Logo
     flex-grow: 1
     flex-shrink: 0
-    text-transform: capitalize
     pointer-events: none
+    &_Capitalize
+      text-transform: capitalize
     span
       pointer-events: auto
   &-Toggle
