@@ -24,4 +24,10 @@
       mix-blend-mode: initial
       svg
         color: var(--support-color)
+
+// main.spaced
+//   .close-Navigation_Normal
+//     border: 1px solid red
+//     svg
+//       color: var(--type)
 </style>

@@ -188,4 +188,14 @@ main
         padding-top: 0
     section:last-child
       border-bottom: 0
+
+main.spaced
+  .view-About
+    section, section#floatBlock, section .spaceForm
+      background: var(--support-color)
+      p
+        color: var(--support-type)
+    section:first-child
+      .about-Details
+        padding-top: var(--spacing-two)
 </style>

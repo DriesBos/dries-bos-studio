@@ -8,10 +8,13 @@
     <the-navigation @toggleTheme="changeTheme" class="header-Normal" />
     <the-navigation @toggleTheme="changeTheme" class="header-Pseudo" />
     <the-close-navigation
-      v-if="this.$route.name === 'projects-slug'"
+      v-if="this.$route.name === 'projects-slug' || (this.spaceState === true && this.$route.name === 'about')"
       class="close-Navigation_Blend"
     />
-    <the-close-navigation v-if="this.$route.name === 'about'" class="close-Navigation_Normal" />
+    <the-close-navigation
+      v-if="this.$route.name === 'about' && this.spaceState === false"
+      class="close-Navigation_Normal"
+    />
     <div class="cursor" />
   </main>
 </template>
