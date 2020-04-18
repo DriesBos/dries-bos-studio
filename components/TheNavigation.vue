@@ -204,6 +204,7 @@ export default {
   pointer-events: none
   ul
     display: flex
+    align-items: center
     flex-wrap: wrap
     li
       padding-top: var(--spacing-top)
@@ -286,7 +287,7 @@ export default {
   &-Space
     pointer-events: auto
     @media screen and ( max-width: $breakpoint-tablet)
-      display: none
+      display: none !important
     #fireIcon
       opacity: 0
     &:hover
