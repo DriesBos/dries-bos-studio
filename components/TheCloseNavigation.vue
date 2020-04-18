@@ -15,6 +15,7 @@
     z-index: +7 // 1 higher than header for mouse interaction
     padding: var(--spacing-sides)
     padding-top: var(--spacing-top)
+    transform: translateY(.15rem)
 
 .close-Navigation_Blend
   mix-blend-mode: difference
