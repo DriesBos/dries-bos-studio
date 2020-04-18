@@ -229,7 +229,7 @@ export default {
       pointer-events: auto
   &-Toggle
     position: relative
-    height: var(--spacing-icons) // Prevents collapse when single item in a row
+    height: 1.5rem // Prevents collapse when single item in a row
     border-radius: 1000px
     display: inline-flex
     border: 1px solid var(--type)
@@ -241,9 +241,7 @@ export default {
       padding-right: var(--spacing-icons)
       p
         line-height: 1
-        font-size: .75rem
-        text-transform: uppercase
-        transform: translateY(0.25rem)
+        transform: translateY(0.2rem)
         color: var(--type)
         transition: all .23s ease
       &.active
@@ -265,8 +263,8 @@ export default {
   &-Theme
     position: relative
     background: var(--support-color)
-    width: var(--spacing-icons)
-    height: var(--spacing-icons) // Prevents collapse when single item in a row
+    width: 1.5rem
+    height: 1.5rem // Prevents collapse when single item in a row
     border: 1px solid var(--type)
     border-radius: 1000px
     overflow: hidden
