@@ -7,7 +7,7 @@
       </div>
       <markdown-item :input="story.content.short" class="about-Details about-Details_Right" />
     </section>
-    <section>
+    <section class="long">
       <div class="spaceForm"></div>
       <div class="about-Details about-Details_Left">
         <p>long</p>
@@ -150,6 +150,9 @@ main
       display: flex
       border-bottom: 1px solid var(--type)
       border-top: 0
+      &.long
+        @media screen and ( max-width: $breakpoint-mobile)
+          display: none !important
       .about-Details
         padding-bottom: calc(#{var(--spacing-type-vertical)} * 2)
         padding-top: var(--spacing-type-vertical)
