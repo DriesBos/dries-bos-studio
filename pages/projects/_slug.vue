@@ -174,14 +174,10 @@ main
       padding: var(--spacing-two)var(--spacing-two)
       mix-blend-mode: difference
       z-index: 999
-      @media screen and ( min-width: $breakpoint-mobile)
-        top: 50%
-        transform: translateY(-50%)
-      @media screen and ( max-width: $breakpoint-mobile)
-        bottom: 0
-        padding: var(--spacing-four)var(--spacing-two)
+      top: 50%
+      transform: translateY(-50%)
       &:hover
-        @media ( hover: hover )
+        @media (hover: hover)
           mix-blend-mode: initial
           .icon
             svg
