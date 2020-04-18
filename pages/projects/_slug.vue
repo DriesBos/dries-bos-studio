@@ -171,6 +171,7 @@ main
       background: var(--background-color)
       @media screen and ( max-width: $breakpoint-mobile)
         padding-bottom: var(--spacing-three)
+        text-align: justify
     &-Nav
       position: fixed
       padding: var(--spacing-two) var(--spacing-sides)
