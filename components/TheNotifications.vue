@@ -26,22 +26,28 @@ $transition-messages: .165s ease-out
   bottom: 0
   z-index: 999
   pointer-events: none
+  padding-left: var(--spacing-icons)
+  padding-right: var(--spacing-icons)
   &-Item
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -25%)
-    border: 1px solid var(--type)
+    border: 2px solid var(--type)
     background: var(--support-color)
     border-radius: 1000px
-    padding-left: 30px
-    padding-right: 30px
+    padding-left: var(--spacing-icons)
+    padding-right: var(--spacing-icons)
+    padding-top: .2rem
+    padding-bottom: .2rem
     opacity: 0
     text-align: center
     transition: opacity $transition-messages, transform $transition-messages
     color: var(--support-type)
+    z-index: +10
     p, h1
       color: var(--support-type)
+      line-height: 1.5
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1
