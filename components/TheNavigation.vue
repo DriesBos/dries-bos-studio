@@ -268,7 +268,7 @@ export default {
     pointer-events: auto
     &:hover
       @media ( hover: hover )
-        transform: rotate(180deg)
+        transform: rotate(-180deg)
     &_Half
       position: absolute
       left: 0
@@ -277,7 +277,7 @@ export default {
       width: 50%
       transition: background $transition-theme
       background: var(--background-color)
-      transform: rotate(-45deg)
+      transform: rotate(90deg)
       transform-origin: 100% 50%
   &-Space
     pointer-events: auto
