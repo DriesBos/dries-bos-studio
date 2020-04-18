@@ -241,7 +241,7 @@ export default {
       padding-right: var(--spacing-icons)
       p
         line-height: 1
-        transform: translateY(0.2rem)
+        transform: translateY(0.175rem)
         color: var(--type)
         transition: all .23s ease
       &.active
