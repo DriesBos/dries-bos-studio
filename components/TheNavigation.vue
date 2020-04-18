@@ -212,6 +212,9 @@ export default {
       padding-left: 1rem
       padding-right: 1rem
       pointer-events: auto
+      @media screen and ( max-width: $breakpoint-mobile)
+        padding-left: .75rem
+        padding-right: .75rem
     li:first-child
       padding-left: var(--spacing-sides)
     li:last-child
