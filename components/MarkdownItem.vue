@@ -45,7 +45,7 @@ export default {
   --var: 0%
   min-width: 0 // Ellipsis hack
   p
-    margin-bottom: $lineheight-base
+    margin-bottom: var(--spacing-type-vertical)
     display: block
   p:last-child
     margin-bottom: 0

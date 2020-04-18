@@ -206,15 +206,15 @@ export default {
     display: flex
     flex-wrap: wrap
     li
-      padding-top: var(--spacing-two)
-      padding-bottom: var(--spacing-two)
-      padding-left: var(--spacing-one)
-      padding-right: var(--spacing-one)
+      padding-top: var(--spacing-top)
+      padding-bottom: var(--spacing-top)
+      padding-left: 1rem
+      padding-right: 1rem
       pointer-events: auto
     li:first-child
-      padding-left: var(--spacing-two)
+      padding-left: var(--spacing-sides)
     li:last-child
-      padding-right: var(--spacing-two)
+      padding-right: var(--spacing-sides)
   &-Logo
     flex-grow: 1
     flex-shrink: 0
@@ -225,7 +225,7 @@ export default {
       pointer-events: auto
   &-Toggle
     position: relative
-    height: 1.495em // Prevents collapse when single item in a row
+    height: var(--spacing-icons) // Prevents collapse when single item in a row
     border-radius: 1000px
     display: inline-flex
     border: 1px solid var(--type)
@@ -233,11 +233,13 @@ export default {
     background: var(--background-color)
     overflow: hidden
     &_Item
-      padding-left: 1.4em
-      padding-right: 1.4em
+      padding-left: var(--spacing-icons)
+      padding-right: var(--spacing-icons)
       p
         line-height: 1
-        transform: translateY(0.165em)
+        font-size: .75rem
+        text-transform: uppercase
+        transform: translateY(0.25rem)
         color: var(--type)
         transition: all .23s ease
       &.active
@@ -259,13 +261,15 @@ export default {
   &-Theme
     position: relative
     background: var(--support-color)
-    width: 1.495em
-    height: 1.495em // Prevents collapse when single item in a row
+    width: var(--spacing-icons)
+    height: var(--spacing-icons) // Prevents collapse when single item in a row
     border: 1px solid var(--type)
     border-radius: 1000px
     overflow: hidden
     transition: transform .11s ease-in
     pointer-events: auto
+    transform: rotate(0)
+    transform-origin: center
     &:hover
       @media ( hover: hover )
         transform: rotate(-180deg)
@@ -319,8 +323,10 @@ export default {
     mix-blend-mode: difference
     a, p, h1, input, svg,
       color: white
-    .header-Theme, .header-Toggle
-      border: 1px solid rgba(0,0,0,0)
+    li:nth-child(2)
+      opacity: 0
+    li:nth-child(3)
+      opacity: 0
   .header-Pseudo
     li:nth-child(2)
       opacity: 1

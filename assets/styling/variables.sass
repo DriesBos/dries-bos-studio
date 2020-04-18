@@ -1,10 +1,6 @@
 // 1. Base scale non-linear scale https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
 // 2. Base scale on fluid typography (em) https://www.creativebloq.com/how-to/design-a-responsive-site-with-em-based-sizing
 
-$fontbase: 18px
-$lineheight-base: 1.5em
-$font-maxwidth: 40em
-
 $color-support-white: #6E33FF
 $color-font-white: white
 $color-support-lightgrey: #00FE65
@@ -42,13 +38,12 @@ body
   --spacing-two: 4vmin
   --spacing-three: 8vmin
   --spacing-four: 16vmin
-  --spacing-sides: 2vmin
-  --spacing-list: 1.225em
-  // @media screen and ( max-width: $breakpoint-mobile)
-  //   --spacing-one: 1em
-  //   --spacing-two: 1em
-  //   --spacing-three: 2em
-  //   --spacing-four: 4em
+  --spacing-sides: 4vw
+  --spacing-top: 2.5rem
+  --spacing-type-vertical: 1.25rem
+  --spacing-icons: 1.25rem
+  @media screen and ( max-width: $breakpoint-mobile)
+    --spacing-top: 1.25rem
 
 // Support colors
 body, body.one

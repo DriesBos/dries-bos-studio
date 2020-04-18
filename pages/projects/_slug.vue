@@ -165,13 +165,15 @@ main
   .projectItem
     &-Text
       position: relative
-      padding-left: var(--spacing-two)
-      padding-right: var(--spacing-two)
+      padding-left: var(--spacing-sides)
+      padding-right: var(--spacing-sides)
       padding-bottom: var(--spacing-two)
       background: var(--background-color)
+      @media screen and ( max-width: $breakpoint-mobile)
+        padding-bottom: var(--spacing-three)
     &-Nav
       position: fixed
-      padding: var(--spacing-two)var(--spacing-two)
+      padding: var(--spacing-two) var(--spacing-sides)
       mix-blend-mode: difference
       z-index: 999
       top: 50%
@@ -183,7 +185,7 @@ main
             svg
               color: var(--support-color)
       .icon
-        width: 2.5em
+        width: calc(#{var(--spacing-icons)} * 2)
         opacity: 1
         svg
           color: white

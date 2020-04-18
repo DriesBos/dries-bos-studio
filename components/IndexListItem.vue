@@ -78,8 +78,8 @@ export default {
       flex-basis: calc(100% * .25)
       min-height: 0
       padding-left: var(--spacing-one)
-      padding-top: var(--spacing-list)
-      padding-bottom: var(--spacing-list)
+      padding-top: var(--spacing-type-vertical)
+      padding-bottom: var(--spacing-type-vertical)
       &.active
         a, p, input
           opacity: 1
@@ -88,9 +88,9 @@ export default {
         flex-basis: auto
         padding-right: var(--spacing-two)
       &:nth-child(1)
-        padding-left: var(--spacing-two)
+        padding-left: var(--spacing-sides)
         @media screen and ( max-width: $breakpoint-tablet)
-          width: calc(#{var(--spacing-three)} + 2.6em)
+          width: calc(#{var(--spacing-three)} + 2.6rem)
     &-Category
       flex-grow: 1
       @media screen and ( max-width: $breakpoint-tablet)
@@ -107,7 +107,7 @@ export default {
         justify-content: center
         height: 100%
         padding-left: var(--spacing-two)
-        padding-right: var(--spacing-two)
+        padding-right: var(--spacing-sides)
         color: var(--type)
     &_Project
       border-bottom: 1px solid var(--type)
@@ -123,12 +123,14 @@ export default {
               color: var(--support-type)
     &_Filter
       p, input::placeholder, svg, input
-        transition: color $transition-hover
+        transition: color $transition-hover, opacity $transition-hover
+        opacity: 0.25
       .listItem-Details
         &:hover
           @media ( hover: hover )
             p
               color: var(--support-color)
+              opacity: 1
       .listItem-Icons
         input
           opacity: 0
@@ -136,7 +138,11 @@ export default {
           input, svg
             opacity: 1
 .spaced
-  .listItem_Project
-    &:first-child
-      border-top: 0px solid var(--type)
+  .listItem
+    &_Project
+      &:first-child
+        border-top: 0px solid var(--type)
+    &_Filter
+      p, input::placeholder, svg, input
+        opacity: 1
 </style>

@@ -2,10 +2,13 @@
 @import '~/assets/styling/variables.sass'
 
 html, body
-  font-size: 20px
+  font-size: calc(18px + (20 - 18) * ((100vw - 800px) / (1360 - 800)))
+
+main.spaced
+  font-size: 19px
 
 h1, h2, h3, p
-  max-width: $font-maxwidth
+  max-width: 38em
   overflow-wrap: normal
   word-wrap: normal
   word-break: normal
@@ -14,16 +17,13 @@ h1, h2, h3, p
 h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input
   // font-family: "Graphik", Helvetica, Arial, sans-serif
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-  font-size: 1em
-  line-height: 1.5
+  font-size: 1rem
+  line-height: 1.6
   color: currentColor
   font-style: normal
   font-weight: normal
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-
-p
-  line-height: 1.6
 
 a
   color: currentColor

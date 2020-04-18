@@ -151,8 +151,8 @@ main
       border-bottom: 1px solid var(--type)
       border-top: 0
       .about-Details
-        padding-bottom: calc(#{var(--spacing-list)} * 2)
-        padding-top: var(--spacing-list)
+        padding-bottom: calc(#{var(--spacing-type-vertical)} * 2)
+        padding-top: var(--spacing-type-vertical)
         min-height: 0
         padding-left: var(--spacing-one)
         padding-right: var(--spacing-one)
