@@ -4,12 +4,14 @@
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
+    <the-footer />
     <the-navigation @toggleTheme="changeTheme" />
     <div class="cursor" />
   </main>
 </template>
 
 <script>
+import TheFooter from "~/components/TheFooter.vue"
 import TheNavigation from "~/components/TheNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
 import { mapState } from "vuex"
@@ -19,6 +21,7 @@ let $ = JQuery
 
 export default {
   components: {
+    "the-footer": TheFooter,
     "the-navigation": TheNavigation,
     "the-notifications": TheNotifications
   },

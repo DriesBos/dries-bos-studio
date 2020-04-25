@@ -4,7 +4,7 @@
 html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoiding 100vh to better suit mobile browsers
   position: relative
   width: 100%
-  height: 100%
+  min-height: 100%
 
 .icon // TODO: shows animation constantly in spacemode
   position: relative
@@ -111,6 +111,22 @@ section
         color: currentColor
   &-Icon:first-child
     margin-left: 0
+
+.footer
+  display: flex
+  justify-content: space-between
+  background: var(--background-color)
+  padding-top: calc(#{var(--spacing-two)} + 1rem)
+  padding-bottom: 1rem
+  padding-left: var(--spacing-one)
+  padding-right: var(--spacing-one)
+  > div
+    padding-left: var(--spacing-one)
+    padding-right: var(--spacing-one)
+  .icon-ArrowUp
+    img, svg
+      width: var(--spacing-icons)
+
 main
   // position: relative
   // height: 100%
