@@ -77,22 +77,6 @@ section
   padding-bottom: 1rem
   padding-left: var(--spacing-one)
   padding-right: var(--spacing-one)
-  // Item category
-  &-Header
-    position: fixed
-    top: 0
-    left: 0
-    right: 0
-    z-index: +1
-  &-List
-    border-top: 1px solid currentColor
-    &:hover
-      background: var(--background-color-selected)
-  &-List:last-child
-    border-bottom: 1px solid currentColor
-  &-Filter
-    p
-      opacity: .25
   // Item content
   &-Column
     flex-basis: 25%
@@ -111,7 +95,53 @@ section
         color: currentColor
   &-Icon:first-child
     margin-left: 0
+  &-Thumbnail
+    position: absolute
+    top: 0
+    width: 30vw
+    transform: translate(-50%, -50%)
+    pointer-events: none
+    z-index: 950
+    &_Wrapper
+      width: 100%
+      height: 0
+      padding-top: 100%
+    img
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      object-fit: contain
+      height: 100%
+      transition: opacity .3 ease
+      opacity: 0
+  // Item category
+  &-Header
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: +1
+  &-List
+    border-top: 1px solid currentColor
+    position: relative
+    &:hover
+      background: var(--background-color-selected)
+      .contentListItem-Thumbnail img
+        opacity: 1
+  &-List:last-child
+    border-bottom: 1px solid currentColor
+  &-Filter
+    p
+      opacity: .25
 
+.view
+  &-Index
+    @for $i from 1 through 100
+      .contentListItem-List:nth-child(#{$i})
+        .contentListItem-Thumbnail
+          left: random(66) + 17%
 .footer
   display: flex
   justify-content: space-between
