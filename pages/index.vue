@@ -1,62 +1,48 @@
 <template>
   <div class="view view-Container view-Index">
-    <section id="floatBlock">
-      <div class="spaceForm"></div>
-      <ul class="list">
-        <li class="listItem listItem_Filter">
-          <div class="listItem-DetailsWrapper">
-            <div
-              class="listItem-Year listItem-Details hovered"
-              :class="{ active: sortByYear }"
-              @click="sortYear"
-            >
-              <p title="sort by year">year</p>
-            </div>
-            <div
-              class="listItem-Title listItem-Details hovered"
-              :class="{ active: sortByTitle }"
-              @click="sortTitle"
-            >
-              <p title="sort by project">project</p>
-            </div>
-            <div
-              class="listItem-Category listItem-Details hovered"
-              :class="{ active: sortByCategory }"
-              @click="sortCategory"
-            >
-              <p title="sort by role">role</p>
-            </div>
+    <section class="contentListItem-Filter">
+      <ul class="contentListItem">
+        <li class="contentListItem-Column contentListItem-One">
+          <div class :class="{ active: sortByYear }" @click="sortYear">
+            <p title="sort by year">year</p>
           </div>
-          <div class="listItem-Icons" :class="{ active: toggleSearch }">
+        </li>
+        <li class="contentListItem-Column contentListItem-Two">
+          <div
+            class="listItem-Title listItem-Details hovered"
+            :class="{ active: sortByTitle }"
+            @click="sortTitle"
+          >
+            <p title="sort by project">project</p>
+          </div>
+        </li>
+        <li class="contentListItem-Column contentListItem-Three">
+          <div
+            class="listItem-Category listItem-Details hovered"
+            :class="{ active: sortByCategory }"
+            @click="sortCategory"
+          >
+            <p title="sort by role">role</p>
+          </div>
+        </li>
+        <li class="contentListItem-Column contentListItem-Four">
+          <ul class="contentListItem-Icons">
+            <!-- <div class="listItem-Icons" :class="{ active: toggleSearch }">
             <input type="text" v-model="search" ref="search" placeholder="filter by name" />
             <div @click="searchIconClick" class="icon-Container" title="search projects">
               <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
             </div>
-          </div>
+            </div>-->
+          </ul>
         </li>
       </ul>
     </section>
-
-    <transition name="view" mode="out-in">
-      <section v-if="viewState" key="list">
-        <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
-        <ul class="list">
-          <li is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></li>
-        </ul>
-      </section>
-      <section v-else key="grid">
-        <div class="spaceForm" :class="{ hidden: !spaceState }"></div>
-        <ul class="imageGrid">
-          <div is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
-        </ul>
-      </section>
-    </transition>
+    <section is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></section>
   </div>
 </template>
 
 <script>
 import IndexListItem from "~/components/IndexListItem.vue"
-import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
 import JQuery from "jquery"
 let $ = JQuery
@@ -64,8 +50,7 @@ let $ = JQuery
 export default {
   scrollToTop: true,
   components: {
-    IndexListItem: IndexListItem,
-    IndexGridItem: IndexGridItem
+    IndexListItem: IndexListItem
   },
   props: {
     view: Boolean

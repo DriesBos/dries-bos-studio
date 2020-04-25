@@ -1,15 +1,10 @@
 <template>
-  <main :class="[currentTheme, { spaced: spaceState }, { about: isAboutPage }]">
+  <main :class="[currentTheme, { spaced: spaceState }]">
     <the-notifications />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
-    <!-- Two headers. One without mix-blend-mode -->
-    <the-navigation @toggleTheme="changeTheme" class="header-Normal" />
-    <the-close-navigation
-      v-if="this.$route.name === 'about' && this.spaceState === false"
-      class="close-Navigation_Normal"
-    />
+    <the-navigation @toggleTheme="changeTheme" />
     <div class="cursor" />
   </main>
 </template>
@@ -30,8 +25,7 @@ export default {
   data() {
     return {
       themeNumber: 0,
-      currentTheme: "one",
-      isAboutPage: false
+      currentTheme: "one"
     }
   },
   computed: {
@@ -42,7 +36,6 @@ export default {
   mounted() {
     this.checkDarkMode()
     this.customCursor()
-    this.checkAboutPage()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -55,13 +48,6 @@ export default {
   watch: {
     $route() {
       this.removeChangeCursor()
-      if (this.$route.name === "about" && this.spaceState === false) {
-        this.isAboutPage = true
-        $("body").addClass("about")
-      } else {
-        this.isAboutPage = false
-        $("body").removeClass("about")
-      }
     }
   },
   methods: {
@@ -80,15 +66,6 @@ export default {
         setTimeout(function() {
           $("#messages").removeClass("activeOne")
         }, 2000)
-      }
-    },
-    checkAboutPage() {
-      if (this.$route.name === "about" && this.spaceState === false) {
-        this.isAboutPage = true
-        $("body").addClass("about")
-      } else {
-        this.isAboutPage = false
-        $("body").removeClass("about")
       }
     },
     customCursor() {

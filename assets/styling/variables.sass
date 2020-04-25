@@ -1,14 +1,15 @@
 // 1. Base scale non-linear scale https://medium.com/eightshapes-llc/space-in-design-systems-188bcbae0d62
 // 2. Base scale on fluid typography (em) https://www.creativebloq.com/how-to/design-a-responsive-site-with-em-based-sizing
 
-$color-support-white: #6E33FF
-$color-font-white: white
-$color-support-lightgrey: #00FE65
-$color-font-lightgrey: black
-$color-support-darkgrey: #DDFF01
-$color-font-darkgrey: black
-$color-support-black: #E43C01
-$color-font-black: black
+// NEW NEW NEW LIGHTTHEME
+$color-type-lighttheme: #191919
+$color-lighttheme: #F0F0F0
+$color-lighttheme-active: #ffffff
+
+// NEW NEW NEW DARKTHEME
+$color-type-darktheme: #191919
+$color-darktheme: #F0F0F0
+$color-darktheme-active: #ffffff
 
 // Transitions
 $transition-hover: .2s ease
@@ -46,24 +47,16 @@ body
     --spacing-top: 1.25rem
 
 // Support colors
-body, body.one
-  --background-color: white
-  --type: #333
-  --background-space: #333
-  --support-color: #6E33FF
-  --support-type: white
-body.two
-  --background-color: #A8A9AD
-  --type: black
-  --background-space: black
-  --support-color: #00FE65
-  --support-type: black
-body.three
-  --background-color: #424242
-  --type: white
-  --background-space: white
-  --support-color: #DDFF01
-  --support-type: black
+body, body.light
+  --background-color: #F0F0F0
+  --background-color-active: $color-lighttheme-active
+  --type-color: $color-type-lighttheme
+  --space-color: $color-darktheme
+body.dark
+  --background-color: $color-darktheme
+  --background-color-active: $color-darktheme-active
+  --type-color: $color-type-darktheme
+  --space-color: $color-lighttheme
 
 @keyframes hyperLink
   0%

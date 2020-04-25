@@ -6,11 +6,20 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
   width: 100%
   height: 100%
 
-.icon
+.icon // TODO: shows animation constantly in spacemode
   position: relative
   opacity: 1
-  height: var(--spacing-icons)
+  height: 100%
   width: var(--spacing-icons)
+  &-Space
+    #fireIcon
+      opacity: 0
+    &:hover
+      @media ( hover: hover )
+        animation: vibrate .3s infinite
+        #fireIcon
+          animation: flicker .1s infinite
+          opacity: 1
   svg, img
     position: absolute
     left: 0
@@ -47,207 +56,253 @@ img[lazy="loaded"]
   @media ( hover: none )
     display: none
 
-body.about
-  .cursor
-    background: var(--support-type)
+// body.about
+//   .cursor
+//     background: var(--support-type)
 
 // THEME
-body
-  background: var(--background-space)
-  transition: background $transition-theme
+// body
+//   background: var(--background-space)
+//   transition: background $transition-theme
 
+section
+  background: var(--background-color)
+  &:first-child
+    padding-top: 300px
+
+.contentListItem
+  color: $color-type-lighttheme
+  display: flex
+  padding-top: 1rem
+  padding-bottom: 1rem
+  padding-left: var(--spacing-one)
+  padding-right: var(--spacing-one)
+  // Item category
+  &-Header
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: +1
+  &-List
+    border-top: 1px solid currentColor
+    &:hover
+      background: var(--background-color-selected)
+  &-List:last-child
+    border-bottom: 1px solid currentColor
+  &-Filter
+    p
+      opacity: .25
+  // Item content
+  &-Column
+    flex-basis: 25%
+    padding-left: var(--spacing-one)
+    padding-right: var(--spacing-one)
+  &-Icons
+    display: flex
+    justify-content: flex-end
+    height: 100%
+  &-Icon
+    margin-left: var(--spacing-two)
+    .icon
+      height: 100%
+      img, svg
+        height: 100%
+        color: currentColor
+  &-Icon:first-child
+    margin-left: 0
 main
-  position: relative
-  height: 100%
-  display: flex
-  flex-direction: column
-  align-items: center
-  background: var(--background-space)
-  transition: background $transition-theme
-  color: var(--type)
-  cursor: none
+  // position: relative
+  // height: 100%
+  // display: flex
+  // flex-direction: column
+  // align-items: center
+  // background: var(--background-space)
+  // transition: background $transition-theme
+  color: $color-type-lighttheme
+  // cursor: none
   p, h1, a, input, svg
-    color: var(--type)
+    color: currentColor
   section
-    position: relative
-    width: 100%
-    max-width: 100%
-    flex-shrink: 0
-    border-bottom: 0px solid var(--type)
-    transition: border-bottom $transition-theme, background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
-    .spaceForm
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      height: 200px
-      width: 100%
-      transform: translateY(-100%)
-      background: var(--background-color)
-      border-bottom: 0px solid var(--type)
-      transition: background $transition-theme, border-bottom $transition-theme
-      pointer-events: none
-      z-index: 0
+    // position: relative
+    // width: 100%
+    // max-width: 100%
+    // flex-shrink: 0
+    // border-bottom: 0px solid var(--type)
+    // transition: border-bottom $transition-theme, background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
+    // .spaceForm
+    //   position: absolute
+    //   top: 0
+    //   left: 0
+    //   right: 0
+    //   height: 200px
+    //   width: 100%
+    //   transform: translateY(-100%)
+    //   background: var(--background-color)
+    //   border-bottom: 0px solid var(--type)
+    //   transition: background $transition-theme, border-bottom $transition-theme
+    //   pointer-events: none
+    //   z-index: 0
       // display: none
-      &::before, &::after
-        content: ""
-        position: absolute
-        top: 0
-        bottom: 0
-        border-bottom: 200px solid transparent
-        transition: border-left $transition-space-vertical, border-right $transition-space-vertical
-        // transition: border-left $transition-theme, border-right $transition-theme
-      &::before
-        left: 0
-        border-left: 0px solid var(--background-space)
-      &::after
-        right: 0
-        border-right: 0px solid var(--background-space)
-  section:first-child
-    padding-top: 13.5rem
-    margin-top: 0
-    z-index: 1
-  section:last-child
-    border-bottom: 0
-    flex-grow: 1
-  .view-Container
-    position: relative
-    display: flex
-    flex-direction: column
-    align-items: center
-    padding-left: 0
-    padding-right: 0
-    transition: padding-left $transition-space-sideways, padding-right $transition-space-sideways
+      // &::before, &::after
+      //   content: ""
+      //   position: absolute
+      //   top: 0
+      //   bottom: 0
+      //   border-bottom: 200px solid transparent
+      //   transition: border-left $transition-space-vertical, border-right $transition-space-vertical
+      //   // transition: border-left $transition-theme, border-right $transition-theme
+      // &::before
+      //   left: 0
+      //   border-left: 0px solid var(--background-space)
+      // &::after
+      //   right: 0
+      //   border-right: 0px solid var(--background-space)
+  // section:first-child
+  //   padding-top: 13.5rem
+  //   margin-top: 0
+  //   z-index: 1
+  // section:last-child
+  //   border-bottom: 0
+  //   flex-grow: 1
+  // .view-Container
+  //   position: relative
+  //   display: flex
+  //   flex-direction: column
+  //   align-items: center
+  //   padding-left: 0
+  //   padding-right: 0
+  //   transition: padding-left $transition-space-sideways, padding-right $transition-space-sideways
   // SPACED CSS
-  &.spaced
-    .view-Container
-      padding-left: var(--spacing-three)
-      padding-right: var(--spacing-three)
-    section
-      max-width: 1200px
-      &.active
-        transform: translateY(-60px)
-    .spaceForm
-      border-bottom: 1px solid var(--type)
-      &::before, &::after
-        transition: border-left $transition-theme, border-right $transition-theme
-      &::before
-        border-left: 150px solid var(--background-space)
-      &::after
-        border-right: 150px solid var(--background-space)
-    section:first-child
-      padding-top: 0
-      margin-top: calc(30vh + 200px)
-      margin-bottom: -1px
-      border-bottom: 1px solid var(--type)
-    section:first-child.projectItem-Text
-      padding-top: var(--spacing-two)
+  // &.spaced
+  //   .view-Container
+  //     padding-left: var(--spacing-three)
+  //     padding-right: var(--spacing-three)
+  //   section
+  //     max-width: 1200px
+  //     &.active
+  //       transform: translateY(-60px)
+  //   .spaceForm
+  //     border-bottom: 1px solid var(--type)
+  //     &::before, &::after
+  //       transition: border-left $transition-theme, border-right $transition-theme
+  //     &::before
+  //       border-left: 150px solid var(--background-space)
+  //     &::after
+  //       border-right: 150px solid var(--background-space)
+  //   section:first-child
+  //     padding-top: 0
+  //     margin-top: calc(30vh + 200px)
+  //     margin-bottom: -1px
+  //     border-bottom: 1px solid var(--type)
+  //   section:first-child.projectItem-Text
+  //     padding-top: var(--spacing-two)
 
-.tempBackground // BG during list/grid transition
-  transition: background 0s ease
-main.tempBackground
-  background: var(--background-color)
-main.about
-  header, svg
-    color: var(--support-type)
-  section, #floatBlock
-    background: var(--support-color)
-    a, p
-      color: var(--support-type)
-  .view-About section
-    border-bottom: 1px solid var(--support-type)
+// .tempBackground // BG during list/grid transition
+//   transition: background 0s ease
+// main.tempBackground
+//   background: var(--background-color)
+// main.about
+//   header, svg
+//     color: var(--support-type)
+//   section, #floatBlock
+//     background: var(--support-color)
+//     a, p
+//       color: var(--support-type)
+//   .view-About section
+//     border-bottom: 1px solid var(--support-type)
 
-#floatBlock
-  background: var(--background-color)
+// #floatBlock
+//   background: var(--background-color)
 
-.imageGrid
-  min-height: 0
-  z-index: -1
-  background: var(--background-color)
-  .imageGrid-Item
-    margin-bottom: 0
-    transition: margin-bottom $transition-space-vertical
-  .imageGrid-Item:first-child
-    margin-top: 0
-    transition: margin-top $transition-space-vertical
-  img
-    transition: opacity $transition-lazy
-  &-Item
-    width: 100%
-    min-height: 0
-    display: flex
-    flex-direction: column
-    align-items: center
-    border-bottom: 1px solid rgba(0,0,0,0)
-    &_Wrapper
-      width: 100%
-      transition: width $transition-space-sideways
-  @media screen and ( min-width: $breakpoint-mobile)
-    li:nth-child(1)
-      .imageGrid-Item_Wrapper
-        width: 100%
-    li:nth-child(2)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-end
-    li:nth-child(3)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-start
-    li:nth-child(4)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-start
-    li:nth-child(5)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-end
-    li:nth-child(6)
-      .imageGrid-Item_Wrapper
-        align-self: center
-    li:nth-child(7)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-start
-    li:nth-child(8)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-start
-    li:nth-child(9)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-end
-    li:nth-child(10)
-      .imageGrid-Item_Wrapper
-        width: 100%
-        align-self: flex-start
-    li:nth-child(11)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-start
-    li:nth-child(12)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-end
-    li:nth-child(13)
-      .imageGrid-Item_Wrapper
-        align-self: center
-    li:nth-child(14)
-      .imageGrid-Item_Wrapper
-        align-self: center
-    li:nth-child(15)
-      .imageGrid-Item_Wrapper
-        align-self: center
-  @media screen and ( max-width: $breakpoint-mobile)
-    li
-      width: 100%
-.spaced
-  .imageGrid
-    margin-bottom: var(--spacing-two)
-    background: rgba(0,0,0,0)
+// .imageGrid
+//   min-height: 0
+//   z-index: -1
+//   background: var(--background-color)
+//   .imageGrid-Item
+//     margin-bottom: 0
+//     transition: margin-bottom $transition-space-vertical
+//   .imageGrid-Item:first-child
+//     margin-top: 0
+//     transition: margin-top $transition-space-vertical
+//   img
+//     transition: opacity $transition-lazy
+//   &-Item
+//     width: 100%
+//     min-height: 0
+//     display: flex
+//     flex-direction: column
+//     align-items: center
+//     border-bottom: 1px solid rgba(0,0,0,0)
+//     &_Wrapper
+//       width: 100%
+//       transition: width $transition-space-sideways
+//   @media screen and ( min-width: $breakpoint-mobile)
+//     li:nth-child(1)
+//       .imageGrid-Item_Wrapper
+//         width: 100%
+//     li:nth-child(2)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-end
+//     li:nth-child(3)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-start
+//     li:nth-child(4)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-start
+//     li:nth-child(5)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-end
+//     li:nth-child(6)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//     li:nth-child(7)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-start
+//     li:nth-child(8)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-start
+//     li:nth-child(9)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-end
+//     li:nth-child(10)
+//       .imageGrid-Item_Wrapper
+//         width: 100%
+//         align-self: flex-start
+//     li:nth-child(11)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-start
+//     li:nth-child(12)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-end
+//     li:nth-child(13)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//     li:nth-child(14)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//     li:nth-child(15)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//   @media screen and ( max-width: $breakpoint-mobile)
+//     li
+//       width: 100%
+// .spaced
+//   .imageGrid
+//     margin-bottom: var(--spacing-two)
+//     background: rgba(0,0,0,0)
 
-.view-Error
-  display: flex
-  justify-content: center
-  align-items: center
-  background: var(--background-color)
+// .view-Error
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   background: var(--background-color)
