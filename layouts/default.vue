@@ -6,6 +6,7 @@
     </transition>
     <the-footer />
     <the-navigation @toggleTheme="changeTheme" />
+    <the-title />
     <div class="cursor" />
   </main>
 </template>
@@ -14,6 +15,7 @@
 import TheFooter from "~/components/TheFooter.vue"
 import TheNavigation from "~/components/TheNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
+import TheTitle from "~/components/TheTitle.vue"
 import { mapState } from "vuex"
 import JQuery from "jquery"
 import gsap from "gsap"
@@ -23,7 +25,8 @@ export default {
   components: {
     "the-footer": TheFooter,
     "the-navigation": TheNavigation,
-    "the-notifications": TheNotifications
+    "the-notifications": TheNotifications,
+    "the-title": TheTitle
   },
   data() {
     return {

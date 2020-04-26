@@ -44,11 +44,12 @@ export default {
 .markdown
   --var: 0%
   min-width: 0 // Ellipsis hack
+  text-align: justify
   p
     margin-bottom: var(--spacing-type-vertical)
     display: block
   p:last-child
-    margin-bottom: 0
+    // margin-bottom: 0
   a
     position: relative
     &:after

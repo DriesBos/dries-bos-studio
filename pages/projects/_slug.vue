@@ -1,30 +1,42 @@
 <template>
   <div class="view view-Container view-Project">
-    <section id="floatBlock" class="projectItem-Text text">
-      <div class="spaceForm"></div>
-      <markdown-item :input="story.content.content" />
+    <section class="contentListItem-Single">
+      <ul class="contentListItem end">
+        <li class="contentListItem-Column contentListItem-OneThree justified">
+          <markdown-item :input="story.content.content" />
+        </li>
+      </ul>
     </section>
-    <nuxt-link
-      v-if="story.content.prev_link.id !== ''"
-      :to="`/${story.content.prev_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Prev hovered"
-      title="previous project"
-    >
-      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-    </nuxt-link>
-    <nuxt-link
-      v-if="story.content.next_link.id !== ''"
-      :to="`/${story.content.next_link.cached_url}`"
-      class="projectItem-Nav projectItem-Nav_Next hovered"
-      title="next project"
-    >
-      <div class="icon arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-    </nuxt-link>
-    <section class="projectItem-Images">
-      <div class="spaceForm"></div>
-      <ul class="imageGrid">
-        <li v-for="(image, index) in story.content.images" class="imageGrid-Item" :key="index">
-          <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
+    <section class="contentListItem-Images">
+      <ul>
+        <div class="contentListItem-Nav">
+          <nuxt-link
+            v-if="story.content.prev_link.id !== ''"
+            :to="`/${story.content.prev_link.cached_url}`"
+            class="contentListItem-Nav_Prev"
+            title="previous project"
+            tag="div"
+          >
+            <div
+              class="icon-Arrow"
+              v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+            />
+          </nuxt-link>
+          <nuxt-link
+            v-if="story.content.next_link.id !== ''"
+            :to="`/${story.content.next_link.cached_url}`"
+            class="contentListItem-Nav_Next"
+            title="next project"
+            tag="div"
+          >
+            <div
+              class="icon-Arrow"
+              v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+            />
+          </nuxt-link>
+        </div>
+        <li v-for="(image, index) in story.content.images" :key="index">
+          <div v-lazy-container="{ selector: 'img' }">
             <img
               :srcset="
                 `${transformImage(
@@ -98,29 +110,16 @@ export default {
     }
   },
   mounted() {
-    window.scrollTo(0, 0)
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },
   methods: {
-    changeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.addClass("interact")
-    },
-    removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("interact")
-    },
     toggleBlock() {
       let scrollPosition = document.documentElement.scrollTop
       if (scrollPosition > 0) {

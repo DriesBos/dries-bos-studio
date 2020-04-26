@@ -56,19 +56,11 @@ img[lazy="loaded"]
   @media ( hover: none )
     display: none
 
-// body.about
-//   .cursor
-//     background: var(--support-type)
-
-// THEME
-// body
-//   background: var(--background-space)
-//   transition: background $transition-theme
+.view
+  margin-top: 18rem
 
 section
   background: var(--background-color)
-  &:first-child
-    padding-top: 300px
 
 .contentListItem
   color: $color-type-lighttheme
@@ -77,6 +69,8 @@ section
   padding-bottom: 1rem
   padding-left: var(--spacing-one)
   padding-right: var(--spacing-one)
+  &.end
+    justify-content: flex-end
   // Item content
   &-Column
     flex-basis: 25%
@@ -101,7 +95,7 @@ section
     width: 30vw
     transform: translate(-50%, -50%)
     pointer-events: none
-    z-index: 950
+    z-index: 100
     &_Wrapper
       width: 100%
       height: 0
@@ -116,13 +110,16 @@ section
       height: 100%
       transition: opacity .3 ease
       opacity: 0
+  // Content layout
+  &-OneThree
+    flex-basis: 75%
   // Item category
   &-Header
     position: fixed
     top: 0
     left: 0
     right: 0
-    z-index: +1
+    z-index: 999
   &-List
     border-top: 1px solid currentColor
     position: relative
@@ -133,8 +130,40 @@ section
   &-List:last-child
     border-bottom: 1px solid currentColor
   &-Filter
+    position: sticky
+    top: 0
+    // padding-top: 2.96rem
+    z-index: 900
     p
       opacity: .25
+  &-Single
+    padding-bottom: var(--spacing-type-vertical)
+  &-Images
+    position: relative
+    padding-left: var(--spacing-two)
+    padding-right: var(--spacing-two)
+    ul
+      position: relative
+    li
+      margin-bottom: var(--spacing-one)
+    li:last-child
+      margin-bottom: 0
+  &-Nav
+    position: sticky
+    top: 50vh
+    transform: translateY(-50%)
+    width: 100%
+    height: auto
+    display: flex
+    justify-content: space-between
+    mix-blend-mode: difference
+    &_Prev
+      svg
+        transform: rotate(180deg)
+    svg
+      width: var(--spacing-icons-double)
+      height: var(--spacing-icons)
+      color: white
 
 .view
   &-Index
@@ -142,6 +171,19 @@ section
       .contentListItem-List:nth-child(#{$i})
         .contentListItem-Thumbnail
           left: random(66) + 17%
+
+.theTitle
+  position: fixed
+  top: 0
+  left: 0
+  z-index: -100
+  padding-left: var(--spacing-two)
+  margin-left: -1.2rem
+  h1
+    font-size: 16rem
+    line-height: 1.1676
+    letter-spacing: -.25rem
+
 .footer
   display: flex
   justify-content: space-between
