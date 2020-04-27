@@ -56,9 +56,6 @@ img[lazy="loaded"]
   @media ( hover: none )
     display: none
 
-.view
-  margin-top: 18rem
-
 section
   background: var(--background-color)
 
@@ -76,6 +73,10 @@ section
     flex-basis: 25%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
+  &-TheTitle
+    font-size: 16rem
+    line-height: 1
+    z-index: 999
   &-Icons
     display: flex
     justify-content: flex-end
@@ -119,7 +120,11 @@ section
     top: 0
     left: 0
     right: 0
-    z-index: 999
+    z-index: 900
+    // .contentListItem
+    //   align-items: flex-start
+    //   &-Icons
+    //     height: 100px
   &-List
     border-top: 1px solid currentColor
     position: relative
@@ -131,9 +136,7 @@ section
     border-bottom: 1px solid currentColor
   &-Filter
     position: sticky
-    top: 0
-    // padding-top: 2.96rem
-    z-index: 900
+    z-index: 950
     p
       opacity: .25
   &-Single
@@ -167,22 +170,23 @@ section
 
 .view
   &-Index
+    padding-top: 18rem
     @for $i from 1 through 100
       .contentListItem-List:nth-child(#{$i})
         .contentListItem-Thumbnail
           left: random(66) + 17%
 
-.theTitle
-  position: fixed
-  top: 0
-  left: 0
-  z-index: -100
-  padding-left: var(--spacing-two)
-  margin-left: -1.2rem
-  h1
-    font-size: 16rem
-    line-height: 1.1676
-    letter-spacing: -.25rem
+// .theTitle
+//   position: fixed
+//   top: 0
+//   left: 0
+//   z-index: -100
+//   padding-left: var(--spacing-two)
+//   margin-left: -1.2rem
+//   h1
+//     font-size: 16rem
+//     line-height: 1.1676
+//     letter-spacing: -.25rem
 
 .footer
   display: flex

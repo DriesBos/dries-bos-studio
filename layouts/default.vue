@@ -6,7 +6,7 @@
     </transition>
     <the-footer />
     <the-navigation @toggleTheme="changeTheme" />
-    <the-title />
+    <!-- <the-title /> -->
     <div class="cursor" />
   </main>
 </template>
