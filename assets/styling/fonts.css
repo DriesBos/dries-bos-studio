@@ -1,32 +1,4 @@
 @font-face {
-  font-family: "Graphik";
-  src: url("~assets/fonts/Graphik-Regular-Web.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Helvetica Neue";
-  src: url("~assets/fonts/Helvetica-Neue.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Messina Sans";
-  src: url("~assets/fonts/Messina-Sans.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Suisse Int";
-  src: url("~assets/fonts/Suisse-Int.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "Sohne Regular";
   src: url("~assets/fonts/Sohne-Regular.woff2") format("woff2");
   font-weight: normal;
