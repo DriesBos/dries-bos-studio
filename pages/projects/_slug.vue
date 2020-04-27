@@ -7,75 +7,47 @@
         </li>
       </ul>
     </section>
-    <section class="contentListItem-Images">
-      <ul>
-        <div class="contentListItem-Nav">
-          <nuxt-link
-            v-if="story.content.prev_link.id !== ''"
-            :to="`/${story.content.prev_link.cached_url}`"
-            class="contentListItem-Nav_Prev"
-            title="previous project"
-            tag="div"
-          >
-            <div
-              class="icon-Arrow"
-              v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-            />
-          </nuxt-link>
-          <nuxt-link
-            v-if="story.content.next_link.id !== ''"
-            :to="`/${story.content.next_link.cached_url}`"
-            class="contentListItem-Nav_Next"
-            title="next project"
-            tag="div"
-          >
-            <div
-              class="icon-Arrow"
-              v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-            />
-          </nuxt-link>
-        </div>
-        <li v-for="(image, index) in story.content.images" :key="index">
-          <div v-lazy-container="{ selector: 'img' }">
-            <img
-              :srcset="
-                `${transformImage(
-                  image.filename,
-                  '1668x0'
-                )} 1668w, ${transformImage(
-                  image.filename,
-                  '1440x0'
-                )} 1440w, ${transformImage(
-                  image.filename,
-                  '1280x0'
-                )} 1280w, ${transformImage(
-                  image.filename,
-                  '960x0'
-                )} 960w, ${transformImage(
-                  image.filename,
-                  '800x0'
-                )} 800w, ${transformImage(image.filename, '690x0')} 690w`
-              "
-              sizes="100vw"
-              :data-src="image.filename"
-              :alt="image.name"
-            />
-          </div>
-        </li>
-      </ul>
+
+    <section class="imageGrid">
+      <div is="IndexGridItem" v-for="post in  story.content.images" :key="post.id" :post="post"></div>
     </section>
+
+    <!-- <div class="contentListItem-Nav">
+      <nuxt-link
+        v-if="story.content.prev_link.id !== ''"
+        :to="`/${story.content.prev_link.cached_url}`"
+        class="contentListItem-Nav_Prev"
+        title="previous project"
+        tag="div"
+      >
+        <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+      </nuxt-link>
+      <nuxt-link
+        v-if="story.content.next_link.id !== ''"
+        :to="`/${story.content.next_link.cached_url}`"
+        class="contentListItem-Nav_Next"
+        title="next project"
+        tag="div"
+      >
+        <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+      </nuxt-link>
+    </div>-->
   </div>
 </template>
 
 <script>
-// STORYBLOK ASYNC CHECKED WITH https://www.storyblok.com/tp/nuxt-js-multilanguage-website-tutorial
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import IndexGridItem from "~/components/IndexGridItem.vue"
+
 import JQuery from "jquery"
 let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
   scrollToTop: true,
+  components: {
+    IndexGridItem: IndexGridItem
+  },
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
     let version =
@@ -110,24 +82,24 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.toggleBlock)
+    // window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.toggleBlock)
+    // window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },
   methods: {
-    toggleBlock() {
-      let scrollPosition = document.documentElement.scrollTop
-      if (scrollPosition > 0) {
-        $("#floatBlock").addClass("active")
-      } else {
-        $("#floatBlock").removeClass("active")
-      }
-    },
+    // toggleBlock() {
+    //   let scrollPosition = document.documentElement.scrollTop
+    //   if (scrollPosition > 0) {
+    //     $("#floatBlock").addClass("active")
+    //   } else {
+    //     $("#floatBlock").removeClass("active")
+    //   }
+    // },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""

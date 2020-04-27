@@ -38,6 +38,7 @@
       </ul>
     </section>
     <div is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
+
     <section class="imageGrid">
       <div is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
     </section>
@@ -147,6 +148,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+    console.log(this.filteredList)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("scroll", this.toggleBlock)

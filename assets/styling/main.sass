@@ -8,6 +8,9 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
 
 main
   background: var(--background-color)
+  color: $color-type-lighttheme
+  p, h1, a, input, svg
+    color: currentColor
 
 section
   background: var(--background-color)
@@ -93,27 +96,27 @@ img[lazy="loaded"]
         color: currentColor
   &-Icon:first-child
     margin-left: 0
-  &-Thumbnail
-    position: absolute
-    top: 0
-    width: 30vw
-    transform: translate(-50%, -50%)
-    pointer-events: none
-    z-index: 100
-    &_Wrapper
-      width: 100%
-      height: 0
-      padding-top: 100%
-    img
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      object-fit: contain
-      height: 100%
-      transition: opacity .3 ease
-      opacity: 0
+  // &-Thumbnail
+  //   position: absolute
+  //   top: 0
+  //   width: 30vw
+  //   transform: translate(-50%, -50%)
+  //   pointer-events: none
+  //   z-index: 100
+  //   &_Wrapper
+  //     width: 100%
+  //     height: 0
+  //     padding-top: 100%
+  //   img
+  //     position: absolute
+  //     top: 0
+  //     left: 0
+  //     right: 0
+  //     bottom: 0
+  //     object-fit: contain
+  //     height: 100%
+  //     transition: opacity .3 ease
+  //     opacity: 0
   // Content layout
   &-OneThree
     flex-basis: 75%
@@ -176,10 +179,10 @@ img[lazy="loaded"]
 .view
   &-Index
     padding-top: 18rem
-    @for $i from 1 through 100
-      .contentListItem-List:nth-child(#{$i})
-        .contentListItem-Thumbnail
-          left: random(66) + 17%
+    // @for $i from 1 through 100
+    //   .contentListItem-List:nth-child(#{$i})
+    //     .contentListItem-Thumbnail
+    //       left: random(66) + 17%
 
 .theTitle
   position: fixed
@@ -216,11 +219,11 @@ main
   // align-items: center
   // background: var(--background-space)
   // transition: background $transition-theme
-  color: $color-type-lighttheme
-  // cursor: none
-  p, h1, a, input, svg
-    color: currentColor
-  section
+  // color: $color-type-lighttheme
+  // // cursor: none
+  // p, h1, a, input, svg
+  //   color: currentColor
+  // section
     // position: relative
     // width: 100%
     // max-width: 100%
@@ -314,7 +317,6 @@ main
 
 .imageGrid
   min-height: 0
-  z-index: -1
   background: var(--background-color)
   // .imageGrid-Item
   //   margin-bottom: 0
