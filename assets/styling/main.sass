@@ -162,12 +162,14 @@ img[lazy="loaded"]
   &-Nav
     position: sticky
     top: 50vh
+    // top: 0
     transform: translateY(-50%)
     width: 100%
     height: auto
     display: flex
     justify-content: space-between
     mix-blend-mode: difference
+    z-index: 999
     &_Prev
       svg
         transform: rotate(180deg)
@@ -177,7 +179,7 @@ img[lazy="loaded"]
       color: white
 
 .view
-  &-Index
+  &-Index, &-Project
     padding-top: 18rem
     // @for $i from 1 through 100
     //   .contentListItem-List:nth-child(#{$i})
@@ -337,59 +339,59 @@ main
       width: 100%
       transition: width $transition-space-sideways
   @media screen and ( min-width: $breakpoint-mobile)
-    li:nth-child(1)
+    li:nth-of-type(1)
       .imageGrid-Item_Wrapper
         width: 100%
-    li:nth-child(2)
+    li:nth-of-type(2)
       .imageGrid-Item_Wrapper
         width: 66.6666%
         align-self: flex-end
-    li:nth-child(3)
+    li:nth-of-type(3)
       .imageGrid-Item_Wrapper
         width: 33.3333%
         align-self: flex-start
-    li:nth-child(4)
+    li:nth-of-type(4)
       .imageGrid-Item_Wrapper
         width: 66.6666%
         align-self: flex-start
-    li:nth-child(5)
+    li:nth-of-type(5)
       .imageGrid-Item_Wrapper
         width: 33.3333%
         align-self: flex-end
-    li:nth-child(6)
+    li:nth-of-type(6)
       .imageGrid-Item_Wrapper
         align-self: center
-    li:nth-child(7)
+    li:nth-of-type(7)
       .imageGrid-Item_Wrapper
         width: 66.6666%
         align-self: flex-start
-    li:nth-child(8)
+    li:nth-of-type(8)
       .imageGrid-Item_Wrapper
         width: 33.3333%
         align-self: flex-start
-    li:nth-child(9)
+    li:nth-of-type(9)
       .imageGrid-Item_Wrapper
         width: 66.6666%
         align-self: flex-end
-    li:nth-child(10)
+    li:nth-of-type(10)
       .imageGrid-Item_Wrapper
         width: 100%
         align-self: flex-start
-    li:nth-child(11)
+    li:nth-of-type(11)
       .imageGrid-Item_Wrapper
         width: 33.3333%
         align-self: flex-start
-    li:nth-child(12)
+    li:nth-of-type(12)
       .imageGrid-Item_Wrapper
         width: 66.6666%
         align-self: flex-end
-    li:nth-child(13)
+    li:nth-of-type(13)
       .imageGrid-Item_Wrapper
         align-self: center
-    li:nth-child(14)
+    li:nth-of-type(14)
       .imageGrid-Item_Wrapper
         align-self: center
-    li:nth-child(15)
+    li:nth-of-type(15)
       .imageGrid-Item_Wrapper
         align-self: center
   @media screen and ( max-width: $breakpoint-mobile)

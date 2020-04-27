@@ -9,29 +9,28 @@
     </section>
 
     <section class="imageGrid">
+      <div class="contentListItem-Nav">
+        <nuxt-link
+          v-if="story.content.prev_link.id !== ''"
+          :to="`/${story.content.prev_link.cached_url}`"
+          class="contentListItem-Nav_Prev"
+          title="previous project"
+          tag="div"
+        >
+          <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+        </nuxt-link>
+        <nuxt-link
+          v-if="story.content.next_link.id !== ''"
+          :to="`/${story.content.next_link.cached_url}`"
+          class="contentListItem-Nav_Next"
+          title="next project"
+          tag="div"
+        >
+          <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+        </nuxt-link>
+      </div>
       <div is="IndexGridItem" v-for="post in  story.content.images" :key="post.id" :post="post"></div>
     </section>
-
-    <!-- <div class="contentListItem-Nav">
-      <nuxt-link
-        v-if="story.content.prev_link.id !== ''"
-        :to="`/${story.content.prev_link.cached_url}`"
-        class="contentListItem-Nav_Prev"
-        title="previous project"
-        tag="div"
-      >
-        <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-      </nuxt-link>
-      <nuxt-link
-        v-if="story.content.next_link.id !== ''"
-        :to="`/${story.content.next_link.cached_url}`"
-        class="contentListItem-Nav_Next"
-        title="next project"
-        tag="div"
-      >
-        <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
-      </nuxt-link>
-    </div>-->
   </div>
 </template>
 
@@ -130,45 +129,45 @@ export default {
 </script>
 
 <style lang="sass">
-@import '~/assets/styling/variables.sass'
+// @import '~/assets/styling/variables.sass'
 
-main
-  .projectItem
-    &-Text
-      position: relative
-      padding-left: var(--spacing-sides)
-      padding-right: var(--spacing-sides)
-      padding-bottom: var(--spacing-two)
-      background: var(--background-color)
-      @media screen and ( max-width: $breakpoint-mobile)
-        padding-bottom: var(--spacing-three)
-    &-Nav
-      position: fixed
-      padding: var(--spacing-two) var(--spacing-sides)
-      mix-blend-mode: difference
-      z-index: 999
-      top: 50%
-      transform: translateY(-50%)
-      &:hover
-        @media (hover: hover)
-          mix-blend-mode: initial
-          .icon
-            svg
-              color: var(--support-color)
-      .icon
-        width: calc(#{var(--spacing-icons)} * 2)
-        opacity: 1
-        svg
-          color: white
-          opacity: 1
-      &_Prev
-        left: 0
-        svg
-          transform: rotate(180deg)
-      &_Next
-        right: 0
-main.spaced.four
-  .projectItem
-    &-Nav
-      color: black
+// main
+//   .projectItem
+//     &-Text
+//       position: relative
+//       padding-left: var(--spacing-sides)
+//       padding-right: var(--spacing-sides)
+//       padding-bottom: var(--spacing-two)
+//       background: var(--background-color)
+//       @media screen and ( max-width: $breakpoint-mobile)
+//         padding-bottom: var(--spacing-three)
+//     &-Nav
+//       position: fixed
+//       padding: var(--spacing-two) var(--spacing-sides)
+//       mix-blend-mode: difference
+//       z-index: 999
+//       top: 50%
+//       transform: translateY(-50%)
+//       &:hover
+//         @media (hover: hover)
+//           mix-blend-mode: initial
+//           .icon
+//             svg
+//               color: var(--support-color)
+//       .icon
+//         width: calc(#{var(--spacing-icons)} * 2)
+//         opacity: 1
+//         svg
+//           color: white
+//           opacity: 1
+//       &_Prev
+//         left: 0
+//         svg
+//           transform: rotate(180deg)
+//       &_Next
+//         right: 0
+// main.spaced.four
+//   .projectItem
+//     &-Nav
+//       color: black
 </style>
