@@ -54,7 +54,7 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
           >
-            <nuxt-link to="/about" class="icon icon-About" title="about" tag="div">
+            <nuxt-link to="/about-new" class="icon icon-About" title="about" tag="div">
               <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
             </nuxt-link>
           </li>

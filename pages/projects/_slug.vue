@@ -1,12 +1,11 @@
 <template>
   <div class="view view-Container view-Project">
-    <section class="contentListItem-Single">
-      <ul class="contentListItem end">
-        <li class="contentListItem-Column contentListItem-OneThree justified">
-          <markdown-item :input="story.content.content" />
-        </li>
-      </ul>
-    </section>
+    <component
+      :is="blok.component | dashify"
+      v-for="blok in story.content.body"
+      :key="blok._uid"
+      :blok="blok"
+    ></component>
 
     <section class="imageGrid">
       <div class="contentListItem-Nav">
@@ -81,6 +80,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.story.content.body)
     // window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
