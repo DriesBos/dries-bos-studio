@@ -5,7 +5,7 @@
         <nuxt-link to="/">
           <span
             v-show="this.$route.name === 'index' || this.$route.name === 'projects-slug'"
-            class="hovered contentListItem-TheTitle"
+            class="hovered contentListItem-Header_TheTitle"
             title="that's me!"
           >Dries</span>
           <span class="hovered" v-if="this.$route.name === 'projects-slug'" title="me and ...">
@@ -171,25 +171,25 @@ export default {
           $("main").removeClass("tempBackground")
         }, 565)
       }
-    },
-    typeSizeOnScroll(event) {
-      var el = document.querySelector(".contentListItem-TheTitle")
-      var size = Math.max(1, 16 - 0.045 * window.pageYOffset) + "rem"
-      el.style.fontSize = size
     }
+    // typeSizeOnScroll(event) {
+    //   var el = document.querySelector(".contentListItem-TheTitle")
+    //   var size = Math.max(1, 16 - 0.045 * window.pageYOffset) + "rem"
+    //   el.style.fontSize = size
+    // }
   },
   mounted() {
     this.processedSlug()
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
-    window.addEventListener("scroll", this.typeSizeOnScroll)
+    // window.addEventListener("scroll", this.typeSizeOnScroll)
   },
   destroyed() {
     $(".hovered").off("mouseover", this.changeCursor)
     $(".hovered").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
-    window.removeEventListener("scroll", this.typeSizeOnScroll)
+    // window.removeEventListener("scroll", this.typeSizeOnScroll)
   }
 }
 </script>

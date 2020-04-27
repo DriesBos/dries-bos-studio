@@ -28,11 +28,11 @@
         </ul>
       </li>
     </ul>
-    <div class="contentListItem-Thumbnail">
+    <!-- <div class="contentListItem-Thumbnail">
       <div class="contentListItem-Thumbnail_Wrapper">
         <img :src="post.cover_image" />
       </div>
-    </div>
+    </div>-->
   </nuxt-link>
 </template>
 

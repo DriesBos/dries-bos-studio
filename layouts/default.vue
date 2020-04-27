@@ -1,12 +1,12 @@
 <template>
   <main :class="[currentTheme, { spaced: spaceState }]">
+    <the-title />
     <the-notifications />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
     <the-footer />
     <the-navigation @toggleTheme="changeTheme" />
-    <!-- <the-title /> -->
     <div class="cursor" />
   </main>
 </template>

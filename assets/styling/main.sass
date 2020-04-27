@@ -6,6 +6,12 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
   width: 100%
   min-height: 100%
 
+main
+  background: var(--background-color)
+
+section
+  background: var(--background-color)
+
 .icon // TODO: shows animation constantly in spacemode
   position: relative
   opacity: 1
@@ -55,9 +61,6 @@ img[lazy="loaded"]
     opacity: .3
   @media ( hover: none )
     display: none
-
-section
-  background: var(--background-color)
 
 .contentListItem
   color: $color-type-lighttheme
@@ -128,15 +131,17 @@ section
   &-List
     border-top: 1px solid currentColor
     position: relative
+    background: var(--background-color)
     &:hover
-      background: var(--background-color-selected)
-      .contentListItem-Thumbnail img
-        opacity: 1
+      background: var(--background-color-active)
   &-List:last-child
     border-bottom: 1px solid currentColor
   &-Filter
     position: sticky
     z-index: 950
+    top: calc(#{var(--spacing-two)} + 1rem)
+    border-top: 1px solid currentColor
+    border-bottom: 1px solid currentColor
     p
       opacity: .25
   &-Single
@@ -176,17 +181,17 @@ section
         .contentListItem-Thumbnail
           left: random(66) + 17%
 
-// .theTitle
-//   position: fixed
-//   top: 0
-//   left: 0
-//   z-index: -100
-//   padding-left: var(--spacing-two)
-//   margin-left: -1.2rem
-//   h1
-//     font-size: 16rem
-//     line-height: 1.1676
-//     letter-spacing: -.25rem
+.theTitle
+  position: fixed
+  top: 0
+  left: 0
+  padding-left: var(--spacing-two)
+  margin-left: -1.2rem
+  pointer-events: none
+  h1
+    font-size: 16rem
+    line-height: 1.1676
+    letter-spacing: -.25rem
 
 .footer
   display: flex
