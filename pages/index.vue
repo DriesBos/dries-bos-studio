@@ -37,12 +37,16 @@
         </li>
       </ul>
     </section>
-    <section is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></section>
+    <div is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
+    <section class="imageGrid">
+      <div is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
+    </section>
   </div>
 </template>
 
 <script>
 import IndexListItem from "~/components/IndexListItem.vue"
+import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
 import JQuery from "jquery"
 let $ = JQuery
@@ -50,7 +54,8 @@ let $ = JQuery
 export default {
   scrollToTop: true,
   components: {
-    IndexListItem: IndexListItem
+    IndexListItem: IndexListItem,
+    IndexGridItem: IndexGridItem
   },
   props: {
     view: Boolean

@@ -312,87 +312,87 @@ main
 // #floatBlock
 //   background: var(--background-color)
 
-// .imageGrid
-//   min-height: 0
-//   z-index: -1
-//   background: var(--background-color)
-//   .imageGrid-Item
-//     margin-bottom: 0
-//     transition: margin-bottom $transition-space-vertical
-//   .imageGrid-Item:first-child
-//     margin-top: 0
-//     transition: margin-top $transition-space-vertical
-//   img
-//     transition: opacity $transition-lazy
-//   &-Item
-//     width: 100%
-//     min-height: 0
-//     display: flex
-//     flex-direction: column
-//     align-items: center
-//     border-bottom: 1px solid rgba(0,0,0,0)
-//     &_Wrapper
-//       width: 100%
-//       transition: width $transition-space-sideways
-//   @media screen and ( min-width: $breakpoint-mobile)
-//     li:nth-child(1)
-//       .imageGrid-Item_Wrapper
-//         width: 100%
-//     li:nth-child(2)
-//       .imageGrid-Item_Wrapper
-//         width: 66.6666%
-//         align-self: flex-end
-//     li:nth-child(3)
-//       .imageGrid-Item_Wrapper
-//         width: 33.3333%
-//         align-self: flex-start
-//     li:nth-child(4)
-//       .imageGrid-Item_Wrapper
-//         width: 66.6666%
-//         align-self: flex-start
-//     li:nth-child(5)
-//       .imageGrid-Item_Wrapper
-//         width: 33.3333%
-//         align-self: flex-end
-//     li:nth-child(6)
-//       .imageGrid-Item_Wrapper
-//         align-self: center
-//     li:nth-child(7)
-//       .imageGrid-Item_Wrapper
-//         width: 66.6666%
-//         align-self: flex-start
-//     li:nth-child(8)
-//       .imageGrid-Item_Wrapper
-//         width: 33.3333%
-//         align-self: flex-start
-//     li:nth-child(9)
-//       .imageGrid-Item_Wrapper
-//         width: 66.6666%
-//         align-self: flex-end
-//     li:nth-child(10)
-//       .imageGrid-Item_Wrapper
-//         width: 100%
-//         align-self: flex-start
-//     li:nth-child(11)
-//       .imageGrid-Item_Wrapper
-//         width: 33.3333%
-//         align-self: flex-start
-//     li:nth-child(12)
-//       .imageGrid-Item_Wrapper
-//         width: 66.6666%
-//         align-self: flex-end
-//     li:nth-child(13)
-//       .imageGrid-Item_Wrapper
-//         align-self: center
-//     li:nth-child(14)
-//       .imageGrid-Item_Wrapper
-//         align-self: center
-//     li:nth-child(15)
-//       .imageGrid-Item_Wrapper
-//         align-self: center
-//   @media screen and ( max-width: $breakpoint-mobile)
-//     li
-//       width: 100%
+.imageGrid
+  min-height: 0
+  z-index: -1
+  background: var(--background-color)
+  // .imageGrid-Item
+  //   margin-bottom: 0
+  //   // transition: margin-bottom $transition-space-vertical
+  // .imageGrid-Item:first-child
+  //   margin-top: 0
+    // transition: margin-top $transition-space-vertical
+  img
+    transition: opacity $transition-lazy
+  &-Item
+    width: 100%
+    min-height: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    border-bottom: 1px solid rgba(0,0,0,0)
+    &_Wrapper
+      width: 100%
+      transition: width $transition-space-sideways
+  @media screen and ( min-width: $breakpoint-mobile)
+    li:nth-child(1)
+      .imageGrid-Item_Wrapper
+        width: 100%
+    li:nth-child(2)
+      .imageGrid-Item_Wrapper
+        width: 66.6666%
+        align-self: flex-end
+    li:nth-child(3)
+      .imageGrid-Item_Wrapper
+        width: 33.3333%
+        align-self: flex-start
+    li:nth-child(4)
+      .imageGrid-Item_Wrapper
+        width: 66.6666%
+        align-self: flex-start
+    li:nth-child(5)
+      .imageGrid-Item_Wrapper
+        width: 33.3333%
+        align-self: flex-end
+    li:nth-child(6)
+      .imageGrid-Item_Wrapper
+        align-self: center
+    li:nth-child(7)
+      .imageGrid-Item_Wrapper
+        width: 66.6666%
+        align-self: flex-start
+    li:nth-child(8)
+      .imageGrid-Item_Wrapper
+        width: 33.3333%
+        align-self: flex-start
+    li:nth-child(9)
+      .imageGrid-Item_Wrapper
+        width: 66.6666%
+        align-self: flex-end
+    li:nth-child(10)
+      .imageGrid-Item_Wrapper
+        width: 100%
+        align-self: flex-start
+    li:nth-child(11)
+      .imageGrid-Item_Wrapper
+        width: 33.3333%
+        align-self: flex-start
+    li:nth-child(12)
+      .imageGrid-Item_Wrapper
+        width: 66.6666%
+        align-self: flex-end
+    li:nth-child(13)
+      .imageGrid-Item_Wrapper
+        align-self: center
+    li:nth-child(14)
+      .imageGrid-Item_Wrapper
+        align-self: center
+    li:nth-child(15)
+      .imageGrid-Item_Wrapper
+        align-self: center
+  @media screen and ( max-width: $breakpoint-mobile)
+    li
+      width: 100%
 // .spaced
 //   .imageGrid
 //     margin-bottom: var(--spacing-two)
