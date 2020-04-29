@@ -4,7 +4,7 @@
       <p v-show="this.$route.name === 'index'">What are you looking for? Type it here</p>
     </div>
     <div
-      class="icon-ArrowUp"
+      class="cursorInteract icon-ArrowUp"
       v-scroll-to="{
      el: '#top',
      duration: 500,

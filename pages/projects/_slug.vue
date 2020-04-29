@@ -10,25 +10,28 @@
     <section class="imageGrid">
       <div class="contentListItem-Nav">
         <nuxt-link
-          v-if="story.content.prev_link.id !== ''"
           :to="`/${story.content.prev_link.cached_url}`"
           class="contentListItem-Nav_Prev"
           title="previous project"
           tag="div"
         >
           <div
+            v-if="story.content.prev_link.id !== ''"
             class="cursorInteract icon-Arrow"
             v-html="require('~/assets/images/icon-arrow-long.svg?include')"
           />
         </nuxt-link>
         <nuxt-link
-          v-if="story.content.next_link.id !== ''"
           :to="`/${story.content.next_link.cached_url}`"
           class="cursorInteract contentListItem-Nav_Next"
           title="next project"
           tag="div"
         >
-          <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+          <div
+            v-if="story.content.next_link.id !== ''"
+            class="icon-Arrow"
+            v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+          />
         </nuxt-link>
       </div>
       <div is="IndexGridItem" v-for="post in  story.content.images" :key="post.id" :post="post"></div>

@@ -1,6 +1,5 @@
 <template>
-  <!-- <main  :class="[currentTheme, { spaced: spaceState }]"> -->
-  <main id="top" class="light">
+  <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
     <the-title />
     <the-notifications />
     <transition name="page" mode="out-in">
@@ -34,8 +33,7 @@ export default {
   },
   data() {
     return {
-      themeNumber: 0,
-      currentTheme: "one"
+      currentTheme: false
     }
   },
   computed: {
@@ -66,17 +64,15 @@ export default {
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
       ) {
-        this.themeNumber = 2
-        this.currentTheme = "three"
-        $("body").removeClass("one")
-        $("body").removeClass("two")
-        $("body").addClass("three")
-        $("body").removeClass("four")
+        this.currentTheme = true
         $("#messages").addClass("activeOne")
         setTimeout(function() {
           $("#messages").removeClass("activeOne")
         }, 2000)
       }
+    },
+    changeTheme() {
+      this.currentTheme = !this.currentTheme
     },
     customCursor() {
       let $cursor = $(".cursor")
@@ -91,32 +87,6 @@ export default {
     removeChangeCursor() {
       let $cursor = $(".cursor")
       $cursor.removeClass("interact")
-    },
-    changeTheme() {
-      if (this.themeNumber < 2) {
-        this.themeNumber++
-      } else {
-        this.themeNumber = 0
-      }
-      if (this.themeNumber === 1) {
-        this.currentTheme = "two"
-        $("body").removeClass("one")
-        $("body").addClass("two")
-        $("body").removeClass("three")
-        $("body").removeClass("four")
-      } else if (this.themeNumber === 2) {
-        this.currentTheme = "three"
-        $("body").removeClass("one")
-        $("body").removeClass("two")
-        $("body").addClass("three")
-        $("body").removeClass("four")
-      } else {
-        this.currentTheme = "One"
-        $("body").addClass("one")
-        $("body").removeClass("two")
-        $("body").removeClass("three")
-        $("body").removeClass("four")
-      }
     },
     // BROWSER APIS
     windowIsVisible() {

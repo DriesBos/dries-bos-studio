@@ -142,18 +142,23 @@ section
   &-Nav
     position: sticky
     top: 50vh
-    // top: 0
     transform: translateY(-50%)
     width: 100%
     height: auto
-    padding: var(--spacing-two)
     display: flex
     justify-content: space-between
     mix-blend-mode: difference
     z-index: 999
+    &_Prev, &_Next
+      position: absolute
+      top: 0
+      transform: translateY(-50%)
     &_Prev
+      left: var(--spacing-two)
       svg
         transform: rotate(180deg)
+    &_Next
+      right: var(--spacing-two)
     svg
       width: var(--spacing-icons-double)
       height: var(--spacing-icons)
@@ -340,7 +345,7 @@ section
     li:nth-of-type(4)
       .imageGrid-Item_Wrapper
         width: 66.6666%
-        align-self: flex-start
+        align-self: fflex-start
     li:nth-of-type(5)
       .imageGrid-Item_Wrapper
         width: 33.3333%
