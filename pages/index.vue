@@ -40,9 +40,9 @@
     </section>
     <div is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
 
-    <section class="imageGrid">
+    <!-- <section class="imageGrid">
       <div is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
-    </section>
+    </section>-->
   </div>
 </template>
 

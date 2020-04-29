@@ -166,6 +166,9 @@ section
     p
       opacity: .25
       display: inline
+      transition: opacity $transition-hover
+      &:hover
+        opacity: 1
   &-List
     border-bottom: 1px solid currentColor
     position: relative
@@ -240,6 +243,8 @@ section
   &-Index, &-Project, &-About
     padding-top: 18rem
     transition: padding-top 1s ease
+  &-Project, &-About
+    background: var(--background-color)
   &-About
     ul
       border-bottom: 1px solid var(--type-color)
