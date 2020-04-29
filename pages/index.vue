@@ -1,31 +1,32 @@
 <template>
-  <div class="view view-Container view-Index">
-    <section class="contentListItem-Filter">
+  <div class="view view-Index">
+    <div class="spaceForm"></div>
+    <section class="contentListItem-Filter spaced-TopSide">
       <ul class="contentListItem">
-        <li class="contentListItem-Column contentListItem-One">
+        <li class="contentListItem-Column">
           <div class :class="{ active: sortByYear }" @click="sortYear">
-            <p title="sort by year">year</p>
+            <p class="cursorInteract" title="sort by year">year</p>
           </div>
         </li>
-        <li class="contentListItem-Column contentListItem-Two">
+        <li class="contentListItem-Column">
           <div
             class="listItem-Title listItem-Details hovered"
             :class="{ active: sortByTitle }"
             @click="sortTitle"
           >
-            <p title="sort by project">project</p>
+            <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
-        <li class="contentListItem-Column contentListItem-Three">
+        <li class="contentListItem-Column">
           <div
             class="listItem-Category listItem-Details hovered"
             :class="{ active: sortByCategory }"
             @click="sortCategory"
           >
-            <p title="sort by role">role</p>
+            <p class="cursorInteract" title="sort by role">role</p>
           </div>
         </li>
-        <li class="contentListItem-Column contentListItem-Four">
+        <li class="contentListItem-Column">
           <ul class="contentListItem-Icons">
             <!-- <div class="listItem-Icons" :class="{ active: toggleSearch }">
             <input type="text" v-model="search" ref="search" placeholder="filter by name" />
@@ -147,8 +148,6 @@ export default {
     this.startPosition()
   },
   mounted() {
-    window.scrollTo(0, 0)
-    console.log(this.filteredList)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("scroll", this.toggleBlock)

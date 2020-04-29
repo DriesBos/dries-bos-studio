@@ -1,5 +1,6 @@
 <template>
-  <div class="view view-Container view-Project">
+  <div class="view view-Project">
+    <div class="spaceForm"></div>
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
@@ -86,25 +87,14 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story.content.body)
-    // window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
-    // window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },
   methods: {
-    // toggleBlock() {
-    //   let scrollPosition = document.documentElement.scrollTop
-    //   if (scrollPosition > 0) {
-    //     $("#floatBlock").addClass("active")
-    //   } else {
-    //     $("#floatBlock").removeClass("active")
-    //   }
-    // },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""

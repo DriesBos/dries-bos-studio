@@ -19,11 +19,52 @@ main
   background: var(--background-color)
   color: $color-type-lighttheme
   cursor: none
+  padding-left: 0
+  padding-top: 0
+  padding-right: 0
+  padding-bottom: 0
+  transition: padding-top 1s ease 2s, padding-left 1s ease 2s, padding-right 1s ease 2s, padding-bottom 1s ease 2s
   p, h1, a, input, svg
     color: currentColor
 
 section
+  position: relative
   background: var(--background-color)
+  transition: max-width 1s ease 1s, width 1s ease 1s, top 1s ease 1s
+  width: 100%
+  max-width: 100%
+
+.spaceForm
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  height: 200px
+  width: 100%
+  transform: translateY(-100%)
+  background: var(--background-color)
+  border-bottom: 0px solid var(--type)
+  transition: background $transition-theme, border-bottom $transition-theme
+  pointer-events: none
+  z-index: 0
+  display: none
+  &::before, &::after
+    content: ""
+    position: absolute
+    top: 0
+    bottom: 0
+    border-bottom: 200px solid transparent
+    transition: border-left $transition-space-vertical, border-right $transition-space-vertical
+    // transition: border-left $transition-theme, border-right $transition-theme
+  &::before
+    left: 0
+    border-left: 0px solid transparent
+  &::after
+    right: 0
+    border-right: 0px solid transparent
+
+#floatBlock
+  transition: transform .3s ease
 
 // Building blocks
 .icon // TODO: show animation constantly in spacemode
@@ -83,6 +124,7 @@ section
 .contentListItem
   color: $color-type-lighttheme
   display: flex
+  width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
   padding-left: var(--spacing-one)
@@ -115,12 +157,15 @@ section
       visibility: hidden
   &-Filter
     position: sticky
-    z-index: 950
-    top: calc(#{var(--spacing-two)} + 1rem)
+    z-index: 999
+    top: calc(2rem + 1.6rem)
+    left: 0
+    right: 0
     border-top: 1px solid currentColor
     border-bottom: 1px solid currentColor
     p
       opacity: .25
+      display: inline
   &-List
     border-bottom: 1px solid currentColor
     position: relative
@@ -180,7 +225,7 @@ section
   display: flex
   justify-content: space-between
   background: var(--background-color)
-  padding-top: calc(#{var(--spacing-two)} + 1rem)
+  padding-top: calc(#{var(--spacing-two)} + 1.6rem)
   padding-bottom: 1rem
   padding-left: var(--spacing-one)
   padding-right: var(--spacing-one)
@@ -194,6 +239,7 @@ section
 .view
   &-Index, &-Project, &-About
     padding-top: 18rem
+    transition: padding-top 1s ease
   &-About
     ul
       border-bottom: 1px solid var(--type-color)
@@ -209,6 +255,51 @@ section
       justify-content: flex-end
     li
       flex-basis: 75%
+
+// Spaced
+main.spaced
+  background: var(--space-color)
+  padding-top: calc(9rem + 200px)
+  padding-bottom: var(--spacing-two)
+
+  .view
+    max-width: 1200px
+    margin-left: auto
+    margin-right: auto
+    &-Index, &-Project, &-About
+      padding-top: 0
+
+  section
+    max-width: 1200px
+    margin-left: auto
+    margin-right: auto
+
+  .spaceForm
+    display: block
+    border-bottom: 1px solid var(--type-color)
+    // z-index: 999
+    &::before, &::after
+      transition: border-left $transition-theme, border-right $transition-theme
+      z-index: 0
+    &::before
+      border-left: 150px solid var(--space-color)
+    &::after
+      border-right: 150px solid var(--space-color)
+
+  #floatBlock.active
+    transform: translateY(-150%)
+
+  .contentListItem
+    &-Header
+      position: relative
+      top: auto
+      left: auto
+      right: auto
+    &-Filter
+      position: relative
+      top: auto
+      left: auto
+      right: auto
 
 // main
   // position: relative
@@ -315,7 +406,7 @@ section
 //   background: var(--background-color)
 
 .imageGrid
-  min-height: 0
+  min-height: 100vh
   background: var(--background-color)
   // .imageGrid-Item
   //   margin-bottom: 0

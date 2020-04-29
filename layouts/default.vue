@@ -2,11 +2,11 @@
   <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
     <the-title />
     <the-notifications />
+    <the-navigation @toggleTheme="changeTheme" />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
     <the-footer />
-    <the-navigation @toggleTheme="changeTheme" />
     <div class="cursor">
       <div class="cursor-Small cursor-Instance" />
       <div class="cursor-Large cursor-Instance" />
@@ -44,11 +44,13 @@ export default {
   mounted() {
     this.checkDarkMode()
     this.customCursor()
+    window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
+    window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
@@ -69,6 +71,14 @@ export default {
         setTimeout(function() {
           $("#messages").removeClass("activeOne")
         }, 2000)
+      }
+    },
+    toggleBlock() {
+      let scrollPosition = document.documentElement.scrollTop
+      if (scrollPosition > 0) {
+        $("#floatBlock").addClass("active")
+      } else {
+        $("#floatBlock").removeClass("active")
       }
     },
     changeTheme() {

@@ -1,5 +1,6 @@
 <template>
-  <div class="view-About">
+  <div class="view view-About">
+    <div class="spaceForm"></div>
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
