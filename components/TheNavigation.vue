@@ -2,15 +2,16 @@
   <section class="contentListItem-Header">
     <ul class="contentListItem">
       <li class="contentListItem-Column contentListItem-One">
-        <nuxt-link to="/">
+        <nuxt-link class="cursorInteract" to="/">
           <span
             v-show="this.$route.name === 'index' || this.$route.name === 'projects-slug'"
-            class="hovered contentListItem-Header_TheTitle"
+            class="contentListItem-Header_TheTitle"
             title="that's me!"
           >Dries</span>
-          <span class="hovered" v-if="this.$route.name === 'projects-slug'" title="me and ...">
+          <span v-show="this.$route.name === 'about-new'" class="contentListItem-Header_About">Dries</span>
+          <span class v-if="this.$route.name === 'projects-slug'" title="me and ...">
             and
-            <span class="header-Logo_Capitalize hovered">{{ slug }}</span>
+            <span class="capitalize">{{ slug }}</span>
           </span>
         </nuxt-link>
       </li>
@@ -24,7 +25,7 @@
             @click="toggleTheme"
             title="change theme"
           >
-            <div class="icon icon-Theme">
+            <div class="cursorInteract icon icon-Theme">
               <div v-html="require('~/assets/images/icon-theme.svg?include')"></div>
             </div>
           </li>
@@ -33,8 +34,8 @@
             class="contentListItem-Icon contentListItem-Space"
             @click="toggleTheSpace"
           >
-            <div class="icon icon-Space">
-              <svg class="hovered" viewBox="0 0 25 25">
+            <div class="cursorInteract icon icon-Space">
+              <svg viewBox="0 0 25 25">
                 <g fill="currentColor" fill-rule="evenodd">
                   <path
                     d="M19,23.75 L14.41625,21.909375 C15.2475,20.0925 15.84125,18.21625 16.209375,16.304375 L19,23.75 M4.58375,21.909375 L0,23.75 L2.790625,16.304375 C3.15875,18.21625 3.7525,20.0925 4.58375,21.909375 M9.5,0 C9.5,0 15.4375,2.375 15.4375,11.875 C15.4375,15.55625 14.546875,18.703125 13.454375,21.173125 C13.0625,22.028125 12.219375,22.5625 11.28125,22.5625 L7.71875,22.5625 C6.780625,22.5625 5.9375,22.028125 5.545625,21.173125 C4.465,18.703125 3.5625,15.55625 3.5625,11.875 C3.5625,2.375 9.5,0 9.5,0 M9.5,11.875 C10.80625,11.875 11.875,10.80625 11.875,9.5 C11.875,8.19375 10.80625,7.125 9.5,7.125 C8.19375,7.125 7.125,8.19375 7.125,9.5 C7.125,10.80625 8.19375,11.875 9.5,11.875 Z"
@@ -54,7 +55,12 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
           >
-            <nuxt-link to="/about-new" class="icon icon-About" title="about" tag="div">
+            <nuxt-link
+              to="/about-new"
+              class="cursorInteract icon icon-About"
+              title="about"
+              tag="div"
+            >
               <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
             </nuxt-link>
           </li>
@@ -62,7 +68,7 @@
             v-show="this.$route.name !== 'index'"
             class="contentListItem-Icon contentListItem-Close"
           >
-            <nuxt-link to="/" class="icon icon-Close" title="close" tag="div">
+            <nuxt-link to="/" class="cursorInteract icon icon-Close" title="close" tag="div">
               <div v-html="require('~/assets/images/icon-close.svg?include')"></div>
             </nuxt-link>
           </li>
@@ -100,11 +106,11 @@ export default {
   methods: {
     changeCursor() {
       let $cursor = $(".cursor")
-      $cursor.addClass("interact")
+      $cursor.addClass("active")
     },
     removeChangeCursor() {
       let $cursor = $(".cursor")
-      $cursor.removeClass("interact")
+      $cursor.removeClass("active")
     },
     toggleTheme() {
       this.$emit("toggleTheme")
@@ -180,14 +186,14 @@ export default {
   },
   mounted() {
     this.processedSlug()
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
+    $(".cursorInteract").on("mouseover", this.changeCursor)
+    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
     // window.addEventListener("scroll", this.typeSizeOnScroll)
   },
   destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
+    $(".cursorInteract").off("mouseover", this.changeCursor)
+    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
     // window.removeEventListener("scroll", this.typeSizeOnScroll)
   }
@@ -216,8 +222,6 @@ export default {
 //     flex-grow: 1
 //     flex-shrink: 0
 //     pointer-events: none
-//     &_Capitalize
-//       text-transform: capitalize
 //     span
 //       pointer-events: auto
 //   &-Toggle

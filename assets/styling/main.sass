@@ -6,15 +6,26 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
   width: 100%
   min-height: 100%
 
+// Fundamental elements
+img
+  opacity: 0
+  width: 100%
+
+img[lazy="loaded"]
+  opacity: 1
+
+// Fundamental sections
 main
   background: var(--background-color)
   color: $color-type-lighttheme
+  cursor: none
   p, h1, a, input, svg
     color: currentColor
 
 section
   background: var(--background-color)
 
+// Building blocks
 .icon // TODO: shows animation constantly in spacemode
   position: relative
   opacity: 1
@@ -36,34 +47,38 @@ section
     width: 100%
     height: auto
 
-img
-  opacity: 0
-  width: 100%
-
-img[lazy="loaded"]
-  opacity: 1
-
-// CURSOR
 .cursor
   position: fixed
-  width: 1rem
-  height: 1rem
-  top: 50%
-  left: 50%
+  width: calc(#{var(--spacing-icons)} * 2)
+  height: calc(#{var(--spacing-icons)} * 2)
   transform: translate(-50%, -50%)
-  border-radius: 100px
-  background: var(--support-color)
-  // border: 1px solid var(--support-type)
-  pointer-events: none
-  transition: width $transition-cursor, height $transition-cursor
-  will-change: width, height
+  border-radius: 50%
   z-index: 999
-  opacity: 1
-  transition: opacity .2s ease
-  &.interact
-    opacity: .3
+  pointer-events: none
+  &-Instance
+    position: absolute
+    width: 50%
+    height: 50%
+    border-radius: 50%
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background: var(--cursor-color)
+    transition: all .3 ease
+  &-Large
+    width: 50%
+    height: 50%
+    opacity: .33
+    transition: all .3 ease
+  &.active
+    .cursor-Large
+      width: 100%
+      height: 100%
   @media ( hover: none )
     display: none
+
+.capitalize
+  text-transform: capitalize
 
 .contentListItem
   color: $color-type-lighttheme
@@ -72,17 +87,10 @@ img[lazy="loaded"]
   padding-bottom: 1rem
   padding-left: var(--spacing-one)
   padding-right: var(--spacing-one)
-  &.end
-    justify-content: flex-end
-  // Item content
   &-Column
     flex-basis: 25%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
-  &-TheTitle
-    font-size: 16rem
-    line-height: 1
-    z-index: 999
   &-Icons
     display: flex
     justify-content: flex-end
@@ -96,30 +104,6 @@ img[lazy="loaded"]
         color: currentColor
   &-Icon:first-child
     margin-left: 0
-  // &-Thumbnail
-  //   position: absolute
-  //   top: 0
-  //   width: 30vw
-  //   transform: translate(-50%, -50%)
-  //   pointer-events: none
-  //   z-index: 100
-  //   &_Wrapper
-  //     width: 100%
-  //     height: 0
-  //     padding-top: 100%
-  //   img
-  //     position: absolute
-  //     top: 0
-  //     left: 0
-  //     right: 0
-  //     bottom: 0
-  //     object-fit: contain
-  //     height: 100%
-  //     transition: opacity .3 ease
-  //     opacity: 0
-  // Content layout
-  &-OneThree
-    flex-basis: 75%
   // Item category
   &-Header
     position: fixed
@@ -127,18 +111,8 @@ img[lazy="loaded"]
     left: 0
     right: 0
     z-index: 900
-    // .contentListItem
-    //   align-items: flex-start
-    //   &-Icons
-    //     height: 100px
-  &-List
-    border-top: 1px solid currentColor
-    position: relative
-    background: var(--background-color)
-    &:hover
-      background: var(--background-color-active)
-  &-List:last-child
-    border-bottom: 1px solid currentColor
+    &_About
+      visibility: hidden
   &-Filter
     position: sticky
     z-index: 950
@@ -147,6 +121,12 @@ img[lazy="loaded"]
     border-bottom: 1px solid currentColor
     p
       opacity: .25
+  &-List
+    border-bottom: 1px solid currentColor
+    position: relative
+    background: var(--background-color)
+    &:hover
+      background: var(--background-color-active)
   &-Single
     padding-bottom: var(--spacing-type-vertical)
   &-Images
@@ -166,6 +146,7 @@ img[lazy="loaded"]
     transform: translateY(-50%)
     width: 100%
     height: auto
+    padding: var(--spacing-two)
     display: flex
     justify-content: space-between
     mix-blend-mode: difference
@@ -177,14 +158,6 @@ img[lazy="loaded"]
       width: var(--spacing-icons-double)
       height: var(--spacing-icons)
       color: white
-
-.view
-  &-Index, &-Project
-    padding-top: 18rem
-    // @for $i from 1 through 100
-    //   .contentListItem-List:nth-child(#{$i})
-    //     .contentListItem-Thumbnail
-    //       left: random(66) + 17%
 
 .theTitle
   position: fixed
@@ -213,7 +186,21 @@ img[lazy="loaded"]
     img, svg
       width: var(--spacing-icons)
 
-main
+.view
+  &-Index, &-Project, &-About
+    padding-top: 18rem
+  &-About
+    li:nth-child(1)
+      flex-basis: 25%
+    li:nth-child(2)
+      flex-basis: 75%
+  &-Project
+    ul
+      justify-content: flex-end
+    li
+      flex-basis: 75%
+
+// main
   // position: relative
   // height: 100%
   // display: flex

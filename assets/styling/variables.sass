@@ -8,8 +8,8 @@ $color-lighttheme-active: #ffffff
 
 // NEW NEW NEW DARKTHEME
 $color-type-darktheme: #191919
-$color-darktheme: #F0F0F0
-$color-darktheme-active: #ffffff
+$color-darktheme: #4A4A4A
+$color-darktheme-active: #3D3D3D
 
 // Transitions
 $transition-hover: .2s ease
@@ -48,16 +48,18 @@ body
     --spacing-top: 1.25rem
 
 // Support colors
-body, body.light
-  --background-color: #F0F0F0
+main, main.light
+  --background-color: #F2F2F2
   --background-color-active: #FFFFFF
-  --type-color: $color-type-lighttheme
-  --space-color: $color-darktheme
-body.dark
-  --background-color: $color-darktheme
-  --background-color-active: $color-darktheme-active
-  --type-color: $color-type-darktheme
-  --space-color: $color-lighttheme
+  --type-color: #191919
+  --space-color: #4A4A4A
+  --cursor-color: #191919
+main.dark
+  --background-color: #4A4A4A
+  --background-color-active: #3D3D3D
+  --type-color: #191919
+  --space-color: #F2F2F2
+  --cursor-color: #F2F2F2
 
 @keyframes hyperLink
   0%

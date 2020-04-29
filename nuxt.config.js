@@ -88,6 +88,7 @@ module.exports = {
   modules: [
     "@nuxtjs/pwa",
     "@nuxtjs/axios",
+    "vue-scrollto/nuxt",
     [
       "@bazzite/nuxt-optimized-images",
       { optimizedImages: { optimizeImages: true, optimizeImagesInDev: true } }
@@ -101,8 +102,7 @@ module.exports = {
             : process.env.PREVIEWKEY,
         cacheProvider: "memory"
       }
-    ],
-    ["vue-scrollto/nuxt", { duration: 300 }]
+    ]
   ],
 
   generate: {

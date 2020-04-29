@@ -1,5 +1,6 @@
 <template>
-  <main :class="[currentTheme, { spaced: spaceState }]">
+  <!-- <main  :class="[currentTheme, { spaced: spaceState }]"> -->
+  <main id="top" class="light">
     <the-title />
     <the-notifications />
     <transition name="page" mode="out-in">
@@ -7,7 +8,10 @@
     </transition>
     <the-footer />
     <the-navigation @toggleTheme="changeTheme" />
-    <div class="cursor" />
+    <div class="cursor">
+      <div class="cursor-Small cursor-Instance" />
+      <div class="cursor-Large cursor-Instance" />
+    </div>
   </main>
 </template>
 

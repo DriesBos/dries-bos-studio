@@ -16,12 +16,15 @@
           title="previous project"
           tag="div"
         >
-          <div class="icon-Arrow" v-html="require('~/assets/images/icon-arrow-long.svg?include')" />
+          <div
+            class="cursorInteract icon-Arrow"
+            v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+          />
         </nuxt-link>
         <nuxt-link
           v-if="story.content.next_link.id !== ''"
           :to="`/${story.content.next_link.cached_url}`"
-          class="contentListItem-Nav_Next"
+          class="cursorInteract contentListItem-Nav_Next"
           title="next project"
           tag="div"
         >
