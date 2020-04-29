@@ -47,8 +47,6 @@ export default {
   p
     margin-bottom: var(--spacing-type-vertical)
     display: block
-  p:last-child
-    // margin-bottom: 0
   a
     position: relative
     &:after

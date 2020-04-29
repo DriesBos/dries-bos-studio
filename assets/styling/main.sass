@@ -26,7 +26,7 @@ section
   background: var(--background-color)
 
 // Building blocks
-.icon // TODO: shows animation constantly in spacemode
+.icon // TODO: show animation constantly in spacemode
   position: relative
   opacity: 1
   height: 100%
@@ -195,6 +195,11 @@ section
   &-Index, &-Project, &-About
     padding-top: 18rem
   &-About
+    ul
+      border-bottom: 1px solid var(--type-color)
+    section:last-of-type
+      ul
+        border-bottom: 0
     li:nth-child(1)
       flex-basis: 25%
     li:nth-child(2)
