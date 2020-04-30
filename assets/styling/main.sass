@@ -250,12 +250,19 @@ section
     transition: padding-top 1s ease
   &-Project, &-About
     background: var(--background-color)
+  &-Project
+    .contentListItem-Text
+      margin-bottom: .5rem
+    .imageGrid
+      margin-top: 3.5rem
   &-About
     ul
+      padding-bottom: 2.5rem
       border-bottom: 1px solid var(--type-color)
     section:last-of-type
       ul
         border-bottom: 0
+        padding-bottom: 1rem
     li:nth-child(1)
       flex-basis: 25%
     li:nth-child(2)

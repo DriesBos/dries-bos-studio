@@ -45,7 +45,6 @@ export default {
   min-width: 0 // Ellipsis hack
   text-align: justify
   p
-    margin-bottom: var(--spacing-type-vertical)
     display: block
   a
     position: relative
