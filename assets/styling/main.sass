@@ -160,6 +160,13 @@ section
       transition: opacity $transition-hover
       &.active
         opacity: 1
+    ul // Gives extra title space on project pages
+      li.contentListItem-Two
+        flex-basis: 50%
+      li.contentListItem-Three
+        flex-basis: 0%
+        display: none
+
   &-Filter
     position: sticky
     z-index: 999
