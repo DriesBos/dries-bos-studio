@@ -23,6 +23,7 @@ main
   padding-top: 0
   padding-right: 0
   padding-bottom: 0
+  min-height: 100vh
   transition: padding-top 1s ease 2s, padding-left 1s ease 2s, padding-right 1s ease 2s, padding-bottom 1s ease 2s
   p, h1, a, input, svg
     color: currentColor
@@ -146,6 +147,22 @@ section
         color: currentColor
   &-Icon:first-child
     margin-left: 0
+  &-Input
+    input
+      opacity: 0
+      width: 100%
+      padding: 0
+      margin: 0
+      transition: opacity $transition-hover
+      cursor: none
+      &:focus
+        color: var(--type-color)
+      &::placeholder
+        color: var(--type-color)
+        opacity: .25
+    &.active
+      input
+        opacity: 1
   // Item category
   &-Header
     position: fixed
@@ -166,7 +183,6 @@ section
       li.contentListItem-Three
         flex-basis: 0%
         display: none
-
   &-Filter
     position: sticky
     z-index: 999
@@ -176,10 +192,18 @@ section
     border-top: 1px solid currentColor
     border-bottom: 1px solid currentColor
     p
-      opacity: .25
       display: inline
+    p
+      opacity: .25
       transition: opacity $transition-hover
       &:hover
+        opacity: 1
+    .icon
+      opacity: .25
+      transition: opacity $transition-hover
+      &:hover
+        opacity: 1
+      &.active
         opacity: 1
   &-List
     border-bottom: 1px solid currentColor

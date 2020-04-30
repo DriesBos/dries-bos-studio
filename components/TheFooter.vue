@@ -1,7 +1,7 @@
 <template>
   <section class="footer">
     <div class="footer-Search">
-      <p v-show="this.$route.name === 'index'">What are you looking for? Type it here</p>
+      <!-- <p v-show="this.$route.name === 'index'">What are you looking for? Type it here</p> -->
     </div>
     <div
       class="cursorInteract icon-ArrowUp"

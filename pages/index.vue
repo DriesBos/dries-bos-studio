@@ -28,12 +28,25 @@
         </li>
         <li class="contentListItem-Column">
           <ul class="contentListItem-Icons">
-            <!-- <div class="listItem-Icons" :class="{ active: toggleSearch }">
-            <input type="text" v-model="search" ref="search" placeholder="filter by name" />
-            <div @click="searchIconClick" class="icon-Container" title="search projects">
-              <div class="icon" v-html="require('~/assets/images/icon-search.svg?include')"></div>
-            </div>
-            </div>-->
+            <li class="cursorInteract contentListItem-Input" :class="{ active: toggleSearch }">
+              <input
+                id="search"
+                type="text"
+                v-model="search"
+                ref="search"
+                placeholder="search project.."
+                title="search project"
+              />
+            </li>
+            <li
+              @click="searchIconClick"
+              class="cursorInteract contentListItem-Icon contentListItem-Search"
+              title="search project"
+            >
+              <div class="cursorInteract icon icon-Search" :class="{ active: toggleSearch }">
+                <div v-html="require('~/assets/images/icon-search.svg?include')" />
+              </div>
+            </li>
           </ul>
         </li>
       </ul>
@@ -211,7 +224,8 @@ export default {
     },
     // SEARCH
     searchIconClick() {
-      this.$refs.search.focus()
+      // this.$refs.search.focus()
+      document.getElementById("search").focus()
       this.toggleSearch = !this.toggleSearch
     },
     searchHasValue() {
