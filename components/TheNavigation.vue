@@ -5,16 +5,20 @@
       <li class="contentListItem-Column contentListItem-One">
         <nuxt-link class="cursorInteract" to="/">
           <span
-            v-show="this.$route.name === 'index' || this.$route.name === 'projects-slug'"
+            v-show="this.$route.name === 'index'"
             class="contentListItem-Header_TheTitle"
             :class="{ active: showTitle }"
             title="that's me!"
           >Dries</span>
-          <span v-show="this.$route.name === 'about-new'" class="contentListItem-Header_About">Dries</span>
-          <span class v-if="this.$route.name === 'projects-slug'" title="me and ...">
-            and
+          <span
+            v-show="this.$route.name === 'projects-slug'"
+            class="contentListItem-Header_TheTitleSingle"
+            title="me and ..."
+          >
+            Dries and
             <span class="capitalize">{{ slug }}</span>
           </span>
+          <span v-show="this.$route.name === 'about-new'" class="contentListItem-Header_About">Dries</span>
         </nuxt-link>
       </li>
       <li class="contentListItem-Column contentListItem-Two"></li>
