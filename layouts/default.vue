@@ -1,6 +1,6 @@
 <template>
   <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
-    <the-title />
+    <the-title v-if="this.$route.name === 'index'" />
     <the-notifications />
     <the-navigation @toggleTheme="changeTheme" />
     <transition name="page" mode="out-in">

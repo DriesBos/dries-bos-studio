@@ -7,6 +7,7 @@
           <span
             v-show="this.$route.name === 'index' || this.$route.name === 'projects-slug'"
             class="contentListItem-Header_TheTitle"
+            :class="{ active: showTitle }"
             title="that's me!"
           >Dries</span>
           <span v-show="this.$route.name === 'about-new'" class="contentListItem-Header_About">Dries</span>
@@ -87,7 +88,8 @@ let $ = JQuery
 export default {
   data() {
     return {
-      slug: null
+      slug: null,
+      showTitle: false
     }
   },
   fetch({ store }) {
@@ -155,18 +157,18 @@ export default {
         }, 2000)
       }
     },
-    toggleTheSpaceOnResize() {
-      // Disable spacemode
-      if (window.innerWidth < 1000 && this.spaceState === true) {
-        this.$store.commit("space/turnOffTheSpace")
-        $("body").removeClass("spaced")
-        $("#floatBlock").removeClass("active")
-        $("#messages").addClass("activeThree")
-        setTimeout(function() {
-          $("#messages").removeClass("activeThree")
-        }, 2000)
-      }
-    },
+    // toggleTheSpaceOnResize() {
+    //   // Disable spacemode
+    //   if (window.innerWidth < 1000 && this.spaceState === true) {
+    //     this.$store.commit("space/turnOffTheSpace")
+    //     $("body").removeClass("spaced")
+    //     $("#floatBlock").removeClass("active")
+    //     $("#messages").addClass("activeThree")
+    //     setTimeout(function() {
+    //       $("#messages").removeClass("activeThree")
+    //     }, 2000)
+    //   }
+    // },
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
       setTimeout(function() {
@@ -178,25 +180,31 @@ export default {
           $("main").removeClass("tempBackground")
         }, 565)
       }
+    },
+    showTitleOnScroll(event) {
+      var elLogo = document.querySelector(".contentListItem-Header")
+      var elFilt = document.querySelector(".contentListItem-Filter")
+      var elLogoPos = elLogo.getBoundingClientRect()
+      var elFiltPos = elFilt.getBoundingClientRect()
+      if (elFiltPos.top <= elLogoPos.height + 1) {
+        this.showTitle = true
+      } else {
+        this.showTitle = false
+      }
     }
-    // typeSizeOnScroll(event) {
-    //   var el = document.querySelector(".contentListItem-TheTitle")
-    //   var size = Math.max(1, 16 - 0.045 * window.pageYOffset) + "rem"
-    //   el.style.fontSize = size
-    // }
   },
   mounted() {
     this.processedSlug()
     $(".cursorInteract").on("mouseover", this.changeCursor)
     $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
-    window.addEventListener("resize", this.toggleTheSpaceOnResize)
-    // window.addEventListener("scroll", this.typeSizeOnScroll)
+    // window.addEventListener("resize", this.toggleTheSpaceOnResize)
+    window.addEventListener("scroll", this.showTitleOnScroll)
   },
   destroyed() {
     $(".cursorInteract").off("mouseover", this.changeCursor)
     $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
-    window.removeEventListener("resize", this.toggleTheSpaceOnResize)
-    // window.removeEventListener("scroll", this.typeSizeOnScroll)
+    // window.removeEventListener("resize", this.toggleTheSpaceOnResize)
+    window.removeEventListener("scroll", this.showTitleOnScroll)
   }
 }
 </script>
