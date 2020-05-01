@@ -1,6 +1,6 @@
 <template>
   <div class="view view-Index">
-    <div class="spaceForm"></div>
+    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
     <section class="contentListItem-Filter spaced-TopSide">
       <ul class="contentListItem">
         <li class="contentListItem-Column">

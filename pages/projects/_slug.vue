@@ -1,6 +1,6 @@
 <template>
   <div class="view view-Project">
-    <div class="spaceForm"></div>
+    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"

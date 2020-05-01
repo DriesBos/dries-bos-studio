@@ -40,29 +40,16 @@ section
   top: 0
   left: 0
   right: 0
-  height: 200px
+  height: auto
   width: 100%
   transform: translateY(-100%)
-  background: var(--background-color)
+  color: var(--background-color)
   border-bottom: 0px solid var(--type)
   transition: background $transition-theme, border-bottom $transition-theme
   pointer-events: none
   z-index: 0
-  display: none
-  &::before, &::after
-    content: ""
-    position: absolute
-    top: 0
-    bottom: 0
-    border-bottom: 200px solid transparent
-    transition: border-left $transition-space-vertical, border-right $transition-space-vertical
-    // transition: border-left $transition-theme, border-right $transition-theme
-  &::before
-    left: 0
-    border-left: 0px solid transparent
-  &::after
-    right: 0
-    border-right: 0px solid transparent
+  svg
+    vertical-align: bottom
 
 #floatBlock
   transition: transform .3s ease
@@ -326,14 +313,6 @@ main.spaced
   .spaceForm
     display: block
     border-bottom: 1px solid var(--type-color)
-    // z-index: 999
-    &::before, &::after
-      transition: border-left $transition-theme, border-right $transition-theme
-      z-index: 0
-    &::before
-      border-left: 150px solid var(--space-color)
-    &::after
-      border-right: 150px solid var(--space-color)
 
   #floatBlock.active
     transform: translateY(-150%)

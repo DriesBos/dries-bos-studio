@@ -1,6 +1,6 @@
 <template>
   <section id="floatBlock" class="contentListItem-Header spaced-TopSide">
-    <div class="spaceForm"></div>
+    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
     <ul class="contentListItem">
       <li class="contentListItem-Column contentListItem-One">
         <nuxt-link class="cursorInteract" to="/">
