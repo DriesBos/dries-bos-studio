@@ -170,6 +170,7 @@ section
     left: 0
     right: 0
     z-index: 900
+    transition: border-bottom $transition-space-vertical
     &_About
       visibility: hidden
     &_TheTitle
@@ -343,6 +344,9 @@ main.spaced
       top: auto
       left: auto
       right: auto
+      border-bottom: 1px solid var(--type-color)
+      &_TheTitle
+        opacity: 1
     &-Filter
       position: relative
       top: auto
