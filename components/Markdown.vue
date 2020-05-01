@@ -48,16 +48,20 @@ export default {
     display: block
   a
     position: relative
-    &:after
+    // background: green
+    &:before
       content: ''
       position: absolute
       left: 0
       display: inline-blick
       bottom: 0
+      top: 0
       width: var(--var)
-      border-bottom: 1px solid var(--support-color)
+      z-index: 0
+      border-bottom: 1px solid var(--type-color)
     &:hover
-      &:after
+      // text-decoration: underline
+      &:before
         @media ( hover: hover )
           animation: hyperHyperLink .66s ease
           animation-iteration-count: 1
