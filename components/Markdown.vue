@@ -4,6 +4,8 @@
 
 <script>
 import { gsap } from "gsap"
+import JQuery from "jquery"
+let $ = JQuery
 // https://vuejs.org/v2/examples/index.html
 // install 'Marked' as dependency: npm install marked
 const marked = require("marked")
@@ -33,6 +35,22 @@ export default {
       delay: 0.33,
       ease: "ease"
     })
+    $("a").on("mouseover", this.changeCursor)
+    $("a").on("mouseleave", this.removeChangeCursor)
+  },
+  destroyed() {
+    $("a").off("mouseover", this.changeCursor)
+    $("a").off("mouseleave", this.removeChangeCursor)
+  },
+  methods: {
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("active")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("active")
+    }
   }
 }
 </script>
