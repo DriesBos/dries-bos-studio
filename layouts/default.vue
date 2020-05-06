@@ -66,11 +66,10 @@ export default {
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
       ) {
-        this.currentTheme = true
         $("#messages").addClass("activeOne")
         setTimeout(function() {
           $("#messages").removeClass("activeOne")
-        }, 2000)
+        }, 3000)
       }
     },
     toggleBlock() {
@@ -83,6 +82,17 @@ export default {
     },
     changeTheme() {
       this.currentTheme = !this.currentTheme
+      if (this.currentTheme === false) {
+        $("#messages").addClass("activeSix")
+        setTimeout(function() {
+          $("#messages").removeClass("activeSix")
+        }, 3000)
+      } else {
+        $("#messages").addClass("activeFive")
+        setTimeout(function() {
+          $("#messages").removeClass("activeFive")
+        }, 3000)
+      }
     },
     customCursor() {
       let $cursor = $(".cursor")
