@@ -165,18 +165,18 @@ export default {
         }, 2000)
       }
     },
-    // toggleTheSpaceOnResize() {
-    //   // Disable spacemode
-    //   if (window.innerWidth < 1000 && this.spaceState === true) {
-    //     this.$store.commit("space/turnOffTheSpace")
-    //     $("body").removeClass("spaced")
-    //     $("#floatBlock").removeClass("active")
-    //     $("#messages").addClass("activeThree")
-    //     setTimeout(function() {
-    //       $("#messages").removeClass("activeThree")
-    //     }, 2000)
-    //   }
-    // },
+    toggleTheSpaceOnResize() {
+      // Disable spacemode
+      if (window.innerWidth < 1000 && this.spaceState === true) {
+        this.$store.commit("space/turnOffTheSpace")
+        $("body").removeClass("spaced")
+        $("#floatBlock").removeClass("active")
+        $("#messages").addClass("activeThree")
+        setTimeout(function() {
+          $("#messages").removeClass("activeThree")
+        }, 2000)
+      }
+    },
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
       setTimeout(function() {
@@ -207,13 +207,13 @@ export default {
     this.processedSlug()
     $(".cursorInteract").on("mouseover", this.changeCursor)
     $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
-    // window.addEventListener("resize", this.toggleTheSpaceOnResize)
+    window.addEventListener("resize", this.toggleTheSpaceOnResize)
     window.addEventListener("scroll", this.showTitleOnScroll)
   },
   destroyed() {
     $(".cursorInteract").off("mouseover", this.changeCursor)
     $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
-    // window.removeEventListener("resize", this.toggleTheSpaceOnResize)
+    window.removeEventListener("resize", this.toggleTheSpaceOnResize)
     window.removeEventListener("scroll", this.showTitleOnScroll)
   }
 }

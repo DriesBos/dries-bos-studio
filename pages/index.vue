@@ -213,7 +213,6 @@ export default {
     },
     // SEARCH
     searchIconClick() {
-      // this.$refs.search.focus()
       document.getElementById("search").focus()
       this.toggleSearch = !this.toggleSearch
     },

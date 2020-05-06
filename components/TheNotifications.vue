@@ -6,9 +6,11 @@
     <div class="messages-Item">
       <p>spacemode activated</p>
     </div>
+    <!-- Message on resize -->
     <div class="messages-Item">
-      <p>spacemode deactivated</p>
+      <p>spacemode requires larger window</p>
     </div>
+    <!-- Message on toggle -->
     <div class="messages-Item">
       <p>spacemode requires larger window</p>
     </div>

@@ -413,18 +413,7 @@ main.spaced
       right: auto
 
 // Spacemode transition
-// main
-//   transition: background 1s ease 1s, padding-top 1s ease 1s, padding-left 1s ease 1s, padding-right 1s ease 1s, padding-bottom 1s ease 1s
-//   section
-//     transition: max-width 1s ease 1s, width 1s ease 1s, top 1s ease 1s
-//   .view
-//     transition: max-width 1s ease 1s, width 1s ease
-//     &-Index
-//       transition: padding-top 1s ease 2s
-//   #floatBlock
-//     transition: transform 1s ease
-
-main
+main // Reverse
   transition: background .5s ease, padding-top .5s ease, padding-left .5s ease, padding-right .5s ease, padding-bottom .5s ease
   section
     transition: max-width .5s ease, width .5s ease
@@ -435,7 +424,7 @@ main
   #floatBlock
     transition: transform .5s ease
 
-main.spaced
+main.spaced // Initial
   transition: background 0s ease, padding-top 1s ease .5s, padding-left 1s ease, padding-right 1s ease, padding-bottom 1s ease 1s
   section
     transition: max-width 1s ease, width 1s ease, top 1s ease 1s
