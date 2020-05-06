@@ -44,14 +44,14 @@ export default {
   mounted() {
     this.checkDarkMode()
     this.customCursor()
-    document.addEventListener("visibilitychange", this.windowIsVisible)
-    document.addEventListener("mouseleave", this.mouseLeftDocument)
-    document.addEventListener("mouseenter", this.mouseEntersDocument)
+    // document.addEventListener("visibilitychange", this.windowIsVisible)
+    // document.addEventListener("mouseleave", this.mouseLeftDocument)
+    // document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    document.removeEventListener("visibilitychange", this.windowIsVisible)
-    document.removeEventListener("mouseleave", this.mouseLeftDocument)
-    document.removeEventListener("mouseenter", this.mouseEntersDocument)
+    // document.removeEventListener("visibilitychange", this.windowIsVisible)
+    // document.removeEventListener("mouseleave", this.mouseLeftDocument)
+    // document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   watch: {
     $route() {

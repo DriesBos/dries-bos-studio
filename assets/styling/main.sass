@@ -24,14 +24,14 @@ main
   padding-right: 0
   padding-bottom: 0
   min-height: 100vh
-  transition: padding-top 1s ease 2s, padding-left 1s ease 2s, padding-right 1s ease 2s, padding-bottom 1s ease 2s
   p, h1, a, input, svg
     color: currentColor
 
 section
   position: relative
   background: var(--background-color)
-  transition: max-width 1s ease 1s, width 1s ease 1s, top 1s ease 1s
+  margin-left: auto
+  margin-right: auto
   width: 100%
   max-width: 100%
 
@@ -48,9 +48,6 @@ section
   z-index: 0
   svg
     vertical-align: bottom
-
-#floatBlock
-  transition: transform .3s ease
 
 // Building blocks
 .icon // TODO: show animation constantly in spacemode
@@ -281,7 +278,6 @@ section
     border-bottom: 1px solid rgba(0,0,0,0)
     &_Wrapper
       width: 100%
-      transition: width $transition-space-sideways
   @media screen and ( min-width: $breakpoint-mobile)
     li:nth-of-type(1)
       .imageGrid-Item_Wrapper
@@ -344,9 +340,12 @@ section
 
 // Views
 .view
+  width: 100%
+  max-width: 100%
+  margin-left: auto
+  margin-right: auto
   &-Index, &-Project, &-About
     padding-top: 18rem
-    transition: padding-top 1s ease
   &-Project, &-About
     background: var(--background-color)
   &-Project
@@ -377,28 +376,25 @@ section
 // Spacemode
 main.spaced
   background: var(--space-color)
-  padding-top: calc(9rem + 200px)
+  padding-top: calc(15rem + 200px)
   padding-left: 8vw
   padding-right: 8vw
   padding-bottom: var(--spacing-two)
   .view
+    width: 100%
     max-width: 1300px
-    margin-left: auto
-    margin-right: auto
     &-Index, &-Project, &-About
       padding-top: 0
-    &-Project
-      section:nth-child(2)
-        border-top: 1px solid var(--type-color)
   section
+    width: 100%
     max-width: 1300px
-    margin-left: auto
-    margin-right: auto
   .spaceForm
     display: block
     border-bottom: 1px solid var(--type-color)
-  #floatBlock.active
+  #floatBlock
     transform: translateY(-100%)
+    &.active
+      transform: translateY(0%)
   .contentListItem
     &-Header
       position: relative
@@ -410,7 +406,42 @@ main.spaced
       &_TheTitle
         opacity: 1
     &-Filter
+      border-top: 0
       position: relative
       top: auto
       left: auto
       right: auto
+
+// Spacemode transition
+// main
+//   transition: background 1s ease 1s, padding-top 1s ease 1s, padding-left 1s ease 1s, padding-right 1s ease 1s, padding-bottom 1s ease 1s
+//   section
+//     transition: max-width 1s ease 1s, width 1s ease 1s, top 1s ease 1s
+//   .view
+//     transition: max-width 1s ease 1s, width 1s ease
+//     &-Index
+//       transition: padding-top 1s ease 2s
+//   #floatBlock
+//     transition: transform 1s ease
+
+main
+  transition: background .5s ease, padding-top .5s ease, padding-left .5s ease, padding-right .5s ease, padding-bottom .5s ease
+  section
+    transition: max-width .5s ease, width .5s ease
+  .view
+    transition: max-width .5s ease, width .5s ease
+    &-Index
+      transition: padding-top .5s ease
+  #floatBlock
+    transition: transform .5s ease
+
+main.spaced
+  transition: background 0s ease, padding-top 1s ease .5s, padding-left 1s ease, padding-right 1s ease, padding-bottom 1s ease 1s
+  section
+    transition: max-width 1s ease, width 1s ease, top 1s ease 1s
+  .view
+    transition: max-width 1s ease, width 1s ease
+    &-Index
+      transition: padding-top .5s ease
+  #floatBlock
+    transition: transform 1s ease 1s
