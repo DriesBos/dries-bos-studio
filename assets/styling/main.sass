@@ -40,11 +40,9 @@ section
   top: 0
   left: 0
   right: 0
-  height: auto
   width: 100%
   transform: translateY(-100%)
   color: var(--background-color)
-  border-bottom: 0px solid var(--type)
   transition: background $transition-theme, border-bottom $transition-theme
   pointer-events: none
   z-index: 0
@@ -176,13 +174,6 @@ section
       li.contentListItem-Three
         flex-basis: 0%
         display: none
-  // &-SingleHeader
-  //   position: fixed
-  //   top: 0
-  //   left: 0
-  //   right: 0
-  //   z-index: 901
-  //   pointer-events: none
   &-Filter
     position: sticky
     z-index: 999
@@ -275,188 +266,10 @@ section
     img, svg
       width: var(--spacing-icons)
 
-.view
-  &-Index, &-Project, &-About
-    padding-top: 18rem
-    transition: padding-top 1s ease
-  &-Project, &-About
-    background: var(--background-color)
-  &-Project
-    .contentListItem-Text
-      margin-bottom: .5rem
-    .imageGrid
-      margin-top: 3.5rem
-  &-About
-    ul
-      padding-bottom: 2.5rem
-      border-bottom: 1px solid var(--type-color)
-    section:last-of-type
-      ul
-        border-bottom: 0
-        padding-bottom: 1rem
-    li:nth-child(1)
-      flex-basis: 25%
-    li:nth-child(2)
-      flex-basis: 75%
-  &-Project
-    ul
-      justify-content: flex-end
-    li
-      flex-basis: 75%
-
-// Spaced
-main.spaced
-  background: var(--space-color)
-  padding-top: calc(9rem + 200px)
-  padding-bottom: var(--spacing-two)
-
-  .view
-    max-width: 1200px
-    margin-left: auto
-    margin-right: auto
-    &-Index, &-Project, &-About
-      padding-top: 0
-
-  section
-    max-width: 1200px
-    margin-left: auto
-    margin-right: auto
-
-  .spaceForm
-    display: block
-    border-bottom: 1px solid var(--type-color)
-
-  #floatBlock.active
-    transform: translateY(-150%)
-
-  .contentListItem
-    &-Header
-      position: relative
-      top: auto
-      left: auto
-      right: auto
-      border-bottom: 1px solid var(--type-color)
-      &_TheTitle
-        opacity: 1
-    &-Filter
-      position: relative
-      top: auto
-      left: auto
-      right: auto
-
-// main
-  // position: relative
-  // height: 100%
-  // display: flex
-  // flex-direction: column
-  // align-items: center
-  // background: var(--background-space)
-  // transition: background $transition-theme
-  // color: $color-type-lighttheme
-  // // cursor: none
-  // p, h1, a, input, svg
-  //   color: currentColor
-  // section
-    // position: relative
-    // width: 100%
-    // max-width: 100%
-    // flex-shrink: 0
-    // border-bottom: 0px solid var(--type)
-    // transition: border-bottom $transition-theme, background $transition-theme, max-width $transition-space-sideways, padding-top $transition-space-vertical, margin-top $transition-space-vertical, transform $transition-block-float
-    // .spaceForm
-    //   position: absolute
-    //   top: 0
-    //   left: 0
-    //   right: 0
-    //   height: 200px
-    //   width: 100%
-    //   transform: translateY(-100%)
-    //   background: var(--background-color)
-    //   border-bottom: 0px solid var(--type)
-    //   transition: background $transition-theme, border-bottom $transition-theme
-    //   pointer-events: none
-    //   z-index: 0
-      // display: none
-      // &::before, &::after
-      //   content: ""
-      //   position: absolute
-      //   top: 0
-      //   bottom: 0
-      //   border-bottom: 200px solid transparent
-      //   transition: border-left $transition-space-vertical, border-right $transition-space-vertical
-      //   // transition: border-left $transition-theme, border-right $transition-theme
-      // &::before
-      //   left: 0
-      //   border-left: 0px solid var(--background-space)
-      // &::after
-      //   right: 0
-      //   border-right: 0px solid var(--background-space)
-  // section:first-child
-  //   padding-top: 13.5rem
-  //   margin-top: 0
-  //   z-index: 1
-  // section:last-child
-  //   border-bottom: 0
-  //   flex-grow: 1
-  // .view-Container
-  //   position: relative
-  //   display: flex
-  //   flex-direction: column
-  //   align-items: center
-  //   padding-left: 0
-  //   padding-right: 0
-  //   transition: padding-left $transition-space-sideways, padding-right $transition-space-sideways
-  // SPACED CSS
-  // &.spaced
-  //   .view-Container
-  //     padding-left: var(--spacing-three)
-  //     padding-right: var(--spacing-three)
-  //   section
-  //     max-width: 1200px
-  //     &.active
-  //       transform: translateY(-60px)
-  //   .spaceForm
-  //     border-bottom: 1px solid var(--type)
-  //     &::before, &::after
-  //       transition: border-left $transition-theme, border-right $transition-theme
-  //     &::before
-  //       border-left: 150px solid var(--background-space)
-  //     &::after
-  //       border-right: 150px solid var(--background-space)
-  //   section:first-child
-  //     padding-top: 0
-  //     margin-top: calc(30vh + 200px)
-  //     margin-bottom: -1px
-  //     border-bottom: 1px solid var(--type)
-  //   section:first-child.projectItem-Text
-  //     padding-top: var(--spacing-two)
-
-// .tempBackground // BG during list/grid transition
-//   transition: background 0s ease
-// main.tempBackground
-//   background: var(--background-color)
-// main.about
-//   header, svg
-//     color: var(--support-type)
-//   section, #floatBlock
-//     background: var(--support-color)
-//     a, p
-//       color: var(--support-type)
-//   .view-About section
-//     border-bottom: 1px solid var(--support-type)
-
-// #floatBlock
-//   background: var(--background-color)
-
+// Imagegrid
 .imageGrid
   min-height: 100vh
   background: var(--background-color)
-  // .imageGrid-Item
-  //   margin-bottom: 0
-  //   // transition: margin-bottom $transition-space-vertical
-  // .imageGrid-Item:first-child
-  //   margin-top: 0
-    // transition: margin-top $transition-space-vertical
   img
     transition: opacity $transition-lazy
   &-Item
@@ -528,13 +341,74 @@ main.spaced
   @media screen and ( max-width: $breakpoint-mobile)
     li
       width: 100%
-// .spaced
-//   .imageGrid
-//     margin-bottom: var(--spacing-two)
-//     background: rgba(0,0,0,0)
 
-// .view-Error
-//   display: flex
-//   justify-content: center
-//   align-items: center
-//   background: var(--background-color)
+// Views
+.view
+  &-Index, &-Project, &-About
+    padding-top: 18rem
+    transition: padding-top 1s ease
+  &-Project, &-About
+    background: var(--background-color)
+  &-Project
+    .contentListItem-Text
+      margin-bottom: .5rem
+    .imageGrid
+      margin-top: 3.5rem
+  &-About
+    ul
+      padding-bottom: 2.5rem
+      border-bottom: 1px solid var(--type-color)
+    section:last-of-type
+      ul
+        border-bottom: 0
+        padding-bottom: 1rem
+    li:nth-child(1)
+      flex-basis: 25%
+    li:nth-child(2)
+      flex-basis: 75%
+  &-Project
+    ul
+      justify-content: flex-end
+    li
+      flex-basis: 75%
+
+// Spacemode
+main.spaced
+  background: var(--space-color)
+  padding-top: calc(9rem + 200px)
+  padding-left: 8vw
+  padding-right: 8vw
+  padding-bottom: var(--spacing-two)
+  .view
+    max-width: 1300px
+    margin-left: auto
+    margin-right: auto
+    &-Index, &-Project, &-About
+      padding-top: 0
+    &-Project
+      section:nth-child(2)
+        border-top: 1px solid var(--type-color)
+  section
+    max-width: 1300px
+    margin-left: auto
+    margin-right: auto
+  .spaceForm
+    display: block
+    border-bottom: 1px solid var(--type-color)
+  #floatBlock.active
+    transform: translateY(-100%)
+  .contentListItem
+    &-Header
+      position: relative
+      top: auto
+      left: auto
+      right: auto
+      border-bottom: 1px solid var(--type-color)
+      margin-bottom: -1px
+      &_TheTitle
+        opacity: 1
+    &-Filter
+      position: relative
+      top: auto
+      left: auto
+      right: auto

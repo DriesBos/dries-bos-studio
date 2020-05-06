@@ -163,7 +163,6 @@ export default {
   mounted() {
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
-    window.addEventListener("scroll", this.toggleBlock)
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -171,7 +170,6 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.toggleBlock)
     $(".hovered").off("mouseover", this.changeCursor)
     $(".hovered").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("input", this.searchHasValue)
@@ -189,15 +187,6 @@ export default {
     removeChangeCursor() {
       let $cursor = $(".cursor")
       $cursor.removeClass("interact")
-    },
-    // SCROLL
-    toggleBlock() {
-      let scrollPosition = document.documentElement.scrollTop
-      if (scrollPosition > 0) {
-        $("#floatBlock").addClass("active")
-      } else {
-        $("#floatBlock").removeClass("active")
-      }
     },
     // INIT
     startPosition() {

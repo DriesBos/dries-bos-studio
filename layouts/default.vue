@@ -44,13 +44,11 @@ export default {
   mounted() {
     this.checkDarkMode()
     this.customCursor()
-    window.addEventListener("scroll", this.toggleBlock)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    window.removeEventListener("scroll", this.toggleBlock)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
@@ -70,14 +68,6 @@ export default {
         setTimeout(function() {
           $("#messages").removeClass("activeOne")
         }, 3000)
-      }
-    },
-    toggleBlock() {
-      let scrollPosition = document.documentElement.scrollTop
-      if (scrollPosition > 0) {
-        $("#floatBlock").addClass("active")
-      } else {
-        $("#floatBlock").removeClass("active")
       }
     },
     changeTheme() {
