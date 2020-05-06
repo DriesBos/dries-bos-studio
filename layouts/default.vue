@@ -1,10 +1,8 @@
 <template>
   <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
-    <the-title
-      v-if="this.$route.name === 'index' || spaceState === true || this.$route.name === 'about-new'"
-    />
+    <the-title v-if="this.$route.name === 'index' || spaceState === true" />
     <the-notifications />
-    <the-navigation @toggleTheme="changeTheme" />
+    <the-navigation @toggleTheme="changeTheme" :class="{ notIndex: notIndex}" />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
@@ -35,7 +33,8 @@ export default {
   },
   data() {
     return {
-      currentTheme: false
+      currentTheme: false,
+      notIndex: false
     }
   },
   computed: {
@@ -46,6 +45,7 @@ export default {
   mounted() {
     this.checkDarkMode()
     this.customCursor()
+    this.checkIfIndex()
     // document.addEventListener("visibilitychange", this.windowIsVisible)
     // document.addEventListener("mouseleave", this.mouseLeftDocument)
     // document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -58,6 +58,7 @@ export default {
   watch: {
     $route() {
       this.removeChangeCursor()
+      this.checkIfIndex()
     }
   },
   methods: {
@@ -99,6 +100,13 @@ export default {
     removeChangeCursor() {
       let $cursor = $(".cursor")
       $cursor.removeClass("interact")
+    },
+    checkIfIndex() {
+      if (this.$route.name === "index" || this.spaceState) {
+        this.notIndex = false
+      } else {
+        this.notIndex = true
+      }
     },
     // BROWSER APIS
     windowIsVisible() {

@@ -22,7 +22,6 @@
           Dries and
           <span class="capitalize">{{ slug }}</span>
         </span>
-        <span v-show="this.$route.name === 'about-new'" title="about">About</span>
       </li>
       <li class="contentListItem-Column contentListItem-Three"></li>
       <li class="contentListItem-Column contentListItem-Four">

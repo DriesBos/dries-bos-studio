@@ -158,6 +158,8 @@ section
     right: 0
     z-index: 900
     transition: border-bottom $transition-space-vertical
+    &.notIndex
+      background: rgba(0,0,0,0)
     &_About
       visibility: hidden
     &_TheTitle
@@ -346,6 +348,9 @@ section
   margin-right: auto
   &-Index, &-Project, &-About
     padding-top: 18rem
+  &-Index
+    .contentListItem-Header
+      background: var(--background-color)
   &-Project, &-About
     background: var(--background-color)
   &-Project
@@ -363,6 +368,9 @@ section
         padding-bottom: 1rem
     li:nth-child(1)
       flex-basis: 25%
+      .markdown
+        position: sticky
+        top: 0
     li:nth-child(2)
       flex-basis: 75%
   &-Project
