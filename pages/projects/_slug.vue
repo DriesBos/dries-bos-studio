@@ -1,6 +1,20 @@
 <template>
   <div class="view view-Project">
     <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div class="contentListItem-SingleHeader" tag="section">
+      <ul class="contentListItem">
+        <li class="contentListItem-Column contentListItem-One">
+          <p title="project year">{{ story.content.year }}</p>
+        </li>
+        <li class="contentListItem-Column contentListItem-Two">
+          <p title="project title"></p>
+        </li>
+        <li class="contentListItem-Column contentListItem-Three">
+          <p title="project category">{{ story.content.category }}</p>
+        </li>
+        <li class="contentListItem-Column contentListItem-Four"></li>
+      </ul>
+    </div>
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
@@ -87,6 +101,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.story)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
