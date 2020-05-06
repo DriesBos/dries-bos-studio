@@ -33,7 +33,7 @@
             @click="toggleTheme"
             title="change theme"
           >
-            <div class="cursorInteract icon icon-Theme">
+            <div class="cursorInteract icon icon-Theme" :class="{ active: themeActive }">
               <div v-html="require('~/assets/images/icon-theme.svg?include')"></div>
             </div>
           </li>
@@ -95,7 +95,8 @@ export default {
   data() {
     return {
       slug: null,
-      showTitle: false
+      showTitle: false,
+      themeActive: false
     }
   },
   fetch({ store }) {
@@ -123,6 +124,7 @@ export default {
     },
     toggleTheme() {
       this.$emit("toggleTheme")
+      this.themeActive = !this.themeActive
     },
     processedSlug() {
       if (this.$route.name === "projects-slug") {

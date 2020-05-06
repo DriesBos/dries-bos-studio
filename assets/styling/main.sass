@@ -69,6 +69,10 @@ section
         #fireIcon
           animation: flicker .1s infinite
           opacity: 1
+  &-Theme
+    transition: transform .165s ease-out
+    &.active
+      transform: rotate(180deg)
   svg, img
     position: absolute
     left: 0

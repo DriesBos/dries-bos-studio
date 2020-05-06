@@ -58,7 +58,7 @@ export default {
       top: 0
       width: var(--var)
       z-index: 0
-      border-bottom: 2px solid var(--type-color)
+      border-bottom: 1px solid var(--type-color)
     &:hover
       // text-decoration: underline
       &:before
