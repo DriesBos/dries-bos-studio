@@ -102,7 +102,7 @@ export default {
       $cursor.removeClass("interact")
     },
     checkIfIndex() {
-      if (this.$route.name === "index" || this.spaceState) {
+      if (this.$route.name !== "about-new") {
         this.notIndex = false
       } else {
         this.notIndex = true
