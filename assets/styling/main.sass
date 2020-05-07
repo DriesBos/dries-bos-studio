@@ -40,6 +40,7 @@ section
   top: 0
   left: 0
   right: 0
+  opacity: 0
   width: 100%
   transform: translateY(-100%)
   color: var(--background-color)
@@ -398,6 +399,7 @@ main.spaced
     max-width: 1300px
   .spaceForm
     display: block
+    opacity: 1
     border-bottom: 1px solid var(--type-color)
   #floatBlock
     transform: translateY(-100%)
@@ -422,23 +424,23 @@ main.spaced
 
 // Spacemode transition
 main // Reverse
-  transition: padding-top .5s ease, padding-left .5s ease, padding-right .5s ease, padding-bottom .5s ease
+  transition: padding-top 1s ease, padding-left .5s ease, padding-right .5s ease, padding-bottom .5s ease
   section
     transition: max-width .5s ease, width .5s ease
   .view
     transition: max-width .5s ease, width .5s ease
     &-Index
-      transition: padding-top .5s ease
+      transition: padding-top 0s ease
   #floatBlock
-    transition: transform .5s ease
+    transition: transform 0s ease
 
 main.spaced // Initial
-  transition: padding-top 1s ease .5s, padding-left 1s ease, padding-right 1s ease, padding-bottom 1s ease 1s
+  transition: background 0s ease .5s, padding-top 1s ease .5s, padding-left 1s ease .5s, padding-right 1s ease .5s, padding-bottom 1s ease 1.5s
   section
-    transition: max-width 1s ease, width 1s ease, top 1s ease 1s
+    transition: max-width 1s ease .5s, width 1s ease .5s, top 1s ease 1s
   .view
-    transition: max-width 1s ease, width 1s ease
+    transition: max-width 1s ease .5s, width 1s ease .5s
     &-Index
       transition: padding-top .5s ease
   #floatBlock
-    transition: transform 1s ease 1s
+    transition: transform 1s ease 1.5s
