@@ -35,36 +35,7 @@
           />
         </nuxt-link>
       </div>
-      <ul v-for="post in  story.content.images" :key="post.id" :post="post">
-        <li :key="post.id" :id="post.id" class="gridItem gridItem_Project imageGrid-Item">
-          <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
-            <img
-              class="hovered"
-              :srcset="
-          `${transformImage(
-            post.filename || post.cover_image,
-            '1668x0'
-          )} 1668w, ${transformImage(
-            post.filename || post.cover_image,
-            '1440x0'
-          )} 1440w, ${transformImage(
-            post.filename || post.cover_image,
-            '1280x0'
-          )} 1280w, ${transformImage(
-            post.filename || post.cover_image,
-            '960x0'
-          )} 960w, ${transformImage(
-            post.filename || post.cover_image,
-            '800x0'
-          )} 800w, ${transformImage(post.filename || post.cover_image, '690x0')} 690w`
-        "
-              sizes="100vw"
-              :data-src="post.filename || post.cover_image"
-              :alt="post.title"
-            />
-          </div>
-        </li>
-      </ul>
+      <div is="IndexGridItem" v-for="post in  story.content.images" :key="post.id" :post="post"></div>
     </section>
   </div>
 </template>
@@ -78,7 +49,6 @@ let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
-  scrollToTop: true,
   components: {
     IndexGridItem: IndexGridItem
   },

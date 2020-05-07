@@ -2,7 +2,7 @@
   <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
     <the-title v-if="this.$route.name === 'index' || spaceState === true" />
     <the-notifications />
-    <the-navigation @toggleTheme="changeTheme" :class="{ notIndex: notIndex}" />
+    <the-navigation @toggleTheme="changeTheme" :class="pageType" />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       currentTheme: false,
-      notIndex: false
+      pageType: "index"
     }
   },
   computed: {
@@ -45,7 +45,7 @@ export default {
   mounted() {
     this.checkDarkMode()
     this.customCursor()
-    this.checkIfIndex()
+    this.checkPageType()
     // document.addEventListener("visibilitychange", this.windowIsVisible)
     // document.addEventListener("mouseleave", this.mouseLeftDocument)
     // document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -58,7 +58,7 @@ export default {
   watch: {
     $route() {
       this.removeChangeCursor()
-      this.checkIfIndex()
+      this.checkPageType()
     }
   },
   methods: {
@@ -101,11 +101,15 @@ export default {
       let $cursor = $(".cursor")
       $cursor.removeClass("interact")
     },
-    checkIfIndex() {
-      if (this.$route.name !== "about-new") {
-        this.notIndex = false
+    checkPageType() {
+      if (this.$route.name === "about-new") {
+        this.pageType = "about"
+      } else if (this.$route.name === "projects-slug") {
+        this.pageType = "projects"
+      } else if (this.$route.name === "index") {
+        this.pageType = "index"
       } else {
-        this.notIndex = true
+        this.pageType = "error"
       }
     },
     // BROWSER APIS

@@ -1,11 +1,5 @@
 <template>
-  <nuxt-link
-    :to="`/projects/${post.id}`"
-    :key="post.id"
-    :id="post.id"
-    class="gridItem gridItem_Project imageGrid-Item"
-    tag="li"
-  >
+  <li :key="post.id" :id="post.id" class="gridItem gridItem_Project imageGrid-Item">
     <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
       <img
         class="hovered"
@@ -32,7 +26,7 @@
         :alt="post.title"
       />
     </div>
-  </nuxt-link>
+  </li>
 </template>
 
 <script>

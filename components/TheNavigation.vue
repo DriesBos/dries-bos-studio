@@ -10,19 +10,19 @@
             :class="{ active: showTitle }"
             title="that's me!"
           >Dries</span>
-          <span v-show="this.$route.name === 'about-new'" class="contentListItem-Header_About">Dries</span>
+          <span
+            v-show="this.$route.name === 'projects-slug' || this.$route.name === 'about-new'"
+            title="me and ..."
+          >Dries</span>
+          <span v-show="this.$route.name === 'projects-slug'" title="me and ...">and</span>
+          <span
+            v-show="this.$route.name === 'projects-slug'"
+            class="capitalize"
+            title="me and ..."
+          >{{ slug }}</span>
         </nuxt-link>
       </li>
-      <li class="contentListItem-Column contentListItem-Two">
-        <span
-          v-show="this.$route.name === 'projects-slug'"
-          class="contentListItem-Header_TheTitleSingle"
-          title="me and ..."
-        >
-          Dries and
-          <span class="capitalize">{{ slug }}</span>
-        </span>
-      </li>
+      <li class="contentListItem-Column contentListItem-Two"></li>
       <li class="contentListItem-Column contentListItem-Three"></li>
       <li class="contentListItem-Column contentListItem-Four">
         <ul class="contentListItem-Icons">
