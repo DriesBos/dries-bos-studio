@@ -67,6 +67,7 @@ import JQuery from "jquery"
 let $ = JQuery
 
 export default {
+  scrollToTop: true,
   components: {
     IndexListItem: IndexListItem,
     IndexGridItem: IndexGridItem

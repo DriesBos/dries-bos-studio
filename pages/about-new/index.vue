@@ -14,6 +14,7 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 
 export default {
+  scrollToTop: true,
   mixins: [storyblokLivePreview],
   asyncData(context) {
     return context.app.$storyapi

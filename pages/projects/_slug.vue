@@ -48,6 +48,7 @@ import JQuery from "jquery"
 let $ = JQuery
 
 export default {
+  scrollToTop: true,
   mixins: [storyblokLivePreview],
   components: {
     IndexGridItem: IndexGridItem
