@@ -161,7 +161,10 @@ section
     right: 0
     z-index: 900
     transition: border-bottom $transition-space-vertical
-    &.projects, &.about
+    &.projects
+      @media screen and ( min-width: $breakpoint-mobile)
+        background: rgba(0,0,0,0)
+    &.about
       background: rgba(0,0,0,0)
     &.about
       span
