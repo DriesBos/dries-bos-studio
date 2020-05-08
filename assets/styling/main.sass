@@ -128,6 +128,8 @@ section
     height: 100%
   &-Icon
     margin-left: var(--spacing-two)
+    @media screen and ( max-width: $breakpoint-mobile)
+      margin-left: var(--spacing-icons)
     .icon
       height: 100%
       img, svg
@@ -172,8 +174,10 @@ section
       li.contentListItem-Four
         order: 3
       @media screen and ( max-width: $breakpoint-mobile)
-        li.contentListItem-Two
-          order: 2
+        li:nth-child(1)
+          flex-grow: 1
+        li:nth-child(3), li:nth-child(2)
+          display: none
     &_TheTitle
       opacity: 0
       transition: opacity $transition-hover
@@ -207,12 +211,22 @@ section
         opacity: 1
       &.active
         opacity: 1
+    @media screen and ( max-width: $breakpoint-mobile)
+      li:nth-child(2)
+        flex-grow: 1
+      li:nth-child(3)
+        display: none
   &-List
     border-bottom: 1px solid currentColor
     position: relative
     background: var(--background-color)
     &:hover
       background: var(--background-color-active)
+    @media screen and ( max-width: $breakpoint-mobile)
+      li:nth-child(2)
+        flex-grow: 1
+      li:nth-child(3)
+        display: none
   &-Single
     padding-bottom: var(--spacing-type-vertical)
   &-Images
@@ -255,7 +269,7 @@ section
   top: 0
   left: 0
   padding-left: var(--spacing-two)
-  margin-left: -1.2rem
+  margin-left: -1.25rem
   pointer-events: none
   h1
     font-size: 16rem
