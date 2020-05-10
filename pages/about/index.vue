@@ -18,7 +18,7 @@ export default {
   mixins: [storyblokLivePreview],
   asyncData(context) {
     return context.app.$storyapi
-      .get("cdn/stories/about-new", {
+      .get("cdn/stories/about", {
         version: "draft"
       })
       .then(res => {
@@ -67,6 +67,11 @@ export default {
             path: `/${this.story.content.prev_link.cached_url}`
           })
         }
+      }
+    },
+    head() {
+      return {
+        title: "Dries Bos — About"
       }
     }
   }

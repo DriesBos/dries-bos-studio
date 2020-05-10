@@ -87,6 +87,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.story)
     $(".cursorInteract").on("mouseover", this.changeCursor)
     $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
     document.addEventListener("keydown", this.backOnEscape)
@@ -140,6 +141,11 @@ export default {
           })
         }
       }
+    }
+  },
+  head() {
+    return {
+      title: "Dries Bos — " + this.story.content.title
     }
   }
 }

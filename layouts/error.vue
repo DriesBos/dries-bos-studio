@@ -40,6 +40,11 @@ export default {
       let $cursor = $(".cursor")
       $cursor.removeClass("active")
     }
+  },
+  head() {
+    return {
+      title: "Page Not Found"
+    }
   }
 }
 </script>

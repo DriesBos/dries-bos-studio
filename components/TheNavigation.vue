@@ -11,7 +11,7 @@
             title="that's me!"
           >Dries</span>
           <span
-            v-show="this.$route.name === 'projects-slug' || this.$route.name === 'about-new'"
+            v-show="this.$route.name === 'projects-slug' || this.$route.name === 'about'"
             title="me and ..."
           >Dries</span>
           <span v-show="this.$route.name === 'projects-slug'" title="me and ...">and</span>
@@ -62,12 +62,7 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
           >
-            <nuxt-link
-              to="/about-new"
-              class="cursorInteract icon icon-About"
-              title="about"
-              tag="div"
-            >
+            <nuxt-link to="/about" class="cursorInteract icon icon-About" title="about" tag="div">
               <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
             </nuxt-link>
           </li>

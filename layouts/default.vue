@@ -104,7 +104,7 @@ export default {
       $cursor.removeClass("active")
     },
     checkPageType() {
-      if (this.$route.name === "about-new") {
+      if (this.$route.name === "about") {
         this.pageType = "about"
       } else if (this.$route.name === "projects-slug") {
         this.pageType = "projects"
