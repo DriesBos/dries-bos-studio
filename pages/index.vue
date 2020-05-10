@@ -10,7 +10,7 @@
         </li>
         <li class="contentListItem-Column">
           <div
-            class="listItem-Title listItem-Details hovered"
+            class="listItem-Title listItem-Details cursorInteract"
             :class="{ active: sortByTitle }"
             @click="sortTitle"
           >
@@ -19,7 +19,7 @@
         </li>
         <li class="contentListItem-Column">
           <div
-            class="listItem-Category listItem-Details hovered"
+            class="listItem-Category listItem-Details cursorInteract"
             :class="{ active: sortByCategory }"
             @click="sortCategory"
           >
@@ -161,8 +161,8 @@ export default {
     this.startPosition()
   },
   mounted() {
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
+    $(".cursorInteract").on("mouseover", this.changeCursor)
+    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -170,8 +170,8 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
+    $(".cursorInteract").off("mouseover", this.changeCursor)
+    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)
@@ -182,11 +182,11 @@ export default {
     // CURSOR
     changeCursor() {
       let $cursor = $(".cursor")
-      $cursor.addClass("interact")
+      $cursor.addClass("active")
     },
     removeChangeCursor() {
       let $cursor = $(".cursor")
-      $cursor.removeClass("interact")
+      $cursor.removeClass("active")
     },
     // INIT
     startPosition() {

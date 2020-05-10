@@ -24,13 +24,13 @@
         </nuxt-link>
         <nuxt-link
           :to="`/${story.content.next_link.cached_url}`"
-          class="cursorInteract contentListItem-Nav_Next"
+          class="contentListItem-Nav_Next"
           title="next project"
           tag="div"
         >
           <div
             v-if="story.content.next_link.id !== ''"
-            class="icon-Arrow"
+            class="cursorInteract icon-Arrow"
             v-html="require('~/assets/images/icon-arrow-long.svg?include')"
           />
         </nuxt-link>
@@ -87,15 +87,35 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story)
+    $(".cursorInteract").on("mouseover", this.changeCursor)
+    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
+    $(".cursorInteract").off("mouseover", this.changeCursor)
+    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },
+  watch: {
+    $route() {
+      removeChangeCursor()
+    }
+  },
   methods: {
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("active")
+    },
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("active")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("active")
+    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""

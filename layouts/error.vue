@@ -4,8 +4,8 @@
       <p>
         Oops! We couldn't find that page.
         <br />Return
-        <nuxt-link class="hovered" to="/">home</nuxt-link>&nbsp;or view our
-        <nuxt-link class="hovered" to="/work">work</nuxt-link>.
+        <nuxt-link class="cursorInteract" to="/">home</nuxt-link>&nbsp;or view our
+        <nuxt-link class="cursorInteract" to="/work">work</nuxt-link>.
       </p>
     </div>
   </div>
@@ -24,21 +24,21 @@ export default {
       delay: 0.33,
       ease: "ease"
     })
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
+    $(".cursorInteract").on("mouseover", this.changeCursor)
+    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
   },
   destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
+    $(".cursorInteract").off("mouseover", this.changeCursor)
+    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
   },
   methods: {
     changeCursor() {
       let $cursor = $(".cursor")
-      $cursor.addClass("interact")
+      $cursor.addClass("active")
     },
     removeChangeCursor() {
       let $cursor = $(".cursor")
-      $cursor.removeClass("interact")
+      $cursor.removeClass("active")
     }
   }
 }

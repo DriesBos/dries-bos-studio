@@ -101,7 +101,7 @@ export default {
     },
     removeChangeCursor() {
       let $cursor = $(".cursor")
-      $cursor.removeClass("interact")
+      $cursor.removeClass("active")
     },
     checkPageType() {
       if (this.$route.name === "about-new") {

@@ -2,7 +2,6 @@
   <li :key="post.id" :id="post.id" class="gridItem gridItem_Project imageGrid-Item">
     <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
       <img
-        class="hovered"
         :srcset="
           `${transformImage(
             post.filename || post.cover_image,
@@ -38,23 +37,7 @@ export default {
   props: {
     post: Object
   },
-  mounted() {
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
-  },
-  destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
-  },
   methods: {
-    changeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.addClass("interact")
-    },
-    removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("interact")
-    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""
