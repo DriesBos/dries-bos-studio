@@ -46,14 +46,14 @@ export default {
     this.checkDarkMode()
     this.customCursor()
     this.checkPageType()
-    // document.addEventListener("visibilitychange", this.windowIsVisible)
-    // document.addEventListener("mouseleave", this.mouseLeftDocument)
-    // document.addEventListener("mouseenter", this.mouseEntersDocument)
+    document.addEventListener("visibilitychange", this.windowIsVisible)
+    document.addEventListener("mouseleave", this.mouseLeftDocument)
+    document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    // document.removeEventListener("visibilitychange", this.windowIsVisible)
-    // document.removeEventListener("mouseleave", this.mouseLeftDocument)
-    // document.removeEventListener("mouseenter", this.mouseEntersDocument)
+    document.removeEventListener("visibilitychange", this.windowIsVisible)
+    document.removeEventListener("mouseleave", this.mouseLeftDocument)
+    document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   watch: {
     $route() {
@@ -119,9 +119,19 @@ export default {
     // BROWSER APIS
     windowIsVisible() {
       if (document.visibilityState === "hidden") {
-        document.title = "👀 You there?"
+        document.title = "Where R U ?"
+        if (this.currentTheme === false) {
+          $("link[rel*='icon']").attr("href", "question.png")
+        } else {
+          $("link[rel*='icon']").attr("href", "question-dark.png")
+        }
       } else {
-        document.title = "🧑‍🚀 Dries Bos — Web & Interaction Developer"
+        document.title = "Dries Bos — Creative Developer"
+        if (this.currentTheme === false) {
+          $("link[rel*='icon']").attr("href", "favicon.png")
+        } else {
+          $("link[rel*='icon']").attr("href", "favicon-dark.png")
+        }
       }
     },
     mouseLeftDocument() {
