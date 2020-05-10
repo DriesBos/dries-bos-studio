@@ -68,11 +68,11 @@ export default {
           })
         }
       }
-    },
-    head() {
-      return {
-        title: "Dries Bos — About"
-      }
+    }
+  },
+  head() {
+    return {
+      title: "Dries Bos — About"
     }
   }
 }
