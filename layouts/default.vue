@@ -78,12 +78,14 @@ export default {
       if (this.currentTheme === false) {
         $("#messages").addClass("activeSix")
         $("body").removeClass("dark")
+        $("link[rel*='icon']").attr("href", "favicon.png")
         setTimeout(function() {
           $("#messages").removeClass("activeSix")
         }, 3000)
       } else {
         $("#messages").addClass("activeFive")
         $("body").addClass("dark")
+        $("link[rel*='icon']").attr("href", "favicon-dark.png")
         setTimeout(function() {
           $("#messages").removeClass("activeFive")
         }, 3000)
