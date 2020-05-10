@@ -15,8 +15,11 @@ img[lazy="loaded"]
   opacity: 1
 
 // Fundamental sections
-main
+body
   background: var(--background-color)
+
+main
+  // background: var(--background-color)
   color: $color-type-lighttheme
   cursor: none
   padding-left: 0
@@ -34,6 +37,10 @@ section
   margin-right: auto
   width: 100%
   max-width: 100%
+  &:first-of-type // Enables all content to start with the same top distance
+    &.contentListItem-Text
+      ul
+        padding-top: 0
 
 .spaceForm
   position: absolute
@@ -284,7 +291,7 @@ section
   justify-content: space-between
   background: var(--background-color)
   padding-top: calc(#{var(--spacing-two)} + 1.6rem)
-  padding-bottom: 1rem
+  padding-bottom: var(--spacing-one)
   padding-left: var(--spacing-one)
   padding-right: var(--spacing-one)
   > div
@@ -412,8 +419,10 @@ section
         flex-basis: 100%
 
 // Spacemode
-main.spaced
+body.spaced
   background: var(--space-color)
+
+main.spaced
   padding-top: calc(15rem + 200px)
   padding-left: 8vw
   padding-right: 8vw
@@ -431,10 +440,13 @@ main.spaced
   section
     width: 100%
     max-width: 1300px
+    &:first-of-type // Enables all content to start with the same top distance
+      &.contentListItem-Text
+        ul
+          padding-top: 1rem
   .spaceForm
     display: block
     opacity: 1
-    border-bottom: 1px solid var(--type-color)
   #floatBlock
     transform: translateY(-100%)
     &.active
@@ -445,9 +457,12 @@ main.spaced
       top: auto
       left: auto
       right: auto
+      border-top: 2px solid var(--type-color)
       border-bottom: 1px solid var(--type-color)
       margin-bottom: -1px
       background: var(--background-color)
+      .spaceForm
+        top: -1px
       &_TheTitle
         opacity: 1
       &.about
@@ -461,7 +476,7 @@ main.spaced
         li.contentListItem-Four
           order: 3
     &-Filter
-      border-top: 0
+      border-top: 1px solid var(--type-color)
       position: relative
       top: auto
       left: auto
