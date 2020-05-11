@@ -82,8 +82,6 @@
 
 <script>
 import { mapState } from "vuex"
-import JQuery from "jquery"
-let $ = JQuery
 
 export default {
   data() {
@@ -197,14 +195,26 @@ export default {
   },
   mounted() {
     this.processedSlug()
-    $(".cursorInteract").on("mouseover", this.changeCursor)
-    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
     window.addEventListener("scroll", this.showTitleOnScroll)
   },
   destroyed() {
-    $(".cursorInteract").off("mouseover", this.changeCursor)
-    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
     window.removeEventListener("scroll", this.showTitleOnScroll)
   }

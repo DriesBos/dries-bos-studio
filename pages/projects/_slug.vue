@@ -44,9 +44,6 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import IndexGridItem from "~/components/IndexGridItem.vue"
 
-import JQuery from "jquery"
-let $ = JQuery
-
 export default {
   scrollToTop: true,
   mixins: [storyblokLivePreview],
@@ -87,14 +84,26 @@ export default {
     }
   },
   mounted() {
-    $(".cursorInteract").on("mouseover", this.changeCursor)
-    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
-    $(".cursorInteract").off("mouseover", this.changeCursor)
-    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },

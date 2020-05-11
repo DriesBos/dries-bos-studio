@@ -21,7 +21,6 @@
     "@nuxtjs/pwa": "^2.6.0",
     "gsap": "^3.2.6",
     "imagemin-svgo": "^7.0.0",
-    "jquery": "^3.4.1",
     "marked": "^0.8.0",
     "nuxt": "^2.11.0",
     "storyblok-nuxt": "^1.2.0",

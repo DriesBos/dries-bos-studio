@@ -63,8 +63,6 @@
 import IndexListItem from "~/components/IndexListItem.vue"
 import IndexGridItem from "~/components/IndexGridItem.vue"
 import { mapState } from "vuex"
-import JQuery from "jquery"
-let $ = JQuery
 
 export default {
   scrollToTop: true,
@@ -161,8 +159,14 @@ export default {
     this.startPosition()
   },
   mounted() {
-    $(".cursorInteract").on("mouseover", this.changeCursor)
-    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -170,8 +174,14 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    $(".cursorInteract").off("mouseover", this.changeCursor)
-    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)

@@ -23,19 +23,23 @@ export default {
       ease: "ease"
     })
     document
-      .querySelector(".cursorInteract")
-      .addEventListener("mouseover", this.changeCursor)
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
     document
-      .querySelector(".cursorInteract")
-      .addEventListener("mouseleave", this.removeChangeCursor)
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
   },
   destroyed() {
     document
-      .querySelector(".cursorInteract")
-      .removeEventListener("mouseover", this.changeCursor)
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
     document
-      .querySelector(".cursorInteract")
-      .removeEventListener("mouseleave", this.removeChangeCursor)
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
   },
   methods: {
     changeCursor() {
