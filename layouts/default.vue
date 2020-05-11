@@ -7,7 +7,7 @@
       <nuxt />
     </transition>
     <the-footer
-      v-show="this.$route.name === 'index' || this.$route.name === 'about' || this.$route.name === 'project-slug' && this.$route.params.slug"
+      v-show="this.$route.name === 'index' || this.$route.name === 'about' || this.$route.params.slug"
     />
     <div class="cursor">
       <div class="cursor-Small cursor-Instance" />

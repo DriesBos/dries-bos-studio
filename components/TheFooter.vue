@@ -14,7 +14,7 @@
       <a
         href="mailto:info@driesbos.com"
         class="cursorInteract"
-        v-show="this.$route.name === 'projects-slug' || this.$route.params.slug"
+        v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
       >Start your own project? Let's talk.</a>
     </div>
     <div
