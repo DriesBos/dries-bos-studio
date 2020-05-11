@@ -119,7 +119,7 @@ export default {
     // BROWSER APIS
     windowIsVisible() {
       if (document.visibilityState === "hidden") {
-        document.title = "Where R U ?"
+        document.title = "I MISS U"
         if (this.currentTheme === false) {
           $("link[rel*='icon']").attr("href", "question.png")
         } else {
