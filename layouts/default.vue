@@ -109,7 +109,10 @@ export default {
     checkPageType() {
       if (this.$route.name === "about") {
         this.pageType = "about"
-      } else if (this.$route.name === "projects-slug") {
+      } else if (
+        this.$route.name === "projects-slug" &&
+        this.$route.params.slug
+      ) {
         this.pageType = "projects"
       } else if (this.$route.name === "index") {
         this.pageType = "index"

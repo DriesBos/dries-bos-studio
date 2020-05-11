@@ -11,12 +11,15 @@
             title="that's me!"
           >Dries</span>
           <span
-            v-show="this.$route.name === 'projects-slug' || this.$route.name === 'about'"
+            v-show="this.$route.name === 'projects-slug' && this.$route.params.slug || this.$route.name === 'about'"
             title="me and ..."
           >Dries</span>
-          <span v-show="this.$route.name === 'projects-slug'" title="me and ...">and</span>
           <span
-            v-show="this.$route.name === 'projects-slug'"
+            v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
+            title="me and ..."
+          >and</span>
+          <span
+            v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
             class="capitalize"
             title="me and ..."
           >{{ slug }}</span>
@@ -117,7 +120,7 @@ export default {
       this.themeActive = !this.themeActive
     },
     processedSlug() {
-      if (this.$route.name === "projects-slug") {
+      if (this.$route.name === "projects-slug" && this.$route.params.slug) {
         let str = this.$route.params.slug
         this.slug = str.replace(/-/g, " ")
       }
