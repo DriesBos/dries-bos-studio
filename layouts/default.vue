@@ -20,9 +20,7 @@ import TheNavigation from "~/components/TheNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
 import TheTitle from "~/components/TheTitle.vue"
 import { mapState } from "vuex"
-import JQuery from "jquery"
 import gsap from "gsap"
-let $ = JQuery
 
 export default {
   components: {
@@ -67,39 +65,43 @@ export default {
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
       ) {
-        $("#messages").addClass("activeOne")
+        document.querySelector("#messages").classList.add("activeOne")
         setTimeout(function() {
-          $("#messages").removeClass("activeOne")
+          document.querySelector("#messages").classList.remove("activeOne")
         }, 3000)
       }
     },
     changeTheme() {
       this.currentTheme = !this.currentTheme
       if (this.currentTheme === false) {
-        $("#messages").addClass("activeSix")
-        $("body").removeClass("dark")
-        $("link[rel*='icon']").attr("href", "favicon.png")
+        document.querySelector("#messages").classList.add("activeSix")
+        document.querySelector("body").classList.remove("dark")
+        document
+          .querySelector("link[rel*='icon']")
+          .setAttribute("href", "favicon.png")
         setTimeout(function() {
-          $("#messages").removeClass("activeSix")
+          document.querySelector("#messages").classList.remove("activeSix")
         }, 3000)
       } else {
-        $("#messages").addClass("activeFive")
-        $("body").addClass("dark")
-        $("link[rel*='icon']").attr("href", "favicon-dark.png")
+        document.querySelector("#messages").classList.add("activeFive")
+        document.querySelector("body").classList.add("dark")
+        document
+          .querySelector("link[rel*='icon']")
+          .setAttribute("href", "favicon-dark.png")
         setTimeout(function() {
-          $("#messages").removeClass("activeFive")
+          document.querySelector("#messages").classList.remove("activeFive")
         }, 3000)
       }
     },
     customCursor() {
-      let $cursor = $(".cursor")
+      let cursor = document.querySelector(".cursor")
       function moveCursor(e) {
-        gsap.to($cursor, 0, {
+        gsap.to(cursor, 0, {
           left: e.clientX,
           top: e.clientY
         })
       }
-      $(window).on("mousemove", moveCursor)
+      document.addEventListener("mousemove", moveCursor)
     },
     removeChangeCursor() {
       document.querySelector(".cursor").classList.remove("active")
@@ -120,27 +122,35 @@ export default {
       if (document.visibilityState === "hidden") {
         document.title = "MISS U"
         if (this.currentTheme === false) {
-          $("link[rel*='icon']").attr("href", "question.png")
+          document
+            .querySelector("link[rel*='icon']")
+            .setAttribute("href", "question.png")
         } else {
-          $("link[rel*='icon']").attr("href", "question-dark.png")
+          document
+            .querySelector("link[rel*='icon']")
+            .setAttribute("href", "question-dark.png")
         }
       } else {
         document.title = "Dries Bos — Creative Developer"
         if (this.currentTheme === false) {
-          $("link[rel*='icon']").attr("href", "favicon.png")
+          document
+            .querySelector("link[rel*='icon']")
+            .setAttribute("href", "favicon.png")
         } else {
-          $("link[rel*='icon']").attr("href", "favicon-dark.png")
+          document
+            .querySelector("link[rel*='icon']")
+            .setAttribute("href", "favicon-dark.png")
         }
       }
     },
     mouseLeftDocument() {
       if (this.spaceState === true) {
-        $("#floatBlock").removeClass("active")
+        document.querySelector("#floatBlock").classList.remove("active")
       }
     },
     mouseEntersDocument() {
       if (this.spaceState === true) {
-        $("#floatBlock").addClass("active")
+        document.querySelector("#floatBlock").classList.add("active")
       }
     }
   }

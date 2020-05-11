@@ -134,26 +134,26 @@ export default {
         if (this.spaceState === true) {
           // Disable spacemode
           this.$store.commit("space/turnOffTheSpace")
-          $("body").removeClass("spaced")
-          $("#floatBlock").removeClass("active")
-          $("#messages").addClass("activeThree")
+          document.querySelector("body").classList.remove("spaced")
+          document.querySelector("#floatBlock").classList.remove("active")
+          document.querySelector("#messages").classList.add("activeThree")
           setTimeout(function() {
-            $("#messages").removeClass("activeThree")
+            document.querySelector("#messages").classList.remove("activeThree")
           }, 2000)
         } else {
           // Spacemode activation
           this.$store.commit("space/turnOnTheSpace")
-          $("body").addClass("spaced")
-          $("#messages").addClass("activeTwo")
+          document.querySelector("body").classList.add("spaced")
+          document.querySelector("#messages").classList.add("activeTwo")
           setTimeout(function() {
-            $("#messages").removeClass("activeTwo")
+            document.querySelector("#messages").classList.remove("activeTwo")
           }, 2000)
         }
       } else {
         // Message: "spacemode requires a larger window"
-        $("#messages").addClass("activeFour")
+        document.querySelector("#messages").classList.add("activeFour")
         setTimeout(function() {
-          $("#messages").removeClass("activeFour")
+          document.querySelector("#messages").classList.remove("activeFour")
         }, 2000)
       }
     },
@@ -161,11 +161,11 @@ export default {
       // Disable spacemode
       if (window.innerWidth < 1000 && this.spaceState === true) {
         this.$store.commit("space/turnOffTheSpace")
-        $("body").removeClass("spaced")
-        $("#floatBlock").removeClass("active")
-        $("#messages").addClass("activeThree")
+        document.querySelector("body").classList.remove("spaced")
+        document.querySelector("#floatBlock").classList.remove("active")
+        document.querySelector("#messages").classList.add("activeThree")
         setTimeout(function() {
-          $("#messages").removeClass("activeThree")
+          document.querySelector("#messages").classList.remove("activeThree")
         }, 2000)
       }
     },
@@ -175,9 +175,9 @@ export default {
         window.scrollTo(0, 0)
       }, 330)
       if (this.spaceState === false) {
-        $("main").addClass("tempBackground")
+        document.querySelector("main").classList.add("tempBackground")
         setTimeout(function() {
-          $("main").removeClass("tempBackground")
+          document.querySelector("main").classList.remove("tempBackground")
         }, 565)
       }
     },
@@ -212,127 +212,6 @@ export default {
 </script>
 
 <style lang="sass">
-// @import '~/assets/styling/variables.sass'
-// .header
-//   position: fixed
-//   top: 0
-//   left: 0
-//   right: 0
-//   z-index: 999
-
-//   ul
-//     li
-//       @media screen and ( max-width: $breakpoint-mobile)
-//         padding-left: .75rem
-//         padding-right: .75rem
-//     li:first-child
-//       padding-left: var(--spacing-sides)
-//     li:last-child
-//       padding-right: var(--spacing-sides)
-//   &-Logo
-//     flex-grow: 1
-//     flex-shrink: 0
-//     pointer-events: none
-//     span
-//       pointer-events: auto
-//   &-Toggle
-//     position: relative
-//     height: 1.5rem // Prevents collapse when single item in a row
-//     border-radius: 1000px
-//     display: inline-flex
-//     border: 1px solid var(--type)
-//     box-sizing: border-box
-//     background: var(--background-color)
-//     overflow: hidden
-//     &_Item
-//       padding-left: var(--spacing-icons)
-//       padding-right: var(--spacing-icons)
-//       p
-//         line-height: 1
-//         transform: translateY(0.175rem)
-//         color: var(--type)
-//         transition: all .23s ease
-//       &.active
-//         color: var(--support-type)
-//         p
-//           color: var(--support-type)
-//     &_Toggler
-//       position: absolute
-//       right: 0
-//       top: 0
-//       bottom: 0
-//       width: 50%
-//       background: var(--support-color)
-//       border-radius: 1000px
-//       transform: translateX(0)
-//       transition: all .23s ease-out
-//       &.active
-//         transform: translateX(-101%)
-//   &-Theme
-//     position: relative
-//     background: var(--support-color)
-//     width: 1.5rem
-//     height: 1.5rem // Prevents collapse when single item in a row
-//     border: 1px solid var(--type)
-//     border-radius: 1000px
-//     overflow: hidden
-//     transition: transform .11s ease-in
-//     pointer-events: auto
-//     transform: rotate(0)
-//     transform-origin: center
-//     &:hover
-//       @media ( hover: hover )
-//         transform: rotate(-180deg)
-//     &_Half
-//       position: absolute
-//       left: 0
-//       top: 0
-//       height: 100%
-//       width: 50%
-//       transition: background $transition-theme
-//       background: var(--background-color)
-//       transform: rotate(90deg)
-//       transform-origin: 100% 50%
-//   &-Profile
-//     pointer-events: auto
-//     &:hover
-//       @media ( hover: hover )
-//         transition: color $transition-hover
-//         color: var(--support-color)
-//   &-Normal
-//     z-index: +5
-//     color: var(--type)
-//   &-Pseudo // Prevents mix-blend mode on view toggle and theme toggle
-//     isolation: isolate
-//     z-index: +6
-//     pointer-events: none
-//     li:nth-child(1), li:nth-child(4), li:nth-child(5)
-//       opacity: 0
-//       pointer-events: none
-//     @media screen and ( max-width: 850px)
-//       display: none
-//       position: absolute
-//       top: 0
-//       left: 0
-//       right: 0
-// .spaced
-//   .header-Normal
-//     color: white
-//     mix-blend-mode: difference
-//     a, p, h1, input, svg,
-//       color: white
-//     li:nth-child(2)
-//       opacity: 0
-//     li:nth-child(3)
-//       opacity: 0
-//   .header-Pseudo
-//     li:nth-child(2)
-//       opacity: 1
-//     li:nth-child(3)
-//       opacity: 1
-//     .header-Toggle, .header-Theme
-//       border: 1px solid var(--type)
-
 @keyframes vibrate
   0%
     transform: translateX(-1%)

@@ -13,8 +13,6 @@
 
 <script>
 import { gsap } from "gsap"
-import JQuery from "jquery"
-let $ = JQuery
 
 export default {
   mounted() {
@@ -24,12 +22,20 @@ export default {
       delay: 0.33,
       ease: "ease"
     })
-    $(".cursorInteract").on("mouseover", this.changeCursor)
-    $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
+    document
+      .querySelector(".cursorInteract")
+      .addEventListener("mouseover", this.changeCursor)
+    document
+      .querySelector(".cursorInteract")
+      .addEventListener("mouseleave", this.removeChangeCursor)
   },
   destroyed() {
-    $(".cursorInteract").off("mouseover", this.changeCursor)
-    $(".cursorInteract").off("mouseleave", this.removeChangeCursor)
+    document
+      .querySelector(".cursorInteract")
+      .removeEventListener("mouseover", this.changeCursor)
+    document
+      .querySelector(".cursorInteract")
+      .removeEventListener("mouseleave", this.removeChangeCursor)
   },
   methods: {
     changeCursor() {
