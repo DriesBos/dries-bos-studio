@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="icon/profile/black" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Oval" stroke="currentColor" cx="12.5" cy="12.5" r="12"></circle>
-        <path d="M5.6606663,-2.22044605e-16 L14.5,8.8383358 L23.3393337,17.6766716 C21.0772392,19.9390199 17.9520335,21.3383358 14.5,21.3383358 C7.59644063,21.3383358 2,15.7418952 2,8.8383358 C2,5.38680991 3.39890443,2.26201565 5.6606663,-2.22044605e-16 Z" id="Combined-Shape" fill="currentColor" transform="translate(12.669667, 10.669168) rotate(135.000000) translate(-12.669667, -10.669168) "></path>
-    </g>
+<svg viewBox="0 0 25 25">
+  <g fill="none" fill-rule="evenodd">
+    <circle stroke="currentColor" cx="12.5" cy="12.5" r="12"/>
+    <path d="M5.6606663,-2.22044605e-16 L14.5,8.8383358 L23.3393337,17.6766716 C21.0772392,19.9390199 17.9520335,21.3383358 14.5,21.3383358 C7.59644063,21.3383358 2,15.7418952 2,8.8383358 C2,5.38680991 3.39890443,2.26201565 5.6606663,-2.22044605e-16 Z" fill="currentColor" transform="translate(12.669667, 10.669168) rotate(135.000000) translate(-12.669667, -10.669168)"/>
+  </g>
 </svg>
