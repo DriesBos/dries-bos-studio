@@ -5,7 +5,7 @@
         Oops! We couldn't find that page.
         <br />Return
         <nuxt-link class="cursorInteract" tag="a" to="/">home</nuxt-link>&nbsp;or view our
-        <nuxt-link class="cursorInteract" tag="a" to="/work">work</nuxt-link>.
+        <nuxt-link class="cursorInteract" tag="a" to="/">work</nuxt-link>.
       </p>
     </div>
   </div>
