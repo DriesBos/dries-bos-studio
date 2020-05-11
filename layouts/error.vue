@@ -4,8 +4,8 @@
       <p>
         Oops! We couldn't find that page.
         <br />Return
-        <nuxt-link class="cursorInteract" to="/">home</nuxt-link>&nbsp;or view our
-        <nuxt-link class="cursorInteract" to="/work">work</nuxt-link>.
+        <nuxt-link class="cursorInteract" tag="a" to="/">home</nuxt-link>&nbsp;or view our
+        <nuxt-link class="cursorInteract" tag="a" to="/work">work</nuxt-link>.
       </p>
     </div>
   </div>
@@ -59,22 +59,28 @@ export default {
 
 <style lang="sass">
 .view-Error
-  .errorItem
-    --var: "0%"
-    text-align: center
-    a
-      position: relative
-      &:after
-        content: ''
-        position: absolute
-        left: 0
-        display: inline-blick
-        bottom: 0
-        width: var(--var)
-        border-bottom: 1px solid var(--support-color)
-      &:hover
-        &:after
-          @media ( hover: hover )
-            animation: hyperHyperLink .66s ease
-            animation-iteration-count: 1
+  min-height: 100vh !important
+  display: flex
+  justify-content: center
+  align-items: center
+  --var: 0%
+  text-align: center
+  p
+    display: block
+  a
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      display: inline-block
+      top: 0
+      bottom: 0
+      width: var(--var)
+      border-bottom: 1px solid var(--type-color)
+    &:hover
+      &::before
+        @media ( hover: hover )
+          animation: hyperHyperLink .66s ease
+          animation-iteration-count: 1
 </style>

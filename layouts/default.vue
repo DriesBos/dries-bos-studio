@@ -6,7 +6,9 @@
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
-    <the-footer />
+    <the-footer
+      v-show="this.$route.name === 'index' || this.$route.name === 'about' || this.$route.name === 'project-slug' && this.$route.params.slug"
+    />
     <div class="cursor">
       <div class="cursor-Small cursor-Instance" />
       <div class="cursor-Large cursor-Instance" />

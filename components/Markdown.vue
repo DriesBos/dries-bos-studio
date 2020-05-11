@@ -79,14 +79,14 @@ export default {
       content: ''
       position: absolute
       left: 0
-      display: inline-blick
+      display: inline-block
       bottom: 0
       top: 0
       width: var(--var)
       z-index: 0
       border-bottom: 1px solid var(--type-color)
     &:hover
-      &:before
+      &::before
         @media ( hover: hover )
           animation: hyperHyperLink .66s ease
           animation-iteration-count: 1
