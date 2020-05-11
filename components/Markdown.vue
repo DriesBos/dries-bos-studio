@@ -75,7 +75,7 @@ export default {
   a
     position: relative
     // background: green
-    &:before
+    &::before
       content: ''
       position: absolute
       left: 0
@@ -86,7 +86,6 @@ export default {
       z-index: 0
       border-bottom: 1px solid var(--type-color)
     &:hover
-      // text-decoration: underline
       &:before
         @media ( hover: hover )
           animation: hyperHyperLink .66s ease

@@ -1,10 +1,24 @@
 <template>
   <section class="footer">
-    <div class="footer-Search">
-      <!-- <p v-show="this.$route.name === 'index'">What are you looking for? Type it here</p> -->
+    <div class="footer-Message">
+      <a
+        href="mailto:info@driesbos.com"
+        class="cursorInteract"
+        v-show="this.$route.name === 'index'"
+      >Start your own project? Let's talk.</a>
+      <a
+        href="mailto:info@driesbos.com"
+        class="cursorInteract"
+        v-show="this.$route.name === 'about'"
+      >More info? Let's talk.</a>
+      <a
+        href="mailto:info@driesbos.com"
+        class="cursorInteract"
+        v-show="this.$route.name === 'projects-slug' || this.$route.params.slug"
+      >Start your own project? Let's talk.</a>
     </div>
     <div
-      class="cursorInteract icon-ArrowUp"
+      class="footer-Icon cursorInteract icon-ArrowUp"
       v-scroll-to="{
      el: '#top',
      duration: 500,
