@@ -181,12 +181,10 @@ export default {
   methods: {
     // CURSOR
     changeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.addClass("active")
+      document.querySelector(".cursor").classList.add("active")
     },
     removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("active")
+      document.querySelector(".cursor").classList.remove("active")
     },
     // INIT
     startPosition() {
@@ -217,11 +215,9 @@ export default {
       this.toggleSearch = !this.toggleSearch
     },
     searchHasValue() {
-      if (this.search !== "") {
-        this.searchHasInput = true
-      } else {
-        this.searchHasInput = false
-      }
+      this.search !== ""
+        ? (this.searchHasInput = true)
+        : (this.searchHasInput = false)
     }
   }
 }

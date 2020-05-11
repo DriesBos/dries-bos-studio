@@ -33,12 +33,10 @@ export default {
   },
   methods: {
     changeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.addClass("active")
+      document.querySelector(".cursor").classList.add("active")
     },
     removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("active")
+      document.querySelector(".cursor").classList.remove("active")
     }
   },
   head() {

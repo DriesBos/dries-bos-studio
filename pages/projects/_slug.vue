@@ -87,7 +87,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story)
     $(".cursorInteract").on("mouseover", this.changeCursor)
     $(".cursorInteract").on("mouseleave", this.removeChangeCursor)
     document.addEventListener("keydown", this.backOnEscape)
@@ -105,17 +104,11 @@ export default {
     }
   },
   methods: {
-    removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("active")
-    },
     changeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.addClass("active")
+      document.querySelector(".cursor").classList.add("active")
     },
     removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("active")
+      document.querySelector(".cursor").classList.remove("active")
     },
     transformImage(image, option) {
       if (!image) return ""

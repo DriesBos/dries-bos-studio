@@ -102,8 +102,7 @@ export default {
       $(window).on("mousemove", moveCursor)
     },
     removeChangeCursor() {
-      let $cursor = $(".cursor")
-      $cursor.removeClass("active")
+      document.querySelector(".cursor").classList.remove("active")
     },
     checkPageType() {
       if (this.$route.name === "about") {
@@ -119,7 +118,7 @@ export default {
     // BROWSER APIS
     windowIsVisible() {
       if (document.visibilityState === "hidden") {
-        document.title = "I MISS U"
+        document.title = "MISS U"
         if (this.currentTheme === false) {
           $("link[rel*='icon']").attr("href", "question.png")
         } else {
