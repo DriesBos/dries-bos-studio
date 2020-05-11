@@ -94,6 +94,7 @@ export default {
       )
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
+    window.addEventListener("scroll", this.headerToMixBlendMode)
   },
   destroyed() {
     document
@@ -106,10 +107,12 @@ export default {
       )
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
+    window.removeEventListener("scroll", this.headerToMixBlendMode)
   },
   watch: {
     $route() {
       removeChangeCursor()
+      removeMixBlendMode()
     }
   },
   methods: {
@@ -143,6 +146,21 @@ export default {
           })
         }
       }
+    },
+    headerToMixBlendMode() {
+      var header = document.querySelector(".contentListItem-Header")
+      var images = document.querySelector(".imageGrid")
+      var headerPos = header.getBoundingClientRect()
+      var imagesPos = images.getBoundingClientRect()
+      if (headerPos.height / 2 >= imagesPos.top) {
+        header.classList.add("mixblend")
+      } else {
+        header.classList.remove("mixblend")
+      }
+    },
+    removeMixBlendMode() {
+      var header = document.querySelector(".contentListItem-Header")
+      header.classList.remove("mixblend")
     }
   },
   head() {

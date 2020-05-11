@@ -187,6 +187,10 @@ section
           flex-grow: 1
         li:nth-child(3), li:nth-child(2)
           display: none
+    &.mixblend
+      mix-blend-mode: difference
+      span, svg
+        color: white !important
     &_TheTitle
       opacity: 0
       transition: opacity $transition-hover
