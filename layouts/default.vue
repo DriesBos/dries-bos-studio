@@ -131,7 +131,7 @@ export default {
             .setAttribute("href", "question-dark.png")
         }
       } else {
-        document.title = "Dries Bos — Creative Developer"
+        document.title = "Dries Bos — Web & Interaction Developer"
         if (this.currentTheme === false) {
           document
             .querySelector("link[rel*='icon']")
