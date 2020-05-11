@@ -136,6 +136,7 @@ section
     height: 100%
   &-Icon
     margin-left: var(--spacing-two)
+    flex-shrink: 0
     @media screen and ( max-width: $breakpoint-mobile)
       margin-left: var(--spacing-icons)
     .icon
@@ -295,6 +296,8 @@ section
   padding-bottom: var(--spacing-one)
   padding-left: var(--spacing-one)
   padding-right: var(--spacing-one)
+  @media screen and ( max-width: $breakpoint-mobile)
+    padding-bottom: calc(#{var(--spacing-two)} + 1.6rem)
   > div
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
