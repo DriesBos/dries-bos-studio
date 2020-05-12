@@ -1,27 +1,63 @@
 <template>
   <div id="messages" class="messages">
-    <div class="messages-Item">
-      <p>Darkmode detected. Toggle theme in navigation.</p>
+    <div class="messages-Item cursorInteract" @click="toggleTheme">
+      <p class="underline">darkmode ?</p>
     </div>
     <div class="messages-Item">
-      <p>spacemode activated</p>
+      <p>spacemode on</p>
     </div>
     <!-- Message on resize -->
     <div class="messages-Item">
-      <p>spacemode requires larger window</p>
+      <p>spacemode off</p>
     </div>
     <!-- Message on toggle -->
     <div class="messages-Item">
-      <p>spacemode requires larger window</p>
+      <p>larger window needed</p>
     </div>
     <div class="messages-Item">
-      <p>darkmode</p>
+      <p>darkmode on</p>
     </div>
     <div class="messages-Item">
-      <p>lightmode</p>
+      <p>darkmode off</p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    toggleTheme() {
+      this.$emit("toggleTheme")
+    },
+    changeCursor() {
+      document.querySelector(".cursor").classList.add("active")
+    },
+    removeChangeCursor() {
+      document.querySelector(".cursor").classList.remove("active")
+    }
+  },
+  mounted() {
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
+  },
+  destroyed() {
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
+  }
+}
+</script>
 
 <style lang="sass">
 $transition-messages: .165s ease-out
@@ -48,6 +84,10 @@ $transition-messages: .165s ease-out
     p, h1
       color: #F2F2F2
       line-height: 1.5
+    p.underline
+      text-decoration: underline
+    &.cursorInteract
+      pointer-events: auto
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1

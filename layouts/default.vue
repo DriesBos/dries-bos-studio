@@ -1,7 +1,7 @@
 <template>
   <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
     <the-title v-if="this.$route.name === 'index' || spaceState === true" />
-    <the-notifications />
+    <the-notifications @toggleTheme="changeTheme" />
     <the-navigation @toggleTheme="changeTheme" :class="pageType" />
     <transition name="page" mode="out-in">
       <nuxt />
@@ -70,7 +70,7 @@ export default {
         document.querySelector("#messages").classList.add("activeOne")
         setTimeout(function() {
           document.querySelector("#messages").classList.remove("activeOne")
-        }, 3000)
+        }, 5000)
       }
     },
     changeTheme() {
