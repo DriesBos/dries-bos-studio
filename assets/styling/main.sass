@@ -481,8 +481,9 @@ main.spaced
     opacity: 1
   #floatBlock
     transform: translateY(-100%)
-    &.active
+    &.low
       transform: translateY(0%)
+      transition: transform 1s ease .5s
   .contentListItem
     &-Header
       position: relative

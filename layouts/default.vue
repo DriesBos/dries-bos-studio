@@ -150,12 +150,14 @@ export default {
     },
     mouseLeftDocument() {
       if (this.spaceState === true) {
-        document.querySelector("#floatBlock").classList.remove("active")
+        console.log("left!")
+        document.querySelector("#floatBlock").classList.add("low")
       }
     },
     mouseEntersDocument() {
       if (this.spaceState === true) {
-        document.querySelector("#floatBlock").classList.add("active")
+        console.log("back!")
+        document.querySelector("#floatBlock").classList.remove("low")
       }
     }
   }

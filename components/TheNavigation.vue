@@ -136,7 +136,7 @@ export default {
           // Disable spacemode
           this.$store.commit("space/turnOffTheSpace")
           document.querySelector("body").classList.remove("spaced")
-          document.querySelector("#floatBlock").classList.remove("active")
+          document.querySelector("#floatBlock").classList.remove("low")
           document.querySelector("#messages").classList.add("activeThree")
           setTimeout(function() {
             document.querySelector("#messages").classList.remove("activeThree")
@@ -163,7 +163,7 @@ export default {
       if (window.innerWidth < 1000 && this.spaceState === true) {
         this.$store.commit("space/turnOffTheSpace")
         document.querySelector("body").classList.remove("spaced")
-        document.querySelector("#floatBlock").classList.remove("active")
+        document.querySelector("#floatBlock").classList.remove("low")
         document.querySelector("#messages").classList.add("activeThree")
         setTimeout(function() {
           document.querySelector("#messages").classList.remove("activeThree")
