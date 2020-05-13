@@ -28,33 +28,7 @@ export default {
   methods: {
     toggleTheme() {
       this.$emit("toggleTheme")
-    },
-    changeCursor() {
-      document.querySelector(".cursor").classList.add("active")
-    },
-    removeChangeCursor() {
-      document.querySelector(".cursor").classList.remove("active")
     }
-  },
-  mounted() {
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
-      )
-  },
-  destroyed() {
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.removeEventListener("mouseleave", this.removeChangeCursor)
-      )
   }
 }
 </script>

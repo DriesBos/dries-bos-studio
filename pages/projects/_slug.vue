@@ -84,28 +84,11 @@ export default {
     }
   },
   mounted() {
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
-      )
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
     window.addEventListener("scroll", this.headerToMixBlendMode)
   },
   destroyed() {
-    this.removeChangeCursor()
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.removeEventListener("mouseleave", this.removeChangeCursor)
-      )
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
     window.removeEventListener("scroll", this.headerToMixBlendMode)
@@ -116,12 +99,6 @@ export default {
     }
   },
   methods: {
-    changeCursor() {
-      document.querySelector(".cursor").classList.add("active")
-    },
-    removeChangeCursor() {
-      document.querySelector(".cursor").classList.remove("active")
-    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""

@@ -46,12 +46,39 @@ export default {
     this.checkDarkMode()
     this.checkPageType()
     this.customCursor()
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
+  updated() {
+    this.removeChangeCursor()
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
+  },
   destroyed() {
     this.removeChangeCursor()
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
@@ -104,6 +131,9 @@ export default {
         })
       }
       document.addEventListener("mousemove", moveCursor)
+    },
+    changeCursor() {
+      document.querySelector(".cursor").classList.add("active")
     },
     removeChangeCursor() {
       document.querySelector(".cursor").classList.remove("active")

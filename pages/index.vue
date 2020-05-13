@@ -155,18 +155,7 @@ export default {
       })
     }
   },
-  beforeMount() {
-    this.startPosition()
-  },
   mounted() {
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
-      )
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("visibilitychange", this.windowIsVisible)
     window.addEventListener("beforeunload", this.startPosition)
@@ -174,14 +163,6 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.removeEventListener("mouseleave", this.removeChangeCursor)
-      )
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     window.removeEventListener("beforeunload", this.startPosition)
@@ -189,17 +170,6 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
-    // CURSOR
-    changeCursor() {
-      document.querySelector(".cursor").classList.add("active")
-    },
-    removeChangeCursor() {
-      document.querySelector(".cursor").classList.remove("active")
-    },
-    // INIT
-    startPosition() {
-      window.scroll(0, 0)
-    },
     // FILTER
     sortYear() {
       this.sortByYear = true
