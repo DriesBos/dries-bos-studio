@@ -5,17 +5,17 @@
         href="mailto:info@driesbos.com"
         class="cursorInteract"
         v-show="this.$route.name === 'index'"
-      >Start your own project? Let's talk.</a>
+      >Start your own project?</a>
       <a
         href="mailto:info@driesbos.com"
         class="cursorInteract"
         v-show="this.$route.name === 'about'"
-      >More info? Let's talk.</a>
+      >More info?</a>
       <a
         href="mailto:info@driesbos.com"
         class="cursorInteract"
         v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
-      >Start your own project? Let's talk.</a>
+      >Start your own project?</a>
     </div>
     <div
       class="footer-Icon cursorInteract icon-ArrowUp"

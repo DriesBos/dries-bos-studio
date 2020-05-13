@@ -310,6 +310,8 @@ section
     padding-right: var(--spacing-one)
     --var: 0%
     min-width: 0 // Ellipsis hack
+    @media ( hover: none )
+      --var: 100%
     a
       position: relative
       &::before
