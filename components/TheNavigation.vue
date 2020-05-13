@@ -108,6 +108,31 @@ export default {
       this.processedSlug()
     }
   },
+  mounted() {
+    this.processedSlug()
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursor)
+      )
+    window.addEventListener("resize", this.toggleTheSpaceOnResize)
+    window.addEventListener("scroll", this.showTitleOnScroll)
+  },
+  destroyed() {
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursor)
+      )
+    window.removeEventListener("resize", this.toggleTheSpaceOnResize)
+    window.removeEventListener("scroll", this.showTitleOnScroll)
+  },
   methods: {
     changeCursor() {
       document.querySelector(".cursor").classList.add("active")
@@ -195,31 +220,6 @@ export default {
         }
       }
     }
-  },
-  mounted() {
-    this.processedSlug()
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
-      )
-    window.addEventListener("resize", this.toggleTheSpaceOnResize)
-    window.addEventListener("scroll", this.showTitleOnScroll)
-  },
-  destroyed() {
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.removeEventListener("mouseleave", this.removeChangeCursor)
-      )
-    window.removeEventListener("resize", this.toggleTheSpaceOnResize)
-    window.removeEventListener("scroll", this.showTitleOnScroll)
   }
 }
 </script>

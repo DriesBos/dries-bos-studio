@@ -97,6 +97,7 @@ export default {
     window.addEventListener("scroll", this.headerToMixBlendMode)
   },
   destroyed() {
+    this.removeChangeCursor()
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
@@ -111,7 +112,6 @@ export default {
   },
   watch: {
     $route() {
-      removeChangeCursor()
       removeMixBlendMode()
     }
   },

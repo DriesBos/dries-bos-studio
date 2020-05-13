@@ -44,20 +44,20 @@ export default {
   },
   mounted() {
     this.checkDarkMode()
-    this.customCursor()
     this.checkPageType()
+    this.customCursor()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
   destroyed() {
+    this.removeChangeCursor()
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   watch: {
     $route() {
-      this.removeChangeCursor()
       this.checkPageType()
     }
   },
