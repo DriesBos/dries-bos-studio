@@ -55,35 +55,41 @@ $transition-messages: .165s ease-out
     transform: translateY(50%)
     transition: opacity $transition-messages, transform $transition-messages
     z-index: +10
+    display: none
     p, h1
       color: #F2F2F2
       line-height: 1.5
     p.underline
       text-decoration: underline
-    &.cursorInteract
-      pointer-events: auto
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1
       transform: translateY(0)
+      pointer-events: auto
+      display: block
   &.activeTwo
     .messages-Item:nth-child(2)
       opacity: 1
       transform: translateY(0)
+      display: block
   &.activeThree
     .messages-Item:nth-child(3)
       opacity: 1
       transform: translateY(0)
+      display: block
   &.activeFour
     .messages-Item:nth-child(4)
       opacity: 1
       transform: translateY(0)
+      display: block
   &.activeFive
     .messages-Item:nth-child(5)
       opacity: 1
       transform: translateY(0)
+      display: block
   &.activeSix
     .messages-Item:nth-child(6)
       opacity: 1
       transform: translateY(0)
+      display: block
 </style>
