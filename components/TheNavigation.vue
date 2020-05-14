@@ -106,6 +106,7 @@ export default {
   watch: {
     $route(to, from) {
       this.processedSlug()
+      this.showTitle = false
     }
   },
   mounted() {
