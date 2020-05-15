@@ -11,7 +11,7 @@
         <p title="project year">{{ post.year || "" }}</p>
       </li>
       <li class="contentListItem-Column contentListItem-Two">
-        <p title="project title">{{ post.title || "" }}</p>
+        <p class="uppercase" title="project title">{{ post.title || "" }}</p>
       </li>
       <li class="contentListItem-Column contentListItem-Three">
         <p title="project category">{{ post.category || "" }}</p>

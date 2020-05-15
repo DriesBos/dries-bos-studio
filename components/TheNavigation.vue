@@ -20,7 +20,7 @@
           >and</span>
           <span
             v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
-            class="capitalize"
+            class="uppercase"
             title="me and ..."
           >{{ slug }}</span>
         </nuxt-link>
