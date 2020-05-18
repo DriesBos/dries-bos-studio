@@ -39,10 +39,6 @@ section
   margin-right: auto
   width: 100%
   max-width: 100%
-  &:first-of-type // Enables all content to start with the same top distance
-    &.contentListItem-Text
-      ul
-        padding-top: 0
 
 .spaceForm
   position: absolute
@@ -89,31 +85,27 @@ section
 
 .cursor
   position: fixed
-  width: calc(#{var(--spacing-icons)} * 2)
-  height: calc(#{var(--spacing-icons)} * 2)
+  width: 3rem
+  height: 3rem
   transform: translate(-50%, -50%)
   border-radius: 50%
   z-index: 999
   pointer-events: none
   &-Instance
     position: absolute
-    width: 25%
-    height: 25%
+    width: 1rem
+    height: 1rem
     border-radius: 50%
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
     background: var(--cursor-color)
     transition: all .165s ease
-  &-Large
-    opacity: .33
   &.active
     .cursor-Small
-      width: 25%
-      height: 25%
-    .cursor-Large
       width: 100%
       height: 100%
+      opacity: .33
   @media ( hover: none )
     display: none
 
@@ -126,12 +118,12 @@ section
   width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
-  padding-left: var(--spacing-one)
-  padding-right: var(--spacing-one)
   &-Column
-    flex-basis: 25%
+    flex-basis: 16.6666%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
+    &.title
+      flex-grow: 1
   &-Icons
     display: flex
     justify-content: flex-end
@@ -193,11 +185,11 @@ section
       mix-blend-mode: difference
       span, svg
         color: white !important
-    &_TheTitle
-      opacity: 0
-      transition: opacity $transition-hover
-      &.active
-        opacity: 1
+    // &_TheTitle
+    //   opacity: 0
+    //   transition: opacity $transition-hover
+    //   &.active
+    //     opacity: 1
     ul // Gives extra title space on project pages
       li.contentListItem-One
         flex-basis: 50%
@@ -210,7 +202,7 @@ section
     top: calc(2rem + 1.58rem)
     left: 0
     right: 0
-    border-top: 1px solid currentColor
+    // border-top: 1px solid currentColor
     border-bottom: 1px solid currentColor
     p
       display: inline
@@ -298,8 +290,6 @@ section
   background: var(--background-color)
   padding-top: calc(#{var(--spacing-two)} + 1.6rem)
   padding-bottom: var(--spacing-one)
-  padding-left: var(--spacing-one)
-  padding-right: var(--spacing-one)
   @media ( max-width: $breakpoint-mobile), (orientation: portrait)
     padding-bottom: calc(#{var(--spacing-two)} + 1.6rem)
   &-Icon
@@ -347,67 +337,69 @@ section
     flex-direction: column
     align-items: center
     border-bottom: 1px solid rgba(0,0,0,0)
+  &-Item:last-child
+    border-bottom: 0
     &_Wrapper
       width: 100%
-  @media screen and ( min-width: $breakpoint-mobile)
-    li:nth-of-type(1)
-      .imageGrid-Item_Wrapper
-        width: 100%
-    li:nth-of-type(2)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-end
-    li:nth-of-type(3)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-start
-    li:nth-of-type(4)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-start
-    li:nth-of-type(5)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-end
-    li:nth-of-type(6)
-      .imageGrid-Item_Wrapper
-        align-self: center
-    li:nth-of-type(7)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-start
-    li:nth-of-type(8)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-start
-    li:nth-of-type(9)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-end
-    li:nth-of-type(10)
-      .imageGrid-Item_Wrapper
-        width: 100%
-        align-self: flex-start
-    li:nth-of-type(11)
-      .imageGrid-Item_Wrapper
-        width: 33.3333%
-        align-self: flex-start
-    li:nth-of-type(12)
-      .imageGrid-Item_Wrapper
-        width: 66.6666%
-        align-self: flex-end
-    li:nth-of-type(13)
-      .imageGrid-Item_Wrapper
-        align-self: center
-    li:nth-of-type(14)
-      .imageGrid-Item_Wrapper
-        align-self: center
-    li:nth-of-type(15)
-      .imageGrid-Item_Wrapper
-        align-self: center
-  @media screen and ( max-width: $breakpoint-mobile)
-    li
-      width: 100%
+// @media screen and ( min-width: $breakpoint-mobile)
+//     li:nth-of-type(1)
+//       .imageGrid-Item_Wrapper
+//         width: 100%
+//     li:nth-of-type(2)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-end
+//     li:nth-of-type(3)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-start
+//     li:nth-of-type(4)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-start
+//     li:nth-of-type(5)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-end
+//     li:nth-of-type(6)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//     li:nth-of-type(7)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-start
+//     li:nth-of-type(8)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-start
+//     li:nth-of-type(9)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%  
+//         align-self: flex-end
+//     li:nth-of-type(10)
+//       .imageGrid-Item_Wrapper
+//         width: 100%
+//         align-self: flex-start
+//     li:nth-of-type(11)
+//       .imageGrid-Item_Wrapper
+//         width: 33.3333%
+//         align-self: flex-start
+//     li:nth-of-type(12)
+//       .imageGrid-Item_Wrapper
+//         width: 66.6666%
+//         align-self: flex-end
+//     li:nth-of-type(13)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//     li:nth-of-type(14)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//     li:nth-of-type(15)
+//       .imageGrid-Item_Wrapper
+//         align-self: center
+//   @media screen and ( max-width: $breakpoint-mobile)
+//     li
+//       width: 100%
 
 // Views
 .view
@@ -416,38 +408,46 @@ section
   margin-left: auto
   margin-right: auto
   &-Index, &-Project, &-About
-    padding-top: 18rem
+    padding-top: 27.7778vh
   &-Index
     .contentListItem-Header
       background: var(--background-color)
   &-Project, &-About
     background: var(--background-color)
-  &-Project
-    .contentListItem-Text
-      margin-bottom: .5rem
-    .imageGrid
-      @media screen and ( min-width: $breakpoint-mobile)
-        margin-top: 3.5rem
+  // &-Project
+  //   .imageGrid
+  //     @media screen and ( min-width: $breakpoint-mobile)
+  //       margin-top: 3.5rem
   &-About
     ul
-      padding-bottom: 2.5rem
       border-bottom: 1px solid var(--type-color)
+      // li:first-child
+      //   padding-left: 25%
+    section:first-of-type
+      ul
+        border-top: 1px solid var(--type-color)
+        // li:first-child
+        //   padding-left: 1rem
     section:last-of-type
       ul
         border-bottom: 0
         padding-bottom: 1rem
     li:nth-child(1)
-      flex-basis: 25%
+      flex-basis: 50%
       .markdown
         position: sticky
         top: 0
     li:nth-child(2)
-      flex-basis: 75%
+      flex-basis: 50%
   &-Project
     ul
       justify-content: flex-end
+      border-bottom: 1px solid var(--type-color)
+    section:first-of-type
+      ul
+        border-top: 1px solid var(--type-color)
     li
-      flex-basis: 75%
+      flex-basis: 50%
       @media screen and ( max-width: $breakpoint-mobile)
         flex-basis: 100%
 

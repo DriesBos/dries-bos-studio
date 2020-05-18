@@ -1,17 +1,16 @@
 <template>
   <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
-    <the-title v-if="this.$route.name === 'index' || spaceState === true" />
+    <!-- <the-title v-if="this.$route.name === 'index' || spaceState === true" /> -->
     <the-notifications @toggleTheme="changeTheme" />
     <the-navigation @toggleTheme="changeTheme" :class="pageType" />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
-    <the-footer
+    <!-- <the-footer
       v-show="this.$route.name === 'index' || this.$route.name === 'about' || this.$route.params.slug"
-    />
+    />-->
     <div class="cursor">
       <div class="cursor-Small cursor-Instance" />
-      <div class="cursor-Large cursor-Instance" />
     </div>
   </main>
 </template>

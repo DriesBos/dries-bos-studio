@@ -10,11 +10,11 @@
         </li>
         <li class="contentListItem-Column">
           <div
-            class="listItem-Title listItem-Details cursorInteract"
-            :class="{ active: sortByTitle }"
-            @click="sortTitle"
+            class="listItem-Category listItem-Details cursorInteract"
+            :class="{ active: sortByCategory }"
+            @click="sortCategory"
           >
-            <p class="cursorInteract" title="sort by project">project</p>
+            <p class="cursorInteract" title="sort by role">role</p>
           </div>
         </li>
         <li class="contentListItem-Column">
@@ -23,7 +23,16 @@
             :class="{ active: sortByCategory }"
             @click="sortCategory"
           >
-            <p class="cursorInteract" title="sort by role">role</p>
+            <p class="cursorInteract" title="sort by role">agency</p>
+          </div>
+        </li>
+        <li class="contentListItem-Column title">
+          <div
+            class="listItem-Title listItem-Details cursorInteract"
+            :class="{ active: sortByTitle }"
+            @click="sortTitle"
+          >
+            <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
         <li class="contentListItem-Column">

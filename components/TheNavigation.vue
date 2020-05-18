@@ -2,15 +2,14 @@
   <section id="floatBlock" class="contentListItem-Header spaced-TopSide">
     <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
     <ul class="contentListItem">
-      <li class="contentListItem-Column contentListItem-One">
+      <li class="contentListItem-Column title">
         <nuxt-link class="cursorInteract" to="/">
           <span
             v-show="this.$route.name === 'index'"
-            class="contentListItem-Header_TheTitle"
-            :class="{ active: showTitle }"
             title="that's me!"
-          >Dries</span>
-          <span
+          >Dries Bos — Creative Web Developer</span>
+          <span v-show="this.$route.name !== 'index'">&nbsp;</span>
+          <!-- <span
             v-show="this.$route.name === 'projects-slug' && this.$route.params.slug || this.$route.name === 'about'"
             title="me and ..."
           >Dries</span>
@@ -22,7 +21,7 @@
             v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
             class="uppercase"
             title="me and ..."
-          >{{ slug }}</span>
+          >{{ slug }}</span>-->
         </nuxt-link>
       </li>
       <li class="contentListItem-Column contentListItem-Two"></li>

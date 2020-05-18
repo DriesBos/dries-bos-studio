@@ -7,14 +7,17 @@
     tag="section"
   >
     <ul class="contentListItem">
-      <li class="contentListItem-Column contentListItem-One">
+      <li class="contentListItem-Column">
         <p title="project year">{{ post.year || "" }}</p>
       </li>
-      <li class="contentListItem-Column contentListItem-Two">
-        <p class="uppercase" title="project title">{{ post.title || "" }}</p>
-      </li>
-      <li class="contentListItem-Column contentListItem-Three">
+      <li class="contentListItem-Column">
         <p title="project category">{{ post.category || "" }}</p>
+      </li>
+      <li class="contentListItem-Column">
+        <p title="project agency">{{ post.category || "" }}</p>
+      </li>
+      <li class="contentListItem-Column title">
+        <p title="project title">{{ post.title || "" }}</p>
       </li>
       <li class="contentListItem-Column contentListItem-Four">
         <ul class="contentListItem-Icons">
