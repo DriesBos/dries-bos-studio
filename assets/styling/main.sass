@@ -64,6 +64,10 @@ section
   opacity: 1
   height: 100%
   width: var(--spacing-icons)
+  &-Arrow
+    width: var(--spacing-icons-double)
+    &_Prev
+      transform: rotate(180deg)
   &-Space
     #fireIcon
       opacity: 0
@@ -260,11 +264,11 @@ input[type="range"]
     justify-content: space-between
     mix-blend-mode: difference
     z-index: 999
+    @media screen and ( max-width: 700px)
+      display: none
     &_Prev, &_Next
       position: absolute
-      top: 0
-      margin-top: 25vh
-      transform: translateY(-50%)
+      top: 1rem
     &_Prev
       left: var(--spacing-one)
       svg
@@ -274,7 +278,7 @@ input[type="range"]
     svg
       width: var(--spacing-icons-double)
       height: var(--spacing-icons)
-      // color: currentColor
+      color: white
 
 .footer
   display: flex
@@ -349,10 +353,6 @@ input[type="range"]
       background: var(--background-color)
   &-Project, &-About
     background: var(--background-color)
-  // &-Project
-  //   .imageGrid
-  //     @media screen and ( min-width: $breakpoint-mobile)
-  //       margin-top: 3.5rem
   &-About
     ul
       border-bottom: 1px solid var(--type-color)
@@ -374,17 +374,34 @@ input[type="range"]
         top: 0
     li:nth-child(2)
       flex-basis: 50%
+    @media screen and ( max-width: 700px)
+      .contentListItem
+        flex-wrap: wrap
+        li
+          flex-basis: 100%
+        li:first-child
+          margin-bottom: 1rem
+          text-transform: capitalize
+      .contentListItem-Text:first-of-type
+        .contentListItem:first-child
+          li:first-child
+            display: none
   &-Project
     ul
-      justify-content: flex-end
+      // justify-content: flex-end
       border-bottom: 1px solid var(--type-color)
     section:first-of-type
       ul
         border-top: 1px solid var(--type-color)
     li
       flex-basis: 50%
-      @media screen and ( max-width: $breakpoint-mobile)
-        flex-basis: 100%
+    @media screen and ( max-width: 700px)
+      .contentListItem
+        flex-wrap: wrap
+        li
+          flex-basis: 100%
+        li:first-child
+          display: none
 
 // Spacemode
 body.spaced
@@ -464,3 +481,8 @@ main.spaced // Initial
       transition: padding-top .5s ease
   #floatBlock
     transition: transform 1s ease 1.5s
+
+// Mobile / Desktop
+.mobileContent
+  @media screen and ( min-width: 700px)
+    display: none !important

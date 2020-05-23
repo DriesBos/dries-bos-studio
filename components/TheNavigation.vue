@@ -5,6 +5,7 @@
       v-html="require('~/assets/images/spaceform.svg?include')"
     />
     <ul class="contentListItem">
+      <!-- TITLE -->
       <li class="contentListItem-Column title">
         <nuxt-link class="cursorInteract" to="/">
           <span v-show="this.$route.name === 'index'" title="that's me!"
@@ -19,6 +20,7 @@
           <span v-show="this.$route.name !== 'index'">&nbsp;</span>
         </nuxt-link>
       </li>
+      <!-- ICONS -->
       <li class="contentListItem-Column icons">
         <ul class="contentListItem-Icons">
           <li v-show="this.$route.name === 'index'">
@@ -71,6 +73,7 @@
               </svg>
             </div>
           </li>
+          <!-- ABOUT -->
           <li
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
@@ -86,6 +89,51 @@
               ></div>
             </nuxt-link>
           </li>
+          <!-- MAIL -->
+          <li
+            v-show="this.$route.name === 'about'"
+            class="contentListItem-Icon contentListItem-View mobileContent"
+          >
+            <div class="cursorInteract icon icon-Mail">
+              <div
+                v-html="require('~/assets/images/icon-mail.svg?include')"
+              ></div>
+            </div>
+          </li>
+          <!-- PHONE -->
+          <li
+            v-show="this.$route.name === 'about'"
+            class="contentListItem-Icon contentListItem-View mobileContent"
+          >
+            <div class="cursorInteract icon icon-Phone">
+              <div
+                v-html="require('~/assets/images/icon-phone.svg?include')"
+              ></div>
+            </div>
+          </li>
+          <!-- PREV -->
+          <li
+            v-show="this.$route.name === 'projects-slug'"
+            class="contentListItem-Icon contentListItem-View mobileContent"
+          >
+            <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
+              <div
+                v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+              ></div>
+            </div>
+          </li>
+          <!-- NEXT -->
+          <li
+            v-show="this.$route.name === 'projects-slug'"
+            class="contentListItem-Icon contentListItem-Close mobileContent"
+          >
+            <div class="cursorInteract icon icon-Arrow">
+              <div
+                v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+              ></div>
+            </div>
+          </li>
+          <!-- CLOSE -->
           <li
             v-show="this.$route.name !== 'index'"
             class="contentListItem-Icon contentListItem-Close"
