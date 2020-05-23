@@ -1,8 +1,8 @@
 <template>
-  <main id="top" :class="[{ dark: currentTheme }, { spaced: spaceState }]">
+  <main id="top" :class="{ spaced: spaceState }">
     <!-- <the-title v-if="this.$route.name === 'index' || spaceState === true" /> -->
-    <the-notifications @toggleTheme="changeTheme" />
-    <the-navigation @toggleTheme="changeTheme" :class="pageType" />
+    <the-notifications />
+    <the-navigation :class="pageType" />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
@@ -32,7 +32,6 @@ export default {
   },
   data() {
     return {
-      currentTheme: false,
       pageType: "index"
     }
   },
@@ -99,28 +98,6 @@ export default {
         }, 5000)
       }
     },
-    changeTheme() {
-      this.currentTheme = !this.currentTheme
-      if (this.currentTheme === false) {
-        document.querySelector("#messages").classList.add("activeSix")
-        document.querySelector("body").classList.remove("dark")
-        document
-          .querySelector("link[rel*='icon']")
-          .setAttribute("href", "favicon.png")
-        setTimeout(function() {
-          document.querySelector("#messages").classList.remove("activeSix")
-        }, 3000)
-      } else {
-        document.querySelector("#messages").classList.add("activeFive")
-        document.querySelector("body").classList.add("dark")
-        document
-          .querySelector("link[rel*='icon']")
-          .setAttribute("href", "favicon-dark.png")
-        setTimeout(function() {
-          document.querySelector("#messages").classList.remove("activeFive")
-        }, 3000)
-      }
-    },
     customCursor() {
       let cursor = document.querySelector(".cursor")
       function moveCursor(e) {
@@ -155,26 +132,14 @@ export default {
     windowIsVisible() {
       if (document.visibilityState === "hidden") {
         document.title = "MISS U"
-        if (this.currentTheme === false) {
-          document
-            .querySelector("link[rel*='icon']")
-            .setAttribute("href", "question.png")
-        } else {
-          document
-            .querySelector("link[rel*='icon']")
-            .setAttribute("href", "question-dark.png")
-        }
+        document
+          .querySelector("link[rel*='icon']")
+          .setAttribute("href", "question.png")
       } else {
         document.title = "Dries Bos — Web & Interaction Developer"
-        if (this.currentTheme === false) {
-          document
-            .querySelector("link[rel*='icon']")
-            .setAttribute("href", "favicon.png")
-        } else {
-          document
-            .querySelector("link[rel*='icon']")
-            .setAttribute("href", "favicon-dark.png")
-        }
+        document
+          .querySelector("link[rel*='icon']")
+          .setAttribute("href", "favicon.png")
       }
     },
     mouseLeftDocument() {

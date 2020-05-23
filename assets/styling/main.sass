@@ -22,7 +22,7 @@ body
 
 main
   // background: var(--background-color)
-  color: $color-type-lighttheme
+  color: var(--color-type)
   cursor: none
   padding-left: 0
   padding-top: 0
@@ -75,12 +75,6 @@ section
         #fireIcon
           animation: flicker .1s infinite
           opacity: 1
-  &-Theme
-    transform: rotate(0)
-    transition: transform .165s ease-out
-    transform-origin: center center
-    &.active
-      transform: rotate(90deg)
   svg, img
     position: absolute
     left: 0
@@ -138,7 +132,6 @@ input[type="range"]
   text-transform: capitalize
 
 .contentListItem
-  color: $color-type-lighttheme
   display: flex
   width: 100%
   padding-top: 1rem

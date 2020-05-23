@@ -41,12 +41,15 @@
           </li>
           <li
             v-show="this.$route.name === 'index'"
-            class="contentListItem-Icon contentListItem-Theme"
-            @click="toggleTheme"
-            title="change theme"
+            class="contentListItem-Icon contentListItem-View"
+            @click="toggleTheView"
+            title="toggle txt/img view"
           >
-            <div class="cursorInteract icon icon-Theme" :class="{ active: themeActive }">
-              <div v-html="require('~/assets/images/icon-theme.svg?include')"></div>
+            <div v-if="viewState" class="cursorInteract icon icon-View">
+              <div v-html="require('~/assets/images/icon-img.svg?include')"></div>
+            </div>
+            <div v-else class="cursorInteract icon icon-View">
+              <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
             </div>
           </li>
           <li
@@ -101,7 +104,6 @@ export default {
     return {
       slug: null,
       showTitle: false,
-      themeActive: false,
       rangeValue: "100"
     }
   },
@@ -126,7 +128,6 @@ export default {
     window.addEventListener("scroll", this.showTitleOnScroll)
   },
   updated() {
-    console.log(this.rangeValue)
     this.setBackgroundColor(this.rangeValue)
   },
   destroyed() {
@@ -142,10 +143,6 @@ export default {
       } else {
         root.style.setProperty("--type-color", "white")
       }
-    },
-    toggleTheme() {
-      this.$emit("toggleTheme")
-      this.themeActive = !this.themeActive
     },
     processedSlug() {
       if (this.$route.name === "projects-slug" && this.$route.params.slug) {

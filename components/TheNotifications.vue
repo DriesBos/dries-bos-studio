@@ -1,6 +1,6 @@
 <template>
   <div id="messages" class="messages">
-    <div class="messages-Item cursorInteract" @click="toggleTheme">
+    <div class="messages-Item cursorInteract">
       <p class="underline">darkmode ?</p>
     </div>
     <div class="messages-Item">
@@ -25,11 +25,7 @@
 
 <script>
 export default {
-  methods: {
-    toggleTheme() {
-      this.$emit("toggleTheme")
-    }
-  }
+  methods: {}
 }
 </script>
 
