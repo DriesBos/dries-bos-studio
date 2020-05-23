@@ -6,12 +6,12 @@
     />
     <section class="contentListItem-Filter spaced-TopSide">
       <ul class="contentListItem">
-        <li class="contentListItem-Column">
+        <li class="contentListItem-Column year">
           <div class :class="{ active: sortByYear }" @click="sortYear">
             <p class="cursorInteract" title="sort by year">year</p>
           </div>
         </li>
-        <li class="contentListItem-Column">
+        <li class="contentListItem-Column category">
           <div
             class="listItem-Category listItem-Details cursorInteract"
             :class="{ active: sortByCategory }"
@@ -20,7 +20,7 @@
             <p class="cursorInteract" title="sort by role">role</p>
           </div>
         </li>
-        <li class="contentListItem-Column">
+        <li class="contentListItem-Column agency">
           <div
             class="listItem-Category listItem-Details cursorInteract"
             :class="{ active: sortByCategory }"
@@ -38,7 +38,7 @@
             <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
-        <li class="contentListItem-Column">
+        <li class="contentListItem-Column icons">
           <ul class="contentListItem-Icons">
             <li
               class="cursorInteract contentListItem-Input"

@@ -130,14 +130,27 @@ input[type="range"]
   width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
-  border: 1px solid red
   &-Column
     flex-basis: 16.6666%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
-    border: 1px solid purple
+    border: 1px solid aliceblue
     &.title
       flex-grow: 1
+    &.icons
+      flex-basis: auto
+      flex-shrink: 0
+    @media screen and ( max-width: 1105px)
+      flex-basis: 25%
+      &.agency
+        display: none
+    @media screen and ( max-width: $breakpoint-mobile)
+      flex-basis: 33.3%
+      &.year
+        flex-basis: 4.51rem
+    @media screen and ( max-width: 550px)
+      &.category
+        display: none
   &-Icons
     display: flex
     justify-content: flex-end
@@ -145,7 +158,6 @@ input[type="range"]
     li
       display: flex
       align-items: center
-
   &-Icon
     margin-left: var(--spacing-two)
     flex-shrink: 0
@@ -216,10 +228,8 @@ input[type="range"]
         opacity: 1
       &.active
         opacity: 1
-    @media screen and ( max-width: $breakpoint-mobile)
-      li:nth-child(2)
-        flex-grow: 1
-      li:nth-child(3)
+    @media screen and ( max-width: $breakpoint-mobile) and ( min-width: 550px)
+      .contentListItem-Column.icons
         display: none
   &-List
     border-bottom: 1px solid currentColor
@@ -228,11 +238,6 @@ input[type="range"]
     &:hover
       background: var(--type-color)
       color: var(--active-color)
-    @media screen and ( max-width: $breakpoint-mobile)
-      li:nth-child(2)
-        flex-grow: 1
-      li:nth-child(3)
-        display: none
   &-Single
     padding-bottom: var(--spacing-type-vertical)
   &-Images
@@ -270,18 +275,6 @@ input[type="range"]
       width: var(--spacing-icons-double)
       height: var(--spacing-icons)
       // color: currentColor
-
-.theTitle
-  position: fixed
-  top: 0
-  left: 0
-  padding-left: var(--spacing-two)
-  margin-left: -1.25rem
-  pointer-events: none
-  h1
-    font-size: 16rem
-    line-height: 1.1676
-    letter-spacing: -.25rem
 
 .footer
   display: flex
@@ -440,18 +433,6 @@ main.spaced
       background: var(--background-color)
       .spaceForm
         top: -1px
-      &_TheTitle
-        opacity: 1
-      &.about
-        span
-          visibility: visible
-      &.projects
-        li.contentListItem-One
-          order: 0
-        li.contentListItem-Two
-          order: 1
-        li.contentListItem-Four
-          order: 3
     &-Filter
       border-top: 1px solid var(--type-color)
       position: relative

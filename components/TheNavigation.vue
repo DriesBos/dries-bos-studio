@@ -19,7 +19,7 @@
           <span v-show="this.$route.name !== 'index'">&nbsp;</span>
         </nuxt-link>
       </li>
-      <li class="contentListItem-Column contentListItem-Four">
+      <li class="contentListItem-Column icons">
         <ul class="contentListItem-Icons">
           <li v-show="this.$route.name === 'index'">
             <input
