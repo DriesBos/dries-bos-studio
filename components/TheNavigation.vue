@@ -94,22 +94,21 @@
             v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
           >
-            <div class="cursorInteract icon icon-Mail">
-              <div
-                v-html="require('~/assets/images/icon-mail.svg?include')"
-              ></div>
-            </div>
+            <a
+              href="mailto:info@driesbos.com"
+              class="cursorInteract icon icon-Mail"
+            >
+              <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+            </a>
           </li>
           <!-- PHONE -->
           <li
             v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
           >
-            <div class="cursorInteract icon icon-Phone">
-              <div
-                v-html="require('~/assets/images/icon-phone.svg?include')"
-              ></div>
-            </div>
+            <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
+              <div v-html="require('~/assets/images/icon-phone.svg?include')" />
+            </a>
           </li>
           <!-- PREV -->
           <li
