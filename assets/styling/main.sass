@@ -197,6 +197,9 @@ input[type="range"]
     right: 0
     z-index: 900
     transition: border-bottom $transition-space-vertical
+    pointer-events: none
+    .cursorInteract
+      pointer-events: auto
     &.projects, &.about
       background: rgba(0,0,0,0)
     &.about
