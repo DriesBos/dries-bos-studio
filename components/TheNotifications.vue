@@ -53,7 +53,7 @@ $transition-messages: .165s ease-out
     z-index: +10
     display: none
     p, h1
-      color: #F2F2F2
+      color: var(--active-color)
       line-height: 1.5
     p.underline
       text-decoration: underline

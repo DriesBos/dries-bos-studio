@@ -17,12 +17,12 @@ img[lazy="loaded"]
 // Fundamental sections
 body
   background: var(--background-color)
-  p::selection, a::selection, h1::selection, h2::selection, span::selection
+  color: var(--type-color)
+  transition: color $transition-theme
+  p::selection, a::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection , span::selection
     background: var(--background-selection)
 
 main
-  // background: var(--background-color)
-  color: var(--color-type)
   cursor: none
   padding-left: 0
   padding-top: 0
@@ -30,8 +30,8 @@ main
   padding-bottom: 0
   min-height: 100vh
   padding-bottom: 100vh
-  p, h1, a, input, svg
-    color: currentColor
+  // p, h1, a, input, svg
+  //   color: currentColor
 
 section
   position: relative
@@ -42,7 +42,7 @@ section
   max-width: 100%
   position: sticky
   top: 0
-  border-top: 1px solid var(--type-color)
+  border-top: 1px solid currentColor
   // border-bottom: 1px solid var(--type-color)
 
 .spaceForm
@@ -53,7 +53,7 @@ section
   opacity: 0
   width: 100%
   transform: translateY(-100%)
-  color: var(--background-color)
+  color: var(--background-color) // TODO: remove?
   transition: background $transition-theme, border-bottom $transition-theme
   pointer-events: none
   z-index: 0
@@ -98,7 +98,7 @@ section
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    background: var(--cursor-color)
+    background: currentColor
     transition: all .165s ease
   &.active
     .cursor-Small
@@ -110,7 +110,7 @@ section
 
 input[type="range"]
   appearance: none
-  background-color: var(--type-color)
+  background-color: currentColor
   width: var(--spacing-icons-slider)
   height: 2px
   outline: none
@@ -118,15 +118,11 @@ input[type="range"]
   &::-webkit-slider-thumb
     appearance: none
     display: block
-    border: 2px solid var(--type-color)
+    border: 2px solid currentColor
     height: 25px
     width: 25px
     border-radius: 50%
-    background-color: var(--background-color)
-    // transition: background-color .33s ease-in-out
-  // &:active
-  //   &::-webkit-slider-thumb
-  //     background-color: var(--color-active)
+    background-color: currentColor
 
 .capitalize
   text-transform: capitalize
@@ -155,7 +151,6 @@ input[type="range"]
       height: 100%
       img, svg
         height: 100%
-        color: currentColor
   &-Icon:first-child
     margin-left: 0
   &-Input
@@ -167,9 +162,9 @@ input[type="range"]
       transition: opacity $transition-hover
       cursor: none
       &:focus
-        color: var(--type-color)
+        color: currentColor
       &::placeholder
-        color: var(--type-color)
+        color: currentColor
         opacity: .25
     &.active
       input
@@ -202,12 +197,7 @@ input[type="range"]
     &.mixblend
       mix-blend-mode: difference
       span, svg
-        color: white !important
-    // &_TheTitle
-    //   opacity: 0
-    //   transition: opacity $transition-hover
-    //   &.active
-    //     opacity: 1
+        color: white // Overrides currentColor for mixblend to work
     ul // Gives extra title space on project pages
       li.contentListItem-One
         flex-basis: 50%
@@ -246,7 +236,8 @@ input[type="range"]
     position: relative
     background: var(--background-color)
     &:hover
-      background: var(--background-color-active)
+      background: var(--type-color)
+      color: var(--active-color)
     @media screen and ( max-width: $breakpoint-mobile)
       li:nth-child(2)
         flex-grow: 1
@@ -288,7 +279,7 @@ input[type="range"]
     svg
       width: var(--spacing-icons-double)
       height: var(--spacing-icons)
-      color: white
+      // color: currentColor
 
 .theTitle
   position: fixed

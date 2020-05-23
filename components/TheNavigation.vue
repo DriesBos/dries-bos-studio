@@ -1,13 +1,15 @@
 <template>
   <section id="floatBlock" class="contentListItem-Header spaced-TopSide">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <ul class="contentListItem">
       <li class="contentListItem-Column title">
         <nuxt-link class="cursorInteract" to="/">
-          <span
-            v-show="this.$route.name === 'index'"
-            title="that's me!"
-          >Dries Bos — Creative Web Developer</span>
+          <span v-show="this.$route.name === 'index'" title="that's me!"
+            >Dries Bos — Creative Web Developer</span
+          >
           <span v-show="this.$route.name !== 'index'">&nbsp;</span>
           <!-- <span
             v-show="this.$route.name === 'projects-slug' && this.$route.params.slug || this.$route.name === 'about'"
@@ -46,10 +48,14 @@
             title="toggle txt/img view"
           >
             <div v-if="viewState" class="cursorInteract icon icon-View">
-              <div v-html="require('~/assets/images/icon-img.svg?include')"></div>
+              <div
+                v-html="require('~/assets/images/icon-img.svg?include')"
+              ></div>
             </div>
             <div v-else class="cursorInteract icon icon-View">
-              <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
+              <div
+                v-html="require('~/assets/images/icon-txt.svg?include')"
+              ></div>
             </div>
           </li>
           <li
@@ -78,16 +84,30 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
           >
-            <nuxt-link to="/about" class="cursorInteract icon icon-About" title="about" tag="div">
-              <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
+            <nuxt-link
+              to="/about"
+              class="cursorInteract icon icon-About"
+              title="about"
+              tag="div"
+            >
+              <div
+                v-html="require('~/assets/images/icon-about.svg?include')"
+              ></div>
             </nuxt-link>
           </li>
           <li
             v-show="this.$route.name !== 'index'"
             class="contentListItem-Icon contentListItem-Close"
           >
-            <nuxt-link to="/" class="cursorInteract icon icon-Close" title="close" tag="div">
-              <div v-html="require('~/assets/images/icon-close.svg?include')"></div>
+            <nuxt-link
+              to="/"
+              class="cursorInteract icon icon-Close"
+              title="close"
+              tag="div"
+            >
+              <div
+                v-html="require('~/assets/images/icon-close.svg?include')"
+              ></div>
             </nuxt-link>
           </li>
         </ul>
@@ -129,6 +149,7 @@ export default {
   },
   updated() {
     this.setBackgroundColor(this.rangeValue)
+    console.log(this.rangeValue)
   },
   destroyed() {
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
@@ -138,10 +159,12 @@ export default {
     setBackgroundColor(color) {
       var root = document.body
       root.style.setProperty("--background-color", `hsl(0,0%,${color}%)`)
-      if (color > 20) {
+      if (color > 30) {
         root.style.setProperty("--type-color", "black")
+        root.style.setProperty("--active-color", "white")
       } else {
         root.style.setProperty("--type-color", "white")
+        root.style.setProperty("--active-color", "black")
       }
     },
     processedSlug() {
