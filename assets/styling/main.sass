@@ -242,8 +242,8 @@ input[type="range"]
     &:hover
       background: var(--type-color)
       color: var(--active-color)
-  &-Single
-    padding-bottom: var(--spacing-type-vertical)
+  // &-Single
+  //   padding-bottom: var(--spacing-type-vertical)
   &-Images
     position: relative
     padding-left: var(--spacing-two)
@@ -324,6 +324,8 @@ input[type="range"]
 .imageGrid
   min-height: 100vh
   background: var(--background-color)
+  border-top: 0 !important
+  margin-top: 0 !important
   img
     transition: opacity $transition-lazy
   &-Item
@@ -333,10 +335,6 @@ input[type="range"]
     flex-direction: column
     align-items: center
     border-top: 1px solid var(--type-color)
-    border-bottom: 1px solid var(--type-color)
-    // border-bottom: 1px solid rgba(0,0,0,0)
-  &-Item:last-child
-    border-bottom: 0
     &_Wrapper
       width: 100%
 
@@ -353,26 +351,17 @@ input[type="range"]
       background: var(--background-color)
   &-Project, &-About
     background: var(--background-color)
-  &-About
-    ul
+    section
+      border-top: 1px solid var(--type-color)
       border-bottom: 1px solid var(--type-color)
-      // li:first-child
-      //   padding-left: 25%
-    section:first-of-type
-      ul
-        border-top: 1px solid var(--type-color)
-        // li:first-child
-        //   padding-left: 1rem
-    section:last-of-type
-      ul
-        border-bottom: 0
-        padding-bottom: 1rem
-    li:nth-child(1)
-      flex-basis: 50%
-      .markdown
-        position: sticky
-        top: 0
-    li:nth-child(2)
+      margin-top: -1px
+    section:nth-of-type(1)
+      border-bottom: 0
+      margin-top: 0
+    section:nth-last-of-type(1)
+      border-bottom: 0
+  &-About
+    li
       flex-basis: 50%
     @media screen and ( max-width: 700px)
       .contentListItem
@@ -387,12 +376,6 @@ input[type="range"]
           li:first-child
             display: none
   &-Project
-    ul
-      // justify-content: flex-end
-      border-bottom: 1px solid var(--type-color)
-    section:first-of-type
-      ul
-        border-top: 1px solid var(--type-color)
     li
       flex-basis: 50%
     @media screen and ( max-width: 700px)
@@ -402,6 +385,8 @@ input[type="range"]
           flex-basis: 100%
         li:first-child
           display: none
+    section:nth-last-of-type(2)
+      border-bottom: 0
 
 // Spacemode
 body.spaced
