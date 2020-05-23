@@ -28,6 +28,17 @@
       <li class="contentListItem-Column contentListItem-Three"></li>
       <li class="contentListItem-Column contentListItem-Four">
         <ul class="contentListItem-Icons">
+          <li>
+            <input
+              class="cursorInteract rangeSlider"
+              type="range"
+              min="0"
+              max="100"
+              value="100"
+              step="1"
+              v-model="rangeValue"
+            />
+          </li>
           <li
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-Theme"
@@ -90,7 +101,8 @@ export default {
     return {
       slug: null,
       showTitle: false,
-      themeActive: false
+      themeActive: false,
+      rangeValue: "100"
     }
   },
   fetch({ store }) {
@@ -113,11 +125,24 @@ export default {
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
     window.addEventListener("scroll", this.showTitleOnScroll)
   },
+  updated() {
+    console.log(this.rangeValue)
+    this.setBackgroundColor(this.rangeValue)
+  },
   destroyed() {
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
     window.removeEventListener("scroll", this.showTitleOnScroll)
   },
   methods: {
+    setBackgroundColor(color) {
+      var root = document.body
+      root.style.setProperty("--background-color", `hsl(0,0%,${color}%)`)
+      if (color > 20) {
+        root.style.setProperty("--type-color", "black")
+      } else {
+        root.style.setProperty("--type-color", "white")
+      }
+    },
     toggleTheme() {
       this.$emit("toggleTheme")
       this.themeActive = !this.themeActive
