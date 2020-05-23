@@ -130,16 +130,22 @@ input[type="range"]
   width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
+  border: 1px solid red
   &-Column
     flex-basis: 16.6666%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
+    border: 1px solid purple
     &.title
       flex-grow: 1
   &-Icons
     display: flex
     justify-content: flex-end
     height: 100%
+    li
+      display: flex
+      align-items: center
+
   &-Icon
     margin-left: var(--spacing-two)
     flex-shrink: 0
@@ -180,28 +186,14 @@ input[type="range"]
     &.about
       span
         visibility: hidden
-    &.projects
-      li.contentListItem-One
-        order: 1
-      li.contentListItem-Two
-        order: 0
-      li.contentListItem-Four
-        order: 3
-      @media screen and ( max-width: $breakpoint-mobile)
-        li:nth-child(1)
-          flex-grow: 1
-        li:nth-child(3), li:nth-child(2)
-          display: none
     &.mixblend
       mix-blend-mode: difference
       span, svg
         color: white // Overrides currentColor for mixblend to work
-    ul // Gives extra title space on project pages
-      li.contentListItem-One
-        flex-basis: 50%
-      li.contentListItem-Three
-        flex-basis: 0%
-        display: none
+    & .title
+      @media screen and ( max-width: $breakpoint-mobile)
+        span.title
+          display: none
   &-Filter
     position: sticky
     z-index: 999

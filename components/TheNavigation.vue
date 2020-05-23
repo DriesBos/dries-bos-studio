@@ -8,29 +8,20 @@
       <li class="contentListItem-Column title">
         <nuxt-link class="cursorInteract" to="/">
           <span v-show="this.$route.name === 'index'" title="that's me!"
-            >Dries Bos — Creative Web Developer</span
+            >Dries Bos</span
+          >
+          <span
+            class="title"
+            v-show="this.$route.name === 'index'"
+            title="that's me!"
+            >&nbsp;— Creative Web Developer</span
           >
           <span v-show="this.$route.name !== 'index'">&nbsp;</span>
-          <!-- <span
-            v-show="this.$route.name === 'projects-slug' && this.$route.params.slug || this.$route.name === 'about'"
-            title="me and ..."
-          >Dries</span>
-          <span
-            v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
-            title="me and ..."
-          >and</span>
-          <span
-            v-show="this.$route.name === 'projects-slug' && this.$route.params.slug"
-            class="uppercase"
-            title="me and ..."
-          >{{ slug }}</span>-->
         </nuxt-link>
       </li>
-      <li class="contentListItem-Column contentListItem-Two"></li>
-      <li class="contentListItem-Column contentListItem-Three"></li>
       <li class="contentListItem-Column contentListItem-Four">
         <ul class="contentListItem-Icons">
-          <li>
+          <li v-show="this.$route.name === 'index'">
             <input
               class="cursorInteract rangeSlider"
               type="range"
