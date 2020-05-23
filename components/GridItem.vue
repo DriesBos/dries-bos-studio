@@ -1,5 +1,9 @@
 <template>
-  <li :key="post.id" :id="post.id" class="gridItem gridItem_Project imageGrid-Item">
+  <li
+    :key="post.id"
+    :id="post.id"
+    class="gridItem gridItem_Project imageGrid-Item"
+  >
     <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
       <img
         :srcset="
@@ -18,7 +22,10 @@
           )} 960w, ${transformImage(
             post.filename || post.cover_image,
             '800x0'
-          )} 800w, ${transformImage(post.filename || post.cover_image, '690x0')} 690w`
+          )} 800w, ${transformImage(
+            post.filename || post.cover_image,
+            '690x0'
+          )} 690w`
         "
         sizes="100vw"
         :data-src="post.filename || post.cover_image"
@@ -30,7 +37,7 @@
 
 <script>
 export default {
-  name: "IndexGridItem",
+  name: "GridItem",
   props: {
     post: Object
   },

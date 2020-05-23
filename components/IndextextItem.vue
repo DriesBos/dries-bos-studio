@@ -38,7 +38,7 @@
 import { gsap } from "gsap"
 
 export default {
-  name: "IndexListItem",
+  name: "IndexTextItem",
   props: {
     post: Object
   }

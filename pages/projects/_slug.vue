@@ -1,6 +1,9 @@
 <template>
   <div class="view view-Project">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
@@ -35,20 +38,25 @@
           />
         </nuxt-link>
       </div>
-      <div is="IndexGridItem" v-for="post in  story.content.images" :key="post.id" :post="post"></div>
+      <div
+        is="GridItem"
+        v-for="post in story.content.images"
+        :key="post.id"
+        :post="post"
+      ></div>
     </section>
   </div>
 </template>
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import IndexGridItem from "~/components/IndexGridItem.vue"
+import GridItem from "~/components/GridItem.vue"
 
 export default {
   scrollToTop: true,
   mixins: [storyblokLivePreview],
   components: {
-    IndexGridItem: IndexGridItem
+    GridItem: GridItem
   },
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`

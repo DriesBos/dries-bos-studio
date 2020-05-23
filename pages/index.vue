@@ -1,6 +1,9 @@
 <template>
   <div class="view view-Index">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <section class="contentListItem-Filter spaced-TopSide">
       <ul class="contentListItem">
         <li class="contentListItem-Column">
@@ -37,7 +40,10 @@
         </li>
         <li class="contentListItem-Column">
           <ul class="contentListItem-Icons">
-            <li class="cursorInteract contentListItem-Input" :class="{ active: toggleSearch }">
+            <li
+              class="cursorInteract contentListItem-Input"
+              :class="{ active: toggleSearch }"
+            >
               <input
                 id="search"
                 type="text"
@@ -52,32 +58,50 @@
               class="cursorInteract contentListItem-Icon contentListItem-Search"
               title="search project"
             >
-              <div class="cursorInteract icon icon-Search" :class="{ active: toggleSearch }">
-                <div v-html="require('~/assets/images/icon-search.svg?include')" />
+              <div
+                class="cursorInteract icon icon-Search"
+                :class="{ active: toggleSearch }"
+              >
+                <div
+                  v-html="require('~/assets/images/icon-search.svg?include')"
+                />
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </section>
-    <div is="IndexListItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
+    <div
+      v-if="viewState"
+      is="IndexTextItem"
+      v-for="post in filteredList"
+      :key="post.id"
+      :post="post"
+    ></div>
+    <div
+      v-else
+      is="IndexImageItem"
+      v-for="post in filteredList"
+      :key="post.id"
+      :post="post"
+    ></div>
 
     <!-- <section class="imageGrid">
-      <div is="IndexGridItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
+      <div is="IndexImageItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
     </section>-->
   </div>
 </template>
 
 <script>
-import IndexListItem from "~/components/IndexListItem.vue"
-import IndexGridItem from "~/components/IndexGridItem.vue"
+import IndexTextItem from "~/components/IndexTextItem.vue"
+import IndexImageItem from "~/components/IndexImageItem.vue"
 import { mapState } from "vuex"
 
 export default {
   scrollToTop: true,
   components: {
-    IndexListItem: IndexListItem,
-    IndexGridItem: IndexGridItem
+    IndexTextItem: IndexTextItem,
+    IndexImageItem: IndexImageItem
   },
   props: {
     view: Boolean
