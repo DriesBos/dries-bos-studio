@@ -87,6 +87,9 @@ export default {
         window.matchMedia("(prefers-color-scheme: dark)").matches
       ) {
         document.querySelector("#messages").classList.add("activeOne")
+        document.querySelector("#messages").classList.remove("activeTwo")
+        document.querySelector("#messages").classList.remove("activeThree")
+        document.querySelector("#messages").classList.remove("activeFour")
         setTimeout(function() {
           document.querySelector("#messages").classList.remove("activeOne")
         }, 5000)

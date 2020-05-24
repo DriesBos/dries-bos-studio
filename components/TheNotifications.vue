@@ -40,35 +40,31 @@ $transition-messages: .165s ease-out
     bottom: var(--spacing-icons)
     right: var(--spacing-icons)
     display: block
-    background: var(--type-color)
+    background: var(--interactive-color)
     border-radius: 1000px
-    padding: .22rem var(--spacing-icons)
+    padding: .25rem var(--spacing-icons)
     opacity: 0
     transform: translateY(50%)
     transition: opacity $transition-messages, transform $transition-messages
     z-index: +10
-    display: none
     p, h1
-      color: var(--active-color)
+      color: black
       line-height: 1.5
+      transform: translateY(-1px)
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1
       transform: translateY(0)
-      display: block
   &.activeTwo
     .messages-Item:nth-child(2)
       opacity: 1
       transform: translateY(0)
-      display: block
   &.activeThree
     .messages-Item:nth-child(3)
       opacity: 1
       transform: translateY(0)
-      display: block
   &.activeFour
     .messages-Item:nth-child(4)
       opacity: 1
       transform: translateY(0)
-      display: block
 </style>

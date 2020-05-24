@@ -200,25 +200,34 @@ export default {
           document.querySelector("html").classList.remove("spaced")
           document.querySelector("#floatBlock").classList.remove("low")
           document.querySelector("#messages").classList.add("activeThree")
+          document.querySelector("#messages").classList.remove("activeOne")
+          document.querySelector("#messages").classList.remove("activeTwo")
+          document.querySelector("#messages").classList.remove("activeFour")
           setTimeout(function() {
             document.querySelector("#messages").classList.remove("activeThree")
-          }, 2000)
+          }, 2500)
         } else {
           // Spacemode activation
           this.$store.commit("space/turnOnTheSpace")
           document.querySelector("body").classList.add("spaced")
           document.querySelector("html").classList.add("spaced")
           document.querySelector("#messages").classList.add("activeTwo")
+          document.querySelector("#messages").classList.remove("activeOne")
+          document.querySelector("#messages").classList.remove("activeThree")
+          document.querySelector("#messages").classList.remove("activeFour")
           setTimeout(function() {
             document.querySelector("#messages").classList.remove("activeTwo")
-          }, 2000)
+          }, 2500)
         }
       } else {
         // Message: "spacemode requires a larger window"
         document.querySelector("#messages").classList.add("activeFour")
+        document.querySelector("#messages").classList.remove("activeOne")
+        document.querySelector("#messages").classList.remove("activeTwo")
+        document.querySelector("#messages").classList.remove("activeThree")
         setTimeout(function() {
           document.querySelector("#messages").classList.remove("activeFour")
-        }, 2000)
+        }, 2500)
       }
     },
     toggleTheSpaceOnResize() {
@@ -228,9 +237,12 @@ export default {
         document.querySelector("body").classList.remove("spaced")
         document.querySelector("#floatBlock").classList.remove("low")
         document.querySelector("#messages").classList.add("activeThree")
+        document.querySelector("#messages").classList.remove("activeOne")
+        document.querySelector("#messages").classList.remove("activeTwo")
+        document.querySelector("#messages").classList.remove("activeFour")
         setTimeout(function() {
           document.querySelector("#messages").classList.remove("activeThree")
-        }, 2000)
+        }, 2500)
       }
     },
     toggleTheView() {
