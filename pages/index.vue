@@ -61,14 +61,12 @@
         </li>
       </ul>
     </section>
-    <div
-      v-if="viewState"
-      is="IndexTextItem"
-      v-for="post in filteredList"
-      :key="post.id"
-      :post="post"
-    ></div>
-    <div v-else is="IndexImageItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
+    <section v-if="viewState">
+      <index-text-item v-for="post in filteredList" :key="post.id" :post="post" />
+    </section>
+    <section v-else>
+      <index-image-item v-for="post in filteredList" :key="post.id" :post="post" />
+    </section>
   </div>
 </template>
 
@@ -80,8 +78,8 @@ import { mapState } from "vuex"
 export default {
   scrollToTop: true,
   components: {
-    IndexTextItem: IndexTextItem,
-    IndexImageItem: IndexImageItem
+    "index-text-item": IndexTextItem,
+    "index-image-item": IndexImageItem
   },
   props: {
     view: Boolean
