@@ -64,7 +64,8 @@ section
   width: var(--spacing-icons)
   user-select: none
   &-Arrow
-    width: var(--spacing-icons-double)
+    &_Prev, &_Next
+      width: var(--spacing-icons-double)
     &_Prev
       transform: rotate(180deg)
   &-Space
@@ -276,7 +277,6 @@ input[type="range"]
     &_Next
       right: var(--spacing-one)
     svg
-      width: var(--spacing-icons-double)
       height: var(--spacing-icons)
       color: white
 
@@ -357,9 +357,12 @@ main.spaced
   padding-left: 8vw
   padding-right: 8vw
   padding-bottom: var(--spacing-two)
+  .cursor
+    &-Instance
+      background: var(--interactive-color)
   .view
     width: 100%
-    max-width: 1300px
+    max-width: $spacemode-width
     &-Index, &-Project, &-About
       padding-top: 0
     &-Project
@@ -369,7 +372,7 @@ main.spaced
         margin-top: 0
   section
     width: 100%
-    max-width: 1300px
+    max-width: $spacemode-width
     &:first-of-type // Enables all content to start with the same top distance
       &.contentListItem-Text
         border-top: 1px solid var(--type-color)
@@ -384,6 +387,20 @@ main.spaced
       transform: translateY(0%)
       transition: transform 1s ease .5s
   .contentListItem
+    &-Column
+      flex-basis: 22%
+      @media screen and (max-width: 1105px)
+        flex-basis: 25%
+        &.year
+          flex-basis: 4.51rem
+        &.icons
+          flex-basis: auto
+      &.year
+        flex-basis: 4.51rem
+      &.title
+        flex-grow: 1
+      &.icons
+        flex-basis: auto
     &-Header
       position: relative
       top: auto
@@ -401,6 +418,8 @@ main.spaced
       top: auto
       left: auto
       right: auto
+      .title
+        flex-shrink: 1
       .spaceForm
         top: -1px
 

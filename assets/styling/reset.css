@@ -151,6 +151,5 @@ img {
   -ms-user-select: none;
   user-select: none;
   display: inline-block;
-  /* font-size: 0; */
   vertical-align: top;
 }

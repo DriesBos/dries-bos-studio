@@ -109,7 +109,7 @@
             class="contentListItem-Icon contentListItem-Close mobileContent"
             title="next project"
           >
-            <div class="cursorInteract icon icon-Arrow">
+            <div class="cursorInteract icon icon-Arrow icon-Arrow_Next">
               <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
             </div>
           </li>
@@ -197,6 +197,7 @@ export default {
           // Disable spacemode
           this.$store.commit("space/turnOffTheSpace")
           document.querySelector("body").classList.remove("spaced")
+          document.querySelector("html").classList.remove("spaced")
           document.querySelector("#floatBlock").classList.remove("low")
           document.querySelector("#messages").classList.add("activeThree")
           setTimeout(function() {
@@ -206,6 +207,7 @@ export default {
           // Spacemode activation
           this.$store.commit("space/turnOnTheSpace")
           document.querySelector("body").classList.add("spaced")
+          document.querySelector("html").classList.add("spaced")
           document.querySelector("#messages").classList.add("activeTwo")
           setTimeout(function() {
             document.querySelector("#messages").classList.remove("activeTwo")
