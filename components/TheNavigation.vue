@@ -17,7 +17,7 @@
       <!-- ICONS -->
       <li class="contentListItem-Column icons">
         <ul class="contentListItem-Icons">
-          <li v-show="this.$route.name === 'index'">
+          <li v-show="this.$route.name === 'index'" title="theme colors">
             <input
               class="cursorInteract rangeSlider"
               type="range"
@@ -32,12 +32,11 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-View"
             @click="toggleTheView"
-            title="toggle txt/img view"
           >
-            <div v-if="viewState" class="cursorInteract icon icon-View">
+            <div v-if="viewState" class="cursorInteract icon icon-View" title="image view">
               <div v-html="require('~/assets/images/icon-img.svg?include')"></div>
             </div>
-            <div v-else class="cursorInteract icon icon-View">
+            <div v-else class="cursorInteract icon icon-View" title="text view">
               <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
             </div>
           </li>
@@ -45,6 +44,7 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-Space"
             @click="toggleTheSpace"
+            title="space view"
           >
             <div class="cursorInteract icon icon-Space">
               <svg viewBox="0 0 25 25">
@@ -67,6 +67,7 @@
           <li
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
+            title="about page"
           >
             <nuxt-link to="/about" class="cursorInteract icon icon-About" title="about" tag="div">
               <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
@@ -76,6 +77,7 @@
           <li
             v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
+            title="mail me!"
           >
             <a href="mailto:info@driesbos.com" class="cursorInteract icon icon-Mail">
               <div v-html="require('~/assets/images/icon-mail.svg?include')" />
@@ -85,6 +87,7 @@
           <li
             v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
+            title="call me!"
           >
             <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
               <div v-html="require('~/assets/images/icon-phone.svg?include')" />
@@ -94,6 +97,7 @@
           <li
             v-show="this.$route.name === 'projects-slug'"
             class="contentListItem-Icon contentListItem-View mobileContent"
+            title="previous project"
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
               <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
@@ -103,6 +107,7 @@
           <li
             v-show="this.$route.name === 'projects-slug'"
             class="contentListItem-Icon contentListItem-Close mobileContent"
+            title="next project"
           >
             <div class="cursorInteract icon icon-Arrow">
               <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
@@ -112,6 +117,7 @@
           <li
             v-show="this.$route.name !== 'index'"
             class="contentListItem-Icon contentListItem-Close"
+            title="close page"
           >
             <nuxt-link to="/" class="cursorInteract icon icon-Close" title="close" tag="div">
               <div v-html="require('~/assets/images/icon-close.svg?include')"></div>
