@@ -141,21 +141,21 @@ input[type="range"]
     flex-shrink: 0
     &.title
       flex-grow: 1
-    &.icons
-      flex-basis: auto
     &.search
       padding-left: 0
     @media screen and ( max-width: 1105px)
       flex-basis: 25%
       &.agency
         display: none
-    @media screen and ( max-width: $breakpoint-mobile)
+    @media screen and ( max-width: 1105px)
       flex-basis: 33.3%
       &.year
         flex-basis: 4.51rem
     @media screen and ( max-width: 550px)
       &.category
         display: none
+    &.icons
+      flex-basis: auto !important
   &-Icons
     display: flex
     height: 100%
@@ -388,19 +388,27 @@ main.spaced
       transition: transform 1s ease .5s
   .contentListItem
     &-Column
-      flex-basis: 22%
-      @media screen and (max-width: 1105px)
+      @media screen and ( max-width: 1282px)
         flex-basis: 25%
+        &.agency
+          display: none
+      @media screen and ( max-width: 1282px)
+        flex-basis: 33.3%
         &.year
           flex-basis: 4.51rem
-        &.icons
-          flex-basis: auto
-      &.year
-        flex-basis: 4.51rem
-      &.title
-        flex-grow: 1
-      &.icons
-        flex-basis: auto
+      // flex-basis: 22%
+      // @media screen and (max-width: 1105px)
+      //   flex-basis: 25%
+      //   &.year
+      //     flex-basis: 4.51rem
+      //   &.icons
+      //     flex-basis: auto
+      // &.year
+      //   flex-basis: 4.51rem
+      // &.title
+      //   flex-grow: 1
+      // &.icons
+      //   flex-basis: auto
     &-Header
       position: relative
       top: auto
