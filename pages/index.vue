@@ -1,9 +1,7 @@
 <template>
   <div class="view view-Index">
-    <div
-      class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    />
+    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <!-- FILTER -->
     <section class="contentListItem-Filter spaced-TopSide">
       <ul class="contentListItem">
         <li class="contentListItem-Column year">
@@ -40,10 +38,7 @@
         </li>
         <li class="contentListItem-Column icons">
           <ul class="contentListItem-Icons">
-            <li
-              class="cursorInteract contentListItem-Input"
-              :class="{ active: toggleSearch }"
-            >
+            <li class="cursorInteract contentListItem-Input" :class="{ active: toggleSearch }">
               <input
                 id="search"
                 type="text"
@@ -58,13 +53,8 @@
               class="cursorInteract contentListItem-Icon contentListItem-Search"
               title="search project"
             >
-              <div
-                class="cursorInteract icon icon-Search"
-                :class="{ active: toggleSearch }"
-              >
-                <div
-                  v-html="require('~/assets/images/icon-search.svg?include')"
-                />
+              <div class="cursorInteract icon icon-Search" :class="{ active: toggleSearch }">
+                <div v-html="require('~/assets/images/icon-search.svg?include')" />
               </div>
             </li>
           </ul>
@@ -78,17 +68,7 @@
       :key="post.id"
       :post="post"
     ></div>
-    <div
-      v-else
-      is="IndexImageItem"
-      v-for="post in filteredList"
-      :key="post.id"
-      :post="post"
-    ></div>
-
-    <!-- <section class="imageGrid">
-      <div is="IndexImageItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
-    </section>-->
+    <div v-else is="IndexImageItem" v-for="post in filteredList" :key="post.id" :post="post"></div>
   </div>
 </template>
 
