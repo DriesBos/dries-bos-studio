@@ -20,9 +20,9 @@
         </li>
         <li class="contentListItem-Column agency">
           <div
-            class="listItem-Category listItem-Details cursorInteract"
-            :class="{ active: sortByCategory }"
-            @click="sortCategory"
+            class="listItem-Agency listItem-Details cursorInteract"
+            :class="{ active: sortByAgency }"
+            @click="sortAgency"
           >
             <p class="cursorInteract" title="sort by role">agency</p>
           </div>
@@ -93,10 +93,12 @@ export default {
       toggleSortingYear: false,
       toggleSortingTitle: false,
       toggleSortingCategory: false,
+      toggleSortingAgency: false,
       toggleSearch: false,
       sortByYear: true,
       sortByTitle: false,
       sortByCategory: false,
+      sortByAgency: false,
       // Search data
       search: "",
       searchHasInput: false
@@ -158,6 +160,25 @@ export default {
                 : -this.sorting
             )
         }
+      }
+      if (this.sortByAgency) {
+        if (this.toggleSortingAgency) {
+          return this.posts
+            .slice(0)
+            .sort((a, b) =>
+              a.agency.toLowerCase() < b.agency.toLowerCase()
+                ? this.sorting
+                : -this.sorting
+            )
+        } else {
+          return this.posts
+            .slice(0)
+            .sort((a, b) =>
+              a.agency.toLowerCase() > b.agency.toLowerCase()
+                ? this.sorting
+                : -this.sorting
+            )
+        }
       } else {
         return this.posts
       }
@@ -188,19 +209,29 @@ export default {
       this.sortByYear = true
       this.sortByTitle = false
       this.sortByCategory = false
+      this.sortByAgency = false
       this.toggleSortingYear = !this.toggleSortingYear
     },
     sortTitle() {
       this.sortByYear = false
       this.sortByTitle = true
       this.sortByCategory = false
+      this.sortByAgency = false
       this.toggleSortingTitle = !this.toggleSortingTitle
     },
     sortCategory() {
       this.sortByYear = false
       this.sortByTitle = false
       this.sortByCategory = true
+      this.sortByAgency = false
       this.toggleSortingCategory = !this.toggleSortingCategory
+    },
+    sortAgency() {
+      this.sortByYear = false
+      this.sortByTitle = false
+      this.sortByCategory = false
+      this.sortByAgency = true
+      this.toggleSortingAgency = !this.toggleSortingAgency
     },
     // SEARCH
     searchIconClick() {

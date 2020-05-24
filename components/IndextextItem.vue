@@ -14,7 +14,7 @@
         <p title="project category">{{ post.category || "" }}</p>
       </li>
       <li class="contentListItem-Column agency">
-        <p title="project agency">{{ post.category || "" }}</p>
+        <p title="project agency">{{ post.agency || "" }}</p>
       </li>
       <li class="contentListItem-Column title">
         <p title="project title">{{ post.title || "" }}</p>

@@ -11,8 +11,8 @@ export default {
           id: bp.slug,
           title: bp.content.title,
           year: bp.content.year,
-          index: bp.content.index,
           category: bp.content.category,
+          agency: bp.content.agency,
           content: bp.content.content,
           cover_image: bp.content.cover_image,
           images: bp.content.images
