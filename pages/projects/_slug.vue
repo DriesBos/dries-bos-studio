@@ -1,9 +1,6 @@
 <template>
   <div class="view view-Project">
-    <div
-      class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    />
+    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
@@ -15,35 +12,30 @@
       <div class="contentListItem-Nav">
         <nuxt-link
           :to="`/${story.content.prev_link.cached_url}`"
-          class="contentListItem-Nav_Prev"
+          class="contentListItem-Nav_Prev cursorInteract"
           title="previous project"
           tag="div"
         >
           <div
             v-if="story.content.prev_link.id !== ''"
-            class="cursorInteract icon-Arrow"
+            class="icon icon-Arrow"
             v-html="require('~/assets/images/icon-arrow-long.svg?include')"
           />
         </nuxt-link>
         <nuxt-link
           :to="`/${story.content.next_link.cached_url}`"
-          class="contentListItem-Nav_Next"
+          class="contentListItem-Nav_Next cursorInteract"
           title="next project"
           tag="div"
         >
           <div
             v-if="story.content.next_link.id !== ''"
-            class="cursorInteract icon-Arrow"
+            class="icon icon-Arrow"
             v-html="require('~/assets/images/icon-arrow-long.svg?include')"
           />
         </nuxt-link>
       </div>
-      <div
-        is="GridItem"
-        v-for="post in story.content.images"
-        :key="post.id"
-        :post="post"
-      ></div>
+      <div is="GridItem" v-for="post in story.content.images" :key="post.id" :post="post"></div>
     </section>
   </div>
 </template>

@@ -77,6 +77,7 @@ export default {
   watch: {
     $route() {
       this.checkPageType()
+      this.removeChangeCursor()
     }
   },
   methods: {
