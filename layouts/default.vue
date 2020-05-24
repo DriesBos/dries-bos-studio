@@ -92,7 +92,7 @@ export default {
         document.querySelector("#messages").classList.remove("activeFour")
         setTimeout(function() {
           document.querySelector("#messages").classList.remove("activeOne")
-        }, 5000)
+        }, 2500)
       }
     },
     customCursor() {
