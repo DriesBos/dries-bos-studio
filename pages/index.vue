@@ -11,7 +11,7 @@
         </li>
         <li class="contentListItem-Column category">
           <div
-            class="listItem-Category listItem-Details cursorInteract"
+            class="listItem-Category listItem-Details"
             :class="{ active: sortByCategory }"
             @click="sortCategory"
           >
@@ -20,7 +20,7 @@
         </li>
         <li class="contentListItem-Column agency">
           <div
-            class="listItem-Agency listItem-Details cursorInteract"
+            class="listItem-Agency listItem-Details"
             :class="{ active: sortByAgency }"
             @click="sortAgency"
           >
@@ -29,7 +29,7 @@
         </li>
         <li class="contentListItem-Column title">
           <div
-            class="listItem-Title listItem-Details cursorInteract"
+            class="listItem-Title listItem-Details"
             :class="{ active: sortByTitle }"
             @click="sortTitle"
           >
@@ -38,9 +38,10 @@
         </li>
         <li class="contentListItem-Column icons search">
           <ul class="contentListItem-Icons">
-            <li class="cursorInteract contentListItem-Input" :class="{ active: toggleSearch }">
+            <li class="contentListItem-Input" :class="{ active: toggleSearch }">
               <input
                 id="search"
+                class="cursorInteract"
                 type="text"
                 v-model="search"
                 ref="search"
@@ -50,7 +51,7 @@
             </li>
             <li
               @click="searchIconClick"
-              class="cursorInteract contentListItem-Icon contentListItem-Search"
+              class="contentListItem-Icon contentListItem-Search"
               title="search project"
             >
               <div class="cursorInteract icon icon-Search" :class="{ active: toggleSearch }">
@@ -194,6 +195,9 @@ export default {
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
+  // updated() {
+  //   this.clickOutsideSearch()
+  // },
   destroyed() {
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("visibilitychange", this.windowIsVisible)
@@ -233,7 +237,9 @@ export default {
     },
     // SEARCH
     searchIconClick() {
-      document.getElementById("search").focus()
+      setTimeout(function() {
+        document.getElementById("search").focus()
+      }, 100)
       this.toggleSearch = !this.toggleSearch
     },
     searchHasValue() {
