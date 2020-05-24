@@ -135,11 +135,15 @@ input[type="range"]
     flex-basis: 16.6666%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
+    &.year, &.category
+      flex-shrink: 0
     &.title
       flex-grow: 1
     &.icons
       flex-basis: auto
       flex-shrink: 0
+    &.search
+      padding-left: 0
     @media screen and ( max-width: 1105px)
       flex-basis: 25%
       &.agency
@@ -185,6 +189,8 @@ input[type="range"]
     &.active
       input
         opacity: 1
+  &-Search
+    margin-left: var(--spacing-one)
   // Item category
   &-Header
     position: fixed

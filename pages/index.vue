@@ -36,7 +36,7 @@
             <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
-        <li class="contentListItem-Column icons">
+        <li class="contentListItem-Column icons search">
           <ul class="contentListItem-Icons">
             <li class="cursorInteract contentListItem-Input" :class="{ active: toggleSearch }">
               <input
