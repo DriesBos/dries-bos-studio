@@ -154,6 +154,8 @@ input[type="range"]
     @media screen and ( max-width: 550px)
       &.category
         display: none
+      &.title
+        flex-basis: auto
     &.icons
       flex-basis: auto !important
   &-Icons
@@ -176,6 +178,7 @@ input[type="range"]
     input
       opacity: 0
       width: 100%
+      max-width: 100%
       padding: 0
       margin: 0
       transition: opacity $transition-hover
