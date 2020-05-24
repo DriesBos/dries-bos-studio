@@ -1,22 +1,16 @@
 <template>
   <section id="floatBlock" class="contentListItem-Header spaced-TopSide">
-    <div
-      class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    />
+    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
     <ul class="contentListItem">
       <!-- TITLE -->
       <li class="contentListItem-Column title">
         <nuxt-link class="cursorInteract" to="/">
-          <span v-show="this.$route.name === 'index'" title="that's me!"
-            >Dries Bos</span
-          >
+          <span v-show="this.$route.name === 'index'" title="that's me!">Dries Bos</span>
           <span
             class="title"
             v-show="this.$route.name === 'index'"
             title="that's me!"
-            >&nbsp;— Creative Web Developer</span
-          >
+          >&nbsp;— Creative Web Developer</span>
           <span v-show="this.$route.name !== 'index'">&nbsp;</span>
         </nuxt-link>
       </li>
@@ -41,14 +35,10 @@
             title="toggle txt/img view"
           >
             <div v-if="viewState" class="cursorInteract icon icon-View">
-              <div
-                v-html="require('~/assets/images/icon-img.svg?include')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-img.svg?include')"></div>
             </div>
             <div v-else class="cursorInteract icon icon-View">
-              <div
-                v-html="require('~/assets/images/icon-txt.svg?include')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
             </div>
           </li>
           <li
@@ -78,15 +68,8 @@
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
           >
-            <nuxt-link
-              to="/about"
-              class="cursorInteract icon icon-About"
-              title="about"
-              tag="div"
-            >
-              <div
-                v-html="require('~/assets/images/icon-about.svg?include')"
-              ></div>
+            <nuxt-link to="/about" class="cursorInteract icon icon-About" title="about" tag="div">
+              <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
             </nuxt-link>
           </li>
           <!-- MAIL -->
@@ -94,10 +77,7 @@
             v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
           >
-            <a
-              href="mailto:info@driesbos.com"
-              class="cursorInteract icon icon-Mail"
-            >
+            <a href="mailto:info@driesbos.com" class="cursorInteract icon icon-Mail">
               <div v-html="require('~/assets/images/icon-mail.svg?include')" />
             </a>
           </li>
@@ -116,9 +96,7 @@
             class="contentListItem-Icon contentListItem-View mobileContent"
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
-              <div
-                v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
             </div>
           </li>
           <!-- NEXT -->
@@ -127,9 +105,7 @@
             class="contentListItem-Icon contentListItem-Close mobileContent"
           >
             <div class="cursorInteract icon icon-Arrow">
-              <div
-                v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
             </div>
           </li>
           <!-- CLOSE -->
@@ -137,15 +113,8 @@
             v-show="this.$route.name !== 'index'"
             class="contentListItem-Icon contentListItem-Close"
           >
-            <nuxt-link
-              to="/"
-              class="cursorInteract icon icon-Close"
-              title="close"
-              tag="div"
-            >
-              <div
-                v-html="require('~/assets/images/icon-close.svg?include')"
-              ></div>
+            <nuxt-link to="/" class="cursorInteract icon icon-Close" title="close" tag="div">
+              <div v-html="require('~/assets/images/icon-close.svg?include')"></div>
             </nuxt-link>
           </li>
         </ul>
@@ -161,7 +130,6 @@ export default {
   data() {
     return {
       slug: null,
-      showTitle: false,
       rangeValue: "100"
     }
   },
@@ -177,21 +145,17 @@ export default {
   watch: {
     $route(to, from) {
       this.processedSlug()
-      this.showTitle = false
     }
   },
   mounted() {
     this.processedSlug()
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
-    window.addEventListener("scroll", this.showTitleOnScroll)
   },
   updated() {
     this.setBackgroundColor(this.rangeValue)
-    console.log(this.rangeValue)
   },
   destroyed() {
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)
-    window.removeEventListener("scroll", this.showTitleOnScroll)
   },
   methods: {
     setBackgroundColor(color) {
@@ -203,6 +167,11 @@ export default {
       } else {
         root.style.setProperty("--type-color", "white")
         root.style.setProperty("--active-color", "black")
+      }
+      if (color > 50) {
+        root.style.setProperty("--space-color", "black")
+      } else {
+        root.style.setProperty("--space-color", "white")
       }
     },
     processedSlug() {
@@ -266,19 +235,6 @@ export default {
         setTimeout(function() {
           document.querySelector("main").classList.remove("tempBackground")
         }, 565)
-      }
-    },
-    showTitleOnScroll(event) {
-      if (this.$route.name === "index") {
-        var elLogo = document.querySelector(".contentListItem-Header")
-        var elFilt = document.querySelector(".contentListItem-Filter")
-        var elLogoPos = elLogo.getBoundingClientRect()
-        var elFiltPos = elFilt.getBoundingClientRect()
-        if (elFiltPos.top <= elLogoPos.height + 1) {
-          this.showTitle = true
-        } else {
-          this.showTitle = false
-        }
       }
     }
   }

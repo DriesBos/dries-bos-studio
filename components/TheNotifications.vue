@@ -1,24 +1,20 @@
 <template>
   <div id="messages" class="messages">
-    <div class="messages-Item cursorInteract">
-      <p class="underline">darkmode ?</p>
+    <!-- Detect user theme -->
+    <div class="messages-Item">
+      <p>darkmode available</p>
     </div>
+    <!-- Spacemode activated -->
     <div class="messages-Item">
       <p>spacemode on</p>
     </div>
-    <!-- Message on resize -->
+    <!-- Spacemode deactivated -->
     <div class="messages-Item">
       <p>spacemode off</p>
     </div>
-    <!-- Message on toggle -->
+    <!-- Spacemode toggle when under 1000px wide -->
     <div class="messages-Item">
       <p>larger window needed</p>
-    </div>
-    <div class="messages-Item">
-      <p>darkmode on</p>
-    </div>
-    <div class="messages-Item">
-      <p>darkmode off</p>
     </div>
   </div>
 </template>
@@ -55,13 +51,10 @@ $transition-messages: .165s ease-out
     p, h1
       color: var(--active-color)
       line-height: 1.5
-    p.underline
-      text-decoration: underline
   &.activeOne
     .messages-Item:nth-child(1)
       opacity: 1
       transform: translateY(0)
-      pointer-events: auto
       display: block
   &.activeTwo
     .messages-Item:nth-child(2)
@@ -75,16 +68,6 @@ $transition-messages: .165s ease-out
       display: block
   &.activeFour
     .messages-Item:nth-child(4)
-      opacity: 1
-      transform: translateY(0)
-      display: block
-  &.activeFive
-    .messages-Item:nth-child(5)
-      opacity: 1
-      transform: translateY(0)
-      display: block
-  &.activeSix
-    .messages-Item:nth-child(6)
       opacity: 1
       transform: translateY(0)
       display: block
