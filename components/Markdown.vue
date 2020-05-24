@@ -14,6 +14,18 @@ marked.setOptions({
   breaks: true
 })
 
+renderer.link = function(href, title, text) {
+  return (
+    '<a target="_blank" href="' +
+    href +
+    '" title="' +
+    title +
+    '">' +
+    text +
+    "</a>"
+  )
+}
+
 export default {
   props: {
     input: {
@@ -23,7 +35,7 @@ export default {
   },
   computed: {
     compiledMarkdown: function() {
-      return marked(this.input)
+      return marked(this.input, { renderer: renderer })
     }
   },
   mounted() {
