@@ -71,8 +71,8 @@
 </template>
 
 <script>
-import IndexTextItem from "~/components/IndexTextItem.vue"
 import IndexImageItem from "~/components/IndexImageItem.vue"
+import IndexTextItem from "~/components/IndexTextItem.vue"
 import { mapState } from "vuex"
 
 export default {
