@@ -72,7 +72,7 @@
 
 <script>
 import IndexImageItem from "~/components/IndexImageItem.vue"
-import IndexTextItem from "~/components/IndexTextItem.vue"
+import IndexTextItem from "~/components/IndextextItem.vue"
 import { mapState } from "vuex"
 
 export default {
