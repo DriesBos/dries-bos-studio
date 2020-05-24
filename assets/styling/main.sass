@@ -280,46 +280,6 @@ input[type="range"]
       height: var(--spacing-icons)
       color: white
 
-.footer
-  display: flex
-  justify-content: space-between
-  background: var(--background-color)
-  padding-top: calc(#{var(--spacing-two)} + 1.6rem)
-  padding-bottom: var(--spacing-one)
-  @media ( max-width: $breakpoint-mobile), (orientation: portrait)
-    padding-bottom: calc(#{var(--spacing-two)} + 1.6rem)
-  &-Icon
-    padding-left: var(--spacing-one)
-    padding-right: var(--spacing-one)
-  &-Message
-    padding-left: var(--spacing-one)
-    padding-right: var(--spacing-one)
-    --var: 0%
-    min-width: 0 // Ellipsis hack
-    @media ( hover: none )
-      --var: 100%
-    a
-      position: relative
-      &::before
-        content: ''
-        position: absolute
-        left: 0
-        display: inline-blick
-        bottom: 0
-        top: 0
-        width: var(--var)
-        z-index: 0
-        border-bottom: 1px solid var(--type-color)
-      &:hover
-        &:before
-          @media ( hover: hover )
-            animation: hyperLink .66s ease
-            animation-iteration-count: 1
-            animation-fill-mode: forwards
-  .icon-ArrowUp
-    img, svg
-      width: var(--spacing-icons)
-
 // Imagegrid
 .imageGrid
   min-height: 100vh

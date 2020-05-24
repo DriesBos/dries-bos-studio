@@ -6,9 +6,6 @@
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
-    <!-- <the-footer
-      v-show="this.$route.name === 'index' || this.$route.name === 'about' || this.$route.params.slug"
-    />-->
     <div class="cursor">
       <div class="cursor-Small cursor-Instance" />
     </div>
@@ -16,19 +13,15 @@
 </template>
 
 <script>
-import TheFooter from "~/components/TheFooter.vue"
 import TheNavigation from "~/components/TheNavigation.vue"
 import TheNotifications from "~/components/TheNotifications.vue"
-import TheTitle from "~/components/TheTitle.vue"
 import { mapState } from "vuex"
 import gsap from "gsap"
 
 export default {
   components: {
-    "the-footer": TheFooter,
     "the-navigation": TheNavigation,
-    "the-notifications": TheNotifications,
-    "the-title": TheTitle
+    "the-notifications": TheNotifications
   },
   data() {
     return {
