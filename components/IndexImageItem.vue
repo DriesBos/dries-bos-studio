@@ -1,5 +1,6 @@
 <template>
-  <li
+  <nuxt-link
+    :to="`/projects/${post.id}`"
     :key="post.id"
     :id="post.id"
     class="gridItem gridItem_Project imageGrid-Item"
@@ -32,7 +33,7 @@
         :alt="post.title"
       />
     </div>
-  </li>
+  </nuxt-link>
 </template>
 
 <script>
@@ -40,6 +41,9 @@ export default {
   name: "IndexImageItem",
   props: {
     post: Object
+  },
+  mounted() {
+    console.log(this.post)
   },
   methods: {
     transformImage(image, option) {
