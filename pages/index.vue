@@ -194,6 +194,7 @@ export default {
     window.addEventListener("beforeunload", this.startPosition)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
+    document.addEventListener("keydown", this.escapeSearch)
   },
   // updated() {
   //   this.clickOutsideSearch()
@@ -204,6 +205,7 @@ export default {
     window.removeEventListener("beforeunload", this.startPosition)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
+    document.removeEventListener("keydown", this.escapeSearch)
   },
   methods: {
     // FILTER
@@ -237,15 +239,25 @@ export default {
     },
     // SEARCH
     searchIconClick() {
-      setTimeout(function() {
-        document.getElementById("search").focus()
-      }, 100)
       this.toggleSearch = !this.toggleSearch
+      if (this.toggleSearch) {
+        setTimeout(function() {
+          document.getElementById("search").focus()
+        }, 100)
+      } else {
+        this.search = ""
+      }
     },
     searchHasValue() {
       this.search !== ""
         ? (this.searchHasInput = true)
         : (this.searchHasInput = false)
+    },
+    escapeSearch() {
+      if (event.keyCode === 27 && this.toggleSearch) {
+        this.toggleSearch = false
+        this.search = ""
+      }
     }
   }
 }
