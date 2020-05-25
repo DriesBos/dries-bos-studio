@@ -166,6 +166,11 @@ input[type="range"]
     li
       display: flex
       align-items: center
+    .contentListItem-View
+      @media screen and (orientation: landscape) and ( min-width: 700px)
+        display: none
+      @media screen and (orientation: landscape)
+        display: none
   &-Space
     @media screen and ( max-width: 500px)
       display: none !important
@@ -275,8 +280,7 @@ input[type="range"]
     justify-content: space-between
     mix-blend-mode: difference
     z-index: 999
-    @media screen and ( max-width: 700px)
-      display: none
+    background: blue
     &_Prev, &_Next
       position: absolute
       top: 1rem
@@ -287,6 +291,11 @@ input[type="range"]
     svg
       height: var(--spacing-icons)
       color: white
+    // @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
+    //   position: fixed
+    //   top: 0
+    //   right: 0
+    //   transform: translateY(0)
 
 // Imagegrid
 .imageGrid
@@ -406,19 +415,6 @@ main.spaced
         flex-basis: 33.3%
         &.year
           flex-basis: 4.51rem
-      // flex-basis: 22%
-      // @media screen and (max-width: 1105px)
-      //   flex-basis: 25%
-      //   &.year
-      //     flex-basis: 4.51rem
-      //   &.icons
-      //     flex-basis: auto
-      // &.year
-      //   flex-basis: 4.51rem
-      // &.title
-      //   flex-grow: 1
-      // &.icons
-      //   flex-basis: auto
     &-Header
       position: relative
       top: auto
@@ -467,4 +463,4 @@ main.spaced // Initial
 // Mobile / Desktop
 .mobileContent
   @media screen and ( min-width: 700px)
-    display: none !important
+    display: none

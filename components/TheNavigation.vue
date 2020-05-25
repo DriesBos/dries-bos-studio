@@ -94,25 +94,25 @@
             </a>
           </li>
           <!-- PREV -->
-          <li
-            v-show="this.$route.name === 'projects-slug'"
-            class="contentListItem-Icon contentListItem-View mobileContent"
+          <!-- <li
+            v-if="this.$route.name === 'projects-slug'"
+            class="contentListItem-Icon contentListItem-View"
             title="previous project"
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
               <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
             </div>
-          </li>
+          </li>-->
           <!-- NEXT -->
-          <li
-            v-show="this.$route.name === 'projects-slug'"
-            class="contentListItem-Icon contentListItem-Close mobileContent"
+          <!-- <li
+            v-if="this.$route.name === 'projects-slug'"
+            class="contentListItem-Icon contentListItem-View"
             title="next project"
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Next">
               <div v-html="require('~/assets/images/icon-arrow-long.svg?include')"></div>
             </div>
-          </li>
+          </li>-->
           <!-- CLOSE -->
           <li
             v-show="this.$route.name !== 'index'"
