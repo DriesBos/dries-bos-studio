@@ -27,7 +27,7 @@
             <p class="cursorInteract" title="sort by role">agency</p>
           </div>
         </li>
-        <li class="contentListItem-Column title">
+        <li class="contentListItem-Column title titleSearch">
           <div
             class="listItem-Title listItem-Details"
             :class="{ active: sortByTitle }"
