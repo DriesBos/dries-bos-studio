@@ -312,10 +312,11 @@ input[type="range"]
 
 // Imagegrid
 .imageGrid
-  min-height: 100vh
   background: var(--background-color)
   border-top: 0 !important
   margin-top: 0 !important
+  @media screen and (orientation: landscape)
+    min-height: 100vh
   img
     transition: opacity $transition-lazy
   &-Item
