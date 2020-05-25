@@ -280,7 +280,6 @@ input[type="range"]
     justify-content: space-between
     mix-blend-mode: difference
     z-index: 999
-    background: blue
     &_Prev, &_Next
       position: absolute
       top: 1rem
@@ -291,11 +290,25 @@ input[type="range"]
     svg
       height: var(--spacing-icons)
       color: white
-    // @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
-    //   position: fixed
-    //   top: 0
-    //   right: 0
-    //   transform: translateY(0)
+    @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
+      position: fixed
+      top: var(--spacing-one)
+      right: 3rem
+      transform: translateY(1px)
+      width: auto
+      mix-blend-mode: normal
+      svg
+        color: var(--type-color)
+      &_Prev, &_Next
+        position: relative
+        top: auto
+      &_Next
+        margin-left: 3.5rem
+  &-Nav.mixblendmode
+    @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
+      mix-blend-mode: difference
+      svg
+        color: white
 
 // Imagegrid
 .imageGrid

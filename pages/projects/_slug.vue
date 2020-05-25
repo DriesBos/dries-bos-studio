@@ -149,13 +149,16 @@ export default {
     },
     headerToMixBlendMode() {
       var header = document.querySelector(".contentListItem-Header")
+      var nav = document.querySelector(".contentListItem-Nav")
       var images = document.querySelector(".imageGrid")
       var headerPos = header.getBoundingClientRect()
       var imagesPos = images.getBoundingClientRect()
       if (headerPos.height / 2 >= imagesPos.top) {
         header.classList.add("mixblend")
+        nav.classList.add("mixblendmode")
       } else {
         header.classList.remove("mixblend")
+        nav.classList.remove("mixblendmode")
       }
     },
     removeMixBlendMode() {
