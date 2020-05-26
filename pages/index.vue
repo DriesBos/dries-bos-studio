@@ -62,10 +62,10 @@
         </li>
       </ul>
     </section>
-    <section v-if="viewState">
+    <section v-show="viewState">
       <index-text-item v-for="post in filteredList" :key="post.id" :post="post" />
     </section>
-    <section v-else>
+    <section v-show="!viewState">
       <index-image-item v-for="post in filteredList" :key="post.id" :post="post" />
     </section>
   </div>

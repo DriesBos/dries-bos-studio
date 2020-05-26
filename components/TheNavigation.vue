@@ -15,6 +15,7 @@
         </nuxt-link>
       </li>
       <!-- ICONS -->
+      <!-- THEME SLIDER -->
       <li class="contentListItem-Column icons">
         <ul class="contentListItem-Icons">
           <li v-show="this.$route.name === 'index'" title="theme colors">
@@ -28,6 +29,7 @@
               v-model="rangeValue"
             />
           </li>
+          <!-- INDEX -->
           <li
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-View"
@@ -40,6 +42,7 @@
               <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
             </div>
           </li>
+          <!-- SPACE -->
           <li
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-Space"
