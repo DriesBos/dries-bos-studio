@@ -12,7 +12,9 @@ Vue.filter("transformImage", (image, option) => {
 })
 /* eslint-enable */
 
-Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+  preLoad: 2
+})
 
 Vue.filter("dashify", function(value) {
   if (typeof value === "undefined") {
