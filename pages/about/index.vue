@@ -17,9 +17,11 @@ export default {
   scrollToTop: true,
   mixins: [storyblokLivePreview],
   asyncData(context) {
+    // prettier-ignore
+    let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
     return context.app.$storyapi
       .get("cdn/stories/about", {
-        version: "draft"
+        version: version
       })
       .then(res => {
         return res.data

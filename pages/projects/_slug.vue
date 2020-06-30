@@ -35,6 +35,7 @@
           />
         </nuxt-link>
       </div>
+      <!-- prettier-ignore -->
       <div is="GridItem" v-for="post in story.content.images" :key="post.id" :post="post"></div>
     </section>
   </div>
@@ -46,10 +47,10 @@ import GridItem from "~/components/GridItem.vue"
 
 export default {
   scrollToTop: true,
-  mixins: [storyblokLivePreview],
   components: {
     GridItem: GridItem
   },
+  mixins: [storyblokLivePreview],
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
     let version =
@@ -83,6 +84,11 @@ export default {
       story: { content: {} }
     }
   },
+  watch: {
+    $route() {
+      removeMixBlendMode()
+    }
+  },
   mounted() {
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
@@ -109,11 +115,6 @@ export default {
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
     window.removeEventListener("scroll", this.headerToMixBlendMode)
-  },
-  watch: {
-    $route() {
-      removeMixBlendMode()
-    }
   },
   methods: {
     changeCursor() {
