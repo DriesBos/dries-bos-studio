@@ -86,7 +86,6 @@ export default {
     display: block
   a
     position: relative
-    // background: green
     &::before
       content: ''
       position: absolute
