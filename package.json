@@ -20,7 +20,6 @@
     "@nuxtjs/axios": "^5.9.5",
     "@nuxtjs/pwa": "^2.6.0",
     "gsap": "^3.2.6",
-    "imagemin-svgo": "^7.0.0",
     "marked": "^0.8.0",
     "nuxt": "^2.11.0",
     "storyblok-nuxt": "^1.2.0",
@@ -29,10 +28,10 @@
     "vue-scrollto": "^2.17.1"
   },
   "devDependencies": {
+    "imagemin-svgo": "^7.0.0",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/google-analytics": "^2.2.3",
     "babel-eslint": "^10.0.3",
-    "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
