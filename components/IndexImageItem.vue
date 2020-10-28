@@ -42,9 +42,6 @@ export default {
   props: {
     post: Object
   },
-  mounted() {
-    console.log(this.post)
-  },
   methods: {
     transformImage(image, option) {
       if (!image) return ""

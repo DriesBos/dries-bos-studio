@@ -1,7 +1,7 @@
 <template>
   <li
-    :key="post.id"
     :id="post.id"
+    :key="post.id"
     class="gridItem gridItem_Project imageGrid-Item"
   >
     <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">

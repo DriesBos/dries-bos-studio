@@ -1,8 +1,8 @@
 <template>
   <main id="top" :class="{ spaced: spaceState }">
     <!-- <the-title v-if="this.$route.name === 'index' || spaceState === true" /> -->
-    <the-notifications />
-    <the-navigation :class="pageType" />
+    <LazyTheNotifications />
+    <LazyTheNavigation :class="pageType" />
     <transition name="page" mode="out-in">
       <nuxt />
     </transition>
@@ -13,16 +13,10 @@
 </template>
 
 <script>
-import TheNavigation from "~/components/TheNavigation.vue"
-import TheNotifications from "~/components/TheNotifications.vue"
 import { mapState } from "vuex"
 import gsap from "gsap"
 
 export default {
-  components: {
-    "the-navigation": TheNavigation,
-    "the-notifications": TheNotifications
-  },
   data() {
     return {
       pageType: "index"
@@ -141,13 +135,11 @@ export default {
     },
     mouseLeftDocument() {
       if (this.spaceState === true) {
-        console.log("left!")
         document.querySelector("#floatBlock").classList.add("low")
       }
     },
     mouseEntersDocument() {
       if (this.spaceState === true) {
-        console.log("back!")
         document.querySelector("#floatBlock").classList.remove("low")
       }
     }

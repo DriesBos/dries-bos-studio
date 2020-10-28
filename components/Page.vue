@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  scrollToTop: true,
   props: {
     blok: Object
   }

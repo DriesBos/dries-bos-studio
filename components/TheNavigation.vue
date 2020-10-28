@@ -1,16 +1,22 @@
 <template>
   <section id="floatBlock" class="contentListItem-Header spaced-TopSide">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <ul class="contentListItem">
       <!-- TITLE -->
       <li class="contentListItem-Column title">
         <nuxt-link class="cursorInteract" to="/">
-          <span v-show="this.$route.name === 'index'" title="that's me!">Dries Bos</span>
+          <span v-show="this.$route.name === 'index'" title="that's me!"
+            >Dries Bos</span
+          >
           <span
             class="title"
             v-show="this.$route.name === 'index'"
             title="that's me!"
-          >&nbsp;— Creative Web Developer</span>
+            >&nbsp;— Creative Web Developer</span
+          >
           <span v-show="this.$route.name !== 'index'">&nbsp;</span>
         </nuxt-link>
       </li>
@@ -35,19 +41,27 @@
             class="contentListItem-Icon contentListItem-View"
             @click="toggleTheView"
           >
-            <div v-if="viewState" class="cursorInteract icon icon-View" title="image view">
-              <div v-html="require('~/assets/images/icon-img.svg?include')"></div>
+            <div
+              v-if="viewState"
+              class="cursorInteract icon icon-View"
+              title="image view"
+            >
+              <div
+                v-html="require('~/assets/images/icon-img.svg?include')"
+              ></div>
             </div>
             <div v-else class="cursorInteract icon icon-View" title="text view">
-              <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
+              <div
+                v-html="require('~/assets/images/icon-txt.svg?include')"
+              ></div>
             </div>
           </li>
           <!-- SPACE -->
           <li
             v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-Space"
-            @click="toggleTheSpace"
             title="space view"
+            @click="toggleTheSpace"
           >
             <div class="cursorInteract icon icon-Space">
               <svg viewBox="0 0 25 25">
@@ -72,8 +86,15 @@
             class="contentListItem-Icon contentListItem-About"
             title="about page"
           >
-            <nuxt-link to="/about" class="cursorInteract icon icon-About" title="about" tag="div">
-              <div v-html="require('~/assets/images/icon-about.svg?include')"></div>
+            <nuxt-link
+              to="/about"
+              class="cursorInteract icon icon-About"
+              title="about"
+              tag="div"
+            >
+              <div
+                v-html="require('~/assets/images/icon-about.svg?include')"
+              ></div>
             </nuxt-link>
           </li>
           <!-- MAIL -->
@@ -82,7 +103,10 @@
             class="contentListItem-Icon contentListItem-View mobileContent"
             title="mail me!"
           >
-            <a href="mailto:info@driesbos.com" class="cursorInteract icon icon-Mail">
+            <a
+              href="mailto:info@driesbos.com"
+              class="cursorInteract icon icon-Mail"
+            >
               <div v-html="require('~/assets/images/icon-mail.svg?include')" />
             </a>
           </li>
@@ -122,8 +146,15 @@
             class="contentListItem-Icon contentListItem-Close"
             title="close page"
           >
-            <nuxt-link to="/" class="cursorInteract icon icon-Close" title="close" tag="div">
-              <div v-html="require('~/assets/images/icon-close.svg?include')"></div>
+            <nuxt-link
+              to="/"
+              class="cursorInteract icon icon-Close"
+              title="close"
+              tag="div"
+            >
+              <div
+                v-html="require('~/assets/images/icon-close.svg?include')"
+              ></div>
             </nuxt-link>
           </li>
         </ul>

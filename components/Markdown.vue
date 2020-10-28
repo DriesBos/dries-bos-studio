@@ -76,8 +76,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import '~/assets/styling/variables.sass'
-
 .markdown
   --var: 0%
   min-width: 0 // Ellipsis hack

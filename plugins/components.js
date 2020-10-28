@@ -1,10 +1,8 @@
 import Vue from "vue"
 import Page from "~/components/Page.vue"
-import Markdown from "~/components/Markdown.vue"
-import Text from "~/components/Text.vue"
-import Column from "~/components/Column.vue"
+import ItemText from "~/components/ItemText.vue"
+import ItemColumn from "~/components/ItemColumn.vue"
 
 Vue.component("blok-page", Page)
-Vue.component("markdown", Markdown)
-Vue.component("blok-text", Text)
-Vue.component("blok-column", Column)
+Vue.component("blok-item-text", ItemText)
+Vue.component("blok-item-column", ItemColumn)

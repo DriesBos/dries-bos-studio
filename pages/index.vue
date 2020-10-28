@@ -1,6 +1,9 @@
 <template>
   <div class="view view-Index">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <!-- FILTER -->
     <section class="contentListItem-Filter spaced-TopSide">
       <ul class="contentListItem">
@@ -54,8 +57,13 @@
               class="contentListItem-Icon contentListItem-Search"
               title="search project"
             >
-              <div class="cursorInteract icon icon-Search" :class="{ active: toggleSearch }">
-                <div v-html="require('~/assets/images/icon-search.svg?include')" />
+              <div
+                class="cursorInteract icon icon-Search"
+                :class="{ active: toggleSearch }"
+              >
+                <div
+                  v-html="require('~/assets/images/icon-search.svg?include')"
+                />
               </div>
             </li>
           </ul>
@@ -63,25 +71,27 @@
       </ul>
     </section>
     <section v-show="viewState">
-      <index-text-item v-for="post in filteredList" :key="post.id" :post="post" />
+      <LazyIndexTextItem
+        v-for="post in filteredList"
+        :key="post.id"
+        :post="post"
+      />
     </section>
     <section v-show="!viewState">
-      <index-image-item v-for="post in filteredList" :key="post.id" :post="post" />
+      <LazyIndexImageItem
+        v-for="post in filteredList"
+        :key="post.id"
+        :post="post"
+      />
     </section>
   </div>
 </template>
 
 <script>
-import IndexImageItem from "~/components/IndexImageItem.vue"
-import IndexTextItem from "~/components/IndextextItem.vue"
 import { mapState } from "vuex"
 
 export default {
   scrollToTop: true,
-  components: {
-    "index-text-item": IndexTextItem,
-    "index-image-item": IndexImageItem
-  },
   props: {
     view: Boolean
   },
