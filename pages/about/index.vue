@@ -1,6 +1,9 @@
 <template>
   <div class="view view-About">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
@@ -14,7 +17,6 @@
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 
 export default {
-  scrollToTop: true,
   mixins: [storyblokLivePreview],
   asyncData(context) {
     // prettier-ignore

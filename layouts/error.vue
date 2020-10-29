@@ -4,7 +4,8 @@
       <p>
         Oops! We couldn't find that page.
         <br />Return
-        <nuxt-link class="cursorInteract" tag="a" to="/">home</nuxt-link>&nbsp;or view our
+        <nuxt-link class="cursorInteract" tag="a" to="/">home</nuxt-link
+        >&nbsp;or view our
         <nuxt-link class="cursorInteract" tag="a" to="/">work</nuxt-link>.
       </p>
     </div>
@@ -51,7 +52,7 @@ export default {
       top: 0
       bottom: 0
       width: var(--var)
-      border-bottom: 1px solid var(--type-color)
+      border-bottom: 1px solid var(--color)
     &:hover
       &::before
         @media ( hover: hover )

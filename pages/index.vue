@@ -39,9 +39,14 @@
             <p class="cursorInteract" title="sort by role">role</p>
           </div>
         </li>
+        <!-- SEARCH -->
         <li class="contentListItem-Column icons search">
           <ul class="contentListItem-Icons">
-            <li class="contentListItem-Input" :class="{ active: toggleSearch }">
+            <li
+              v-click-outside="outsideSearch"
+              class="contentListItem-Input"
+              :class="{ active: toggleSearch }"
+            >
               <input
                 id="search"
                 ref="search"
@@ -55,7 +60,7 @@
             <li
               class="contentListItem-Icon contentListItem-Search"
               title="search project"
-              @click="searchIconClick"
+              @click.stop="searchIconClick"
             >
               <div
                 class="cursorInteract icon icon-Search"
@@ -70,7 +75,7 @@
         </li>
       </ul>
     </section>
-    <section v-show="viewState" :class="viewState">
+    <section v-if="viewState" :class="viewState">
       <nuxt-link
         v-for="post in filteredList"
         :id="post.id"
@@ -106,7 +111,7 @@
         </ul>
       </nuxt-link>
     </section>
-    <section v-show="!viewState" :class="viewState">
+    <section v-if="!viewState" :class="viewState">
       <IndexImageItem
         v-for="post in filteredList"
         :key="post.id"
@@ -120,7 +125,6 @@
 import { mapState } from "vuex"
 
 export default {
-  scrollToTop: true,
   props: {
     view: Boolean
   },
@@ -145,8 +149,7 @@ export default {
   computed: {
     ...mapState({
       posts: state => state.posts.list,
-      viewState: state => state.view.viewState,
-      spaceState: state => state.space.spaceState
+      viewState: state => state.view.viewState
     }),
     // TODO: KISS
     sortedArray: function() {
@@ -229,19 +232,12 @@ export default {
   },
   mounted() {
     window.addEventListener("input", this.searchHasValue)
-    document.addEventListener("visibilitychange", this.windowIsVisible)
-    window.addEventListener("beforeunload", this.startPosition)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
     document.addEventListener("keydown", this.escapeSearch)
   },
-  // updated() {
-  //   this.clickOutsideSearch()
-  // },
   destroyed() {
     window.removeEventListener("input", this.searchHasValue)
-    document.removeEventListener("visibilitychange", this.windowIsVisible)
-    window.removeEventListener("beforeunload", this.startPosition)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
     document.removeEventListener("keydown", this.escapeSearch)
@@ -297,6 +293,9 @@ export default {
         this.toggleSearch = false
         this.search = ""
       }
+    },
+    outsideSearch() {
+      this.toggleSearch = false
     }
   }
 }

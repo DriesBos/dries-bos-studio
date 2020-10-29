@@ -93,7 +93,7 @@ export default {
       top: 0
       width: var(--var)
       z-index: 0
-      border-bottom: 1px solid var(--type-color)
+      border-bottom: 1px solid var(--color)
     &:hover
       &::before
         @media ( hover: hover )

@@ -88,7 +88,8 @@ module.exports = {
   plugins: [
     "~/plugins/components",
     "~/plugins/filters",
-    "~/plugins/vue-lazyload"
+    "~/plugins/vue-lazyload",
+    "~/plugins/vue-click-outside"
     // "~/plugins/vue-scrollto"
   ],
   /*

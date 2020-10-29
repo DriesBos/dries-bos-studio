@@ -1,20 +1,19 @@
 <template>
-  <main id="top" :class="{ spaced: spaceState }">
-    <!-- <the-title v-if="this.$route.name === 'index' || spaceState === true" /> -->
+  <main id="top" class="spaced">
     <LazyTheNotifications />
-    <LazyTheNavigation :class="pageType" />
-    <transition name="page" mode="out-in">
-      <nuxt />
-    </transition>
+    <div class="cube-Container">
+      <LazyTheNavigation :class="pageType" />
+      <transition name="page" mode="out-in">
+        <nuxt />
+      </transition>
+    </div>
     <div class="cursor">
       <div class="cursor-Small" />
-      <!-- <div class="cursor-Smaller" /> -->
     </div>
   </main>
 </template>
 
 <script>
-import { mapState } from "vuex"
 import gsap from "gsap"
 
 export default {
@@ -22,11 +21,6 @@ export default {
     return {
       pageType: "index"
     }
-  },
-  computed: {
-    ...mapState({
-      spaceState: state => state.space.spaceState
-    })
   },
   mounted() {
     // this.checkDarkMode()
@@ -135,14 +129,10 @@ export default {
       }
     },
     mouseLeftDocument() {
-      if (this.spaceState === true) {
-        document.querySelector("#floatBlock").classList.add("low")
-      }
+      document.querySelector("#floatBlock").classList.add("low")
     },
     mouseEntersDocument() {
-      if (this.spaceState === true) {
-        document.querySelector("#floatBlock").classList.remove("low")
-      }
+      document.querySelector("#floatBlock").classList.remove("low")
     }
   }
 }

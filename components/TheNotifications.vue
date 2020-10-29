@@ -19,12 +19,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  methods: {}
-}
-</script>
-
 <style lang="sass">
 $transition-messages: .165s ease-out
 
@@ -40,7 +34,7 @@ $transition-messages: .165s ease-out
     bottom: var(--spacing-icons)
     right: var(--spacing-icons)
     display: block
-    background: var(--interactive-color)
+    background: var(--selection-background)
     border-radius: 1000px
     padding: .25rem var(--spacing-icons)
     opacity: 0
@@ -48,7 +42,7 @@ $transition-messages: .165s ease-out
     transition: opacity $transition-messages, transform $transition-messages
     z-index: +10
     p, h1
-      color: black
+      color: var(--selection-color)
       line-height: 1.5
       transform: translateY(-1px)
   &.activeOne

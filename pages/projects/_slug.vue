@@ -1,6 +1,9 @@
 <template>
   <div class="view view-Project">
-    <div class="spaceForm" v-html="require('~/assets/images/spaceform.svg?include')" />
+    <div
+      class="spaceForm"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"
@@ -42,11 +45,11 @@
 </template>
 
 <script>
+import { mapState } from "vuex"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import GridItem from "~/components/GridItem.vue"
 
 export default {
-  scrollToTop: true,
   components: {
     GridItem: GridItem
   },
@@ -84,15 +87,13 @@ export default {
       story: { content: {} }
     }
   },
-  watch: {
-    $route() {
-      removeMixBlendMode()
-    }
-  },
+  ...mapState({
+    posts: state => state.posts.list,
+    viewState: state => state.view.viewState
+  }),
   mounted() {
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
-    window.addEventListener("scroll", this.headerToMixBlendMode)
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item => item.addEventListener("mouseover", this.changeCursor))
@@ -114,7 +115,6 @@ export default {
       )
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
-    window.removeEventListener("scroll", this.headerToMixBlendMode)
   },
   methods: {
     changeCursor() {
@@ -122,14 +122,6 @@ export default {
     },
     removeChangeCursor() {
       document.querySelector(".cursor").classList.remove("active")
-    },
-    transformImage(image, option) {
-      if (!image) return ""
-      if (!option) return ""
-
-      let imageService = "//img2.storyblok.com/"
-      let path = image.replace("//a.storyblok.com", "")
-      return imageService + option + path
     },
     backOnEscape(event) {
       if (event.keyCode === 27) {
@@ -147,24 +139,6 @@ export default {
           })
         }
       }
-    },
-    headerToMixBlendMode() {
-      var header = document.querySelector(".contentListItem-Header")
-      var nav = document.querySelector(".contentListItem-Nav")
-      var images = document.querySelector(".imageGrid")
-      var headerPos = header.getBoundingClientRect()
-      var imagesPos = images.getBoundingClientRect()
-      if (headerPos.height / 2 >= imagesPos.top) {
-        header.classList.add("mixblend")
-        nav.classList.add("mixblendmode")
-      } else {
-        header.classList.remove("mixblend")
-        nav.classList.remove("mixblendmode")
-      }
-    },
-    removeMixBlendMode() {
-      var header = document.querySelector(".contentListItem-Header")
-      header.classList.remove("mixblend")
     }
   },
   head() {
