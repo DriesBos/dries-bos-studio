@@ -16,6 +16,7 @@
     "deploy": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^3.2.2",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/google-analytics": "^2.2.3",
     "gsap": "^3.5.1",
@@ -44,7 +45,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.1.0",
     "babel-eslint": "^10.0.3",
-    "@nuxtjs/pwa": "^3.2.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "nodemon": "^2.0.6",
