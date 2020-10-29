@@ -1,6 +1,6 @@
 <template>
   <li class="contentListItem-Column">
-    <markdown :input="blok.text" />
+    <LazyMarkdown :input="blok.text" />
   </li>
 </template>
 

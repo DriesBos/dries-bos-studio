@@ -44,18 +44,18 @@
             <li class="contentListItem-Input" :class="{ active: toggleSearch }">
               <input
                 id="search"
+                ref="search"
+                v-model="search"
                 class="cursorInteract"
                 type="text"
-                v-model="search"
-                ref="search"
                 placeholder="search project.."
                 title="search project"
               />
             </li>
             <li
-              @click="searchIconClick"
               class="contentListItem-Icon contentListItem-Search"
               title="search project"
+              @click="searchIconClick"
             >
               <div
                 class="cursorInteract icon icon-Search"
@@ -71,14 +71,14 @@
       </ul>
     </section>
     <section v-show="viewState" :class="viewState">
-      <blok-index-text-item
+      <LazyIndexTextItem
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
       />
     </section>
     <section v-show="!viewState" :class="viewState">
-      <IndexImageItem
+      <LazyIndexImageItem
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
