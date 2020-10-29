@@ -284,12 +284,6 @@ export default {
       setTimeout(function() {
         window.scrollTo(0, 0)
       }, 330)
-      if (this.spaceState === false) {
-        document.querySelector("main").classList.add("tempBackground")
-        setTimeout(function() {
-          document.querySelector("main").classList.remove("tempBackground")
-        }, 565)
-      }
     }
   }
 }

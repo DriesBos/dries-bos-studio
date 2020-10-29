@@ -70,15 +70,11 @@
         </li>
       </ul>
     </section>
-    <section v-show="viewState">
-      <LazyIndexTextItem
-        v-for="post in filteredList"
-        :key="post.id"
-        :post="post"
-      />
+    <section v-show="viewState" :class="viewState">
+      <IndexTextItem v-for="post in filteredList" :key="post.id" :post="post" />
     </section>
-    <section v-show="!viewState">
-      <LazyIndexImageItem
+    <section v-show="!viewState" :class="viewState">
+      <IndexImageItem
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
