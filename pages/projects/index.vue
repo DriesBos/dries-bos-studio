@@ -70,14 +70,14 @@
         </li>
       </ul>
     </section>
-    <section v-show="viewState" :class="viewState">
+    <section v-show="viewState">
       <blok-index-text-item
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
       />
     </section>
-    <section v-show="!viewState" :class="viewState">
+    <section v-show="!viewState">
       <blok-index-image-item
         v-for="post in filteredList"
         :key="post.id"
