@@ -2,6 +2,7 @@ const pkg = require("./package")
 const axios = require("axios")
 
 module.exports = {
+  target: "static",
   /*
    ** Headers of the page
    */
