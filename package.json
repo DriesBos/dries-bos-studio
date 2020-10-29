@@ -37,7 +37,8 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-pngquant": "^9.0.1",
     "imagemin-gifsicle": "^7.0.0",
-    "imagemin-svgo": "^8.0.0"
+    "imagemin-svgo": "^8.0.0",
+    "sass-loader": "^10.0.3"
   },
   "devDependencies": {
     "prettier": "^1.19.1",
@@ -49,7 +50,6 @@
     "babel-eslint": "^10.0.3",
     "nodemon": "^2.0.6",
     "css-loader": "^5.0.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.3"
+    "node-sass": "^4.14.1"
   }
 }
