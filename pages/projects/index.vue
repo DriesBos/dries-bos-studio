@@ -71,10 +71,14 @@
       </ul>
     </section>
     <section v-show="viewState" :class="viewState">
-      <IndexTextItem v-for="post in filteredList" :key="post.id" :post="post" />
+      <blok-index-text-item
+        v-for="post in filteredList"
+        :key="post.id"
+        :post="post"
+      />
     </section>
     <section v-show="!viewState" :class="viewState">
-      <IndexImageItem
+      <blok-index-image-item
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
