@@ -22,6 +22,13 @@ export default {
       pageType: "index"
     }
   },
+  watch: {
+    $route() {
+      this.init()
+      this.checkPageType()
+      this.removeChangeCursor()
+    }
+  },
   mounted() {
     this.init()
     this.checkPageType()
@@ -63,15 +70,11 @@ export default {
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
-  watch: {
-    $route() {
-      this.checkPageType()
-      this.removeChangeCursor()
-    }
-  },
   methods: {
     init() {
-      document.querySelector("#floatBlock").classList.remove("low")
+      setTimeout(function() {
+        document.querySelector("#floatBlock").classList.remove("low")
+      }, 1000)
     },
     customCursor() {
       let cursor = document.querySelector(".cursor")
