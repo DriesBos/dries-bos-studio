@@ -164,11 +164,16 @@ input[type="range"]
       flex-basis: 33.3%
       &.year
         flex-basis: 4.51rem
+    @media screen and ( min-width: 550px ) and ( max-width: 1105px)
+      &.category
+        flex-basis: auto
+        flex-grow: 1
     @media screen and ( max-width: 550px)
       &.category
         display: none
       &.title
         flex-basis: auto
+        flex-grow: 1
     &.year
       flex-basis: 0rem
     &.icons
