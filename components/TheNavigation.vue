@@ -24,7 +24,7 @@
       <!-- THEME SLIDER -->
       <li class="contentListItem-Column icons">
         <ul class="contentListItem-Icons">
-          <li v-show="this.$route.name === 'index'" title="theme colors">
+          <!-- <li v-show="this.$route.name === 'index'" title="theme colors">
             <input
               class="cursorInteract rangeSlider"
               type="range"
@@ -34,7 +34,7 @@
               step="1"
               v-model="rangeValue"
             />
-          </li>
+          </li> -->
           <!-- INDEX -->
           <li
             v-show="this.$route.name === 'index'"
@@ -192,7 +192,7 @@ export default {
     window.addEventListener("resize", this.toggleTheSpaceOnResize)
   },
   updated() {
-    this.setBackgroundColor(this.rangeValue)
+    // this.setBackgroundColor(this.rangeValue)
   },
   destroyed() {
     window.removeEventListener("resize", this.toggleTheSpaceOnResize)

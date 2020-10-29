@@ -15,11 +15,11 @@ img[lazy="loaded"]
 
 // Fundamental sections
 body
-  background: var(--background-color)
+  background: black
   color: var(--type-color)
   transition: color $transition-theme
-  p::selection, a::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection , span::selection
-    background: var(--background-selection)
+  // p::selection, a::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection , span::selection
+  //   background: var(--background-selection)
 
 main
   cursor: none
@@ -31,7 +31,7 @@ main
 
 section
   position: relative
-  background: var(--background-color)
+  background: black
   margin-left: auto
   margin-right: auto
   width: 100%
@@ -40,6 +40,7 @@ section
   top: 0
 
 .spaceForm
+  display: none
   position: absolute
   top: 0
   left: 0
@@ -47,10 +48,11 @@ section
   opacity: 0
   width: 100%
   transform: translateY(-100%)
-  color: var(--background-color) // TODO: remove?
+  // color: var(--background-color) // TODO: remove?
   transition: background $transition-theme, border-bottom $transition-theme
   pointer-events: none
   z-index: 0
+  color: rgba(0,0,0,0)
   svg
     vertical-align: bottom
 
@@ -110,7 +112,7 @@ section
 
 input[type="range"]
   appearance: none
-  background-color: currentColor
+  // background-color: currentColor
   width: var(--spacing-icons-tripple)
   height: 2px
   outline: none
@@ -122,7 +124,7 @@ input[type="range"]
     height: 25px
     width: 25px
     border-radius: 50%
-    background-color: currentColor
+    // background-color: currentColor
 
 .capitalize
   text-transform: capitalize
@@ -207,17 +209,19 @@ input[type="range"]
     z-index: 900
     transition: border-bottom $transition-space-vertical
     pointer-events: none
+    // background: rgba(0,0,0,0)
     .cursorInteract
       pointer-events: auto
     &.projects, &.about
+      // background: black
       background: rgba(0,0,0,0)
     &.about
       span
         visibility: hidden
     &.mixblend
-      mix-blend-mode: difference
+      // mix-blend-mode: difference
       span, svg
-        color: white // Overrides currentColor for mixblend to work
+        color: var(--type-color) // Overrides currentColor for mixblend to work
     & .title
       @media screen and ( max-width: $breakpoint-mobile)
         span.title
@@ -249,10 +253,10 @@ input[type="range"]
   &-List
     border-bottom: 1px solid var(--type-color)
     position: relative
-    background: var(--background-color)
+    background: black
     &:hover
-      background: var(--type-color)
-      color: var(--active-color)
+      // background: var(--type-color)
+      // color: var(--active-color)
   &-Images
     position: relative
     padding-left: var(--spacing-two)
@@ -271,7 +275,7 @@ input[type="range"]
     height: auto
     display: flex
     justify-content: space-between
-    mix-blend-mode: difference
+    // mix-blend-mode: difference
     z-index: 999
     &_Prev, &_Next
       position: absolute
@@ -282,14 +286,14 @@ input[type="range"]
       right: var(--spacing-one)
     svg
       height: var(--spacing-icons)
-      color: white
+      color: var(--type-color)
     @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
       position: fixed
       top: var(--spacing-one)
       right: 3rem
       transform: translateY(1px)
       width: auto
-      mix-blend-mode: normal
+      // mix-blend-mode: normal
       svg
         color: var(--type-color)
       &_Prev, &_Next
@@ -299,13 +303,13 @@ input[type="range"]
         margin-left: 3.5rem
   &-Nav.mixblendmode
     @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
-      mix-blend-mode: difference
+      // mix-blend-mode: difference
       svg
-        color: white
+        color: var(--type-color)
 
 // Imagegrid
 .imageGrid
-  background: var(--background-color)
+  // background: var(--background-color)
   border-top: 0 !important
   margin-top: 0 !important
   @media screen and (orientation: landscape)
@@ -334,9 +338,9 @@ input[type="range"]
     .imageGrid-Item:first-child
       border-top: 0
     .contentListItem-Header
-      background: var(--background-color)
+      // background: var(--background-color)
   &-Project, &-About
-    background: var(--background-color)
+    // background: var(--background-color)
     section
       border-top: 1px solid var(--type-color)
       border-bottom: 1px solid var(--type-color)
@@ -376,7 +380,7 @@ input[type="range"]
 
 // Spacemode
 body.spaced
-  background: var(--space-color)
+  // background: var(--space-color)
 
 main.spaced
   padding-top: calc(15rem + 200px)
@@ -385,7 +389,7 @@ main.spaced
   padding-bottom: var(--spacing-two)
   .cursor
     &-Instance
-      background: var(--interactive-color)
+      // background: var(--interactive-color)
   .view
     width: 100%
     max-width: $spacemode-width
@@ -396,6 +400,8 @@ main.spaced
         justify-content: flex-start
       .imageGrid
         margin-top: 0
+    section:last-child
+      border-bottom: 1px solid var(--type-color)
   section
     width: 100%
     max-width: $spacemode-width
@@ -413,6 +419,9 @@ main.spaced
       transform: translateY(0%)
       transition: transform 1s ease .5s
   .contentListItem
+    &-List
+      border-left: 1px solid var(--type-color)
+      border-right: 1px solid var(--type-color)
     &-Column
       @media screen and ( max-width: 1282px)
         flex-basis: 25%
@@ -427,14 +436,17 @@ main.spaced
       top: auto
       left: auto
       right: auto
-      border-top: 2px solid var(--type-color)
+      border-top: 1px solid var(--type-color)
       border-bottom: 1px solid var(--type-color)
+      border-left: 1px solid var(--type-color)
+      border-right: 1px solid var(--type-color)
       margin-bottom: -1px
-      background: var(--background-color)
       .spaceForm
         top: -1px
     &-Filter
       border-top: 1px solid var(--type-color)
+      border-left: 1px solid var(--type-color)
+      border-right: 1px solid var(--type-color)
       position: relative
       top: auto
       left: auto
@@ -443,6 +455,12 @@ main.spaced
         flex-shrink: 1
       .spaceForm
         top: -1px
+    &-Text
+      border-left: 1px solid var(--type-color)
+      border-right: 1px solid var(--type-color)
+  .imageGrid-Item
+    border-left: 1px solid var(--type-color)
+    border-right: 1px solid var(--type-color)
 
 // Spacemode transition
 main // Reverse

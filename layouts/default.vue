@@ -28,7 +28,7 @@ export default {
     })
   },
   mounted() {
-    this.checkDarkMode()
+    // this.checkDarkMode()
     this.checkPageType()
     this.customCursor()
     document
