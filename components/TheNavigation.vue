@@ -13,13 +13,13 @@
             v-if="this.$route.name === 'index' || this.$route.name === 'about'"
             class="title"
             title="that's me!"
-            >&nbsp;— Creative Web Developer</span
+            >— Creative Web Developer</span
           >
           <span
             v-if="this.$route.name === 'projects-slug'"
             class="title"
             title="Dries and.."
-            >and&nbsp;{{ slug }}</span
+            >& {{ slug }}</span
           >
         </nuxt-link>
       </li>
