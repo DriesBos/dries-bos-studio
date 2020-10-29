@@ -7,7 +7,8 @@
       <nuxt />
     </transition>
     <div class="cursor">
-      <div class="cursor-Small cursor-Instance" />
+      <div class="cursor-Small" />
+      <!-- <div class="cursor-Smaller" /> -->
     </div>
   </main>
 </template>
