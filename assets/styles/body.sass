@@ -135,11 +135,11 @@ input[type="range"]
   padding-top: 1rem
   padding-bottom: 1rem
   &-Column
-    flex-basis: 16.6666%
+    flex-basis: 20%
     padding-left: var(--spacing-one)
     padding-right: var(--spacing-one)
     flex-shrink: 0
-    &.title
+    &.category
       flex-grow: 1
     &.search
       padding-left: 0
@@ -156,9 +156,9 @@ input[type="range"]
         display: none
       &.title
         flex-basis: auto
+    &.year
+      flex-basis: 0rem
     &.icons
-      flex-basis: auto !important
-    &.titleSearch
       flex-basis: auto !important
   &-Icons
     display: flex
@@ -209,20 +209,15 @@ input[type="range"]
     z-index: 900
     transition: border-bottom $transition-space-vertical
     pointer-events: none
-    // background: rgba(0,0,0,0)
     .cursorInteract
       pointer-events: auto
     &.projects, &.about
-      // background: black
       background: rgba(0,0,0,0)
     &.about
       span
         visibility: hidden
-    &.mixblend
-      // mix-blend-mode: difference
-      span, svg
-        color: var(--type-color) // Overrides currentColor for mixblend to work
     & .title
+      flex-grow: 1
       @media screen and ( max-width: $breakpoint-mobile)
         span.title
           display: none
@@ -236,12 +231,12 @@ input[type="range"]
     p
       display: inline
     p
-      opacity: .25
+      opacity: var(--type-faded)
       transition: opacity $transition-hover
       &:hover
         opacity: 1
     .icon
-      opacity: .25
+      opacity: var(--type-faded)
       transition: opacity $transition-hover
       &:hover
         opacity: 1

@@ -12,13 +12,13 @@
             <p class="cursorInteract" title="sort by year">year</p>
           </div>
         </li>
-        <li class="contentListItem-Column category">
+        <li class="contentListItem-Column title titleSearch">
           <div
-            class="listItem-Category listItem-Details"
-            :class="{ active: sortByCategory }"
-            @click="sortCategory"
+            class="listItem-Title listItem-Details"
+            :class="{ active: sortByTitle }"
+            @click="sortTitle"
           >
-            <p class="cursorInteract" title="sort by role">role</p>
+            <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
         <li class="contentListItem-Column agency">
@@ -30,13 +30,13 @@
             <p class="cursorInteract" title="sort by role">agency</p>
           </div>
         </li>
-        <li class="contentListItem-Column title titleSearch">
+        <li class="contentListItem-Column category">
           <div
-            class="listItem-Title listItem-Details"
-            :class="{ active: sortByTitle }"
-            @click="sortTitle"
+            class="listItem-Category listItem-Details"
+            :class="{ active: sortByCategory }"
+            @click="sortCategory"
           >
-            <p class="cursorInteract" title="sort by project">project</p>
+            <p class="cursorInteract" title="sort by role">role</p>
           </div>
         </li>
         <li class="contentListItem-Column icons search">
