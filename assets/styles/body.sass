@@ -248,6 +248,9 @@ input[type="range"]
       transition: opacity $transition-hover
       &:hover
         opacity: 1
+    .active
+      p
+        opacity: 1
     .icon
       opacity: var(--type-faded)
       transition: opacity $transition-hover
@@ -425,7 +428,7 @@ main.spaced
     transform: translateY(-100%)
     &.low
       transform: translateY(0%)
-      transition: transform 1s ease .5s
+      transition: transform 1s ease
   .contentListItem
     &-List
       border-left: 1px solid var(--type-color)
@@ -449,6 +452,7 @@ main.spaced
       border-left: 1px solid var(--type-color)
       border-right: 1px solid var(--type-color)
       margin-bottom: -1px
+      background: rgba(0,0,0,0)
       .spaceForm
         top: -1px
     &-Filter
