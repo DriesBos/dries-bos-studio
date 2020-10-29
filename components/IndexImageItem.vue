@@ -38,7 +38,6 @@
 
 <script>
 export default {
-  name: "IndexImageItem",
   props: {
     post: Object
   },
