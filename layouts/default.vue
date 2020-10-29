@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted() {
-    // this.checkDarkMode()
+    this.init()
     this.checkPageType()
     this.customCursor()
     document
@@ -70,19 +70,8 @@ export default {
     }
   },
   methods: {
-    checkDarkMode() {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
-        document.querySelector("#messages").classList.add("activeOne")
-        document.querySelector("#messages").classList.remove("activeTwo")
-        document.querySelector("#messages").classList.remove("activeThree")
-        document.querySelector("#messages").classList.remove("activeFour")
-        setTimeout(function() {
-          document.querySelector("#messages").classList.remove("activeOne")
-        }, 2500)
-      }
+    init() {
+      document.querySelector("#floatBlock").classList.remove("low")
     },
     customCursor() {
       let cursor = document.querySelector(".cursor")

@@ -29,7 +29,7 @@ main
   justify-content: center
   align-items: center
   min-height: 100vh
-  padding-top: calc(15rem + 200px)
+  padding-top: calc(15rem + 10vh)
   padding-bottom: var(--spacing-two)
 
 .cube
@@ -245,14 +245,16 @@ input[type="range"]
       opacity: var(--color-faded)
       transition: opacity $transition-hover
       &:hover
-        opacity: 1
+        @media ( hover: hover )
+          opacity: 1
     .active
       p
         opacity: 1
     .icon
       opacity: var(--color-faded)
       &:hover
-        opacity: 1
+        @media ( hover: hover )
+          opacity: 1
       &.active
         opacity: 1
     @media screen and ( max-width: $breakpoint-mobile) and ( min-width: 550px)
@@ -263,8 +265,9 @@ input[type="range"]
     position: relative
     transition: background $transition-hover, color $transition-hover
     &:hover
-      background: var(--active-background)
-      color: var(--active-color)
+      @media ( hover: hover )
+        background: var(--active-background)
+        color: var(--active-color)
   &-Images
     position: relative
     padding-left: var(--spacing-two)
@@ -294,23 +297,9 @@ input[type="range"]
     svg
       height: var(--spacing-icons)
       color: var(--color)
-    @media screen and (orientation: portrait) and ( max-width: 700px), (orientation: portrait)
-      position: fixed
-      top: var(--spacing-one)
-      right: 3rem
-      transform: translateY(1px)
-      width: auto
-      svg
-        color: var(--color)
-      &_Prev, &_Next
-        position: relative
-        top: auto
-      &_Next
-        margin-left: 3.5rem
 
 // Imagegrid
 .imageGrid
-  // background: var(--background-color)
   border-top: 0 !important
   margin-top: 0 !important
   @media screen and (orientation: landscape)
