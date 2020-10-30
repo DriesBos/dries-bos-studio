@@ -42,21 +42,23 @@ main
       width: calc(100% - 2rem)
 
 section
-  position: relative
+  position: sticky
+  top: 0
   margin-left: auto
   margin-right: auto
   width: 100%
-  position: sticky
-  top: 0
-  border-left: 1px solid var(--color)
-  border-right: 1px solid var(--color)
+  border-left: var(--border)
+  border-right: var(--border)
+  border-top: var(--border)
+  background: var(--background)
 
 .spaceForm
   position: absolute
-  top: 0
+  top: -1px
   left: 0
   right: 0
   width: 100%
+  opacity: 0
   transform: translateY(-100%)
   pointer-events: none
   z-index: 0
@@ -120,22 +122,8 @@ section
   @media ( hover: none )
     display: none
 
-input[type="range"]
-  appearance: none
-  width: var(--spacing-icons-tripple)
-  height: 2px
-  outline: none
-  direction: rtl
-  &::-webkit-slider-thumb
-    appearance: none
-    display: block
-    border: 2px solid currentColor
-    height: 25px
-    width: 25px
-    border-radius: 50%
-
-.capitalize
-  text-transform: capitalize
+.cursorInteract
+  pointer-events: auto
 
 .contentListItem
   display: flex
@@ -214,36 +202,23 @@ input[type="range"]
   &-Search
     margin-left: var(--spacing-one)
   // Item category
-  &-Text
-    border-left: 1px solid var(--color)
-    border-right: 1px solid var(--color)
   &-Header
     position: relative
     z-index: 900
-    border: 1px solid var(--color)
+    border: var(--border)
     pointer-events: none
-    margin-bottom: -1px
-    .cursorInteract
-      pointer-events: auto
-    &.projects, &.about
-      background: rgba(0,0,0,0)
+    margin-bottom: -2px
+    background: rgba(0,0,0,0)
+    .spaceForm
+      opacity: 1
     & .title
       flex-grow: 1
       @media screen and ( max-width: $breakpoint-mobile)
         span.title
           display: none
   &-Filter
-    border-top: 1px solid var(--color)
-    border-bottom: 1px solid var(--color)
-    border-left: 1px solid var(--color)
-    border-right: 1px solid var(--color)
-    position: relative
     .title
       flex-shrink: 1
-    .spaceForm
-      top: -1
-      position: sticky
-      z-index: 999
     p
       display: inline
     p
@@ -266,15 +241,12 @@ input[type="range"]
       .contentListItem-Column.icons
         display: none
   &-List
-    border-bottom: 1px solid var(--color)
-    position: relative
     transition: background $transition-hover, color $transition-hover
     &:hover
       @media ( hover: hover )
         background: var(--active-background)
         color: var(--active-color)
   &-Images
-    position: relative
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)
     ul
@@ -305,8 +277,6 @@ input[type="range"]
 
 // Imagegrid
 .imageGrid
-  border-top: 0 !important
-  margin-top: 0 !important
   @media screen and (orientation: landscape)
     min-height: 100vh
   &-Item
@@ -315,9 +285,6 @@ input[type="range"]
     display: flex
     flex-direction: column
     align-items: center
-    border-top: 1px solid var(--color)
-    border-left: 1px solid var(--color)
-    border-right: 1px solid var(--color)
     &_Wrapper
       width: 100%
 
@@ -328,29 +295,11 @@ input[type="range"]
   margin-left: auto
   margin-right: auto
   section
-    background: black
-    &:first-of-type // Enables all content to start with the same top distance
-      &.contentListItem-Text
-        border-top: 1px solid var(--color)
-        ul
-          padding-top: 1rem
-  &-Index
-    .imageGrid-Item:first-child
-      border-top: 0
-    .contentListItem-Header
-      // background: var(--background-color)
-  &-Project, &-About
-    // background: var(--background-color)
-    .imageGrid-Item
-      position: sticky
-      top: 0
-    section
-      border-top: 1px solid var(--color)
-      border-bottom: 1px solid var(--color)
-      // margin-top: -1px
-    section:nth-of-type(1)
-      border-bottom: 0
-      margin-top: 0
+    &:first-of-type
+      .spaceForm
+        opacity: 1
+    &:last-of-type
+      border-bottom: var(--border)
   &-About
     li
       flex-basis: 50%
@@ -361,7 +310,6 @@ input[type="range"]
           flex-basis: 100%
         li:first-child
           margin-bottom: 1rem
-          text-transform: capitalize
       .contentListItem-Text:first-of-type
         .contentListItem:first-child
           li:first-child

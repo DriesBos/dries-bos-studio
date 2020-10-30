@@ -1,11 +1,11 @@
 <template>
   <div class="view view-Index">
-    <div
-      class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    />
     <!-- FILTER -->
     <section class="contentListItem-Filter spaced-TopSide">
+      <div
+        class="spaceForm"
+        v-html="require('~/assets/images/spaceform.svg?include')"
+      />
       <ul class="contentListItem">
         <li class="contentListItem-Column year">
           <div class :class="{ active: sortByYear }" @click="sortYear">
@@ -75,7 +75,7 @@
         </li>
       </ul>
     </section>
-    <section v-if="viewState" :class="viewState">
+    <template v-if="viewState">
       <nuxt-link
         v-for="post in filteredList"
         :id="post.id"
@@ -110,14 +110,14 @@
           </li>
         </ul>
       </nuxt-link>
-    </section>
-    <section v-if="!viewState" :class="viewState">
+    </template>
+    <template v-if="!viewState">
       <IndexImageItem
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
       ></IndexImageItem>
-    </section>
+    </template>
   </div>
 </template>
 
