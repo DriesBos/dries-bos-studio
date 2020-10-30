@@ -42,6 +42,7 @@
 
 <script>
 import { mapState } from "vuex"
+import onPageLoad from "@/mixins/onPageLoad"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 import GridItem from "~/components/GridItem.vue"
 
@@ -49,7 +50,7 @@ export default {
   components: {
     GridItem: GridItem
   },
-  mixins: [storyblokLivePreview],
+  mixins: [storyblokLivePreview, onPageLoad],
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
     let version =

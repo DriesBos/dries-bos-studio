@@ -1,8 +1,8 @@
 <template>
   <main id="top" class="spaced">
     <LazyTheNotifications />
-    <div class="cube-Container">
-      <LazyTheNavigation :class="pageType" />
+    <div class="cube-Container" @mouseenter="toggleFloatHeaderTrue">
+      <LazyTheNavigation :class="{ active: floatHeader }" />
       <transition name="page" mode="out-in">
         <nuxt />
       </transition>
@@ -19,19 +19,15 @@ import gsap from "gsap"
 export default {
   data() {
     return {
-      pageType: "index"
+      floatHeader: false
     }
   },
   watch: {
     $route() {
-      this.init()
-      this.checkPageType()
       this.removeChangeCursor()
     }
   },
   mounted() {
-    this.init()
-    this.checkPageType()
     this.customCursor()
     document
       .querySelectorAll(".cursorInteract")
@@ -71,10 +67,24 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
-    init() {
-      setTimeout(function() {
-        document.querySelector("#floatBlock").classList.remove("low")
-      }, 1000)
+    toggleFloatHeaderTrue() {
+      this.floatHeader = true
+      this.toggleFloatHeader()
+    },
+    toggleFloatHeader() {
+      if (this.floatHeader) {
+        gsap.to("#floatBlock", {
+          yPercent: -100,
+          ease: "power1.inOut",
+          duration: 0.33
+        })
+      } else {
+        gsap.to("#floatBlock", {
+          yPercent: 0,
+          ease: "power1.inOut",
+          duration: 0.33
+        })
+      }
     },
     customCursor() {
       let cursor = document.querySelector(".cursor")
@@ -92,28 +102,18 @@ export default {
     removeChangeCursor() {
       document.querySelector(".cursor").classList.remove("active")
     },
-    checkPageType() {
-      if (this.$route.name === "about") {
-        this.pageType = "about"
-      } else if (
-        this.$route.name === "projects-slug" &&
-        this.$route.params.slug
-      ) {
-        this.pageType = "projects"
-      } else if (this.$route.name === "index") {
-        this.pageType = "index"
-      } else {
-        this.pageType = "error"
-      }
-    },
     // BROWSER APIS
     windowIsVisible() {
       if (document.visibilityState === "hidden") {
+        this.floatHeader = false
+        this.toggleFloatHeader()
         document.title = "MISS U"
         document
           .querySelector("link[rel*='icon']")
           .setAttribute("href", "question.png")
       } else {
+        this.floatHeader = true
+        this.toggleFloatHeader()
         document.title = "Dries Bos — Web & Interaction Developer"
         document
           .querySelector("link[rel*='icon']")
@@ -121,10 +121,12 @@ export default {
       }
     },
     mouseLeftDocument() {
-      document.querySelector("#floatBlock").classList.add("low")
+      this.floatHeader = false
+      this.toggleFloatHeader()
     },
     mouseEntersDocument() {
-      document.querySelector("#floatBlock").classList.remove("low")
+      this.floatHeader = true
+      this.toggleFloatHeader()
     }
   }
 }

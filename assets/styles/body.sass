@@ -27,7 +27,7 @@ body
 main
   display: flex
   justify-content: center
-  align-items: center
+  align-items: flex-start
   min-height: 100vh
   padding-top: calc(15rem + 10vh)
   padding-bottom: var(--spacing-two)
@@ -44,13 +44,17 @@ main
 section
   position: sticky
   top: 0
+  margin-top: -1px
   margin-left: auto
   margin-right: auto
   width: 100%
   border-left: var(--border)
   border-right: var(--border)
   border-top: var(--border)
+  border-bottom: var(--border)
   background: var(--background)
+  opacity: 0
+  transform: translateY(33px)
 
 .spaceForm
   position: absolute
@@ -65,16 +69,16 @@ section
   svg
     vertical-align: bottom
 
-#floatBlock
-  transform: translateY(-100%)
-  transition: transform .66s ease
-  will-change: transform
-  @media (orientation: portrait)
-    transform: translateY(-75%)
-  @media (orientation: portrait) and  (max-width: 550px)
-    transform: translateY(-60%)
-  &.low
-    transform: translateY(0%)
+// #floatBlock
+//   transform: translateY(-100%)
+//   transition: transform .66s ease
+//   will-change: transform
+//   @media (orientation: portrait)
+//     transform: translateY(-75%)
+//   @media (orientation: portrait) and  (max-width: 550px)
+//     transform: translateY(-60%)
+//   &.low
+//     transform: translateY(0%)
 
 // Building blocks
 .icon
@@ -207,7 +211,7 @@ section
     z-index: 900
     border: var(--border)
     pointer-events: none
-    margin-bottom: -2px
+    // margin-bottom: -2px
     background: rgba(0,0,0,0)
     .spaceForm
       opacity: 1

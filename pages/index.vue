@@ -122,9 +122,11 @@
 </template>
 
 <script>
+import onPageLoad from "@/mixins/onPageLoad"
 import { mapState } from "vuex"
 
 export default {
+  mixins: [onPageLoad],
   props: {
     view: Boolean
   },

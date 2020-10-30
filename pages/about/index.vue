@@ -14,10 +14,11 @@
 </template>
 
 <script>
+import onPageLoad from "@/mixins/onPageLoad"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 
 export default {
-  mixins: [storyblokLivePreview],
+  mixins: [storyblokLivePreview, onPageLoad],
   asyncData(context) {
     // prettier-ignore
     let version = context.query._storyblok || context.isDev ? 'draft' : 'published'
