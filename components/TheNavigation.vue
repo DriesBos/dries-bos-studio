@@ -10,13 +10,15 @@
         <nuxt-link class="cursorInteract" to="/">
           <span title="that's me!">Dries Bos</span>
           <span
-            v-if="this.$route.name === 'index' || this.$route.name === 'about'"
+            v-show="
+              this.$route.name === 'index' || this.$route.name === 'about'
+            "
             class="title"
             title="that's me!"
             >— Creative Web Developer</span
           >
           <span
-            v-if="this.$route.name === 'projects-slug'"
+            v-show="this.$route.name === 'projects-slug'"
             class="title"
             title="Dries and.."
             >& {{ slug }}</span
@@ -28,12 +30,12 @@
         <ul class="contentListItem-Icons">
           <!-- INDEX -->
           <li
-            v-if="this.$route.name === 'index'"
+            v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-View"
             @click="toggleTheView"
           >
             <div
-              v-if="viewState"
+              v-show="viewState"
               class="cursorInteract icon icon-View"
               title="image view"
             >
@@ -41,7 +43,11 @@
                 v-html="require('~/assets/images/icon-img.svg?include')"
               ></div>
             </div>
-            <div v-else class="cursorInteract icon icon-View" title="text view">
+            <div
+              v-show="!viewState"
+              class="cursorInteract icon icon-View"
+              title="text view"
+            >
               <div
                 v-html="require('~/assets/images/icon-txt.svg?include')"
               ></div>
@@ -49,7 +55,7 @@
           </li>
           <!-- ABOUT -->
           <li
-            v-if="this.$route.name === 'index'"
+            v-show="this.$route.name === 'index'"
             class="contentListItem-Icon contentListItem-About"
             title="about page"
           >
@@ -66,7 +72,7 @@
           </li>
           <!-- MAIL -->
           <li
-            v-if="this.$route.name === 'about'"
+            v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
             title="mail me!"
           >
@@ -79,7 +85,7 @@
           </li>
           <!-- PHONE -->
           <li
-            v-if="this.$route.name === 'about'"
+            v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
             title="call me!"
           >
@@ -89,7 +95,7 @@
           </li>
           <!-- PREV -->
           <!-- <li
-            v-if="this.$route.name === 'projects-slug'"
+            v-show="this.$route.name === 'projects-slug'"
             class="contentListItem-Icon contentListItem-View"
             title="previous project"
           >
@@ -101,7 +107,7 @@
           </li> -->
           <!-- NEXT -->
           <!-- <li
-            v-if="this.$route.name === 'projects-slug'"
+            v-show="this.$route.name === 'projects-slug'"
             class="contentListItem-Icon contentListItem-View"
             title="next project"
           >
@@ -113,7 +119,7 @@
           </li> -->
           <!-- CLOSE -->
           <li
-            v-if="this.$route.name !== 'index'"
+            v-show="this.$route.name !== 'index'"
             class="contentListItem-Icon contentListItem-Close"
             title="close page"
           >

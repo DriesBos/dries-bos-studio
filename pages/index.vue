@@ -81,7 +81,7 @@
         :id="post.id"
         :key="post.id"
         :to="`/projects/${post.id}`"
-        class="contentListItem-List"
+        class="contentListItem-List cursorInteract"
         tag="section"
       >
         <ul class="contentListItem">
