@@ -106,6 +106,7 @@ export default {
       let cursor = document.querySelector(".cursor")
       function moveCursor(e) {
         gsap.to(cursor, 0, {
+          opacity: 1,
           left: e.clientX,
           top: e.clientY
         })
