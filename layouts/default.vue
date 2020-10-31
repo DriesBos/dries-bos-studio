@@ -2,7 +2,10 @@
   <main id="top" class="spaced">
     <LazyTheNotifications />
     <div class="cube-Container" @mouseenter="toggleFloatHeaderTrue">
-      <LazyTheNavigation :class="{ active: floatHeader }" />
+      <LazyTheNavigation
+        :class="{ active: floatHeader }"
+        @toggle-view="viewIsToggled"
+      />
       <transition name="page" mode="out-in">
         <nuxt />
       </transition>
@@ -85,6 +88,19 @@ export default {
           duration: 0.33
         })
       }
+    },
+    viewIsToggled() {
+      setTimeout(function() {
+        gsap.to("section", {
+          opacity: 1,
+          y: 0,
+          ease: "power1.inOut",
+          duration: 0.33,
+          stagger: {
+            amount: 0.66
+          }
+        })
+      }, 50)
     },
     customCursor() {
       let cursor = document.querySelector(".cursor")

@@ -173,6 +173,7 @@ export default {
     },
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
+      this.$emit("toggle-view")
     }
   }
 }
