@@ -19,7 +19,7 @@ renderer.link = function(href, title, text) {
     '<a target="_blank" href="' +
     href +
     '" title="' +
-    title +
+    text +
     '">' +
     text +
     "</a>"
