@@ -68,6 +68,14 @@ section
   z-index: 0
   svg
     vertical-align: bottom
+    color: var(--color)
+    stroke-width: 2px
+    backface-visibility: hidden
+    @media screen and ( max-width: $breakpoint-mobile)
+      stroke-width: 4px
+
+#floatBlock
+  backface-visibility: hidden
 
 // Building blocks
 .icon

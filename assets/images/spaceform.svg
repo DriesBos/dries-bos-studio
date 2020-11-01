@@ -4,6 +4,6 @@
     transform="translate(-250.000000, -250.000000) translate(250.000000, 250.000000)"
     fill="none"
     fill-rule="evenodd"
-    stroke="#A7FCE7" stroke-width="2"
+    stroke="currentColor"
   />
 </svg>
