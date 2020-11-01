@@ -32,6 +32,7 @@ export default {
   },
   mounted() {
     this.customCursor()
+    this.detectTouch()
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item => item.addEventListener("mouseover", this.changeCursor))
@@ -70,6 +71,13 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
+    detectTouch() {
+      if ("ontouchstart" in document.documentElement) {
+        setTimeout(function() {
+          this.toggleFloatHeaderTrue()
+        }, 333)
+      }
+    },
     toggleFloatHeaderTrue() {
       this.floatHeader = true
       this.toggleFloatHeader()
