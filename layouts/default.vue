@@ -81,7 +81,7 @@ export default {
             ease: "power1.inOut",
             duration: 0.33
           })
-        }, 333)
+        }, 3300)
       }
     },
     toggleFloatHeaderTrue() {
