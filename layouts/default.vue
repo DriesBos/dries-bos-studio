@@ -18,6 +18,7 @@
 
 <script>
 import gsap from "gsap"
+import detectIt from "detect-it"
 
 export default {
   data() {
@@ -72,9 +73,14 @@ export default {
   },
   methods: {
     detectTouch() {
-      if ("ontouchstart" in document.documentElement) {
+      if (detectIt.deviceType === "touchOnly") {
         setTimeout(function() {
-          this.toggleFloatHeaderTrue()
+          this.floatHeader = true
+          gsap.to("#floatBlock", {
+            yPercent: -100,
+            ease: "power1.inOut",
+            duration: 0.33
+          })
         }, 333)
       }
     },
