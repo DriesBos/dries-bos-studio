@@ -278,21 +278,17 @@ export default {
     // SEARCH
     searchIconClick() {
       this.toggleSearch = !this.toggleSearch
+      var search = document.getElementById("search")
       if (this.toggleSearch) {
         setTimeout(function() {
           if (detectIt.deviceType === "touchOnly") {
-            document.body.ontouchend = function() {
-              document.getElementById("search").focus()
-            }
+            search.setAttribute("autofocus", "autofocus")
+            search.focus()
           } else if (detectIt.deviceType === "mouseOnly") {
-            document.getElementById("search").focus()
+            search.focus()
           } else {
-            document.getElementById("search").focus()
+            search.focus()
           }
-          // document.getElementById("search").focus()
-          // document.body.ontouchend = function() {
-          //   document.getElementById("search").focus()
-          // }
         }, 100)
       } else {
         this.search = ""
