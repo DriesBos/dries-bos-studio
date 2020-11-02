@@ -281,10 +281,9 @@ export default {
       var search = document.getElementById("search")
       if (this.toggleSearch) {
         setTimeout(function() {
+          // TODO: Still doesnt work properly in IOS safari
           if (detectIt.deviceType === "touchOnly") {
             search.setAttribute("autofocus", "autofocus")
-            search.focus()
-          } else if (detectIt.deviceType === "mouseOnly") {
             search.focus()
           } else {
             search.focus()
