@@ -132,6 +132,7 @@
 import onPageLoad from "@/mixins/onPageLoad"
 import { mapState } from "vuex"
 import detectIt from "detect-it"
+import gsap from "gsap"
 
 export default {
   mixins: [onPageLoad],
@@ -240,8 +241,12 @@ export default {
       })
     }
   },
+  watch: {
+    search: function() {
+      this.searchInputChanged()
+    }
+  },
   mounted() {
-    console.log("FILTERED LIST", this.filteredList)
     this.calculateWidest("contentListItem-Column.year")
     this.calculateWidest("contentListItem-Column.title")
     this.calculateWidest("contentListItem-Column.agency")
@@ -329,6 +334,7 @@ export default {
         }, 100)
       } else {
         this.search = ""
+        this.searchInputChanged()
       }
     },
     searchHasValue() {
@@ -340,10 +346,24 @@ export default {
       if (event.keyCode === 27 && this.toggleSearch) {
         this.toggleSearch = false
         this.search = ""
+        this.searchInputChanged()
       }
     },
     outsideSearch() {
       this.toggleSearch = false
+    },
+    searchInputChanged() {
+      setTimeout(function() {
+        gsap.to("section", {
+          opacity: 1,
+          y: 0,
+          ease: "power1.inOut",
+          duration: 0,
+          stagger: {
+            amount: 0
+          }
+        })
+      }, 10)
     }
   }
 }
