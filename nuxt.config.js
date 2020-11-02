@@ -45,12 +45,6 @@ module.exports = {
     ]
   },
 
-  router: {
-    scrollBehavior: function(to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
-  },
-
   // Runtime config
   // Exposed to frontend
   publicRuntimeConfig: {
