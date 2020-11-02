@@ -119,6 +119,7 @@
         :post="post"
       ></IndexImageItem>
     </template>
+    <TheFooter />
   </div>
 </template>
 

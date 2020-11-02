@@ -9,7 +9,6 @@
       <transition name="page" mode="out-in">
         <nuxt />
       </transition>
-      <LazyTheFooter />
     </div>
     <div class="cursor">
       <div class="cursor-Small" />
