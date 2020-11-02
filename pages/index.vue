@@ -55,6 +55,7 @@
                 type="text"
                 placeholder="search project.."
                 title="search project"
+                size="13"
               />
             </li>
             <li
