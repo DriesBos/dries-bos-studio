@@ -1,5 +1,6 @@
 <template>
   <nuxt-link
+    v-if="post.active"
     :id="post.id"
     :key="post.id"
     :to="`/projects/${post.id}`"
