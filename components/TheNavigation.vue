@@ -9,17 +9,15 @@
       <li class="contentListItem-Column logo">
         <nuxt-link class="cursorInteract" to="/">
           <span title="that's me!">Dries Bos</span>
-          <span
-            v-show="
-              this.$route.name === 'index' || this.$route.name === 'about'
-            "
-            class="logo"
+          <!-- prettier-ignore -->
+          <span v-show="this.$route.name === 'index' || this.$route.name === 'about'"
+            class="logo-Subtitle"
             title="that's me!"
             >— Creative Web Developer</span
           >
           <span
             v-show="this.$route.name === 'projects-slug'"
-            class="logo"
+            class="logo-Slug"
             title="Dries and.."
             >& {{ slug }}</span
           >

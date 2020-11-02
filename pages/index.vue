@@ -76,6 +76,7 @@
         </li>
       </ul>
     </section>
+    <!-- INDEX LIST -->
     <template v-if="viewState">
       <nuxt-link
         v-for="(post, i) in filteredList"
@@ -114,6 +115,7 @@
         </ul>
       </nuxt-link>
     </template>
+    <!-- INDEX GRID -->
     <template v-if="!viewState">
       <IndexImageItem
         v-for="post in filteredList"
