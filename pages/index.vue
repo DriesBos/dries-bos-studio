@@ -280,6 +280,9 @@ export default {
       if (this.toggleSearch) {
         setTimeout(function() {
           document.getElementById("search").focus()
+          document.body.ontouchend = function() {
+            document.getElementById("search").focus()
+          }
         }, 100)
       } else {
         this.search = ""
