@@ -198,7 +198,7 @@ export default {
           return this.posts
             .slice(0)
             .sort((a, b) =>
-              a.category.toLowerCase() < b.category.toLowerCase()
+              a.category[0].toLowerCase() < b.category[0].toLowerCase()
                 ? this.sorting
                 : -this.sorting
             )
@@ -206,7 +206,7 @@ export default {
           return this.posts
             .slice(0)
             .sort((a, b) =>
-              a.category.toLowerCase() > b.category.toLowerCase()
+              a.category[0].toLowerCase() > b.category[0].toLowerCase()
                 ? this.sorting
                 : -this.sorting
             )
