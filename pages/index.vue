@@ -124,6 +124,7 @@
 <script>
 import onPageLoad from "@/mixins/onPageLoad"
 import { mapState } from "vuex"
+import detectIt from "detect-it"
 
 export default {
   mixins: [onPageLoad],
@@ -279,10 +280,19 @@ export default {
       this.toggleSearch = !this.toggleSearch
       if (this.toggleSearch) {
         setTimeout(function() {
-          document.getElementById("search").focus()
-          document.body.ontouchend = function() {
+          if (detectIt.deviceType === "touchOnly") {
+            document.body.ontouchend = function() {
+              document.getElementById("search").focus()
+            }
+          } else if (detectIt.deviceType === "mouseOnly") {
+            document.getElementById("search").focus()
+          } else {
             document.getElementById("search").focus()
           }
+          // document.getElementById("search").focus()
+          // document.body.ontouchend = function() {
+          //   document.getElementById("search").focus()
+          // }
         }, 100)
       } else {
         this.search = ""
