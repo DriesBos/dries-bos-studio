@@ -238,7 +238,6 @@ export default {
     }
   },
   mounted() {
-    console.log("FILTERED LIST", this.filteredList)
     this.calculateWidest("contentListItem-Column.year")
     this.calculateWidest("contentListItem-Column.title")
     this.calculateWidest("contentListItem-Column.agency")
@@ -247,16 +246,23 @@ export default {
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
     document.addEventListener("keydown", this.escapeSearch)
+    window.addEventListener("resize", this.screenResize)
+  },
+  updated() {
+    this.calculateWidest("contentListItem-Column.year")
+    this.calculateWidest("contentListItem-Column.title")
+    this.calculateWidest("contentListItem-Column.agency")
+    this.calculateWidest("contentListItem-Column.category")
   },
   destroyed() {
     window.removeEventListener("input", this.searchHasValue)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
     document.removeEventListener("keydown", this.escapeSearch)
+    window.removeEventListener("resize", this.screenResize)
   },
   methods: {
     calculateWidest(el) {
-      console.log("EL", el)
       var maxWidth = 0
       var array = document.querySelectorAll(`.${el}`)
       array.forEach(el => {
@@ -267,7 +273,12 @@ export default {
       array.forEach(el => {
         el.style.width = maxWidth + "px"
       })
-      console.log("MAXWIDTH", maxWidth)
+    },
+    screenResize() {
+      this.calculateWidest("contentListItem-Column.year")
+      this.calculateWidest("contentListItem-Column.title")
+      this.calculateWidest("contentListItem-Column.agency")
+      this.calculateWidest("contentListItem-Column.category")
     },
     // FILTER
     sortYear() {

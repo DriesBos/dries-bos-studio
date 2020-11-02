@@ -146,6 +146,9 @@ section
       padding-left: var(--spacing-one)
     &:last-child
       padding-right: var(--spacing-one)
+    &.category, &.agency, &.year, &.title
+      flex-shrink: 0
+      white-space: nowrap
     &.category
       p
         display: inline
@@ -156,22 +159,12 @@ section
           content: ''
     &.search
       padding-left: 0
-    @media screen and ( max-width: 1282px)
-      // flex-basis: 25%
+    @media screen and ( max-width: 1090px)
       &.agency
-        // display: none
-    @media screen and ( max-width: 1282px)
-      // flex-basis: 33.3%
-    @media screen and ( min-width: 550px ) and ( max-width: 1282px)
-      &.category
-        // flex-basis: auto
-        // flex-grow: 1
-    @media screen and ( max-width: 550px)
+        display: none
+    @media screen and ( max-width: 670px)
       &.category
         display: none
-      // &.title
-      //   flex-basis: auto
-      //   flex-grow: 1
     &.icons
       display: flex
       justify-content: flex-end
