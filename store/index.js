@@ -9,13 +9,16 @@ export default {
       let posts = getPosts.data.stories.map(bp => {
         return {
           id: bp.slug,
+          slug: bp.slug,
+          active: bp.content.active,
           title: bp.content.title,
           year: bp.content.year,
           category: bp.content.category,
           agency: bp.content.agency,
-          content: bp.content.content,
           cover_image: bp.content.cover_image,
-          images: bp.content.images
+          body: bp.content.content,
+          images: bp.content.images,
+          content: bp
         }
       })
       commit("posts/update", posts)

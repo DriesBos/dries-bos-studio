@@ -205,7 +205,7 @@ section
         color: currentColor
       &::placeholder
         color: currentColor
-        opacity: .25
+        opacity: var(--color-faded)
     &.active
       input
         visibility: visible
@@ -264,10 +264,16 @@ section
         display: none
   &-List
     transition: background $transition-hover, color $transition-hover
-    &:hover
-      @media ( hover: hover )
-        background: var(--active-background)
-        color: var(--active-color)
+    p, svg
+      opacity: var(--color-faded)
+      transition: opacity $transition-hover
+    &.active
+      p, svg
+        opacity: 1
+      &:hover
+        @media ( hover: hover )
+          background: var(--active-background)
+          color: var(--active-color)
   &-Images
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)

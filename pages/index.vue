@@ -83,7 +83,8 @@
         :id="post.id"
         :key="i"
         :to="`/projects/${post.id}`"
-        class="contentListItem-List cursorInteract"
+        class="contentListItem-List"
+        :class="[{ active: post.active }, { cursorInteract: post.active }]"
         tag="section"
       >
         <ul class="contentListItem">
@@ -240,6 +241,7 @@ export default {
     }
   },
   mounted() {
+    console.log("FILTERED LIST", this.filteredList)
     this.calculateWidest("contentListItem-Column.year")
     this.calculateWidest("contentListItem-Column.title")
     this.calculateWidest("contentListItem-Column.agency")
