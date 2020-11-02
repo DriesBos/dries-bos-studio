@@ -1,7 +1,7 @@
 <template>
   <div class="view view-Index">
     <!-- FILTER -->
-    <section class="contentListItem-Filter spaced-TopSide">
+    <section class="contentListItem-Filter">
       <div
         class="spaceForm"
         v-html="require('~/assets/images/spaceform.svg?include')"

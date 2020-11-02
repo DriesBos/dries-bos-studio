@@ -1,5 +1,5 @@
 <template>
-  <section id="floatBlock" class="contentListItem-Header spaced-TopSide">
+  <section id="floatBlock" class="contentListItem-Header">
     <div
       class="spaceForm"
       v-html="require('~/assets/images/spaceform.svg?include')"
