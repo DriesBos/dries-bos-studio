@@ -136,36 +136,46 @@ section
   padding-top: 1rem
   padding-bottom: 1rem
   &-Column
-    flex-basis: 20%
-    padding-left: var(--spacing-one)
-    padding-right: var(--spacing-one)
+    padding-left: var(--spacing-two)
+    padding-right: var(--spacing-two)
     flex-shrink: 0
+    &:first-child
+      padding-left: var(--spacing-one)
+      padding-right: var(--spacing-one)
+    &:nth-child(2)
+      padding-left: var(--spacing-one)
+    &:last-child
+      padding-right: var(--spacing-one)
     &.category
-      flex-grow: 1
+      p
+        display: inline
+        &::after
+          content: '&'
+      p:last-child
+        &::after
+          content: ''
     &.search
       padding-left: 0
     @media screen and ( max-width: 1282px)
-      flex-basis: 25%
+      // flex-basis: 25%
       &.agency
-        display: none
+        // display: none
     @media screen and ( max-width: 1282px)
-      flex-basis: 33.3%
-      &.year
-        flex-basis: 4.51rem
+      // flex-basis: 33.3%
     @media screen and ( min-width: 550px ) and ( max-width: 1282px)
       &.category
-        flex-basis: auto
-        flex-grow: 1
+        // flex-basis: auto
+        // flex-grow: 1
     @media screen and ( max-width: 550px)
       &.category
         display: none
-      &.title
-        flex-basis: auto
-        flex-grow: 1
-    &.year
-      flex-basis: 0rem
+      // &.title
+      //   flex-basis: auto
+      //   flex-grow: 1
     &.icons
-      flex-basis: auto !important
+      display: flex
+      justify-content: flex-end
+      flex-grow: 1
   &-Icons
     display: flex
     height: 100%
@@ -216,12 +226,14 @@ section
     background: rgba(0,0,0,0)
     .spaceForm
       opacity: 1
-    & .title
+    & .logo
       flex-grow: 1
       @media screen and ( max-width: $breakpoint-mobile)
         span.title
           display: none
   &-Filter
+    li
+      // text-transform: uppercase
     .title
       flex-shrink: 1
     p

@@ -6,20 +6,20 @@
     />
     <ul class="contentListItem">
       <!-- TITLE -->
-      <li class="contentListItem-Column title">
+      <li class="contentListItem-Column logo">
         <nuxt-link class="cursorInteract" to="/">
           <span title="that's me!">Dries Bos</span>
           <span
             v-show="
               this.$route.name === 'index' || this.$route.name === 'about'
             "
-            class="title"
+            class="logo"
             title="that's me!"
             >— Creative Web Developer</span
           >
           <span
             v-show="this.$route.name === 'projects-slug'"
-            class="title"
+            class="logo"
             title="Dries and.."
             >& {{ slug }}</span
           >

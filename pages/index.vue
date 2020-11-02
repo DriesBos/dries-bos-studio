@@ -12,7 +12,7 @@
             <p class="cursorInteract" title="sort by year">year</p>
           </div>
         </li>
-        <li class="contentListItem-Column title titleSearch">
+        <li class="contentListItem-Column title">
           <div
             class="listItem-Title listItem-Details"
             :class="{ active: sortByTitle }"
@@ -78,9 +78,9 @@
     </section>
     <template v-if="viewState">
       <nuxt-link
-        v-for="post in filteredList"
+        v-for="(post, i) in filteredList"
         :id="post.id"
-        :key="post.id"
+        :key="i"
         :to="`/projects/${post.id}`"
         class="contentListItem-List cursorInteract"
         tag="section"
@@ -96,7 +96,9 @@
             <p title="project agency">{{ post.agency || "" }}</p>
           </li>
           <li class="contentListItem-Column category">
-            <p title="project category">{{ post.category || "" }}</p>
+            <p v-for="(cat, index) in post.category" :key="index" title="role">
+              {{ cat }}
+            </p>
           </li>
           <li class="contentListItem-Column icons">
             <ul class="contentListItem-Icons">
@@ -236,6 +238,11 @@ export default {
     }
   },
   mounted() {
+    console.log("FILTERED LIST", this.filteredList)
+    this.calculateWidest("contentListItem-Column.year")
+    this.calculateWidest("contentListItem-Column.title")
+    this.calculateWidest("contentListItem-Column.agency")
+    this.calculateWidest("contentListItem-Column.category")
     window.addEventListener("input", this.searchHasValue)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -248,6 +255,20 @@ export default {
     document.removeEventListener("keydown", this.escapeSearch)
   },
   methods: {
+    calculateWidest(el) {
+      console.log("EL", el)
+      var maxWidth = 0
+      var array = document.querySelectorAll(`.${el}`)
+      array.forEach(el => {
+        if (el.offsetWidth > maxWidth) {
+          maxWidth = el.offsetWidth
+        }
+      })
+      array.forEach(el => {
+        el.style.width = maxWidth + "px"
+      })
+      console.log("MAXWIDTH", maxWidth)
+    },
     // FILTER
     sortYear() {
       this.sortByYear = true
