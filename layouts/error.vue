@@ -2,10 +2,10 @@
   <div class="view view-Container view-Error">
     <div class="errorItem">
       <p>
-        Oops! We couldn't find that page.
+        Oops! I couldn't find that page.
         <br />Return
         <nuxt-link class="cursorInteract" tag="a" to="/">home</nuxt-link
-        >&nbsp;or view our
+        >&nbsp;or view my
         <nuxt-link class="cursorInteract" tag="a" to="/">work</nuxt-link>.
       </p>
     </div>
@@ -34,10 +34,9 @@ export default {
 
 <style lang="sass">
 .view-Error
-  min-height: 100vh !important
   display: flex
   justify-content: center
-  align-items: center
+  align-items: flex-start
   --var: 0%
   text-align: center
   p
