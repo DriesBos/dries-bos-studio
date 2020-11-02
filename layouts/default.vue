@@ -26,47 +26,13 @@ export default {
       floatHeader: false
     }
   },
-  watch: {
-    $route() {
-      this.removeChangeCursor()
-    }
-  },
   mounted() {
-    this.customCursor()
     this.detectTouch()
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
-      )
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
   },
-  updated() {
-    this.removeChangeCursor()
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
-      )
-  },
   destroyed() {
-    this.removeChangeCursor()
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item =>
-        item.removeEventListener("mouseleave", this.removeChangeCursor)
-      )
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
@@ -115,23 +81,6 @@ export default {
           }
         })
       }, 50)
-    },
-    customCursor() {
-      let cursor = document.querySelector(".cursor")
-      function moveCursor(e) {
-        gsap.to(cursor, 0, {
-          opacity: 1,
-          left: e.clientX,
-          top: e.clientY
-        })
-      }
-      document.addEventListener("mousemove", moveCursor)
-    },
-    changeCursor() {
-      document.querySelector(".cursor").classList.add("active")
-    },
-    removeChangeCursor() {
-      document.querySelector(".cursor").classList.remove("active")
     },
     // BROWSER APIS
     windowIsVisible() {

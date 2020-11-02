@@ -14,8 +14,15 @@
 
 <script>
 import { gsap } from "gsap"
+import onPageLoad from "@/mixins/onPageLoad"
 
 export default {
+  mixins: [onPageLoad],
+  head() {
+    return {
+      title: "Page Not Found"
+    }
+  },
   mounted() {
     gsap.to(".errorItem", {
       "--var": "100%",
@@ -23,11 +30,6 @@ export default {
       delay: 0.33,
       ease: "ease"
     })
-  },
-  head() {
-    return {
-      title: "Page Not Found"
-    }
   }
 }
 </script>
