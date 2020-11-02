@@ -304,21 +304,7 @@ section
         opacity: 1
     &:last-of-type
       border-bottom: var(--border)
-  &-About
-    li
-      flex-basis: 50%
-    @media screen and ( max-width: 700px)
-      .contentListItem
-        flex-wrap: wrap
-        li
-          flex-basis: 100%
-        li:first-child
-          margin-bottom: 1rem
-      .contentListItem-Text:first-of-type
-        .contentListItem:first-child
-          li:first-child
-            display: none
-  &-Project
+  &-About, &-Project
     li
       flex-basis: 50% !important // Overrides indexItem
     @media screen and ( max-width: 700px)
@@ -326,10 +312,6 @@ section
         flex-wrap: wrap
         li
           flex-basis: 100% !important // Overrides indexItem
-        li:first-child
-          display: none
-    section:nth-last-of-type(2)
-      border-bottom: 0
 
 // Mobile / Desktop
 .mobileContent
