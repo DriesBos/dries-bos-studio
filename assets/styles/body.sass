@@ -135,6 +135,22 @@ section
   width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
+  &-List
+    &:hover + .contentListItem-CoverImage
+      opacity: 1
+  &-CoverImage
+    position: fixed
+    bottom: 0
+    right: 0
+    width: 360px
+    overflow: hidden
+    margin-right: var(--spacing-two)
+    margin-bottom: var(--spacing-two)
+    opacity: 0
+    transition: opacity $transition-hover
+    z-index: +1
+    img
+      border: var(--border)
   &-Column
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)

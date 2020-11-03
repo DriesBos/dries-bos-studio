@@ -78,43 +78,78 @@
     </section>
     <!-- INDEX LIST -->
     <template v-if="viewState">
-      <nuxt-link
-        v-for="(post, i) in filteredList"
-        :id="post.id"
-        :key="i"
-        :to="`/projects/${post.id}`"
-        class="contentListItem-List"
-        :class="[{ active: post.active }, { cursorInteract: post.active }]"
-        tag="section"
-      >
-        <ul class="contentListItem">
-          <li class="contentListItem-Column year">
-            <p title="project year">{{ post.year || "" }}</p>
-          </li>
-          <li class="contentListItem-Column title">
-            <p title="project title">{{ post.title || "" }}</p>
-          </li>
-          <li class="contentListItem-Column agency">
-            <p title="project agency">{{ post.agency || "" }}</p>
-          </li>
-          <li class="contentListItem-Column category">
-            <p v-for="(cat, index) in post.category" :key="index" title="role">
-              {{ cat }}
-            </p>
-          </li>
-          <li class="contentListItem-Column icons">
-            <ul class="contentListItem-Icons">
-              <li class="contentListItem-Icon contentListItem-Arrow">
-                <div
-                  class="icon icon-Arrow"
-                  title="view project"
-                  v-html="require('~/assets/images/icon-arrow.svg?include')"
-                ></div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nuxt-link>
+      <template v-for="(post, i) in filteredList">
+        <nuxt-link
+          :id="post.id"
+          :key="i"
+          :to="`/projects/${post.id}`"
+          class="contentListItem-List"
+          :class="[{ active: post.active }, { cursorInteract: post.active }]"
+          tag="section"
+        >
+          <ul class="contentListItem">
+            <li class="contentListItem-Column year">
+              <p title="project year">{{ post.year || "" }}</p>
+            </li>
+            <li class="contentListItem-Column title">
+              <p title="project title">{{ post.title || "" }}</p>
+            </li>
+            <li class="contentListItem-Column agency">
+              <p title="project agency">{{ post.agency || "" }}</p>
+            </li>
+            <li class="contentListItem-Column category">
+              <p
+                v-for="(cat, index) in post.category"
+                :key="index"
+                title="role"
+              >
+                {{ cat }}
+              </p>
+            </li>
+            <li class="contentListItem-Column icons">
+              <ul class="contentListItem-Icons">
+                <li class="contentListItem-Icon contentListItem-Arrow">
+                  <div
+                    class="icon icon-Arrow"
+                    title="view project"
+                    v-html="require('~/assets/images/icon-arrow.svg?include')"
+                  ></div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nuxt-link>
+        <div
+          :key="i"
+          v-lazy-container="{ selector: 'img' }"
+          class="contentListItem-CoverImage"
+        >
+          <img
+            :v-lazy="post.cover_image"
+            :data-srcset="
+              `${transformImage(
+                post.cover_image,
+                '1668x0'
+              )} 1668w, ${transformImage(
+                post.cover_image,
+                '1440x0'
+              )} 1440w, ${transformImage(
+                post.cover_image,
+                '1280x0'
+              )} 1280w, ${transformImage(
+                post.cover_image,
+                '960x0'
+              )} 960w, ${transformImage(
+                post.cover_image,
+                '800x0'
+              )} 800w, ${transformImage(post.cover_image, '690x0')} 690w`
+            "
+            sizes="100vw"
+            :alt="post.title"
+            class="lazy"
+          />
+        </div>
+      </template>
     </template>
     <!-- INDEX GRID -->
     <template v-if="!viewState">
@@ -271,6 +306,14 @@ export default {
     window.removeEventListener("resize", this.screenResize)
   },
   methods: {
+    transformImage(image, option) {
+      if (!image) return ""
+      if (!option) return ""
+      let imageService = "//img2.storyblok.com/"
+      let pathOne = image.replace("https://a.storyblok.com", "")
+      let pathTwo = pathOne.replace("//a.storyblok.com", "")
+      return imageService + option + pathTwo
+    },
     calculateWidest(el) {
       var maxWidth = 0
       var array = document.querySelectorAll(`.${el}`)
