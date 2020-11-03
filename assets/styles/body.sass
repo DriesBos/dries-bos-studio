@@ -137,17 +137,19 @@ section
   padding-bottom: 1rem
   &-List
     &:hover + .contentListItem-CoverImage
-      opacity: 1
+      @media ( hover: hover )
+        opacity: 1
   &-CoverImage
     position: fixed
     bottom: 0
     right: 0
-    width: 360px
+    width: 25vw
+    min-width: 250px
+    max-width: 360px
     overflow: hidden
     margin-right: var(--spacing-two)
-    margin-bottom: var(--spacing-two)
+    margin-bottom: var(--spacing-one)
     opacity: 0
-    transition: opacity $transition-hover
     z-index: +1
     img
       border: var(--border)
