@@ -12,11 +12,10 @@
     </div>
     <div class="cursor">
       <div class="cursor-Small" />
+      <div class="cursor-Large" />
     </div>
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>
-      <!-- <div class="laserBlok-Line"></div>
-      <div class="laserBlok-Line"></div> -->
     </div>
   </main>
 </template>
