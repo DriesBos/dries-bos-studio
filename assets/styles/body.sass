@@ -282,7 +282,8 @@ section
       .contentListItem-Column.icons
         display: none
   &-List
-    transition: background $transition-hover, color $transition-hover
+    transition: background $transition-hover, color $transition-hover, box-shadow $transition-hover
+    box-shadow: 0
     p, svg
       opacity: var(--color-faded)
       transition: opacity $transition-hover
@@ -292,7 +293,9 @@ section
       &:hover
         @media ( hover: hover )
           background: var(--active-background)
+          box-shadow: 0px 0px 10rem 0.1px rgba(#B6FFF5, 1)
           color: var(--active-color)
+          z-index: +1
   &-Images
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)
