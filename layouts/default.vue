@@ -38,7 +38,6 @@ export default {
   },
   mounted() {
     this.detectTouch()
-    // this.laserLoad()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -93,6 +92,7 @@ export default {
       }
     },
     viewIsToggled() {
+      this.laserLoad()
       setTimeout(function() {
         gsap.to("section", {
           opacity: 1,
