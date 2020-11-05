@@ -130,6 +130,22 @@ section
 .cursorInteract
   pointer-events: auto
 
+.laserBlok
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  z-index: -1
+  &-Line
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 101vw
+    height: 101vh
+    border: var(--border-width) solid var(--color)
+
 .contentListItem
   display: flex
   width: 100%
@@ -343,7 +359,7 @@ section
     &_Wrapper
       width: 100%
 
-// Views
+// VIEWS
 .view
   width: 100%
   max-width: 100%
@@ -353,6 +369,8 @@ section
     &:first-of-type
       .spaceForm
         opacity: 1
+        svg path
+          fill: black !important
     &:last-of-type
       border-bottom: var(--border)
   &-About, &-Project

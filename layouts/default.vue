@@ -13,6 +13,11 @@
     <div class="cursor">
       <div class="cursor-Small" />
     </div>
+    <div class="laserBlok">
+      <div class="laserBlok-Line"></div>
+      <!-- <div class="laserBlok-Line"></div>
+      <div class="laserBlok-Line"></div> -->
+    </div>
   </main>
 </template>
 
@@ -26,8 +31,14 @@ export default {
       floatHeader: false
     }
   },
+  watch: {
+    $route(to, from) {
+      this.laserLoad()
+    }
+  },
   mounted() {
     this.detectTouch()
+    // this.laserLoad()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -38,6 +49,18 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
+    laserLoad() {
+      gsap.set(".laserBlok-Line", {
+        width: 0,
+        height: 0
+      })
+      gsap.to(".laserBlok-Line", {
+        width: "105vw",
+        height: "105vh",
+        duration: 0.66,
+        ease: "expo.out"
+      })
+    },
     detectTouch() {
       if (detectIt.deviceType === "touchOnly") {
         setTimeout(function() {
