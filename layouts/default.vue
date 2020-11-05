@@ -23,11 +23,23 @@
 <script>
 import gsap from "gsap"
 import detectIt from "detect-it"
+import ogImage from "@/static/og-image.png"
 
 export default {
   data() {
     return {
       floatHeader: false
+    }
+  },
+  head() {
+    return {
+      meta: [
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.BASE_URL + ogImage
+        }
+      ]
     }
   },
   watch: {
