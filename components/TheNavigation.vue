@@ -77,6 +77,7 @@
             <a
               href="mailto:info@driesbos.com"
               class="cursorInteract icon icon-Mail"
+              target="_blank"
             >
               <div v-html="require('~/assets/images/icon-mail.svg?include')" />
             </a>
@@ -86,6 +87,7 @@
             v-show="this.$route.name === 'about'"
             class="contentListItem-Icon contentListItem-View mobileContent"
             title="call me!"
+            target="_blank"
           >
             <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
               <div v-html="require('~/assets/images/icon-phone.svg?include')" />
