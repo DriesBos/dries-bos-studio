@@ -8,10 +8,7 @@
     ></component>
     <div class="contentListItem-Nav">
       <nuxt-link
-        :to="{
-          path: `/${story.content.prev_link.cached_url}`,
-          hash: '.view'
-        }"
+        :to="`/${story.content.prev_link.cached_url}`"
         class="contentListItem-Nav_Prev cursorInteract"
         title="previous project"
         tag="div"
@@ -23,10 +20,7 @@
         />
       </nuxt-link>
       <nuxt-link
-        :to="{
-          path: `/${story.content.next_link.cached_url}`,
-          hash: 'top'
-        }"
+        :to="`/${story.content.next_link.cached_url}`"
         class="contentListItem-Nav_Next cursorInteract"
         title="next project"
         tag="div"
@@ -58,6 +52,7 @@ export default {
     GridItem: GridItem
   },
   mixins: [storyblokLivePreview, onPageLoad],
+  scrollToTop: true,
   asyncData(context) {
     let endpoint = `cdn/stories/projects/${context.params.slug}`
     let version =
