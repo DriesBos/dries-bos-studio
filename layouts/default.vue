@@ -39,8 +39,7 @@ import ogImage from "@/static/og-image.png"
 export default {
   data() {
     return {
-      floatHeader: false,
-      initialLoad: true
+      floatHeader: false
     }
   },
   head() {
@@ -55,13 +54,10 @@ export default {
     }
   },
   watch: {
-    $route(to, from) {
-      this.laserLoad()
-    }
+    $route(to, from) {}
   },
   mounted() {
     this.detectTouch()
-    this.initLoad()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -72,92 +68,6 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
-    initLoad() {
-      console.log(this.initialLoad)
-      if (this.initialLoad === true) {
-        this.typeAnimation()
-        var el = document.querySelector(".cube-Container")
-        gsap.set(el, {
-          yPercent: 100
-        })
-        gsap.to(el, {
-          yPercent: 0,
-          duration: 4.5,
-          delay: 3,
-          ease: "expo.out"
-        })
-        this.initialLoad = false
-      }
-    },
-    typeAnimation() {
-      if (this.initialLoad === true) {
-        var tl = gsap.timeline({ repeat: 1 })
-        tl.to(".typeAnimation-One", {
-          opacity: 1,
-          duration: 0.66
-        })
-        tl.to(".typeAnimation-One", {
-          opacity: 0,
-          duration: 0
-        })
-        tl.to(".typeAnimation-Two", {
-          opacity: 1,
-          duration: 0.5
-        })
-        tl.to(".typeAnimation-Two", {
-          opacity: 0,
-          duration: 0
-        })
-        tl.to(".typeAnimation-Three", {
-          opacity: 1,
-          duration: 0.33
-        })
-        tl.to(".typeAnimation-Three", {
-          opacity: 0,
-          ease: "expo.out",
-          duration: 0.25
-        })
-        tl.to(
-          ".typeAnimation-Four",
-          {
-            opacity: 1,
-            duration: 0.25
-          },
-          "-=0.33"
-        )
-        tl.to(".typeAnimation-Four", {
-          opacity: 0,
-          ease: "expo.out",
-          duration: 0.25
-        })
-        tl.to(
-          ".typeAnimation-Five",
-          {
-            opacity: 1,
-            duration: 0.66
-          },
-          "-=0.33"
-        )
-        tl.to(".typeAnimation-Five", {
-          opacity: 0,
-          duration: 0
-        })
-        tl.play()
-      }
-    },
-
-    laserLoad() {
-      gsap.set(".laserBlok-Line", {
-        width: 0,
-        height: 0
-      })
-      gsap.to(".laserBlok-Line", {
-        width: "105vw",
-        height: "105vh",
-        duration: 0.66,
-        ease: "expo.out"
-      })
-    },
     detectTouch() {
       if (detectIt.deviceType === "touchOnly") {
         setTimeout(function() {
