@@ -34,7 +34,7 @@
       <a
         href="mailto:info@driesbos.com?subject=Let's Make Internet"
         target="_blank"
-        >let's make internet</a
+        >lets make internet</a
       >
     </div>
   </main>
