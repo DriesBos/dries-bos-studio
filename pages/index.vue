@@ -82,7 +82,7 @@
         <template v-if="post.active">
           <nuxt-link
             :id="post.id"
-            :key="i"
+            :key="post.id"
             :to="`/projects/${post.id}`"
             class="contentListItem-List"
             :class="[{ active: post.active }, { cursorInteract: post.active }]"
@@ -121,7 +121,7 @@
             </ul>
           </nuxt-link>
           <div
-            :key="i"
+            :key="post.title"
             v-lazy-container="{ selector: 'img' }"
             class="contentListItem-CoverImage"
           >
