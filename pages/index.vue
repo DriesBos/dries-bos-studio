@@ -124,27 +124,9 @@
           v-lazy-container="{ selector: 'img' }"
           class="contentListItem-CoverImage"
         >
+          <!-- prettier-ignore -->
           <img
-            :v-lazy="post.cover_image"
-            :data-srcset="
-              `${transformImage(
-                post.cover_image,
-                '720x0'
-              )} 1668w, ${transformImage(
-                post.cover_image,
-                '720x0'
-              )} 1440w, ${transformImage(
-                post.cover_image,
-                '720x0'
-              )} 1280w, ${transformImage(
-                post.cover_image,
-                '720x0'
-              )} 960w, ${transformImage(
-                post.cover_image,
-                '720x0'
-              )} 800w, ${transformImage(post.cover_image, '720x0')} 690w`
-            "
-            sizes="100vw"
+            :data-src="`${transformImage(post.cover_image,'720x0')}`"
             :alt="post.title"
             class="lazy"
           />
