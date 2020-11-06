@@ -127,8 +127,8 @@ export default {
       })
     },
     viewIsToggled() {
-      this.laserLoad()
       setTimeout(function() {
+        this.laserLoad()
         gsap.to("section", {
           opacity: 1,
           y: 0,
