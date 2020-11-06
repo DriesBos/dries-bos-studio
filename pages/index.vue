@@ -79,58 +79,101 @@
     <!-- INDEX LIST -->
     <template v-if="viewState">
       <template v-for="(post, i) in filteredList">
-        <nuxt-link
-          :id="post.id"
-          :key="i"
-          :to="`/projects/${post.id}`"
-          class="contentListItem-List"
-          :class="[{ active: post.active }, { cursorInteract: post.active }]"
-          tag="section"
-        >
-          <ul class="contentListItem">
-            <li class="contentListItem-Column year">
-              <p title="project year">{{ post.year || "" }}</p>
-            </li>
-            <li class="contentListItem-Column title">
-              <p title="project title">{{ post.title || "" }}</p>
-            </li>
-            <li class="contentListItem-Column agency">
-              <p title="project agency">{{ post.agency || "" }}</p>
-            </li>
-            <li class="contentListItem-Column category">
-              <p
-                v-for="(cat, index) in post.category"
-                :key="index"
-                title="role"
-              >
-                {{ cat }}
-              </p>
-            </li>
-            <li class="contentListItem-Column icons">
-              <ul class="contentListItem-Icons">
-                <li class="contentListItem-Icon contentListItem-Arrow">
-                  <div
-                    class="icon icon-Arrow"
-                    title="view project"
-                    v-html="require('~/assets/images/icon-arrow.svg?include')"
-                  ></div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nuxt-link>
-        <div
-          :key="i"
-          v-lazy-container="{ selector: 'img' }"
-          class="contentListItem-CoverImage"
-        >
-          <!-- prettier-ignore -->
-          <img
+        <template v-if="post.active">
+          <nuxt-link
+            :id="post.id"
+            :key="i"
+            :to="`/projects/${post.id}`"
+            class="contentListItem-List"
+            :class="[{ active: post.active }, { cursorInteract: post.active }]"
+            tag="section"
+          >
+            <ul class="contentListItem">
+              <li class="contentListItem-Column year">
+                <p title="project year">{{ post.year || "" }}</p>
+              </li>
+              <li class="contentListItem-Column title">
+                <p title="project title">{{ post.title || "" }}</p>
+              </li>
+              <li class="contentListItem-Column agency">
+                <p title="project agency">{{ post.agency || "" }}</p>
+              </li>
+              <li class="contentListItem-Column category">
+                <p
+                  v-for="(cat, index) in post.category"
+                  :key="index"
+                  title="role"
+                >
+                  {{ cat }}
+                </p>
+              </li>
+              <li class="contentListItem-Column icons">
+                <ul class="contentListItem-Icons">
+                  <li class="contentListItem-Icon contentListItem-Arrow">
+                    <div
+                      class="icon icon-Arrow"
+                      title="view project"
+                      v-html="require('~/assets/images/icon-arrow.svg?include')"
+                    ></div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nuxt-link>
+          <div
+            :key="i"
+            v-lazy-container="{ selector: 'img' }"
+            class="contentListItem-CoverImage"
+          >
+            <!-- prettier-ignore -->
+            <img
             :data-src="`${transformImage(post.cover_image,'720x0')}`"
             :alt="post.title"
             class="lazy"
           />
-        </div>
+          </div>
+        </template>
+        <template v-if="post.active == false">
+          <section
+            :id="post.id"
+            :key="i"
+            class="contentListItem-List"
+            :class="{ active: post.active }"
+          >
+            <ul class="contentListItem">
+              <li class="contentListItem-Column year">
+                <p title="project year">{{ post.year || "" }}</p>
+              </li>
+              <li class="contentListItem-Column title">
+                <p title="project title">{{ post.title || "" }}</p>
+              </li>
+              <li class="contentListItem-Column agency">
+                <p title="project agency">{{ post.agency || "" }}</p>
+              </li>
+              <li class="contentListItem-Column category">
+                <p
+                  v-for="(cat, index) in post.category"
+                  :key="index"
+                  title="role"
+                >
+                  {{ cat }}
+                </p>
+              </li>
+              <li class="contentListItem-Column icons">
+                <ul class="contentListItem-Icons">
+                  <li class="contentListItem-Icon contentListItem-Arrow">
+                    <!-- prettier-ignore -->
+                    <div
+                        class="icon icon-Arrow"
+                        title="view project"
+                        v-html="require('~/assets/images/icon-arrow.svg?include')"
+                      ></div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </template>
       </template>
     </template>
     <!-- INDEX GRID -->
@@ -264,6 +307,7 @@ export default {
     }
   },
   mounted() {
+    console.log("INDEX", this.filteredList)
     this.calculateWidest("contentListItem-Column.year")
     this.calculateWidest("contentListItem-Column.title")
     this.calculateWidest("contentListItem-Column.agency")
