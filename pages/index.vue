@@ -307,7 +307,6 @@ export default {
     }
   },
   mounted() {
-    console.log("INDEX", this.filteredList)
     this.calculateWidest("contentListItem-Column.year")
     this.calculateWidest("contentListItem-Column.title")
     this.calculateWidest("contentListItem-Column.agency")
