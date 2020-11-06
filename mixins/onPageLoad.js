@@ -65,20 +65,20 @@ export default {
         gsap.set(".collaborate", {
           opacity: 1,
           duration: 0.33,
-          delay: 5,
+          delay: 3,
           ease: "expo.out"
         })
         gsap.to(".laserBlok-Line", {
           opacity: 1,
           duration: 0,
-          delay: 4.5,
+          delay: 2.5,
           ease: "none"
         })
         gsap.to(".laserBlok-Line", {
           width: "105vw",
           height: "105vh",
           duration: 0.66,
-          delay: 4.5,
+          delay: 2.5,
           ease: "expo.out"
         })
         // SECTIONS LOAD ANIMATION
@@ -87,7 +87,7 @@ export default {
           y: 0,
           ease: "power1.inOut",
           duration: 0.33,
-          delay: 4.5,
+          delay: 2.5,
           stagger: {
             amount: 0.66
           }
@@ -118,10 +118,11 @@ export default {
       }
     },
     typeAnimation() {
-      var tl = gsap.timeline({ repeat: 1 })
+      var tl = gsap.timeline({ repeat: 0 })
       tl.to(".typeAnimation-One", {
         opacity: 1,
-        duration: 0.66
+        duration: 0.66,
+        delay: 0.25
       })
       tl.to(".typeAnimation-One", {
         opacity: 0,
