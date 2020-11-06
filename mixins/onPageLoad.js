@@ -15,7 +15,6 @@ export default {
       this.removeChangeCursor()
     }
   },
-
   mounted() {
     this.customCursor()
     this.laserLoad()
