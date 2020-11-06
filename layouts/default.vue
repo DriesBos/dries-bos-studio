@@ -62,9 +62,6 @@ export default {
       ]
     }
   },
-  watch: {
-    $route(to, from) {}
-  },
   mounted() {
     this.detectTouch()
     document.addEventListener("visibilitychange", this.windowIsVisible)

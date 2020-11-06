@@ -17,7 +17,6 @@ export default {
   },
   mounted() {
     this.customCursor()
-    this.laserLoad()
     this.loadSections()
     document
       .querySelectorAll(".cursorInteract")
@@ -52,19 +51,17 @@ export default {
   },
   methods: {
     // ON PAGE LOAD
-    laserLoad() {
+    loadSections() {
       gsap.set(".laserBlok-Line", {
         width: 0,
         height: 0,
         opacity: 0
       })
       if (this.initState) {
-        gsap.to(".laserBlok-Line", {
-          opacity: 1,
-          duration: 0,
-          delay: 4.5,
-          ease: "none"
-        })
+        this.$store.commit("init/toggleTheInit")
+        // TYPE ANIMATION
+        this.typeAnimation()
+        // LASER ANIMATION
         gsap.set(".collaborate", {
           opacity: 1,
           duration: 0.33,
@@ -72,31 +69,19 @@ export default {
           ease: "expo.out"
         })
         gsap.to(".laserBlok-Line", {
-          width: "105vw",
-          height: "105vh",
-          duration: 0.66,
-          delay: 4.5,
-          ease: "expo.out"
-        })
-      } else {
-        gsap.to(".laserBlok-Line", {
           opacity: 1,
           duration: 0,
+          delay: 4.5,
           ease: "none"
         })
         gsap.to(".laserBlok-Line", {
           width: "105vw",
           height: "105vh",
           duration: 0.66,
+          delay: 4.5,
           ease: "expo.out"
         })
-      }
-    },
-    // INITIAL LANDING
-    loadSections() {
-      if (this.initState) {
-        this.$store.commit("init/toggleTheInit")
-        this.typeAnimation()
+        // SECTIONS LOAD ANIMATION
         gsap.to("section", {
           opacity: 1,
           y: 0,
@@ -108,6 +93,19 @@ export default {
           }
         })
       } else {
+        // LASER ANIMATION
+        gsap.to(".laserBlok-Line", {
+          opacity: 1,
+          duration: 0,
+          ease: "none"
+        })
+        gsap.to(".laserBlok-Line", {
+          width: "105vw",
+          height: "105vh",
+          duration: 0.66,
+          ease: "expo.out"
+        })
+        // SECTIONS LOAD ANIMATION
         gsap.to("section", {
           opacity: 1,
           y: 0,
@@ -177,32 +175,25 @@ export default {
     customCursor() {
       let cursorOne = document.querySelector(".cursor-One")
       let cursorTwo = document.querySelector(".cursor-Two")
-      let cursorThree = document.querySelector(".cursor-Three")
       function moveCursorOne(e) {
-        gsap.to(cursorOne, 0, {
+        gsap.to(cursorOne, 0.165, {
           opacity: 1,
           left: e.clientX,
-          top: e.clientY
+          top: e.clientY,
+          ease: "ease"
         })
       }
       function moveCursorTwo(e) {
-        gsap.to(cursorTwo, 0, {
-          opacity: 1,
-          delay: 0.25,
-          left: e.clientX,
-          top: e.clientY
-        })
-      }
-      function moveCursorThree(e) {
-        gsap.to(cursorThree, 0, {
+        gsap.to(cursorTwo, 0.165, {
           opacity: 1,
           left: e.clientX,
-          top: e.clientY
+          top: e.clientY,
+          ease: "ease",
+          delay: 0.165
         })
       }
       document.addEventListener("mousemove", moveCursorOne)
       document.addEventListener("mousemove", moveCursorTwo)
-      document.addEventListener("mousemove", moveCursorThree)
     },
     changeCursor() {
       document.querySelector(".cursor").classList.add("active")
