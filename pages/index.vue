@@ -129,20 +129,20 @@
             :data-srcset="
               `${transformImage(
                 post.cover_image,
-                '1668x0'
+                '720x0'
               )} 1668w, ${transformImage(
                 post.cover_image,
-                '1440x0'
+                '720x0'
               )} 1440w, ${transformImage(
                 post.cover_image,
-                '1280x0'
+                '720x0'
               )} 1280w, ${transformImage(
                 post.cover_image,
-                '960x0'
+                '720x0'
               )} 960w, ${transformImage(
                 post.cover_image,
-                '800x0'
-              )} 800w, ${transformImage(post.cover_image, '690x0')} 690w`
+                '720x0'
+              )} 800w, ${transformImage(post.cover_image, '720x0')} 690w`
             "
             sizes="100vw"
             :alt="post.title"
