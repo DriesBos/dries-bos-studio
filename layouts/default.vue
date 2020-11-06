@@ -10,9 +10,11 @@
         <nuxt />
       </transition>
     </div>
-    <div class="cursor">
+    <div class="cursor cursor-One">
       <div class="cursor-Small" />
-      <div class="cursor-Large" />
+    </div>
+    <div class="cursor cursor-Two">
+      <div class="cursor-Small" />
     </div>
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>

@@ -53,15 +53,34 @@ export default {
       })
     },
     customCursor() {
-      let cursor = document.querySelector(".cursor")
-      function moveCursor(e) {
-        gsap.to(cursor, 0, {
+      let cursorOne = document.querySelector(".cursor-One")
+      let cursorTwo = document.querySelector(".cursor-Two")
+      let cursorThree = document.querySelector(".cursor-Three")
+      function moveCursorOne(e) {
+        gsap.to(cursorOne, 0, {
           opacity: 1,
           left: e.clientX,
           top: e.clientY
         })
       }
-      document.addEventListener("mousemove", moveCursor)
+      function moveCursorTwo(e) {
+        gsap.to(cursorTwo, 0, {
+          opacity: 1,
+          delay: 0.25,
+          left: e.clientX,
+          top: e.clientY
+        })
+      }
+      function moveCursorThree(e) {
+        gsap.to(cursorThree, 0, {
+          opacity: 1,
+          left: e.clientX,
+          top: e.clientY
+        })
+      }
+      document.addEventListener("mousemove", moveCursorOne)
+      document.addEventListener("mousemove", moveCursorTwo)
+      document.addEventListener("mousemove", moveCursorThree)
     },
     changeCursor() {
       document.querySelector(".cursor").classList.add("active")
