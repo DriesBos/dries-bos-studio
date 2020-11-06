@@ -89,11 +89,11 @@ export default {
       position: absolute
       left: 0
       display: inline-block
-      bottom: 0
+      bottom: calc(0px - (#{var(--border-width)} / 2))
       top: 0
       width: var(--var)
       z-index: 0
-      border-bottom: 1px solid var(--color)
+      border-bottom: var(--border-width) solid var(--color)
     &:hover
       &::before
         @media ( hover: hover )

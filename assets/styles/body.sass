@@ -45,7 +45,7 @@ main
 section
   position: sticky
   top: 0
-  margin-top: -1px
+  margin-top: calc(0px - #{var(--border-width)})
   margin-left: auto
   margin-right: auto
   width: 100%
@@ -60,9 +60,8 @@ section
 .spaceForm
   position: absolute
   top: -1px
-  left: 0
-  right: 0
-  width: 100%
+  left: calc(0px - #{var(--border-width)})
+  width: calc(100% + (2* #{var(--border-width)}))
   opacity: 0
   transform: translateY(-100%)
   pointer-events: none
@@ -262,7 +261,6 @@ section
     z-index: 900
     border: var(--border)
     pointer-events: none
-    // margin-bottom: -2px
     background: rgba(0,0,0,0)
     .spaceForm
       opacity: 1

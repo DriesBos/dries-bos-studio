@@ -48,12 +48,12 @@ export default {
     &::before
       content: ''
       position: absolute
-      left: 0
       display: inline-block
+      left: 0
       top: 0
-      bottom: 0
+      bottom: calc(0px - (#{var(--border-width)} / 2))
       width: var(--var)
-      border-bottom: 1px solid var(--color)
+      border-bottom: var(--border-width) solid var(--color)
     &:hover
       &::before
         @media ( hover: hover )
