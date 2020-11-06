@@ -20,9 +20,11 @@
       <div class="typeAnimation-Content">
         <span class="typeAnimation-Word typeAnimation-One">LET'S</span>
         <span class="typeAnimation-Word typeAnimation-Two">MAKE</span>
-        <span class="typeAnimation-Word typeAnimation-Three">IN</span>
-        <span class="typeAnimation-Word typeAnimation-Four">TER</span>
-        <span class="typeAnimation-Word typeAnimation-Five">NET</span>
+        <span class="typeAnimation-InternetWrap">
+          <span class="typeAnimation-Word typeAnimation-Three">IN</span>
+          <span class="typeAnimation-Word typeAnimation-Four">TER</span>
+          <span class="typeAnimation-Word typeAnimation-Five">NET</span>
+        </span>
       </div>
     </div>
     <div class="laserBlok">

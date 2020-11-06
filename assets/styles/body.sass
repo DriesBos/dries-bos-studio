@@ -164,8 +164,6 @@ section
     height: 101vh
     border: var(--border-width) solid var(--color)
 
-// CONTENT
-
 .typeAnimation
   position: fixed
   left: 0
@@ -176,18 +174,24 @@ section
   justify-content: center
   align-items: center
   z-index: -1
-  // border: 1px solid purple
+  pointer-events: none
   &-Content
-    // border: 1px solid purple
-
+    @media (orientation: portrait)
+      display: flex
+      flex-direction: column
+      align-items: center
   &-Word
     font-size: 8vw
     -webkit-text-fill-color: rgba(0,0,0,0)
     -webkit-text-stroke-width: var(--border-width)
     -webkit-text-stroke-color: var(--color)
     opacity: 0
-    &:nth-child(1), &:nth-child(2)
-      margin-right: .5em
+    @media (orientation: portrait)
+      font-size: 15vw
+  &-One, &-Two
+    margin-right: .5em
+
+// CONTENT
 .contentListItem
   display: flex
   width: 100%
