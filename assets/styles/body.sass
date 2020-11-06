@@ -62,16 +62,22 @@ section
   position: fixed
   left: 0
   bottom: 0
-  padding: .5rem
   background: var(--background)
   border: var(--border)
   margin-left: 2vw
   margin-bottom: 2vh
   z-index: +4
   cursor: pointer
+  box-shadow: 0
+  transition: box-shadow $transition-hover
+  a
+    padding-left: 1rem
+    padding-right: 1rem
+    line-height: 1.8
   &:hover
     @media ( hover: hover )
       animation: excited 0.165s ease infinite
+      box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
 
 .spaceForm
   position: absolute

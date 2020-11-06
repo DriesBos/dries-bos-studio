@@ -28,7 +28,7 @@
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>
     </div>
-    <div class="collaborate">
+    <div class="collaborate cursorInteract">
       <a
         href="mailto:info@driesbos.com?subject=Let's Make Internet"
         target="_blank"
