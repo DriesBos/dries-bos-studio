@@ -144,6 +144,29 @@ section
     border: var(--border-width) solid var(--color)
 
 // CONTENT
+
+.typeAnimation
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: -1
+  // border: 1px solid purple
+  &-Content
+    // border: 1px solid purple
+
+  &-Word
+    font-size: 8vw
+    -webkit-text-fill-color: rgba(0,0,0,0)
+    -webkit-text-stroke-width: var(--border-width)
+    -webkit-text-stroke-color: var(--color)
+    opacity: 0
+    &:nth-child(1), &:nth-child(2)
+      margin-right: .5em
 .contentListItem
   display: flex
   width: 100%

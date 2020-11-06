@@ -16,6 +16,15 @@
     <div class="cursor cursor-Two">
       <div class="cursor-Small" />
     </div>
+    <div class="typeAnimation">
+      <div class="typeAnimation-Content">
+        <span class="typeAnimation-Word typeAnimation-One">LET'S</span>
+        <span class="typeAnimation-Word typeAnimation-Two">MAKE</span>
+        <span class="typeAnimation-Word typeAnimation-Three">IN</span>
+        <span class="typeAnimation-Word typeAnimation-Four">TER</span>
+        <span class="typeAnimation-Word typeAnimation-Five">NET</span>
+      </div>
+    </div>
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>
     </div>
@@ -30,7 +39,8 @@ import ogImage from "@/static/og-image.png"
 export default {
   data() {
     return {
-      floatHeader: false
+      floatHeader: false,
+      initialLoad: true
     }
   },
   head() {
@@ -51,6 +61,7 @@ export default {
   },
   mounted() {
     this.detectTouch()
+    this.initLoad()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -61,6 +72,80 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
+    initLoad() {
+      console.log(this.initialLoad)
+      if (this.initialLoad === true) {
+        this.typeAnimation()
+        var el = document.querySelector(".cube-Container")
+        gsap.set(el, {
+          yPercent: 100
+        })
+        gsap.to(el, {
+          yPercent: 0,
+          duration: 4.5,
+          delay: 3,
+          ease: "expo.out"
+        })
+        this.initialLoad = false
+      }
+    },
+    typeAnimation() {
+      if (this.initialLoad === true) {
+        var tl = gsap.timeline({ repeat: 1 })
+        tl.to(".typeAnimation-One", {
+          opacity: 1,
+          duration: 0.66
+        })
+        tl.to(".typeAnimation-One", {
+          opacity: 0,
+          duration: 0
+        })
+        tl.to(".typeAnimation-Two", {
+          opacity: 1,
+          duration: 0.5
+        })
+        tl.to(".typeAnimation-Two", {
+          opacity: 0,
+          duration: 0
+        })
+        tl.to(".typeAnimation-Three", {
+          opacity: 1,
+          duration: 0.33
+        })
+        tl.to(".typeAnimation-Three", {
+          opacity: 0,
+          ease: "expo.out",
+          duration: 0.25
+        })
+        tl.to(
+          ".typeAnimation-Four",
+          {
+            opacity: 1,
+            duration: 0.25
+          },
+          "-=0.33"
+        )
+        tl.to(".typeAnimation-Four", {
+          opacity: 0,
+          ease: "expo.out",
+          duration: 0.25
+        })
+        tl.to(
+          ".typeAnimation-Five",
+          {
+            opacity: 1,
+            duration: 0.66
+          },
+          "-=0.33"
+        )
+        tl.to(".typeAnimation-Five", {
+          opacity: 0,
+          duration: 0
+        })
+        tl.play()
+      }
+    },
+
     laserLoad() {
       gsap.set(".laserBlok-Line", {
         width: 0,
