@@ -8,7 +8,10 @@
     ></component>
     <div class="contentListItem-Nav">
       <nuxt-link
-        :to="`/${story.content.prev_link.cached_url}`"
+        :to="{
+          path: `/${story.content.prev_link.cached_url}`,
+          hash: '.view'
+        }"
         class="contentListItem-Nav_Prev cursorInteract"
         title="previous project"
         tag="div"
@@ -20,7 +23,10 @@
         />
       </nuxt-link>
       <nuxt-link
-        :to="`/${story.content.next_link.cached_url}`"
+        :to="{
+          path: `/${story.content.next_link.cached_url}`,
+          hash: 'top'
+        }"
         class="contentListItem-Nav_Next cursorInteract"
         title="next project"
         tag="div"
