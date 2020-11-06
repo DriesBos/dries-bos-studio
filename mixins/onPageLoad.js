@@ -59,11 +59,20 @@ export default {
         opacity: 0
       })
       if (this.initState) {
+        gsap.set(".collaborate", {
+          opacity: 0
+        })
         gsap.to(".laserBlok-Line", {
           opacity: 1,
           duration: 0,
           delay: 4.5,
           ease: "none"
+        })
+        gsap.set(".collaborate", {
+          opacity: 1,
+          duration: 0.33,
+          delay: 5,
+          ease: "expo.out"
         })
         gsap.to(".laserBlok-Line", {
           width: "105vw",
