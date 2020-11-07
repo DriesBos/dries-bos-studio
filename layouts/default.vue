@@ -108,7 +108,7 @@ export default {
           height: "105vh",
           ease: "none",
           stagger: {
-            amount: 5
+            amount: 4.5
           }
         })
     },
