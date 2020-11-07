@@ -113,9 +113,14 @@ export default {
         })
     },
     warpSpeed() {
+      console.log("CLICKED!")
       this.warpMode = !this.warpMode
+      console.log(this.warpMode)
       if (this.warpMode) {
         this.timeLine.play()
+        gsap.set(".laserBlok-Lines", {
+          opacity: 1
+        })
       } else {
         this.timeLine.pause()
         gsap.set(".laserBlok-Lines", {
