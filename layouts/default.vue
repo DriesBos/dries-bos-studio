@@ -48,8 +48,12 @@
           >lets make internet</a
         >
       </div>
-      <div class="buttonContainer-Button" @click="warpSpeed">
-        <p>Warp mode</p>
+      <div
+        class="buttonContainer-Button"
+        :class="{ active: warpMode }"
+        @click="warpSpeed"
+      >
+        <p>Hyper</p>
       </div>
     </div>
   </main>
