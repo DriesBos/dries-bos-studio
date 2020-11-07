@@ -29,13 +29,28 @@
     </div>
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
+      <div class="laserBlok-Lines"></div>
     </div>
-    <div class="collaborate cursorInteract">
-      <a
-        href="mailto:info@driesbos.com?subject=Let's Make Internet"
-        target="_blank"
-        >lets make internet</a
-      >
+    <div class="buttonContainer">
+      <div class="buttonContainer-Button collaborate cursorInteract">
+        <a
+          href="mailto:info@driesbos.com?subject=Let's Make Internet"
+          target="_blank"
+          >lets make internet</a
+        >
+      </div>
+      <div class="buttonContainer-Button" @click="warpSpeed">
+        <p>Warp mode</p>
+      </div>
     </div>
   </main>
 </template>
@@ -48,7 +63,13 @@ import ogImage from "@/static/og-image.png"
 export default {
   data() {
     return {
-      floatHeader: false
+      floatHeader: false,
+      warpMode: false,
+      timeLine: gsap.timeline({
+        paused: true,
+        repeat: -1,
+        onComplete: this.warpOnComplete
+      })
     }
   },
   head() {
@@ -64,6 +85,7 @@ export default {
   },
   mounted() {
     this.detectTouch()
+    this.warpSpeedInit()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -74,6 +96,33 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
+    // WARPSPEED
+    warpSpeedInit() {
+      this.timeLine
+        .to(".laserBlok-Lines", {
+          opacity: 1,
+          duration: 0
+        })
+        .to(".laserBlok-Lines", {
+          width: "105vw",
+          height: "105vh",
+          ease: "none",
+          stagger: {
+            amount: 5
+          }
+        })
+    },
+    warpSpeed() {
+      this.warpMode = !this.warpMode
+      if (this.warpMode) {
+        this.timeLine.play()
+      } else {
+        this.timeLine.pause()
+        gsap.set(".laserBlok-Lines", {
+          opacity: 0
+        })
+      }
+    },
     detectTouch() {
       if (detectIt.deviceType === "touchOnly") {
         setTimeout(function() {

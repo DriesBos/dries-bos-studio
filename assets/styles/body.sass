@@ -58,29 +58,35 @@ section
   transform: translateY(50px)
 
 // ELEMENTS
-.collaborate
+.buttonContainer
   position: fixed
+  display: flex
+  flex-direction: column
+  align-items: flex-start
   left: 0
   bottom: 0
-  background: var(--background)
-  border: var(--border)
   margin-left: 2vw
   margin-bottom: 2vh
   z-index: +4
-  cursor: pointer
-  box-shadow: 0
-  opacity: 0
-  transition: box-shadow $transition-hover
-  a
-    padding-left: 1rem
-    padding-right: 1rem
-    line-height: 1.8
-    text-transform: uppercase
-    font-size: .9rem
-  &:hover
-    @media ( hover: hover )
-      animation: excited 0.165s ease infinite
-      box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
+  &-Button
+    background: var(--background)
+    border: var(--border)
+    cursor: pointer
+    box-shadow: 0
+    opacity: 1
+    transition: box-shadow $transition-hover
+    a, p
+      padding-left: 1rem
+      padding-right: 1rem
+      line-height: 1.8
+      text-transform: uppercase
+      font-size: .9rem
+    &:first-child
+      margin-bottom: 1rem
+    &:hover
+      @media ( hover: hover )
+        animation: excited 0.165s ease infinite
+        box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
 
 .spaceForm
   position: absolute
@@ -163,8 +169,18 @@ section
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    width: 101vw
-    height: 101vh
+    width: 0vw
+    height: 0vh
+    opacity: 0
+    border: var(--border-width) solid var(--color)
+  &-Lines
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 0
+    height: 0
+    opacity: 0
     border: var(--border-width) solid var(--color)
 
 .typeAnimation
