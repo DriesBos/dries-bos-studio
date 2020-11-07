@@ -1,5 +1,5 @@
 export const state = () => ({
-  initState: false
+  initState: true
 })
 
 export const mutations = {
