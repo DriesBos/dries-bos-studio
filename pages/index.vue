@@ -18,7 +18,7 @@
             :class="{ active: sortByTitle }"
             @click="sortTitle"
           >
-            <p class="cursorInteract" title="sort by project">project</p>
+            <p class="cursorInteract" title="sort by project">client</p>
           </div>
         </li>
         <li class="contentListItem-Column agency">
@@ -27,7 +27,7 @@
             :class="{ active: sortByAgency }"
             @click="sortAgency"
           >
-            <p class="cursorInteract" title="sort by role">agency</p>
+            <p class="cursorInteract" title="sort by role">studio</p>
           </div>
         </li>
         <li class="contentListItem-Column category">
@@ -36,7 +36,7 @@
             :class="{ active: sortByCategory }"
             @click="sortCategory"
           >
-            <p class="cursorInteract" title="sort by role">role</p>
+            <p class="cursorInteract" title="sort by role">type</p>
           </div>
         </li>
         <!-- SEARCH -->
