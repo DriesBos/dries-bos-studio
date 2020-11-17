@@ -122,7 +122,11 @@ export default {
       }
     },
     typeAnimation() {
-      var tl = gsap.timeline({ repeat: 0 })
+      var tl = gsap.timeline({
+        repeat: 0,
+        onStart: this.addDisabled,
+        onComplete: this.removeDisabled
+      })
       tl.to(".typeAnimation-One", {
         opacity: 1,
         duration: 0.66,
@@ -175,6 +179,18 @@ export default {
         duration: 0
       })
       tl.play()
+    },
+    addDisabled() {
+      var array = document.querySelectorAll(".contentListItem-CoverImage")
+      array.forEach(el => {
+        el.classList.add("disabled")
+      })
+    },
+    removeDisabled() {
+      var array = document.querySelectorAll(".contentListItem-CoverImage")
+      array.forEach(el => {
+        el.classList.remove("disabled")
+      })
     },
     // CURSOR
     customCursor() {

@@ -225,9 +225,12 @@ section
   padding-top: 1rem
   padding-bottom: 1rem
   &-List
-    &:hover + .contentListItem-CoverImage.initialised
+    &:hover + .contentListItem-CoverImage
       @media ( hover: hover )
         opacity: 1
+    &:hover + .contentListItem-CoverImage.disabled
+      @media ( hover: hover )
+        opacity: 0
   &-CoverImage
     position: fixed
     bottom: 0
