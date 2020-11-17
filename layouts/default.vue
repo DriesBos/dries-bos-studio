@@ -49,7 +49,7 @@
         >
       </div>
       <div
-        class="buttonContainer-Button"
+        class="buttonContainer-Button cursorInteract"
         :class="{ active: warpMode }"
         @click="warpSpeed"
       >
@@ -90,7 +90,6 @@ export default {
   mounted() {
     this.detectTouch()
     this.warpSpeedInit()
-    this.generalInit()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
