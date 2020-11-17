@@ -90,6 +90,7 @@ export default {
   mounted() {
     this.detectTouch()
     this.warpSpeedInit()
+    this.generalInit()
     document.addEventListener("visibilitychange", this.windowIsVisible)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -100,6 +101,15 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
+    // INIT
+    generalInit() {
+      setTimeout(() => {
+        var array = document.querySelectorAll(".contentListItem-CoverImage")
+        array.forEach(el => {
+          el.classList.add("initialised")
+        })
+      }, 3000)
+    },
     // WARPSPEED
     warpSpeedInit() {
       this.timeLine
@@ -117,9 +127,7 @@ export default {
         })
     },
     warpSpeed() {
-      console.log("CLICKED!")
       this.warpMode = !this.warpMode
-      console.log(this.warpMode)
       if (this.warpMode) {
         this.timeLine.play()
         gsap.set(".laserBlok-Lines", {
