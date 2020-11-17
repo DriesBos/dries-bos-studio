@@ -93,6 +93,7 @@ export default {
   mounted() {
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
+    document.addEventListener("visibilitychange", this.windowIsVisible)
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item => item.addEventListener("mouseover", this.changeCursor))
@@ -112,6 +113,7 @@ export default {
       .forEach(item =>
         item.removeEventListener("mouseleave", this.removeChangeCursor)
       )
+    document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("keydown", this.backOnEscape)
     document.removeEventListener("keydown", this.keyNavigation)
   },
@@ -137,6 +139,19 @@ export default {
             path: `/${this.story.content.prev_link.cached_url}`
           })
         }
+      }
+    },
+    windowIsVisible() {
+      if (document.visibilityState === "hidden") {
+        document.title = "MISS U"
+        document
+          .querySelector("link[rel*='icon']")
+          .setAttribute("href", "question.png")
+      } else {
+        document.title = "Dries Bos — Creative Web Developer"
+        document
+          .querySelector("link[rel*='icon']")
+          .setAttribute("href", "favicon.png")
       }
     }
   },
