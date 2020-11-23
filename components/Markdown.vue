@@ -84,6 +84,7 @@ export default {
     display: block
   a
     position: relative
+    white-space: nowrap
     &::before
       content: ''
       position: absolute
