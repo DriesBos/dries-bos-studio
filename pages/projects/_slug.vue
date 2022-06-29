@@ -148,7 +148,7 @@ export default {
           .querySelector("link[rel*='icon']")
           .setAttribute("href", "question.png")
       } else {
-        document.title = "Dries Bos — Creative Web Developer"
+        document.title = "Dries Bos — Interface Developer"
         document
           .querySelector("link[rel*='icon']")
           .setAttribute("href", "favicon.png")
