@@ -211,7 +211,7 @@ export default {
       } else {
         this.floatHeader = true
         this.toggleFloatHeader()
-        document.title = "Dries Bos — Creative Web Developer"
+        document.title = "Dries Bos — Interface Developer"
         document
           .querySelector("link[rel*='icon']")
           .setAttribute("href", "favicon.png")
