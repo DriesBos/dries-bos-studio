@@ -9,16 +9,19 @@
     >
       <ul class="contentListItem">
         <li class="contentListItem-Column year">
-          <p title="project year">{{ post.year || "" }}</p>
+          <p title="year">{{ post.year || "" }}</p>
         </li>
         <li class="contentListItem-Column title">
-          <p title="project title">{{ post.title || "" }}</p>
+          <p title="project">{{ post.title || "" }}</p>
         </li>
         <li class="contentListItem-Column agency">
-          <p title="project agency">{{ post.agency || "" }}</p>
+          <p title="agency">{{ post.agency || "" }}</p>
         </li>
         <li class="contentListItem-Column category">
-          <p title="project category">{{ post.category || "" }}</p>
+          <p title="industry">{{ post.category || "" }}</p>
+        </li>
+        <li class="contentListItem-Column category">
+          <p title="role">role</p>
         </li>
         <li class="contentListItem-Column icons">
           <ul class="contentListItem-Icons">
