@@ -18,7 +18,7 @@
             :class="{ active: sortByTitle }"
             @click="sortTitle"
           >
-            <p class="cursorInteract" title="sort by project">client</p>
+            <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
         <li class="contentListItem-Column agency">
@@ -27,7 +27,7 @@
             :class="{ active: sortByAgency }"
             @click="sortAgency"
           >
-            <p class="cursorInteract" title="sort by role">studio</p>
+            <p class="cursorInteract" title="sort by agency">agency</p>
           </div>
         </li>
         <li class="contentListItem-Column category">
@@ -36,7 +36,16 @@
             :class="{ active: sortByCategory }"
             @click="sortCategory"
           >
-            <p class="cursorInteract" title="sort by role">type</p>
+            <p class="cursorInteract" title="sort by industry">industry</p>
+          </div>
+        </li>
+        <li class="contentListItem-Column category">
+          <div
+            class="listItem-Category listItem-Details"
+            :class="{ active: sortByCategory }"
+            @click="sortCategory"
+          >
+            <p class="cursorInteract" title="sort by role">role</p>
           </div>
         </li>
         <!-- SEARCH -->
@@ -90,22 +99,25 @@
           >
             <ul class="contentListItem">
               <li class="contentListItem-Column year">
-                <p title="project year">{{ post.year || "" }}</p>
+                <p title="year">{{ post.year || "" }}</p>
               </li>
               <li class="contentListItem-Column title">
-                <p title="project title">{{ post.title || "" }}</p>
+                <p title="project">{{ post.title || "" }}</p>
               </li>
               <li class="contentListItem-Column agency">
-                <p title="project agency">{{ post.agency || "" }}</p>
+                <p title="agency">{{ post.agency || "" }}</p>
               </li>
               <li class="contentListItem-Column category">
                 <p
                   v-for="(cat, index) in post.category"
                   :key="index"
-                  title="role"
+                  title="industry"
                 >
                   {{ cat }}
                 </p>
+              </li>
+              <li class="contentListItem-Column agency">
+                <p title="role">role</p>
               </li>
               <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
@@ -126,11 +138,12 @@
             class="contentListItem-CoverImage"
           >
             <!-- prettier-ignore -->
-            <img
+            <!-- <img
             :data-src="`${transformImage(post.cover_image,'720x0')}`"
             :alt="post.title"
             class="lazy"
-          />
+          /> -->
+            <nuxt-img class="lazy" :src="post.cover_image" />
           </div>
         </template>
         <template v-if="post.active == false">
@@ -142,32 +155,39 @@
           >
             <ul class="contentListItem">
               <li class="contentListItem-Column year">
-                <p title="project year">{{ post.year || "" }}</p>
+                <p title="year">{{ post.year || "" }}</p>
               </li>
               <li class="contentListItem-Column title">
-                <p title="project title">{{ post.title || "" }}</p>
+                <p title="project">{{ post.title || "" }}</p>
               </li>
               <li class="contentListItem-Column agency">
-                <p title="project agency">{{ post.agency || "" }}</p>
+                <p title="agency">{{ post.agency || "" }}</p>
               </li>
               <li class="contentListItem-Column category">
                 <p
                   v-for="(cat, index) in post.category"
                   :key="index"
-                  title="role"
+                  title="industry"
                 >
                   {{ cat }}
                 </p>
+              </li>
+              <li class="contentListItem-Column agency">
+                <p title="role">role</p>
               </li>
               <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
                     <!-- prettier-ignore -->
-                    <div
+                    <!-- <div
                         class="icon icon-Arrow"
                         title="view project"
                         v-html="require('~/assets/images/icon-arrow.svg?include')"
-                      ></div>
+                      ></div> -->
+                    <nuxt-img
+                      class="icon icon-Arrow"
+                      src="~/assets/images/icon-arrow.svg"
+                    />
                   </li>
                 </ul>
               </li>
@@ -331,14 +351,14 @@ export default {
     window.removeEventListener("resize", this.screenResize)
   },
   methods: {
-    transformImage(image, option) {
-      if (!image) return ""
-      if (!option) return ""
-      let imageService = "//img2.storyblok.com/"
-      let pathOne = image.replace("https://a.storyblok.com", "")
-      let pathTwo = pathOne.replace("//a.storyblok.com", "")
-      return imageService + option + pathTwo
-    },
+    // transformImage(image, option) {
+    //   if (!image) return ""
+    //   if (!option) return ""
+    //   let imageService = "//img2.storyblok.com/"
+    //   let pathOne = image.replace("https://a.storyblok.com", "")
+    //   let pathTwo = pathOne.replace("//a.storyblok.com", "")
+    //   return imageService + option + pathTwo
+    // },
     calculateWidest(el) {
       var maxWidth = 0
       var array = document.querySelectorAll(`.${el}`)
