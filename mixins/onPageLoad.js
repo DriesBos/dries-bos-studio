@@ -3,7 +3,7 @@ import { mapState } from "vuex"
 
 export default {
   fetch({ store }) {
-    store.commit("toggleTheInit")
+    store.commit("init/toggleTheInit")
   },
   computed: {
     ...mapState({
