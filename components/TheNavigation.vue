@@ -13,7 +13,7 @@
           <span v-show="this.$route.name === 'index' || this.$route.name === 'about'"
             class="logo-Subtitle"
             title="that's me!"
-            >— Creative Web Developer</span
+            >— Interface Developer</span
           >
           <span
             v-show="this.$route.name === 'projects-slug'"
