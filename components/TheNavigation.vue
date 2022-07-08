@@ -51,6 +51,23 @@
               ></div>
             </div>
           </li>
+          <!-- WORDS -->
+          <li
+            v-show="this.$route.name === 'index'"
+            class="contentListItem-Icon contentListItem-Words"
+            title="Words page"
+          >
+            <nuxt-link
+              to="/words"
+              class="cursorInteract icon icon-Words"
+              title="words"
+              tag="div"
+            >
+              <div
+                v-html="require('~/assets/images/icon-chat.svg?include')"
+              ></div>
+            </nuxt-link>
+          </li>
           <!-- ABOUT -->
           <li
             v-show="this.$route.name === 'index'"
