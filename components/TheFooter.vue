@@ -1,5 +1,5 @@
 <template>
-  <section class="block contentListItem-Footer">
+  <section class="block block-Navigation contentListItem-Footer">
     <ul class="contentListItem">
       <li class="contentListItem-Column empty"></li>
       <li class="contentListItem-Column icons">
