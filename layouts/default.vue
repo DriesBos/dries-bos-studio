@@ -1,6 +1,7 @@
 <template>
   <main id="top" class="spaced">
-    <LazyTheNotifications />
+    <!-- <LazyTheNotifications /> -->
+    <LazyTheLanding v-if="isIndex" />
     <div class="cube-Container" @mouseenter="toggleFloatHeaderTrue">
       <LazyTheNavigation
         :class="{ active: floatHeader }"
@@ -53,7 +54,7 @@
         :class="{ active: warpMode }"
         @click="warpSpeed"
       >
-        <p>Hyper</p>
+        <p>Hypermode</p>
       </div>
     </div>
   </main>
@@ -88,6 +89,7 @@ export default {
     }
   },
   mounted() {
+    console.log("ROUTE", this.$route)
     this.detectTouch()
     this.warpSpeedInit()
     document.addEventListener("visibilitychange", this.windowIsVisible)
@@ -98,6 +100,11 @@ export default {
     document.removeEventListener("visibilitychange", this.windowIsVisible)
     document.removeEventListener("mouseleave", this.mouseLeftDocument)
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
+  },
+  computed: {
+    isIndex() {
+      return this.$route.name === "index"
+    }
   },
   methods: {
     // INIT

@@ -41,6 +41,10 @@ module.exports = {
         type: "image/png",
         sizes: "32x32",
         href: "/favicon.png"
+      },
+      {
+        rel: "dns-prefetch",
+        href: "https://fonts.gstatic.com/"
       }
     ]
   },
@@ -64,6 +68,20 @@ module.exports = {
 
   // Auto import components
   components: true,
+
+  // Google-Fonts Module
+  googleFonts: {
+    prefetch: true,
+    families: {
+      Chivo: true
+      // "Josefin+Sans": true,
+      // Lato: [100, 300],
+      // Raleway: {
+      //   wght: [100, 400],
+      //   ital: [100]
+    }
+  },
+
   /*
    ** Global CSS
    */
@@ -146,6 +164,7 @@ module.exports = {
   // Modules only run on build
   buildModules: [
     "@nuxtjs/pwa",
+    "@nuxtjs/google-fonts",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/dotenv",

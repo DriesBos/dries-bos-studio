@@ -20,18 +20,18 @@ body
   background: black
   color: var(--color)
   cursor: none
-  min-height: 110vh
+  // min-height: 110vh
   p::selection, a::selection, h1::selection, h2::selection, h3::selection, h4::selection, h5::selection , span::selection
     background: var(--selection-background)
     color: var(--selection-color)
 
 main
   display: flex
+  flex-direction: column
   justify-content: center
-  align-items: flex-start
+  align-items: center
   min-height: 100vh
-  padding-top: calc(15rem + 10vmin)
-  padding-bottom: 6rem
+  // padding-top: calc(15rem + 10vmin)
 
 .cube
   &-Container
@@ -39,6 +39,8 @@ main
     display: flex
     flex-direction: column
     max-width: $spacemode-width
+    padding-top: 12rem
+    margin-bottom: 6rem
     @media screen and ( max-width: $breakpoint-mobile)
       width: calc(100% - 2rem)
 
