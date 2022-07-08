@@ -44,12 +44,10 @@ main
     @media screen and ( max-width: $breakpoint-mobile)
       width: calc(100% - 2rem)
 
-.block 
   position: sticky
   top: 0
   margin-top: calc(0px - #{var(--border-width)})
-  margin-left: auto
-  margin-right: auto
+
   width: 100%
   border-left: var(--border)
   border-right: var(--border)
@@ -73,9 +71,10 @@ main
 
 .spaceForm
   position: absolute
+  top: calc(0px - #{var(--border-width)})
   top: -1px
-  left: calc(0px - #{var(--border-width)})
-  width: calc(100% + (2* #{var(--border-width)}))
+  left: -1px
+  width: calc(100% + 2px)
   opacity: 0
   transform: translateY(-100%)
   pointer-events: none
@@ -83,7 +82,8 @@ main
   svg
     vertical-align: bottom
     color: var(--block-background)
-    stroke-width: var(--border-width)
+    color: white
+    stroke: var(--border-color) !important
     backface-visibility: hidden
     @media screen and ( max-width: $breakpoint-mobile)
       stroke-width: 5px
@@ -328,21 +328,21 @@ main
     p
       display: inline
     p
-      opacity: var(--color-faded)
-      transition: opacity $transition-hover
-      &:hover
-        @media ( hover: hover )
-          opacity: 1
-    .active
-      p
-        opacity: 1
-    .icon
-      opacity: var(--color-faded)
-      &:hover
-        @media ( hover: hover )
-          opacity: 1
-      &.active
-        opacity: 1
+      // opacity: var(--color-faded)
+      // transition: opacity $transition-hover
+      // &:hover
+      //   @media ( hover: hover )
+      //     opacity: 1
+    // .active
+    //   p
+    //     opacity: 1
+    // .icon
+    //   opacity: var(--color-faded)
+    //   &:hover
+    //     @media ( hover: hover )
+    //       opacity: 1
+      // &.active
+      //   opacity: 1
     @media screen and ( max-width: $breakpoint-mobile) and ( min-width: 550px)
       .contentListItem-Column.icons
         display: none
@@ -357,9 +357,9 @@ main
         opacity: 1
       &:hover
         @media ( hover: hover )
-          background: var(--active-background)
-          box-shadow: 0px 0px 10rem 0.1px rgba(#B6FFF5, 1)
-          color: var(--active-color)
+          // background: var(--active-background)
+          // box-shadow: 0px 0px 10rem 0.1px rgba(#B6FFF5, 1)
+          // color: var(--active-color)
           z-index: +1
   &-Images
     padding-left: var(--spacing-two)
