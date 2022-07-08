@@ -62,16 +62,16 @@ export default {
         // TYPE ANIMATION
         this.typeAnimation()
         // LASER ANIMATION
-        gsap.to(".buttonContainer-Button", {
-          opacity: 1,
-          y: 0,
-          delay: 3,
-          ease: "power1.inOut",
-          duration: 0.33,
-          stagger: {
-            amount: 0.66
-          }
-        })
+        // gsap.to(".buttonContainer-Button", {
+        //   opacity: 1,
+        //   y: 0,
+        //   delay: 3,
+        //   ease: "power1.inOut",
+        //   duration: 0.33,
+        //   stagger: {
+        //     amount: 0.66
+        //   }
+        // })
         gsap.to(".laserBlok-Line", {
           opacity: 1,
           duration: 0,

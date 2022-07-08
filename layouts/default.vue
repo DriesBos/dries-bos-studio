@@ -41,7 +41,19 @@
       <div class="laserBlok-Lines"></div>
       <div class="laserBlok-Lines"></div>
     </div>
-    <div class="buttonContainer">
+    <div class="btnContainer">
+      <Button>
+        <a
+          href="mailto:info@driesbos.com?subject=Let's Make Internet"
+          target="_blank"
+          >Lets make internet</a
+        ></Button
+      >
+      <Button>
+        <p>Up</p>
+      </Button>
+    </div>
+    <!-- <div class="buttonContainer">
       <div class="buttonContainer-Button collaborate cursorInteract">
         <a
           href="mailto:info@driesbos.com?subject=Let's Make Internet"
@@ -56,7 +68,7 @@
       >
         <p>Hypermode</p>
       </div>
-    </div>
+    </div> -->
   </main>
 </template>
 
