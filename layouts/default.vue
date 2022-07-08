@@ -1,6 +1,9 @@
 <template>
   <main id="top" class="spaced">
     <!-- <LazyTheNotifications /> -->
+    <div class="themeSwitch">
+      <LazySwitch />
+    </div>
     <LazyTheLanding v-if="isIndex" />
     <div class="block-Container" @mouseenter="toggleFloatHeaderTrue">
       <LazyTheNavigation
