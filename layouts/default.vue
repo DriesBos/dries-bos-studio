@@ -2,7 +2,7 @@
   <main id="top" class="spaced">
     <!-- <LazyTheNotifications /> -->
     <LazyTheLanding v-if="isIndex" />
-    <div class="cube-Container" @mouseenter="toggleFloatHeaderTrue">
+    <div class="block-Container" @mouseenter="toggleFloatHeaderTrue">
       <LazyTheNavigation
         :class="{ active: floatHeader }"
         @toggle-view="viewIsToggled"
@@ -121,12 +121,12 @@ export default {
   methods: {
     // INIT
     generalInit() {
-      setTimeout(() => {
-        var array = document.querySelectorAll(".contentListItem-CoverImage")
-        array.forEach(el => {
-          el.classList.add("initialised")
-        })
-      }, 3000)
+      // setTimeout(() => {
+      //   var array = document.querySelectorAll(".contentListItem-CoverImage")
+      //   array.forEach(el => {
+      //     el.classList.add("initialised")
+      //   })
+      // }, 3000)
     },
     // WARPSPEED
     warpSpeedInit() {

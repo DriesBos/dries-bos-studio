@@ -10,18 +10,32 @@ $transition-lazy: .33s ease-in // Image fade-in's
 $breakpoint-mobile: 800px
 $spacemode-width: 1150px
 
+// Colors
+// Light
+$light-color: #000
+$light-bg: #fff
+$dark-block-color: #fff
+$dark-block-bg: #222
+// Dark
+$dark-color: #fff
+$dark-bg: #222
+$dark-block-color: #000
+$dark-block-bg: white
+
 body
   // Custom variables
-  --selection-background: var(--color)
-  --selection-color: white
-  --color: #B6FFF5
+  --color: white
   --color-faded: .3
-  --background: black
+  --background: #222
+  --block-background: white
+  --block-color: black
   --active-background: var(--color)
   --active-color: black
   --interactive-color: var(--color)
   --border-width: 2px
-  --border: var(--border-width) solid var(--color)
+  --border: var(--border-width) solid black
+  --selection-background: var(--color)
+  --selection-color: white
 
   // Custom variables
   --spacing-one: 1rem
@@ -29,6 +43,11 @@ body
   --spacing-icons: 1.5rem
   --spacing-icons-double: 3rem
   --spacing-icons-tripple: 4.5rem // Header slider
+  --spacing-icons: 30px
+  --spacing-icons-double: 60px
+  --spacing-icons-tripple: 90px
+
+  --block-sides: 30px
 
 @keyframes hyperLink
   0%

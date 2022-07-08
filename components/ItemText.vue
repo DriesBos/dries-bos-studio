@@ -1,5 +1,5 @@
 <template>
-  <section class="contentListItem-Text">
+  <section class="block contentListItem-Text">
     <div
       class="spaceForm"
       v-html="require('~/assets/images/spaceform.svg?include')"

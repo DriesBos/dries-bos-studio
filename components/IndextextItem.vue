@@ -4,7 +4,7 @@
       :id="post.id"
       :key="post.id"
       :to="`/projects/${post.id}`"
-      class="contentListItem-List"
+      class="block contentListItem-List"
       tag="section"
     >
       <ul class="contentListItem">
@@ -14,7 +14,7 @@
         <li class="contentListItem-Column title">
           <p title="project">{{ post.title || "" }}</p>
         </li>
-        <li class="contentListItem-Column agency">
+        <!-- <li class="contentListItem-Column agency">
           <p title="agency">{{ post.agency || "" }}</p>
         </li>
         <li class="contentListItem-Column category">
@@ -22,7 +22,7 @@
         </li>
         <li class="contentListItem-Column category">
           <p title="role">role</p>
-        </li>
+        </li> -->
         <li class="contentListItem-Column icons">
           <ul class="contentListItem-Icons">
             <li class="contentListItem-Icon contentListItem-Arrow">

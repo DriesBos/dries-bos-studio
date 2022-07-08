@@ -17,7 +17,7 @@ img
 
 // STRUCTURE
 body
-  background: black
+  background: var(--background)
   color: var(--color)
   cursor: none
   // min-height: 110vh
@@ -33,7 +33,7 @@ main
   min-height: 100vh
   // padding-top: calc(15rem + 10vmin)
 
-.cube
+.block
   &-Container
     width: 88vw
     display: flex
@@ -44,7 +44,7 @@ main
     @media screen and ( max-width: $breakpoint-mobile)
       width: calc(100% - 2rem)
 
-section
+.block 
   position: sticky
   top: 0
   margin-top: calc(0px - #{var(--border-width)})
@@ -55,7 +55,8 @@ section
   border-right: var(--border)
   border-top: var(--border)
   border-bottom: var(--border)
-  background: var(--background)
+  background: var(--block-background)
+  color: var(--block-color)
   opacity: 0
   transform: translateY(50px)
 
@@ -81,8 +82,8 @@ section
   z-index: 0
   svg
     vertical-align: bottom
-    color: var(--color)
-    stroke-width: 2px
+    color: var(--block-background)
+    stroke-width: var(--border-width)
     backface-visibility: hidden
     @media screen and ( max-width: $breakpoint-mobile)
       stroke-width: 5px
@@ -128,7 +129,7 @@ section
   &-Small
     width: 1rem
     height: 1rem
-    border: 2px solid var(--color)
+    border: 2px solid green
   &.active
     .cursor-Small
       width: 2rem
@@ -198,40 +199,40 @@ section
   width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
-  &-List
-    &:hover + .contentListItem-CoverImage
-      @media ( hover: hover )
-        opacity: 1
-    &:hover + .contentListItem-CoverImage.disabled
-      @media ( hover: hover )
-        opacity: 0
-  &-CoverImage
-    position: fixed
-    bottom: 0
-    right: 0
-    width: 25vw
-    min-width: 250px
-    max-width: 360px
-    overflow: hidden
-    margin-right: 2rem
-    margin-bottom: 5rem
-    opacity: 0
-    z-index: +2
-    box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
-    pointer-events: none
-    img
-      border: var(--border)
+  // &-List
+  //   &:hover + .contentListItem-CoverImage
+  //     @media ( hover: hover )
+  //       opacity: 1
+  //   &:hover + .contentListItem-CoverImage.disabled
+  //     @media ( hover: hover )
+  //       opacity: 0
+  // &-CoverImage
+  //   position: fixed
+  //   bottom: 0
+  //   right: 0
+  //   width: 25vw
+  //   min-width: 250px
+  //   max-width: 360px
+  //   overflow: hidden
+  //   margin-right: 2rem
+  //   margin-bottom: 5rem
+  //   opacity: 0
+  //   z-index: +2
+  //   box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
+  //   pointer-events: none
+  //   img
+  //     border: var(--border)
   &-Column
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)
     flex-shrink: 0
     &:first-child
-      padding-left: var(--spacing-one)
+      padding-left: var(--block-sides)
       padding-right: var(--spacing-one)
     &:nth-child(2)
       padding-left: var(--spacing-one)
     &:last-child
-      padding-right: var(--spacing-one)
+      padding-right: var(--block-sides)
     &.category, &.agency, &.year, &.title
       flex-shrink: 0
       white-space: nowrap
@@ -302,9 +303,7 @@ section
   &-Header
     position: relative
     z-index: 900
-    border: var(--border)
     pointer-events: none
-    background: rgba(0,0,0,0)
     .spaceForm
       opacity: 1
     & .logo
@@ -423,7 +422,7 @@ section
       .spaceForm
         opacity: 1
         svg path
-          fill: black !important
+          fill: var(--block-background) !important
     &:last-of-type
       border-bottom: var(--border)
   &-About, &-Project

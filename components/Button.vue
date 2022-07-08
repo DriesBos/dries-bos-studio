@@ -21,15 +21,19 @@ export default {
   color: var(--color)
   border: 1px solid var(--color)
   border-radius: 1000px
-  background: var(--background)
+  background: var(--block-color)
   cursor: pointer
   box-shadow: 0
+  font-size: 28px
+  font-weight: 300 // Light
+  text-transform: uppercase
+  line-height: 1
   // transition: box-shadow $transition-hover, background $transition-hover
   // transform: translateY(10px)
   a, p
-    padding: .5rem 1rem
-    font-size: 38px
-    font-weight: 300
+    padding: 2px 1rem
+    font-size: 28px
+    font-weight: 300 // Light
     text-transform: uppercase
     line-height: 1
   // &:first-child

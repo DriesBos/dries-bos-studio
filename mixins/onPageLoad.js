@@ -181,18 +181,18 @@ export default {
       tl.play()
     },
     addDisabled() {
-      var array = document.querySelectorAll(".contentListItem-CoverImage")
-      array.forEach(el => {
-        el.classList.add("disabled")
-      })
+      // var array = document.querySelectorAll(".contentListItem-CoverImage")
+      // array.forEach(el => {
+      //   el.classList.add("disabled")
+      // })
       var nav = document.querySelector(".contentListItem-Nav")
       nav.classList.add("disabled")
     },
     removeDisabled() {
-      var array = document.querySelectorAll(".contentListItem-CoverImage")
-      array.forEach(el => {
-        el.classList.remove("disabled")
-      })
+      // var array = document.querySelectorAll(".contentListItem-CoverImage")
+      // array.forEach(el => {
+      //   el.classList.remove("disabled")
+      // })
       var nav = document.querySelector(".contentListItem-Nav")
       nav.classList.remove("disabled")
     },

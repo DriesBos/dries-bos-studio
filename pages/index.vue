@@ -1,8 +1,7 @@
 <template>
   <div class="view view-Index">
     <!-- FILTER -->
-    <h1>TESTING</h1>
-    <section class="contentListItem-Filter">
+    <section class="block contentListItem-Filter">
       <div
         class="spaceForm"
         v-html="require('~/assets/images/spaceform.svg?include')"
@@ -22,7 +21,7 @@
             <p class="cursorInteract" title="sort by project">project</p>
           </div>
         </li>
-        <li class="contentListItem-Column agency">
+        <!-- <li class="contentListItem-Column agency">
           <div
             class="listItem-Agency listItem-Details"
             :class="{ active: sortByAgency }"
@@ -30,8 +29,8 @@
           >
             <p class="cursorInteract" title="sort by agency">agency</p>
           </div>
-        </li>
-        <li class="contentListItem-Column category">
+        </li> -->
+        <!-- <li class="contentListItem-Column category">
           <div
             class="listItem-Category listItem-Details"
             :class="{ active: sortByCategory }"
@@ -39,8 +38,8 @@
           >
             <p class="cursorInteract" title="sort by industry">industry</p>
           </div>
-        </li>
-        <li class="contentListItem-Column category">
+        </li> -->
+        <!-- <li class="contentListItem-Column category">
           <div
             class="listItem-Category listItem-Details"
             :class="{ active: sortByCategory }"
@@ -48,7 +47,7 @@
           >
             <p class="cursorInteract" title="sort by role">role</p>
           </div>
-        </li>
+        </li> -->
         <!-- SEARCH -->
         <li class="contentListItem-Column icons search">
           <ul class="contentListItem-Icons">
@@ -94,7 +93,7 @@
             :id="post.id"
             :key="post.id"
             :to="`/projects/${post.id}`"
-            class="contentListItem-List"
+            class="block contentListItem-List"
             :class="[{ active: post.active }, { cursorInteract: post.active }]"
             tag="section"
           >
@@ -105,10 +104,10 @@
               <li class="contentListItem-Column title">
                 <p title="project">{{ post.title || "" }}</p>
               </li>
-              <li class="contentListItem-Column agency">
+              <!-- <li class="contentListItem-Column agency">
                 <p title="agency">{{ post.agency || "" }}</p>
-              </li>
-              <li class="contentListItem-Column category">
+              </li> -->
+              <!-- <li class="contentListItem-Column category">
                 <p
                   v-for="(cat, index) in post.category"
                   :key="index"
@@ -116,10 +115,10 @@
                 >
                   {{ cat }}
                 </p>
-              </li>
-              <li class="contentListItem-Column agency">
+              </li> -->
+              <!-- <li class="contentListItem-Column agency">
                 <p title="role">role</p>
-              </li>
+              </li> -->
               <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
@@ -133,25 +132,24 @@
               </li>
             </ul>
           </nuxt-link>
-          <div
+          <!-- <div
             :key="post.title"
             v-lazy-container="{ selector: 'img' }"
             class="contentListItem-CoverImage"
           >
-            <!-- prettier-ignore -->
-            <!-- <img
+            <img
             :data-src="`${transformImage(post.cover_image,'720x0')}`"
             :alt="post.title"
             class="lazy"
-          /> -->
+          />
             <nuxt-img class="lazy" :src="post.cover_image" />
-          </div>
+          </div> -->
         </template>
         <template v-if="post.active == false">
           <section
             :id="post.id"
             :key="i"
-            class="contentListItem-List"
+            class="block contentListItem-List"
             :class="{ active: post.active }"
           >
             <ul class="contentListItem">
@@ -161,7 +159,7 @@
               <li class="contentListItem-Column title">
                 <p title="project">{{ post.title || "" }}</p>
               </li>
-              <li class="contentListItem-Column agency">
+              <!-- <li class="contentListItem-Column agency">
                 <p title="agency">{{ post.agency || "" }}</p>
               </li>
               <li class="contentListItem-Column category">
@@ -175,7 +173,7 @@
               </li>
               <li class="contentListItem-Column agency">
                 <p title="role">role</p>
-              </li>
+              </li> -->
               <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
