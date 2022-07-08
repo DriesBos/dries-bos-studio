@@ -17,7 +17,7 @@
     <div class="cursor cursor-Two">
       <div class="cursor-Small" />
     </div>
-    <div class="typeAnimation">
+    <!-- <div class="typeAnimation">
       <div class="typeAnimation-Content">
         <span class="typeAnimation-Word typeAnimation-One">LET'S</span>
         <span class="typeAnimation-Word typeAnimation-Two">MAKE</span>
@@ -27,7 +27,7 @@
           <span class="typeAnimation-Word typeAnimation-Five">NET</span>
         </span>
       </div>
-    </div>
+    </div> -->
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>
       <div class="laserBlok-Lines"></div>

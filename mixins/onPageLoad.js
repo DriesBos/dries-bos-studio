@@ -60,7 +60,7 @@ export default {
       if (this.initState) {
         this.$store.commit("init/toggleTheInit")
         // TYPE ANIMATION
-        this.typeAnimation()
+        // this.typeAnimation()
         // LASER ANIMATION
         // gsap.to(".buttonContainer-Button", {
         //   opacity: 1,
@@ -75,14 +75,14 @@ export default {
         gsap.to(".laserBlok-Line", {
           opacity: 1,
           duration: 0,
-          delay: 2.5,
+          // delay: 2.5,
           ease: "none"
         })
         gsap.to(".laserBlok-Line", {
           width: "105vw",
           height: "105vh",
           duration: 0.66,
-          delay: 2.5,
+          // delay: 2.5,
           ease: "expo.out"
         })
         // SECTIONS LOAD ANIMATION
@@ -91,7 +91,7 @@ export default {
           y: 0,
           ease: "power1.inOut",
           duration: 0.33,
-          delay: 2.5,
+          // delay: 2.5,
           stagger: {
             amount: 0.66
           }
@@ -121,65 +121,65 @@ export default {
         })
       }
     },
-    typeAnimation() {
-      var tl = gsap.timeline({
-        repeat: 0,
-        onStart: this.addDisabled,
-        onComplete: this.removeDisabled
-      })
-      tl.to(".typeAnimation-One", {
-        opacity: 1,
-        duration: 0.66,
-        delay: 0.25
-      })
-      tl.to(".typeAnimation-One", {
-        opacity: 0,
-        duration: 0
-      })
-      tl.to(".typeAnimation-Two", {
-        opacity: 1,
-        duration: 0.5
-      })
-      tl.to(".typeAnimation-Two", {
-        opacity: 0,
-        duration: 0
-      })
-      tl.to(".typeAnimation-Three", {
-        opacity: 1,
-        duration: 0.33
-      })
-      tl.to(".typeAnimation-Three", {
-        opacity: 0,
-        ease: "expo.out",
-        duration: 0.25
-      })
-      tl.to(
-        ".typeAnimation-Four",
-        {
-          opacity: 1,
-          duration: 0.25
-        },
-        "-=0.33"
-      )
-      tl.to(".typeAnimation-Four", {
-        opacity: 0,
-        ease: "expo.out",
-        duration: 0.25
-      })
-      tl.to(
-        ".typeAnimation-Five",
-        {
-          opacity: 1,
-          duration: 0.66
-        },
-        "-=0.33"
-      )
-      tl.to(".typeAnimation-Five", {
-        opacity: 0,
-        duration: 0
-      })
-      tl.play()
-    },
+    // typeAnimation() {
+    //   var tl = gsap.timeline({
+    //     repeat: 0,
+    //     onStart: this.addDisabled,
+    //     onComplete: this.removeDisabled
+    //   })
+    //   tl.to(".typeAnimation-One", {
+    //     opacity: 1,
+    //     duration: 0.66,
+    //     delay: 0.25
+    //   })
+    //   tl.to(".typeAnimation-One", {
+    //     opacity: 0,
+    //     duration: 0
+    //   })
+    //   tl.to(".typeAnimation-Two", {
+    //     opacity: 1,
+    //     duration: 0.5
+    //   })
+    //   tl.to(".typeAnimation-Two", {
+    //     opacity: 0,
+    //     duration: 0
+    //   })
+    //   tl.to(".typeAnimation-Three", {
+    //     opacity: 1,
+    //     duration: 0.33
+    //   })
+    //   tl.to(".typeAnimation-Three", {
+    //     opacity: 0,
+    //     ease: "expo.out",
+    //     duration: 0.25
+    //   })
+    //   tl.to(
+    //     ".typeAnimation-Four",
+    //     {
+    //       opacity: 1,
+    //       duration: 0.25
+    //     },
+    //     "-=0.33"
+    //   )
+    //   tl.to(".typeAnimation-Four", {
+    //     opacity: 0,
+    //     ease: "expo.out",
+    //     duration: 0.25
+    //   })
+    //   tl.to(
+    //     ".typeAnimation-Five",
+    //     {
+    //       opacity: 1,
+    //       duration: 0.66
+    //     },
+    //     "-=0.33"
+    //   )
+    //   tl.to(".typeAnimation-Five", {
+    //     opacity: 0,
+    //     duration: 0
+    //   })
+    //   tl.play()
+    // },
     addDisabled() {
       // var array = document.querySelectorAll(".contentListItem-CoverImage")
       // array.forEach(el => {
