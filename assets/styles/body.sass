@@ -34,6 +34,19 @@ main
   // padding-top: calc(15rem + 10vmin)
 
 .block
+  position: sticky
+  top: 0
+  margin-top: calc(0px - #{var(--border-width)})
+  width: 100%
+  border-left: var(--border)
+  border-right: var(--border)
+  border-top: var(--border)
+  border-bottom: var(--border)
+  background: var(--block-background)
+  color: var(--block-color)
+  opacity: 0
+  transform: translateY(50px)
+  transition: padding-bottom $transition-hover, margin-top $transition-hover
   &-Container
     width: 88vw
     display: flex
@@ -45,20 +58,17 @@ main
       width: calc(100% - 2rem)
   &-Navigation
     background: $grey
-
-  position: sticky
-  top: 0
-  margin-top: calc(0px - #{var(--border-width)})
-
-  width: 100%
-  border-left: var(--border)
-  border-right: var(--border)
-  border-top: var(--border)
-  border-bottom: var(--border)
-  background: var(--block-background)
-  color: var(--block-color)
-  opacity: 0
-  transform: translateY(50px)
+  &.enabled
+    &:hover
+      @media ( hover: hover )
+        z-index: +1
+        padding-bottom: 1.8rem
+        margin-top: calc(0px - (1.8rem + 2px))
+  &.disabled
+    pointer-events: none
+    p, svg
+      opacity: var(--color-faded)
+      transition: opacity $transition-hover
 
 // ELEMENTS
 .btnContainer
@@ -355,21 +365,7 @@ main
     @media screen and ( max-width: $breakpoint-mobile) and ( min-width: 550px)
       .contentListItem-Column.icons
         display: none
-  &-List
-    transition: background $transition-hover, color $transition-hover, box-shadow $transition-hover
-    box-shadow: 0
-    p, svg
-      opacity: var(--color-faded)
-      transition: opacity $transition-hover
-    &.active
-      p, svg
-        opacity: 1
-      &:hover
-        @media ( hover: hover )
-          // background: var(--active-background)
-          // box-shadow: 0px 0px 10rem 0.1px rgba(#B6FFF5, 1)
-          // color: var(--active-color)
-          z-index: +1
+  // INDEX BLOCKS
   &-Images
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)

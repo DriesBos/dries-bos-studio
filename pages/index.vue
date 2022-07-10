@@ -94,7 +94,7 @@
             :key="post.id"
             :to="`/projects/${post.id}`"
             class="block block-Text contentListItem-List"
-            :class="[{ active: post.active }, { cursorInteract: post.active }]"
+            :class="[post.active ? 'enabled cursorInteract' : 'disabled']"
             tag="section"
           >
             <ul class="contentListItem">
@@ -151,7 +151,7 @@
             :id="post.id"
             :key="i"
             class="block contentListItem-List"
-            :class="{ active: post.active }"
+            :class="[post.active ? 'enabled' : 'disabled']"
           >
             <ul class="contentListItem">
               <li class="contentListItem-Column year">
