@@ -1,12 +1,12 @@
 <template>
-  <button class="btn cursorInteract" :type="type">
+  <div class="btn cursorInteract" :type="type">
     <slot />
-  </button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Button",
+  name: "ButtonItem",
   props: {
     type: {
       type: String,
@@ -22,7 +22,6 @@ export default {
   border: 1px solid var(--color)
   border-radius: 1000px
   background: var(--block-color)
-  cursor: pointer
   box-shadow: 0
   font-size: 28px
   font-weight: 300 // Light

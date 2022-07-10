@@ -14,11 +14,9 @@
         <nuxt />
       </transition>
     </div>
-    <div class="cursor cursor-One">
-      <div class="cursor-Small" />
-    </div>
+    <div class="cursor cursor-One"></div>
     <div class="cursor cursor-Two">
-      <div class="cursor-Small" />
+      <div class="btn"><p>Open Project</p></div>
     </div>
     <!-- <div class="typeAnimation">
       <div class="typeAnimation-Content">
@@ -45,16 +43,16 @@
       <div class="laserBlok-Lines"></div>
     </div>
     <div class="btnContainer">
-      <Button>
+      <ButtonItem>
         <a
           href="mailto:info@driesbos.com?subject=Let's Make Internet"
           target="_blank"
           >Lets make internet</a
-        ></Button
+        ></ButtonItem
       >
-      <Button>
+      <ButtonItem>
         <p>Up</p>
-      </Button>
+      </ButtonItem>
     </div>
     <!-- <div class="buttonContainer">
       <div class="buttonContainer-Button collaborate cursorInteract">

@@ -1,9 +1,9 @@
 <template>
   <div class="theLanding">
     <h1>Dries Bos—computational design, development and digital partner</h1>
-    <Button>
+    <ButtonItem>
       <p>Selected works</p>
-    </Button>
+    </ButtonItem>
   </div>
 </template>
 

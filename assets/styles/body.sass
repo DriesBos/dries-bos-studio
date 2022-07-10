@@ -135,33 +135,27 @@ main
 
 .cursor
   position: fixed
-  width: 3rem
-  height: 3rem
-  transform: translate(-50%, -50%)
-  border-radius: 50%
   z-index: 999
   pointer-events: none
   opacity: 0
-  &-Small, &-Large
-    position: absolute
-    top: 50%
-    left: 50%
+  &-One
+    width: 1.5rem
+    height: 1.5rem
     transform: translate(-50%, -50%)
     border-radius: 50%
-    transition: all .165s ease
-  &-Small
-    width: 1rem
-    height: 1rem
-    border: 2px solid green
-  &.active
-    .cursor-Small
+    background: green
+    &.active
       width: 2rem
       height: 2rem
+  &-Two
+    &.active
+      opacity: 1
   @media ( hover: none )
     display: none
 
 .cursorInteract
   pointer-events: auto
+  cursor: none
 
 .laserBlok
   position: fixed

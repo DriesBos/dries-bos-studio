@@ -12,41 +12,73 @@ export default {
   },
   watch: {
     $route() {
-      this.removeChangeCursor()
+      this.removeChangeCursorOne()
+      this.removeChangeCursorTwo()
     }
   },
   mounted() {
-    this.customCursor()
+    this.customCursorOne()
     this.loadSections()
     document
       .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+      .forEach(item => item.addEventListener("mouseover", this.changeCursorOne))
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
+        item.addEventListener("mouseleave", this.removeChangeCursorOne)
+      )
+    this.customCursorTwo()
+    document
+      .querySelectorAll(".enabled")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursorTwo))
+    document
+      .querySelectorAll(".enabled")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursorTwo)
       )
   },
   updated() {
-    this.removeChangeCursor()
+    this.removeChangeCursorOne()
     document
       .querySelectorAll(".cursorInteract")
-      .forEach(item => item.addEventListener("mouseover", this.changeCursor))
+      .forEach(item => item.addEventListener("mouseover", this.changeCursorOne))
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item =>
-        item.addEventListener("mouseleave", this.removeChangeCursor)
+        item.addEventListener("mouseleave", this.removeChangeCursorOne)
+      )
+    this.removeChangeCursorTwo()
+    document
+      .querySelectorAll(".enabled")
+      .forEach(item => item.addEventListener("mouseover", this.changeCursorTwo))
+    document
+      .querySelectorAll(".enabled")
+      .forEach(item =>
+        item.addEventListener("mouseleave", this.removeChangeCursorTwo)
       )
   },
   destroyed() {
-    this.removeChangeCursor()
-    document
-      .querySelectorAll(".cursorInteract")
-      .forEach(item => item.removeEventListener("mouseover", this.changeCursor))
+    this.removeChangeCursorOne()
     document
       .querySelectorAll(".cursorInteract")
       .forEach(item =>
-        item.removeEventListener("mouseleave", this.removeChangeCursor)
+        item.removeEventListener("mouseover", this.changeCursorOne)
+      )
+    document
+      .querySelectorAll(".cursorInteract")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursorOne)
+      )
+    this.removeChangeCursorTwo()
+    document
+      .querySelectorAll(".enabled")
+      .forEach(item =>
+        item.removeEventListener("mouseover", this.changeCursorTwo)
+      )
+    document
+      .querySelectorAll(".enabled")
+      .forEach(item =>
+        item.removeEventListener("mouseleave", this.removeChangeCursorTwo)
       )
   },
   methods: {
@@ -197,34 +229,41 @@ export default {
       nav.classList.remove("disabled")
     },
     // CURSOR
-    customCursor() {
+    customCursorOne() {
       let cursorOne = document.querySelector(".cursor-One")
-      let cursorTwo = document.querySelector(".cursor-Two")
       function moveCursorOne(e) {
-        gsap.to(cursorOne, 0.165, {
+        gsap.to(cursorOne, 0, {
           opacity: 1,
           left: e.clientX,
           top: e.clientY,
           ease: "ease"
         })
       }
+      document.addEventListener("mousemove", moveCursorOne)
+    },
+    customCursorTwo() {
+      let cursorTwo = document.querySelector(".cursor-Two")
       function moveCursorTwo(e) {
-        gsap.to(cursorTwo, 0.165, {
-          opacity: 1,
+        gsap.to(cursorTwo, 0.33, {
           left: e.clientX,
           top: e.clientY,
           ease: "ease",
-          delay: 0.165
+          delay: 0.1
         })
       }
-      document.addEventListener("mousemove", moveCursorOne)
       document.addEventListener("mousemove", moveCursorTwo)
     },
-    changeCursor() {
-      document.querySelector(".cursor").classList.add("active")
+    changeCursorOne() {
+      document.querySelector(".cursor-One").classList.add("active")
     },
-    removeChangeCursor() {
-      document.querySelector(".cursor").classList.remove("active")
+    removeChangeCursorOne() {
+      document.querySelector(".cursor-One").classList.remove("active")
+    },
+    changeCursorTwo() {
+      document.querySelector(".cursor-Two").classList.add("active")
+    },
+    removeChangeCursorTwo() {
+      document.querySelector(".cursor-Two").classList.remove("active")
     }
   }
 }
