@@ -1,7 +1,0 @@
-@font-face {
-  font-family: "Sohne Buch";
-  src: url("~assets/fonts/soehne-web-buch.woff2") format("woff2"),
-    url("~assets/fonts/soehne-web-buch.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}

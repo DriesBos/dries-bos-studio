@@ -43,14 +43,14 @@
       <div class="laserBlok-Lines"></div>
     </div>
     <div class="btnContainer">
-      <ButtonItem>
+      <ButtonItem icon="mail">
         <a
           href="mailto:info@driesbos.com?subject=Let's Make Internet"
           target="_blank"
           >Lets make internet</a
         ></ButtonItem
       >
-      <ButtonItem>
+      <ButtonItem icon="arrowup">
         <p>Up</p>
       </ButtonItem>
     </div>

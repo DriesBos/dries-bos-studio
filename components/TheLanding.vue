@@ -1,7 +1,7 @@
 <template>
   <div class="theLanding">
     <h1>Dries Bos—computational design, development and digital partner</h1>
-    <ButtonItem>
+    <ButtonItem icon="arrowdown">
       <p>Selected works</p>
     </ButtonItem>
   </div>
@@ -13,6 +13,7 @@
   padding: 5vw
   h1
     font-size: 6.33vw
+    font-weight: regular
     line-height: 1
   .btn
     position: absolute

@@ -1,5 +1,30 @@
 <template>
   <div class="btn cursorInteract" :type="type">
+    <div
+      v-if="icon === 'arrowleft'"
+      class="icon icon-Arrow_Left"
+      v-html="require('~/assets/images/icon-arrow.svg?include')"
+    ></div>
+    <div
+      v-if="icon === 'arrowup'"
+      class="icon icon-Arrow_Up"
+      v-html="require('~/assets/images/icon-arrow.svg?include')"
+    ></div>
+    <div
+      v-if="icon === 'arrowright'"
+      class="icon icon-Arrow_Right"
+      v-html="require('~/assets/images/icon-arrow.svg?include')"
+    ></div>
+    <div
+      v-if="icon === 'arrowdown'"
+      class="icon icon-Arrow_Down"
+      v-html="require('~/assets/images/icon-arrow.svg?include')"
+    ></div>
+    <div
+      v-if="icon === 'mail'"
+      class="icon icon-Mail"
+      v-html="require('~/assets/images/icon-mail.svg?include')"
+    ></div>
     <slot />
   </div>
 </template>
@@ -11,6 +36,9 @@ export default {
     type: {
       type: String,
       default: "link"
+    },
+    icon: {
+      type: String
     }
   }
 }
@@ -18,23 +46,29 @@ export default {
 
 <style lang="sass">
 .btn
+  display: flex
+  flex-wrap: nowrap
+  align-items: center
+  padding: 2px .45em
   color: var(--color)
   border: 1px solid var(--color)
   border-radius: 1000px
   background: var(--block-color)
-  box-shadow: 0
-  font-size: 28px
-  font-weight: 300 // Light
+  font-size: 38px
+  font-weight: 300
   text-transform: uppercase
   line-height: 1
+  letter-spacing: -0.025em
+  & .icon
+    margin-right: 8px
   // transition: box-shadow $transition-hover, background $transition-hover
   // transform: translateY(10px)
   a, p
-    padding: 2px 1rem
-    font-size: 28px
-    font-weight: 300 // Light
+    font-size: 38px
+    font-weight: 300
     text-transform: uppercase
     line-height: 1
+    letter-spacing: -0.05em
   // &:first-child
   //   margin-bottom: 0.5rem
   // &:hover

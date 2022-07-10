@@ -69,19 +69,6 @@ module.exports = {
   // Auto import components
   components: true,
 
-  // Google-Fonts Module
-  googleFonts: {
-    prefetch: true,
-    families: {
-      // Chivo: true
-      // "Josefin+Sans": true,
-      Chivo: [300, 400]
-      // Raleway: {
-      //   wght: [100, 400],
-      //   ital: [100]
-    }
-  },
-
   /*
    ** Global CSS
    */
@@ -164,7 +151,23 @@ module.exports = {
   // Modules only run on build
   buildModules: [
     "@nuxtjs/pwa",
-    "@nuxtjs/google-fonts",
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Chivo: {
+            wght: [300, 400]
+          }
+        },
+        subsets: ["latin"],
+        display: "swap",
+        prefetch: false,
+        preconnect: false,
+        preload: false,
+        download: true,
+        base64: false
+      }
+    ],
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/dotenv",
