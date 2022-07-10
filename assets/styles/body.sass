@@ -37,6 +37,7 @@ main
   position: sticky
   top: 0
   margin-top: calc(0px - #{var(--border-width)})
+  padding-bottom: 0
   width: 100%
   border-left: var(--border)
   border-right: var(--border)
@@ -46,7 +47,6 @@ main
   color: var(--block-color)
   opacity: 0
   transform: translateY(50px)
-  transition: padding-bottom $transition-hover, margin-top $transition-hover
   &-Container
     width: 88vw
     display: flex
@@ -59,11 +59,15 @@ main
   &-Navigation
     background: $grey
   &.enabled
+    padding-bottom: 0
+    transition: padding-bottom 1s, margin-top 1s
     &:hover
       @media ( hover: hover )
         z-index: +1
-        padding-bottom: 1.8rem
         margin-top: calc(0px - (1.8rem + 2px))
+        padding-bottom: calc(1.8rem + 2px)
+        // height: calc(5.7rem + 4px)
+        transition: padding-bottom $transition-hover, margin-top $transition-hover
   &.disabled
     pointer-events: none
     p, svg
