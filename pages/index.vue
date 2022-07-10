@@ -132,6 +132,7 @@
               </li>
             </ul>
           </nuxt-link>
+          <!-- COVERIMAGE -->
           <!-- <div
             :key="post.title"
             v-lazy-container="{ selector: 'img' }"
@@ -178,15 +179,15 @@
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
                     <!-- prettier-ignore -->
-                    <!-- <div
+                    <div
                         class="icon icon-Arrow"
                         title="view project"
                         v-html="require('~/assets/images/icon-arrow.svg?include')"
-                      ></div> -->
-                    <nuxt-img
+                      ></div>
+                    <!-- <nuxt-img
                       class="icon icon-Arrow"
                       src="~/assets/images/icon-arrow.svg"
-                    />
+                    /> -->
                   </li>
                 </ul>
               </li>
@@ -350,14 +351,14 @@ export default {
     window.removeEventListener("resize", this.screenResize)
   },
   methods: {
-    // transformImage(image, option) {
-    //   if (!image) return ""
-    //   if (!option) return ""
-    //   let imageService = "//img2.storyblok.com/"
-    //   let pathOne = image.replace("https://a.storyblok.com", "")
-    //   let pathTwo = pathOne.replace("//a.storyblok.com", "")
-    //   return imageService + option + pathTwo
-    // },
+    transformImage(image, option) {
+      if (!image) return ""
+      if (!option) return ""
+      let imageService = "//img2.storyblok.com/"
+      let pathOne = image.replace("https://a.storyblok.com", "")
+      let pathTwo = pathOne.replace("//a.storyblok.com", "")
+      return imageService + option + pathTwo
+    },
     calculateWidest(el) {
       var maxWidth = 0
       var array = document.querySelectorAll(`.${el}`)

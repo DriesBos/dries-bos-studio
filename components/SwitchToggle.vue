@@ -1,10 +1,10 @@
 <template>
   <div
-    class="SwitchToggle"
+    class="switchToggle"
     :class="{ active: isActive }"
     @click="clickSwitchToggle"
   >
-    <div class="SwitchToggle-Dot"></div>
+    <div class="switchToggle-Dot"></div>
   </div>
 </template>
 
