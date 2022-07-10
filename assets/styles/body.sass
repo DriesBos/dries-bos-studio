@@ -47,6 +47,10 @@ main
   color: var(--block-color)
   opacity: 0
   transform: translateY(50px)
+  &.disabled
+    pointer-events: none
+    p, svg, img
+      opacity: var(--color-faded)
   &-Container
     width: 88vw
     display: flex
@@ -58,7 +62,7 @@ main
       width: calc(100% - 2rem)
   &-Navigation
     background: $grey
-  &.enabled
+  &.hoverUp
     padding-bottom: 0
     transition: padding-bottom 1s, margin-top 1s
     &:hover
@@ -68,11 +72,6 @@ main
         padding-bottom: calc(1.8rem + 2px)
         // height: calc(5.7rem + 4px)
         transition: padding-bottom $transition-hover, margin-top $transition-hover
-  &.disabled
-    pointer-events: none
-    p, svg
-      opacity: var(--color-faded)
-      transition: opacity $transition-hover
 
 // ELEMENTS
 .btnContainer

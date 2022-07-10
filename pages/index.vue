@@ -87,14 +87,19 @@
     </section>
     <!-- INDEX LIST -->
     <template v-if="viewState">
-      <template v-for="(post, i) in filteredList">
+      <IndexTextItem
+        v-for="post in filteredList"
+        :key="post.id"
+        :post="post"
+      ></IndexTextItem>
+      <!-- <template v-for="(post, i) in filteredList">
         <template v-if="post.active">
           <nuxt-link
             :id="post.id"
             :key="post.id"
             :to="`/projects/${post.id}`"
             class="block block-Text contentListItem-List"
-            :class="[post.active ? 'enabled cursorInteract' : 'disabled']"
+            :class="{ disabled: !post.active }"
             tag="section"
           >
             <ul class="contentListItem">
@@ -103,11 +108,11 @@
               </li>
               <li class="contentListItem-Column title">
                 <p title="project">{{ post.title || "" }}</p>
-              </li>
-              <!-- <li class="contentListItem-Column agency">
+              </li> -->
+      <!-- <li class="contentListItem-Column agency">
                 <p title="agency">{{ post.agency || "" }}</p>
               </li> -->
-              <!-- <li class="contentListItem-Column category">
+      <!-- <li class="contentListItem-Column category">
                 <p
                   v-for="(cat, index) in post.category"
                   :key="index"
@@ -116,10 +121,10 @@
                   {{ cat }}
                 </p>
               </li> -->
-              <!-- <li class="contentListItem-Column agency">
+      <!-- <li class="contentListItem-Column agency">
                 <p title="role">role</p>
               </li> -->
-              <li class="contentListItem-Column icons">
+      <!-- <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
                     <div
@@ -132,26 +137,14 @@
               </li>
             </ul>
           </nuxt-link>
-          <!-- COVERIMAGE -->
-          <!-- <div
-            :key="post.title"
-            v-lazy-container="{ selector: 'img' }"
-            class="contentListItem-CoverImage"
-          >
-            <img
-            :data-src="`${transformImage(post.cover_image,'720x0')}`"
-            :alt="post.title"
-            class="lazy"
-          />
-            <nuxt-img class="lazy" :src="post.cover_image" />
-          </div> -->
         </template>
+
         <template v-if="post.active == false">
           <section
             :id="post.id"
             :key="i"
             class="block contentListItem-List"
-            :class="[post.active ? 'enabled' : 'disabled']"
+            :class="{ disabled: !post.active }"
           >
             <ul class="contentListItem">
               <li class="contentListItem-Column year">
@@ -159,8 +152,8 @@
               </li>
               <li class="contentListItem-Column title">
                 <p title="project">{{ post.title || "" }}</p>
-              </li>
-              <!-- <li class="contentListItem-Column agency">
+              </li> -->
+      <!-- <li class="contentListItem-Column agency">
                 <p title="agency">{{ post.agency || "" }}</p>
               </li>
               <li class="contentListItem-Column category">
@@ -175,26 +168,22 @@
               <li class="contentListItem-Column agency">
                 <p title="role">role</p>
               </li> -->
-              <li class="contentListItem-Column icons">
+      <!-- <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
-                  <li class="contentListItem-Icon contentListItem-Arrow">
-                    <!-- prettier-ignore -->
-                    <div
+                  <li class="contentListItem-Icon contentListItem-Arrow"> -->
+      <!-- prettier-ignore -->
+      <!-- <div
                         class="icon icon-Arrow"
                         title="view project"
                         v-html="require('~/assets/images/icon-arrow.svg?include')"
                       ></div>
-                    <!-- <nuxt-img
-                      class="icon icon-Arrow"
-                      src="~/assets/images/icon-arrow.svg"
-                    /> -->
                   </li>
                 </ul>
               </li>
             </ul>
           </section>
         </template>
-      </template>
+      </template> -->
     </template>
     <!-- INDEX GRID -->
     <template v-if="!viewState">
