@@ -1,19 +1,23 @@
 <template>
-  <div class="switch" :class="{ active: isActive }" @click="clickSwitch">
-    <div class="switch-Toggle"></div>
+  <div
+    class="SwitchToggle"
+    :class="{ active: isActive }"
+    @click="clickSwitchToggle"
+  >
+    <div class="SwitchToggle-Dot"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Switch",
+  name: "SwitchToggle",
   data() {
     return {
       isActive: false
     }
   },
   methods: {
-    clickSwitch() {
+    clickSwitchToggle() {
       this.isActive = !this.isActive
     }
   }
@@ -21,13 +25,13 @@ export default {
 </script>
 
 <style lang="sass">
-.switch
+.switchToggle
   position: relative
   height: var(--spacing-icons)
   width: var(--spacing-icons-double)
   background: #313131
   border-radius: 100px
-  &-Toggle
+  &-Dot
     position: absolute
     left: 2px
     top: 2px
@@ -38,6 +42,6 @@ export default {
     border-radius: 1000px
     transition: transform .125s ease-in-out
   &.active
-    .switch-Toggle
+    .switchToggle-Dot
       transform: translateX(#{var(--spacing-icons)})
 </style>
