@@ -93,7 +93,7 @@
             :id="post.id"
             :key="post.id"
             :to="`/projects/${post.id}`"
-            class="block contentListItem-List"
+            class="block block-Text contentListItem-List"
             :class="[{ active: post.active }, { cursorInteract: post.active }]"
             tag="section"
           >

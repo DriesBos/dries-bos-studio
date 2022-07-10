@@ -2,7 +2,7 @@
   <section
     :id="post.id"
     :key="post.id"
-    class="block gridItem gridItem_Project imageGrid-Item"
+    class="block block-Image gridItem gridItem_Project imageGrid-Item"
   >
     <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">
       <img
