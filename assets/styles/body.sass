@@ -59,7 +59,6 @@ main
   position: sticky
   display: flex
   top: 0
-  margin-top: calc(0px - #{var(--border-width)})
   width: 100%
   border-left: var(--border)
   border-right: var(--border)
@@ -108,12 +107,13 @@ main
         margin-left: vaR(--spacing-icons)
 
   &-Header
-    position: relative
-    z-index: 900
-    pointer-events: none
+    position: relative // TODO: make sticky
+    z-index: +1
+    border-bottom: var(--border)
+    margin-bottom: calc(0px - #{var(--border-width)})
     .blockTop
       opacity: 1
-    & .logo
+    &_Logo
       flex-grow: 1
       @media screen and ( max-width: $breakpoint-mobile)
         overflow: hidden
@@ -140,6 +140,25 @@ main
           transition: padding-bottom $transition-hover, transform $transition-hover, margin-top $transition-hover
           transform: translateY(calc(0px - 2px - 1.6rem))
 
+.blockTop
+  position: absolute
+  top: 1px
+  left: -1px
+  width: calc(100% + 2px)
+  opacity: 0
+  transform: translateY(-100%)
+  pointer-events: none
+  z-index: 0
+  svg
+    vertical-align: bottom
+    color: var(--block-background)
+    stroke: var(--border-color) !important
+    backface-visibility: hidden
+    @media screen and ( max-width: $breakpoint-mobile)
+      stroke-width: 5px
+
+#floatBlock
+  backface-visibility: hidden
 
 // ELEMENTS
 .btnContainer
@@ -157,29 +176,6 @@ main
   top: 30px
   right: 30px
   z-index: 999
-
-
-.blockTop
-  position: absolute
-  top: calc(0px - #{var(--border-width)})
-  top: -1px
-  left: -1px
-  width: calc(100% + 2px)
-  opacity: 0
-  transform: translateY(-100%)
-  pointer-events: none
-  z-index: 0
-  svg
-    vertical-align: bottom
-    color: var(--block-background)
-    color: white
-    stroke: var(--border-color) !important
-    backface-visibility: hidden
-    @media screen and ( max-width: $breakpoint-mobile)
-      stroke-width: 5px
-
-#floatBlock
-  backface-visibility: hidden
 
 .icon
   position: relative
@@ -256,72 +252,6 @@ main
 
 // CONTENT
 .contentListItem
-  &-Input
-    input
-      visibility: hidden
-      opacity: 0
-      width: 100%
-      max-width: 100%
-      padding: 0
-      margin: 0
-      transition: opacity $transition-hover
-      cursor: none
-      &:focus
-        color: currentColor
-      &::placeholder
-        color: currentColor
-        opacity: var(--color-faded)
-    &.active
-      input
-        visibility: visible
-        opacity: 1
-  // Item category
-  &-Header
-    position: relative
-    z-index: 900
-    pointer-events: none
-    .blockTop
-      opacity: 1
-    & .logo
-      flex-grow: 1
-      @media screen and ( max-width: $breakpoint-mobile)
-        overflow: hidden
-        min-width: 0
-        text-overflow: ellipsis
-        flex-shrink: 1
-        white-space: nowrap
-        padding-right: 0 !important
-      @media screen and ( max-width: 500px)
-        .logo-Subtitle
-          display: none
-    & .icons
-      padding-left: 0 !important
-  &-Filter
-    li
-      // text-transform: uppercase
-    .title
-      flex-shrink: 1
-    p
-      display: inline
-    p
-      // opacity: var(--color-faded)
-      // transition: opacity $transition-hover
-      // &:hover
-      //   @media ( hover: hover )
-      //     opacity: 1
-    // .active
-    //   p
-    //     opacity: 1
-    // .icon
-    //   opacity: var(--color-faded)
-    //   &:hover
-    //     @media ( hover: hover )
-    //       opacity: 1
-      // &.active
-      //   opacity: 1
-    @media screen and ( max-width: $breakpoint-mobile) and ( min-width: 550px)
-      .contentListItem-Column.icons
-        display: none
   // INDEX BLOCKS
   &-Images
     padding-left: var(--spacing-two)

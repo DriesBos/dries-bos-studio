@@ -4,9 +4,9 @@
       class="blockTop"
       v-html="require('~/assets/images/spaceform.svg?include')"
     />
+
     <div class="block-Text_Content">
-      <!-- TITLE -->
-      <div class="block-Text_Column logo">
+      <div class="block-Text_Column block-Header_Logo">
         <nuxt-link class="cursorInteract" to="/">
           <span title="that's me!">Dries Bos</span>
           <!-- prettier-ignore -->
@@ -23,7 +23,7 @@
           >
         </nuxt-link>
       </div>
-      <!-- ICONS -->
+
       <div class="block-Text_Column block-Text_Icons">
         <!-- INDEX -->
         <div
