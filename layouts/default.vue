@@ -6,7 +6,7 @@
     </div>
     <LazyTheLanding v-if="isIndex" />
     <div class="block-Container" @mouseenter="toggleFloatHeaderTrue">
-      <LazyTheNavigation
+      <LazyTheHeader
         :class="{ active: floatHeader }"
         @toggle-view="viewIsToggled"
       />
@@ -18,17 +18,6 @@
     <div class="cursor cursor-Two">
       <div class="btn"><p>Open Project</p></div>
     </div>
-    <!-- <div class="typeAnimation">
-      <div class="typeAnimation-Content">
-        <span class="typeAnimation-Word typeAnimation-One">LET'S</span>
-        <span class="typeAnimation-Word typeAnimation-Two">MAKE</span>
-        <span class="typeAnimation-InternetWrap">
-          <span class="typeAnimation-Word typeAnimation-Three">IN</span>
-          <span class="typeAnimation-Word typeAnimation-Four">TER</span>
-          <span class="typeAnimation-Word typeAnimation-Five">NET</span>
-        </span>
-      </div>
-    </div> -->
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>
       <div class="laserBlok-Lines"></div>

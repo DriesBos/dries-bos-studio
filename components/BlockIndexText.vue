@@ -7,6 +7,10 @@
     :class="[{ disabled: !post.active }, { cursorInteract: post.active }]"
     tag="section"
   >
+    <div
+      class="blockTop"
+      v-html="require('~/assets/images/spaceform.svg?include')"
+    />
     <div class="block-Text_Content">
       <div class="block-Text_Column year">
         <p title="year">{{ post.year || "" }}</p>

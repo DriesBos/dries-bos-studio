@@ -256,89 +256,6 @@ main
 
 // CONTENT
 .contentListItem
-  // display: flex
-  // width: 100%
-  // padding-top: 1rem
-  // padding-bottom: 1rem
-  // &-List
-  //   &:hover + .contentListItem-CoverImage
-  //     @media ( hover: hover )
-  //       opacity: 1
-  //   &:hover + .contentListItem-CoverImage.disabled
-  //     @media ( hover: hover )
-  //       opacity: 0
-  // &-CoverImage
-  //   position: fixed
-  //   bottom: 0
-  //   right: 0
-  //   width: 25vw
-  //   min-width: 250px
-  //   max-width: 360px
-  //   overflow: hidden
-  //   margin-right: 2rem
-  //   margin-bottom: 5rem
-  //   opacity: 0
-  //   z-index: +2
-  //   box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
-  //   pointer-events: none
-  //   img
-  //     border: var(--border)
-  // &-Column
-  //   padding-left: var(--spacing-two)
-  //   padding-right: var(--spacing-two)
-  //   flex-shrink: 0
-  //   &:first-child
-  //     padding-left: var(--block-sides)
-  //     padding-right: var(--spacing-one)
-  //   &:nth-child(2)
-  //     padding-left: var(--spacing-one)
-  //   &:last-child
-  //     padding-right: var(--block-sides)
-    // &.category, &.agency, &.year, &.title
-    //   flex-shrink: 0
-    //   white-space: nowrap
-    // &.category
-    //   p
-    //     display: inline
-    //     &::after
-    //       content: '&'
-    //   p:last-child
-    //     &::after
-    //       content: ''
-    // &.search
-    //   padding-left: 0
-    // @media screen and ( max-width: 1090px)
-    //   &.agency
-    //     display: none
-    // @media screen and ( max-width: 670px)
-    //   &.category
-    //     display: none
-    // @media screen and ( max-width: 500px)
-    //   padding-left: 0
-    //   padding-right: var(--spacing-one) !important
-  //   &.icons
-  //     display: flex
-  //     justify-content: flex-end
-  //     flex-grow: 1
-  // &-Icons
-  //   display: flex
-  //   height: 100%
-  //   li
-  //     display: flex
-  //     align-items: center
-  &-Space
-    @media screen and ( max-width: 500px)
-      display: none !important
-  &-Icon
-    margin-left: var(--spacing-two)
-    flex-shrink: 0
-    @media screen and ( max-width: $breakpoint-mobile)
-      margin-left: var(--spacing-icons)
-    .icon
-      img, svg
-        height: 100%
-  &-Icon:first-child
-    margin-left: 0
   &-Input
     input
       visibility: hidden
@@ -358,8 +275,6 @@ main
       input
         visibility: visible
         opacity: 1
-  &-Search
-    margin-left: var(--spacing-one)
   // Item category
   &-Header
     position: relative

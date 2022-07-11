@@ -52,38 +52,35 @@
 
       <!-- SEARCH -->
       <div class="block-Text_Column block-Text_Icons">
-        <ul class="block-Text_Icons">
-          <li
-            v-click-outside="outsideSearch"
-            class="block-Text_Input"
+        <!-- <div
+          v-click-outside="outsideSearch"
+          class="block-Text_Input"
+          :class="{ active: toggleSearch }"
+        >
+          <input
+            id="search"
+            ref="search"
+            v-model="search"
+            class="cursorInteract"
+            type="text"
+            placeholder="search project.."
+            title="search project"
+            size="13"
+          />
+          <div v-html="require('~/assets/images/icon-search.svg?include')" />
+        </div> -->
+        <div
+          class="block-Text_Icon block-Text_Search"
+          title="search project"
+          @click.stop="searchIconClick"
+        >
+          <div
+            class="cursorInteract icon icon-Search"
             :class="{ active: toggleSearch }"
           >
-            <input
-              id="search"
-              ref="search"
-              v-model="search"
-              class="cursorInteract"
-              type="text"
-              placeholder="search project.."
-              title="search project"
-              size="13"
-            />
-          </li>
-          <li
-            class="block-Text_Icon block-Text_Search"
-            title="search project"
-            @click.stop="searchIconClick"
-          >
-            <div
-              class="cursorInteract icon icon-Search"
-              :class="{ active: toggleSearch }"
-            >
-              <div
-                v-html="require('~/assets/images/icon-search.svg?include')"
-              />
-            </div>
-          </li>
-        </ul>
+            <div v-html="require('~/assets/images/icon-search.svg?include')" />
+          </div>
+        </div>
       </div>
     </div>
   </section>

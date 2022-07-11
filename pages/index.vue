@@ -1,24 +1,24 @@
 <template>
   <div class="view view-Index">
     <!-- FILTER -->
-    <FilterBlock />
+    <BlockFilter />
 
     <!-- INDEX LIST -->
     <template v-if="viewState">
-      <IndexTextItem
+      <BlockIndexText
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
-      ></IndexTextItem>
+      ></BlockIndexText>
     </template>
 
     <!-- INDEX GRID -->
     <template v-if="!viewState">
-      <IndexImageItem
+      <BlockIndexImage
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
-      ></IndexImageItem>
+      ></BlockIndexImage>
     </template>
 
     <TheFooter />
