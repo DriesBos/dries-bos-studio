@@ -39,7 +39,7 @@ main
   margin-right: auto
   section
     &:first-of-type
-      .spaceForm
+      .blockTop
         opacity: 1
         svg path
           fill: var(--block-background) !important
@@ -104,6 +104,27 @@ main
       justify-content: flex-end
       align-items: center
       flex-grow: 1
+      & > div
+        margin-left: vaR(--spacing-icons)
+
+  &-Header
+    position: relative
+    z-index: 900
+    pointer-events: none
+    .blockTop
+      opacity: 1
+    & .logo
+      flex-grow: 1
+      @media screen and ( max-width: $breakpoint-mobile)
+        overflow: hidden
+        min-width: 0
+        text-overflow: ellipsis
+        flex-shrink: 1
+        white-space: nowrap
+        padding-right: 0 !important
+      @media screen and ( max-width: 500px)
+        .logo-Subtitle
+          display: none
 
   &.disabled
     pointer-events: none
@@ -138,7 +159,7 @@ main
   z-index: 999
 
 
-.spaceForm
+.blockTop
   position: absolute
   top: calc(0px - #{var(--border-width)})
   top: -1px
@@ -344,7 +365,7 @@ main
     position: relative
     z-index: 900
     pointer-events: none
-    .spaceForm
+    .blockTop
       opacity: 1
     & .logo
       flex-grow: 1

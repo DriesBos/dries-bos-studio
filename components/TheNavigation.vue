@@ -1,12 +1,12 @@
 <template>
-  <section id="floatBlock" class="block contentListItem-Header">
+  <section id="floatBlock" class="block block-Text block-Header">
     <div
-      class="spaceForm"
+      class="blockTop"
       v-html="require('~/assets/images/spaceform.svg?include')"
     />
-    <ul class="contentListItem">
+    <div class="block-Text_Content">
       <!-- TITLE -->
-      <li class="contentListItem-Column logo">
+      <div class="block-Text_Column logo">
         <nuxt-link class="cursorInteract" to="/">
           <span title="that's me!">Dries Bos</span>
           <!-- prettier-ignore -->
@@ -22,98 +22,93 @@
             >& {{ slug }}</span
           >
         </nuxt-link>
-      </li>
+      </div>
       <!-- ICONS -->
-      <li class="contentListItem-Column icons">
-        <ul class="contentListItem-Icons">
-          <!-- INDEX -->
-          <li
-            v-show="this.$route.name === 'index'"
-            class="contentListItem-Icon contentListItem-View"
-            @click="toggleTheView"
+      <div class="block-Text_Column block-Text_Icons">
+        <!-- INDEX -->
+        <div
+          v-show="this.$route.name === 'index'"
+          class="block-Text_Icon block-Text_View"
+          @click="toggleTheView"
+        >
+          <div
+            v-show="viewState"
+            class="cursorInteract icon icon-View"
+            title="image view"
+          >
+            <div v-html="require('~/assets/images/icon-img.svg?include')"></div>
+          </div>
+          <div
+            v-show="!viewState"
+            class="cursorInteract icon icon-View"
+            title="text view"
+          >
+            <div v-html="require('~/assets/images/icon-txt.svg?include')"></div>
+          </div>
+        </div>
+        <!-- WORDS -->
+        <div
+          v-show="this.$route.name === 'index'"
+          class="block-Text_Icon block-Text_Words"
+          title="Words page"
+        >
+          <nuxt-link
+            to="/words"
+            class="cursorInteract icon icon-Words"
+            title="words"
+            tag="div"
           >
             <div
-              v-show="viewState"
-              class="cursorInteract icon icon-View"
-              title="image view"
-            >
-              <div
-                v-html="require('~/assets/images/icon-img.svg?include')"
-              ></div>
-            </div>
+              v-html="require('~/assets/images/icon-chat.svg?include')"
+            ></div>
+          </nuxt-link>
+        </div>
+        <!-- ABOUT -->
+        <div
+          v-show="this.$route.name === 'index'"
+          class="block-Text_Icon block-Text_About"
+          title="about page"
+        >
+          <nuxt-link
+            to="/about"
+            class="cursorInteract icon icon-About"
+            title="about"
+            tag="div"
+          >
             <div
-              v-show="!viewState"
-              class="cursorInteract icon icon-View"
-              title="text view"
-            >
-              <div
-                v-html="require('~/assets/images/icon-txt.svg?include')"
-              ></div>
-            </div>
-          </li>
-          <!-- WORDS -->
-          <li
-            v-show="this.$route.name === 'index'"
-            class="contentListItem-Icon contentListItem-Words"
-            title="Words page"
-          >
-            <nuxt-link
-              to="/words"
-              class="cursorInteract icon icon-Words"
-              title="words"
-              tag="div"
-            >
-              <div
-                v-html="require('~/assets/images/icon-chat.svg?include')"
-              ></div>
-            </nuxt-link>
-          </li>
-          <!-- ABOUT -->
-          <li
-            v-show="this.$route.name === 'index'"
-            class="contentListItem-Icon contentListItem-About"
-            title="about page"
-          >
-            <nuxt-link
-              to="/about"
-              class="cursorInteract icon icon-About"
-              title="about"
-              tag="div"
-            >
-              <div
-                v-html="require('~/assets/images/icon-about.svg?include')"
-              ></div>
-            </nuxt-link>
-          </li>
-          <!-- MAIL -->
-          <li
-            v-show="this.$route.name === 'about'"
-            class="contentListItem-Icon contentListItem-View mobileContent"
-            title="mail me!"
-          >
-            <a
-              href="mailto:info@driesbos.com"
-              class="cursorInteract icon icon-Mail"
-              target="_blank"
-            >
-              <div v-html="require('~/assets/images/icon-mail.svg?include')" />
-            </a>
-          </li>
-          <!-- PHONE -->
-          <li
-            v-show="this.$route.name === 'about'"
-            class="contentListItem-Icon contentListItem-View mobileContent"
-            title="call me!"
+              v-html="require('~/assets/images/icon-about.svg?include')"
+            ></div>
+          </nuxt-link>
+        </div>
+        <!-- MAIL -->
+        <div
+          v-show="this.$route.name === 'about'"
+          class="block-Text_Icon block-Text_View mobileContent"
+          title="mail me!"
+        >
+          <a
+            href="mailto:info@driesbos.com"
+            class="cursorInteract icon icon-Mail"
             target="_blank"
           >
-            <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
-              <div v-html="require('~/assets/images/icon-phone.svg?include')" />
-            </a>
-          </li>
-          <!-- PREV -->
-          <!-- <li
+            <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+          </a>
+        </div>
+        <!-- PHONE -->
+        <div
+          v-show="this.$route.name === 'about'"
+          class="block-Text_Icon block-Text_View mobileContent"
+          title="call me!"
+          target="_blank"
+        >
+          <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
+            <div v-html="require('~/assets/images/icon-phone.svg?include')" />
+          </a>
+        </div>
+        <!-- PREV -->
+        <!-- <li
             v-show="this.$route.name === 'projects-slug'"
-            class="contentListItem-Icon contentListItem-View"
+            class="block-Text_Icon block-Text_View"
             title="previous project"
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
@@ -122,10 +117,10 @@
               ></div>
             </div>
           </li> -->
-          <!-- NEXT -->
-          <!-- <li
+        <!-- NEXT -->
+        <!-- <li
             v-show="this.$route.name === 'projects-slug'"
-            class="contentListItem-Icon contentListItem-View"
+            class="block-Text_Icon block-Text_View"
             title="next project"
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Next">
@@ -134,26 +129,25 @@
               ></div>
             </div>
           </li> -->
-          <!-- CLOSE -->
-          <li
-            v-show="this.$route.name !== 'index'"
-            class="contentListItem-Icon contentListItem-Close"
-            title="close page"
+        <!-- CLOSE -->
+        <div
+          v-show="this.$route.name !== 'index'"
+          class="block-Text_Icon block-Text_Close"
+          title="close page"
+        >
+          <nuxt-link
+            to="/"
+            class="cursorInteract icon icon-Close"
+            title="close"
+            tag="div"
           >
-            <nuxt-link
-              to="/"
-              class="cursorInteract icon icon-Close"
-              title="close"
-              tag="div"
-            >
-              <div
-                v-html="require('~/assets/images/icon-close.svg?include')"
-              ></div>
-            </nuxt-link>
-          </li>
-        </ul>
-      </li>
-    </ul>
+            <div
+              v-html="require('~/assets/images/icon-close.svg?include')"
+            ></div>
+          </nuxt-link>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 

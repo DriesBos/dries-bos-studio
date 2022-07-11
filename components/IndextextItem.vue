@@ -3,7 +3,7 @@
     :id="post.id"
     :key="post.id"
     :to="`/projects/${post.id}`"
-    class="block block-Text contentListItem-List hoverUp"
+    class="block block-Text hoverUp"
     :class="[{ disabled: !post.active }, { cursorInteract: post.active }]"
     tag="section"
   >

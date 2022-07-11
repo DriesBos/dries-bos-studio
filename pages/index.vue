@@ -1,90 +1,8 @@
 <template>
   <div class="view view-Index">
     <!-- FILTER -->
-    <section class="block contentListItem-Filter">
-      <div
-        class="spaceForm"
-        v-html="require('~/assets/images/spaceform.svg?include')"
-      />
-      <ul class="contentListItem">
-        <li class="contentListItem-Column year">
-          <div class :class="{ active: sortByYear }" @click="sortYear">
-            <p class="cursorInteract" title="sort by year">year</p>
-          </div>
-        </li>
-        <li class="contentListItem-Column title">
-          <div
-            class="listItem-Title listItem-Details"
-            :class="{ active: sortByTitle }"
-            @click="sortTitle"
-          >
-            <p class="cursorInteract" title="sort by project">project</p>
-          </div>
-        </li>
-        <!-- <li class="contentListItem-Column agency">
-          <div
-            class="listItem-Agency listItem-Details"
-            :class="{ active: sortByAgency }"
-            @click="sortAgency"
-          >
-            <p class="cursorInteract" title="sort by agency">agency</p>
-          </div>
-        </li> -->
-        <!-- <li class="contentListItem-Column category">
-          <div
-            class="listItem-Category listItem-Details"
-            :class="{ active: sortByCategory }"
-            @click="sortCategory"
-          >
-            <p class="cursorInteract" title="sort by industry">industry</p>
-          </div>
-        </li> -->
-        <!-- <li class="contentListItem-Column category">
-          <div
-            class="listItem-Category listItem-Details"
-            :class="{ active: sortByCategory }"
-            @click="sortCategory"
-          >
-            <p class="cursorInteract" title="sort by role">role</p>
-          </div>
-        </li> -->
-        <!-- SEARCH -->
-        <li class="contentListItem-Column icons search">
-          <ul class="contentListItem-Icons">
-            <li
-              v-click-outside="outsideSearch"
-              class="contentListItem-Input"
-              :class="{ active: toggleSearch }"
-            >
-              <input
-                id="search"
-                ref="search"
-                v-model="search"
-                class="cursorInteract"
-                type="text"
-                placeholder="search project.."
-                title="search project"
-                size="13"
-              />
-            </li>
-            <li
-              class="contentListItem-Icon contentListItem-Search"
-              title="search project"
-              @click.stop="searchIconClick"
-            >
-              <div
-                class="cursorInteract icon icon-Search"
-                :class="{ active: toggleSearch }"
-              >
-                <div
-                  v-html="require('~/assets/images/icon-search.svg?include')"
-                />
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+    <FilterBlock />
+
     <!-- INDEX LIST -->
     <template v-if="viewState">
       <IndexTextItem
@@ -92,99 +10,8 @@
         :key="post.id"
         :post="post"
       ></IndexTextItem>
-      <!-- <template v-for="(post, i) in filteredList">
-        <template v-if="post.active">
-          <nuxt-link
-            :id="post.id"
-            :key="post.id"
-            :to="`/projects/${post.id}`"
-            class="block block-Text contentListItem-List"
-            :class="{ disabled: !post.active }"
-            tag="section"
-          >
-            <ul class="contentListItem">
-              <li class="contentListItem-Column year">
-                <p title="year">{{ post.year || "" }}</p>
-              </li>
-              <li class="contentListItem-Column title">
-                <p title="project">{{ post.title || "" }}</p>
-              </li> -->
-      <!-- <li class="contentListItem-Column agency">
-                <p title="agency">{{ post.agency || "" }}</p>
-              </li> -->
-      <!-- <li class="contentListItem-Column category">
-                <p
-                  v-for="(cat, index) in post.category"
-                  :key="index"
-                  title="industry"
-                >
-                  {{ cat }}
-                </p>
-              </li> -->
-      <!-- <li class="contentListItem-Column agency">
-                <p title="role">role</p>
-              </li> -->
-      <!-- <li class="contentListItem-Column icons">
-                <ul class="contentListItem-Icons">
-                  <li class="contentListItem-Icon contentListItem-Arrow">
-                    <div
-                      class="icon icon-Arrow"
-                      title="view project"
-                      v-html="require('~/assets/images/icon-arrow.svg?include')"
-                    ></div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </nuxt-link>
-        </template>
-
-        <template v-if="post.active == false">
-          <section
-            :id="post.id"
-            :key="i"
-            class="block contentListItem-List"
-            :class="{ disabled: !post.active }"
-          >
-            <ul class="contentListItem">
-              <li class="contentListItem-Column year">
-                <p title="year">{{ post.year || "" }}</p>
-              </li>
-              <li class="contentListItem-Column title">
-                <p title="project">{{ post.title || "" }}</p>
-              </li> -->
-      <!-- <li class="contentListItem-Column agency">
-                <p title="agency">{{ post.agency || "" }}</p>
-              </li>
-              <li class="contentListItem-Column category">
-                <p
-                  v-for="(cat, index) in post.category"
-                  :key="index"
-                  title="industry"
-                >
-                  {{ cat }}
-                </p>
-              </li>
-              <li class="contentListItem-Column agency">
-                <p title="role">role</p>
-              </li> -->
-      <!-- <li class="contentListItem-Column icons">
-                <ul class="contentListItem-Icons">
-                  <li class="contentListItem-Icon contentListItem-Arrow"> -->
-      <!-- prettier-ignore -->
-      <!-- <div
-                        class="icon icon-Arrow"
-                        title="view project"
-                        v-html="require('~/assets/images/icon-arrow.svg?include')"
-                      ></div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </section>
-        </template>
-      </template> -->
     </template>
+
     <!-- INDEX GRID -->
     <template v-if="!viewState">
       <IndexImageItem
@@ -193,6 +20,7 @@
         :post="post"
       ></IndexImageItem>
     </template>
+
     <TheFooter />
   </div>
 </template>

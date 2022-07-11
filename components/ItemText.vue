@@ -1,7 +1,7 @@
 <template>
   <section class="block contentListItem-Text">
     <div
-      class="spaceForm"
+      class="blockTop"
       v-html="require('~/assets/images/spaceform.svg?include')"
     />
     <ul class="contentListItem">

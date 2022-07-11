@@ -1,7 +1,7 @@
 <template>
   <div class="view view-About">
     <div
-      class="spaceForm"
+      class="blockTop"
       v-html="require('~/assets/images/spaceform.svg?include')"
     />
     <component
