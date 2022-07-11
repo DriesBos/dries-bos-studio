@@ -16,7 +16,9 @@
     </div>
     <div class="cursor cursor-One"></div>
     <div class="cursor cursor-Two">
-      <div class="btn"><p>Open Project</p></div>
+      <ButtonItem icon="arrowdown">
+        <p>Open Project</p>
+      </ButtonItem>
     </div>
     <div class="laserBlok">
       <div class="laserBlok-Line"></div>

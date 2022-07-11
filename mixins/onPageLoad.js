@@ -29,10 +29,10 @@ export default {
       )
     this.customCursorTwo()
     document
-      .querySelectorAll(".enabled")
+      .querySelectorAll(".hoverUp")
       .forEach(item => item.addEventListener("mouseover", this.changeCursorTwo))
     document
-      .querySelectorAll(".enabled")
+      .querySelectorAll(".hoverUp")
       .forEach(item =>
         item.addEventListener("mouseleave", this.removeChangeCursorTwo)
       )
@@ -49,10 +49,10 @@ export default {
       )
     this.removeChangeCursorTwo()
     document
-      .querySelectorAll(".enabled")
+      .querySelectorAll(".hoverUp")
       .forEach(item => item.addEventListener("mouseover", this.changeCursorTwo))
     document
-      .querySelectorAll(".enabled")
+      .querySelectorAll(".hoverUp")
       .forEach(item =>
         item.addEventListener("mouseleave", this.removeChangeCursorTwo)
       )
@@ -71,12 +71,12 @@ export default {
       )
     this.removeChangeCursorTwo()
     document
-      .querySelectorAll(".enabled")
+      .querySelectorAll(".hoverUp")
       .forEach(item =>
         item.removeEventListener("mouseover", this.changeCursorTwo)
       )
     document
-      .querySelectorAll(".enabled")
+      .querySelectorAll(".hoverUp")
       .forEach(item =>
         item.removeEventListener("mouseleave", this.removeChangeCursorTwo)
       )
