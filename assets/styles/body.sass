@@ -4,7 +4,6 @@ html, body, #__layout, #__nuxt, main, .transitionWrapper, .view, .page // Avoidi
   width: 100%
   min-height: 100%
 
-// Fundamental elements
 img
   width: 100%
   user-select: none
@@ -15,7 +14,7 @@ img
   &[lazy="loaded"]
     opacity: 1
 
-// STRUCTURE
+// GENERAL CONTAINERS
 body
   background: var(--background)
   color: var(--color)
@@ -33,24 +32,42 @@ main
   min-height: 100vh
   // padding-top: calc(15rem + 10vmin)
 
+.view
+  width: 100%
+  max-width: 100%
+  margin-left: auto
+  margin-right: auto
+  section
+    &:first-of-type
+      .spaceForm
+        opacity: 1
+        svg path
+          fill: var(--block-background) !important
+    &:last-of-type
+      border-bottom: var(--border)
+  &-About, &-Project
+    li
+      flex-basis: 50% !important // Overrides indexItem
+    @media screen and ( max-width: 700px)
+      .contentListItem
+        flex-wrap: wrap
+        li
+          flex-basis: 100% !important // Overrides indexItem
+
+// BLOCKS
 .block
   position: sticky
+  display: flex
   top: 0
   margin-top: calc(0px - #{var(--border-width)})
-  padding-bottom: 0
   width: 100%
   border-left: var(--border)
   border-right: var(--border)
-  border-top: var(--border)
-  border-bottom: var(--border)
   background: var(--block-background)
   color: var(--block-color)
   opacity: 0
   transform: translateY(50px)
-  &.disabled
-    pointer-events: none
-    p, svg, img
-      opacity: var(--color-faded)
+    
   &-Container
     width: 88vw
     display: flex
@@ -62,16 +79,46 @@ main
       width: calc(100% - 2rem)
   &-Navigation
     background: $grey
+
+  &-Text
+    &_Content
+      display: flex
+      width: 100%
+      padding-top: 1rem
+      padding-bottom: 1rem
+      border-top: var(--border)
+      background: var(--block-background)
+    &_Column
+      padding-left: var(--spacing-two)
+      padding-right: var(--spacing-two)
+      flex-shrink: 0
+      &:first-child
+        padding-left: var(--block-sides)
+        padding-right: var(--spacing-one)
+      &:nth-child(2)
+        padding-left: var(--spacing-one)
+      &:last-child
+        padding-right: var(--block-sides)
+    &_Icons
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      flex-grow: 1
+
+  &.disabled
+    pointer-events: none
+    p, svg, img
+      opacity: var(--color-faded)
   &.hoverUp
-    padding-bottom: 0
-    transition: padding-bottom 1s, margin-top 1s
+    .block-Text_Content
+      transition: padding-bottom 1s, margin-top 1s, transform 1s
+      overflow: visible
     &:hover
       @media ( hover: hover )
-        z-index: +1
-        margin-top: calc(0px - (1.8rem + 2px))
-        padding-bottom: calc(1.8rem + 2px)
-        // height: calc(5.7rem + 4px)
-        transition: padding-bottom $transition-hover, margin-top $transition-hover
+        .block-Text_Content
+          transition: padding-bottom $transition-hover, transform $transition-hover, margin-top $transition-hover
+          transform: translateY(calc(0px - 2px - 1.6rem))
+
 
 // ELEMENTS
 .btnContainer
@@ -186,39 +233,12 @@ main
     opacity: 0
     border: var(--border-width) solid var(--color)
 
-// .typeAnimation
-//   position: fixed
-//   left: 0
-//   top: 0
-//   right: 0
-//   bottom: 0
-//   display: flex
-//   justify-content: center
-//   align-items: center
-//   z-index: -1
-//   pointer-events: none
-//   &-Content
-//     @media (orientation: portrait)
-//       display: flex
-//       flex-direction: column
-//       align-items: center
-//   &-Word
-//     font-size: 8vw
-//     -webkit-text-fill-color: rgba(0,0,0,0)
-//     -webkit-text-stroke-width: var(--border-width)
-//     -webkit-text-stroke-color: var(--color)
-//     opacity: 0
-//     @media (orientation: portrait)
-//       font-size: 15vw
-//   &-One, &-Two
-//     margin-right: .5em
-
 // CONTENT
 .contentListItem
-  display: flex
-  width: 100%
-  padding-top: 1rem
-  padding-bottom: 1rem
+  // display: flex
+  // width: 100%
+  // padding-top: 1rem
+  // padding-bottom: 1rem
   // &-List
   //   &:hover + .contentListItem-CoverImage
   //     @media ( hover: hover )
@@ -242,49 +262,49 @@ main
   //   pointer-events: none
   //   img
   //     border: var(--border)
-  &-Column
-    padding-left: var(--spacing-two)
-    padding-right: var(--spacing-two)
-    flex-shrink: 0
-    &:first-child
-      padding-left: var(--block-sides)
-      padding-right: var(--spacing-one)
-    &:nth-child(2)
-      padding-left: var(--spacing-one)
-    &:last-child
-      padding-right: var(--block-sides)
-    &.category, &.agency, &.year, &.title
-      flex-shrink: 0
-      white-space: nowrap
-    &.category
-      p
-        display: inline
-        &::after
-          content: '&'
-      p:last-child
-        &::after
-          content: ''
-    &.search
-      padding-left: 0
-    @media screen and ( max-width: 1090px)
-      &.agency
-        display: none
-    @media screen and ( max-width: 670px)
-      &.category
-        display: none
-    @media screen and ( max-width: 500px)
-      padding-left: 0
-      padding-right: var(--spacing-one) !important
-    &.icons
-      display: flex
-      justify-content: flex-end
-      flex-grow: 1
-  &-Icons
-    display: flex
-    height: 100%
-    li
-      display: flex
-      align-items: center
+  // &-Column
+  //   padding-left: var(--spacing-two)
+  //   padding-right: var(--spacing-two)
+  //   flex-shrink: 0
+  //   &:first-child
+  //     padding-left: var(--block-sides)
+  //     padding-right: var(--spacing-one)
+  //   &:nth-child(2)
+  //     padding-left: var(--spacing-one)
+  //   &:last-child
+  //     padding-right: var(--block-sides)
+    // &.category, &.agency, &.year, &.title
+    //   flex-shrink: 0
+    //   white-space: nowrap
+    // &.category
+    //   p
+    //     display: inline
+    //     &::after
+    //       content: '&'
+    //   p:last-child
+    //     &::after
+    //       content: ''
+    // &.search
+    //   padding-left: 0
+    // @media screen and ( max-width: 1090px)
+    //   &.agency
+    //     display: none
+    // @media screen and ( max-width: 670px)
+    //   &.category
+    //     display: none
+    // @media screen and ( max-width: 500px)
+    //   padding-left: 0
+    //   padding-right: var(--spacing-one) !important
+  //   &.icons
+  //     display: flex
+  //     justify-content: flex-end
+  //     flex-grow: 1
+  // &-Icons
+  //   display: flex
+  //   height: 100%
+  //   li
+  //     display: flex
+  //     align-items: center
   &-Space
     @media screen and ( max-width: 500px)
       display: none !important
@@ -379,7 +399,7 @@ main
   &-Nav
     position: sticky
     top: 50vh
-    transform: translateY(-50%)
+    // transform: translateY(-50%)
     width: 100%
     height: auto
     display: flex
@@ -416,29 +436,6 @@ main
     align-items: center
     &_Wrapper
       width: 100%
-
-// VIEWS
-.view
-  width: 100%
-  max-width: 100%
-  margin-left: auto
-  margin-right: auto
-  section
-    &:first-of-type
-      .spaceForm
-        opacity: 1
-        svg path
-          fill: var(--block-background) !important
-    &:last-of-type
-      border-bottom: var(--border)
-  &-About, &-Project
-    li
-      flex-basis: 50% !important // Overrides indexItem
-    @media screen and ( max-width: 700px)
-      .contentListItem
-        flex-wrap: wrap
-        li
-          flex-basis: 100% !important // Overrides indexItem
 
 // Mobile / Desktop
 .mobileContent
