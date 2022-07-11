@@ -17,6 +17,6 @@
     line-height: 1
   .btn
     position: absolute
-    left: calc(5vw + 26rem)
-    top: calc(5vw + 7.5rem)
+    left: 48.5vw
+    top: 16.25vw
 </style>
