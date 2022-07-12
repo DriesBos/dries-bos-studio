@@ -1,5 +1,5 @@
 <template>
-  <div class="btn cursorInteract" :type="type">
+  <div class="btn cursorInteract" :class="{ animated: animated }" :type="type">
     <div
       v-if="icon === 'arrowleft'"
       class="icon icon-Arrow_Left"
@@ -37,9 +37,8 @@ export default {
       type: String,
       default: "link"
     },
-    icon: {
-      type: String
-    }
+    icon: String,
+    animated: Boolean
   }
 }
 </script>
@@ -69,6 +68,29 @@ export default {
     text-transform: uppercase
     line-height: 1
     letter-spacing: -0.05em
+  &.animated
+    animation-name: bounce
+    animation-duration: 4s
+    animation-timing-function: ease
+    animation-delay: 1s
+    animation-direction: alternate
+    animation-iteration-count: infinite
+    animation-fill-mode: none
+    animation-play-state: running
+
+@keyframes bounce
+  0%
+    transform: translateY(0)
+  25%
+    transform: translateY(0)
+  50%
+    transform: translateY(0)
+  95%
+    transform: translateY(0)
+  100%
+    transform: translateY(12px)
+
+
   // &:first-child
   //   margin-bottom: 0.5rem
   // &:hover

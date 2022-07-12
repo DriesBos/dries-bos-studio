@@ -1,7 +1,7 @@
 <template>
   <div class="theLanding">
     <h1>Dries Bos—computational design, development and digital partner</h1>
-    <ButtonItem icon="arrowdown">
+    <ButtonItem icon="arrowdown" animated>
       <p>Selected works</p>
     </ButtonItem>
   </div>
