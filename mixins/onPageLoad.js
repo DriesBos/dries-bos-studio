@@ -29,10 +29,10 @@ export default {
       )
     this.customCursorTwo()
     document
-      .querySelectorAll(".hoverUp")
+      .querySelectorAll(".cursorTwoInteract")
       .forEach(item => item.addEventListener("mouseover", this.changeCursorTwo))
     document
-      .querySelectorAll(".hoverUp")
+      .querySelectorAll(".cursorTwoInteract")
       .forEach(item =>
         item.addEventListener("mouseleave", this.removeChangeCursorTwo)
       )
@@ -49,10 +49,10 @@ export default {
       )
     this.removeChangeCursorTwo()
     document
-      .querySelectorAll(".hoverUp")
+      .querySelectorAll(".cursorTwoInteract")
       .forEach(item => item.addEventListener("mouseover", this.changeCursorTwo))
     document
-      .querySelectorAll(".hoverUp")
+      .querySelectorAll(".cursorTwoInteract")
       .forEach(item =>
         item.addEventListener("mouseleave", this.removeChangeCursorTwo)
       )
@@ -71,12 +71,12 @@ export default {
       )
     this.removeChangeCursorTwo()
     document
-      .querySelectorAll(".hoverUp")
+      .querySelectorAll(".cursorTwoInteract")
       .forEach(item =>
         item.removeEventListener("mouseover", this.changeCursorTwo)
       )
     document
-      .querySelectorAll(".hoverUp")
+      .querySelectorAll(".cursorTwoInteract")
       .forEach(item =>
         item.removeEventListener("mouseleave", this.removeChangeCursorTwo)
       )
@@ -244,7 +244,7 @@ export default {
     customCursorTwo() {
       let cursorTwo = document.querySelector(".cursor-Two")
       function moveCursorTwo(e) {
-        gsap.to(cursorTwo, 0.33, {
+        gsap.to(cursorTwo, 0.2, {
           left: e.clientX,
           top: e.clientY,
           ease: "ease",

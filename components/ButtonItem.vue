@@ -70,7 +70,7 @@ export default {
     letter-spacing: -0.05em
   &.animated
     animation-name: bounce
-    animation-duration: 4s
+    animation-duration: 3s
     animation-timing-function: ease
     animation-delay: 1s
     animation-direction: alternate
@@ -85,10 +85,10 @@ export default {
     transform: translateY(0)
   50%
     transform: translateY(0)
-  95%
+  90%
     transform: translateY(0)
   100%
-    transform: translateY(12px)
+    transform: translateY(13px)
 
 
   // &:first-child

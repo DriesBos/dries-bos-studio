@@ -4,7 +4,11 @@
     :key="post.id"
     :to="`/projects/${post.id}`"
     class="block block-Image gridItem gridItem_Project imageGrid-Item"
-    :class="[{ disabled: !post.active }, { cursorInteract: post.active }]"
+    :class="[
+      { disabled: !post.active },
+      { cursorInteract: post.active },
+      { cursorTwoInteract: post.active }
+    ]"
     tag="section"
   >
     <div v-lazy-container="{ selector: 'img' }" class="imageGrid-Item_Wrapper">

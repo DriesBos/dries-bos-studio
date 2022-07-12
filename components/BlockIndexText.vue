@@ -4,7 +4,11 @@
     :key="post.id"
     :to="`/projects/${post.id}`"
     class="block block-Text hoverUp"
-    :class="[{ disabled: !post.active }, { cursorInteract: post.active }]"
+    :class="[
+      { disabled: !post.active },
+      { cursorInteract: post.active },
+      { cursorTwoInteract: post.active }
+    ]"
     tag="section"
   >
     <div
