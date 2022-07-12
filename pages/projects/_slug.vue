@@ -37,7 +37,7 @@
       :key="post.id"
       :post="post"
     ></GridItem>
-    <TheFooter />
+    <BlockFooter />
   </div>
 </template>
 

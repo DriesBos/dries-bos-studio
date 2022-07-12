@@ -126,6 +126,11 @@ main
         .logo-Subtitle
           display: none
 
+  &-Footer
+    background: var(--block-nav-background)
+    &_Content
+      background: var(--block-nav-background)
+
   &.disabled
     pointer-events: none
     p, svg, img
@@ -284,11 +289,6 @@ main
     svg
       height: var(--spacing-icons)
       color: var(--color)
-  &-Footer
-    .empty
-      flex-grow: 1
-    .icon-Arrow
-      transform: rotate(-90deg)
 
 // Imagegrid
 .imageGrid

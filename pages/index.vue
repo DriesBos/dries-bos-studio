@@ -21,7 +21,7 @@
       ></BlockIndexImage>
     </template>
 
-    <TheFooter />
+    <BlockFooter />
   </div>
 </template>
 

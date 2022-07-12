@@ -10,7 +10,7 @@
       :key="blok._uid"
       :blok="blok"
     ></component>
-    <TheFooter />
+    <BlockFooter />
   </div>
 </template>
 

@@ -22,7 +22,7 @@
 
       <div class="block-Text_Column block-Text_Icons">
         <div
-          class="icon icon-Arrow"
+          class="icon icon-Arrow cursorInteract"
           title="view project"
           v-html="require('~/assets/images/icon-arrow.svg?include')"
         ></div>
