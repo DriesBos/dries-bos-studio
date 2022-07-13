@@ -89,7 +89,8 @@ module.exports = {
     "~/plugins/filters",
     "~/plugins/vue-lazyload",
     "~/plugins/vue-click-outside",
-    "~/plugins/vue-scrollto"
+    "~/plugins/vue-scrollto",
+    { src: "~plugins/vue-carousel", mode: "client" }
   ],
   /*
    ** Nuxt.js modules
@@ -150,6 +151,7 @@ module.exports = {
 
   // Modules only run on build
   buildModules: [
+    "@nuxt/image",
     "@nuxtjs/pwa",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
@@ -165,6 +167,13 @@ module.exports = {
   // Settings for "@aceforth/nuxt-optimized-images"
   optimizedImages: {
     optimizeImages: true
+  },
+
+  // Settings for Nuxt Image Module
+  image: {
+    storyblok: {
+      baseURL: "https://a.storyblok.com"
+    }
   },
 
   // Settings for PWA

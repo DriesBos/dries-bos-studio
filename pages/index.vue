@@ -295,6 +295,7 @@ export default {
     }
   },
   mounted() {
+    console.log("DATA", this.posts)
     this.calculateWidest("contentListItem-Column.year")
     this.calculateWidest("contentListItem-Column.title")
     this.calculateWidest("contentListItem-Column.agency")
