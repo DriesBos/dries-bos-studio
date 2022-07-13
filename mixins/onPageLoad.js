@@ -54,7 +54,7 @@ export default {
     // IF DEVELOPMENT ENV
     checkDevEnv() {
       if (process.env.NODE_ENV === "development") {
-        this.$store.commit("init/toggleTheInit")
+        this.$store.commit("init/falseTheInit")
       }
     },
     // ON PAGE LOAD
@@ -133,8 +133,8 @@ export default {
     typeAnimation() {
       var tl = gsap.timeline({
         repeat: 0,
-        onStart: this.addDisabled,
-        onComplete: this.removeDisabled
+        onStart: this.animationStarted,
+        onComplete: this.animationEnded
       })
       tl.to(".typeAnimation-One", {
         opacity: 1,
@@ -189,21 +189,13 @@ export default {
       })
       tl.play()
     },
-    addDisabled() {
-      var array = document.querySelectorAll(".contentListItem-CoverImage")
-      array.forEach(el => {
-        el.classList.add("disabled")
-      })
-      var nav = document.querySelector(".contentListItem-Nav")
-      nav.classList.add("disabled")
+    animationStarted() {
+      document.documentElement.style.overflow = "hidden" // Prevent scrolling
+      document.body.style.pointerEvents = "none" // Reinstate cursor interaction
     },
-    removeDisabled() {
-      var array = document.querySelectorAll(".contentListItem-CoverImage")
-      array.forEach(el => {
-        el.classList.remove("disabled")
-      })
-      var nav = document.querySelector(".contentListItem-Nav")
-      nav.classList.remove("disabled")
+    animationEnded() {
+      document.documentElement.style.overflow = "auto" // Reinstate scrolling
+      document.body.style.pointerEvents = "auto" // Reinstate cursor interaction
     },
     // CURSOR
     customCursor() {
