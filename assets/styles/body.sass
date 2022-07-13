@@ -224,29 +224,6 @@ section
   width: 100%
   padding-top: 1rem
   padding-bottom: 1rem
-  &-List
-    &:hover + .contentListItem-CoverImage
-      @media ( hover: hover )
-        opacity: 1
-    &:hover + .contentListItem-CoverImage.disabled
-      @media ( hover: hover )
-        opacity: 0
-  &-CoverImage
-    position: fixed
-    bottom: 0
-    right: 0
-    width: 25vw
-    min-width: 250px
-    max-width: 360px
-    overflow: hidden
-    margin-right: 2rem
-    margin-bottom: 5rem
-    opacity: 0
-    z-index: +2
-    box-shadow: 0px 0px 10rem 2.25rem rgba(#B6FFF5, 0.33)
-    pointer-events: none
-    img
-      border: var(--border)
   &-Column
     padding-left: var(--spacing-two)
     padding-right: var(--spacing-two)

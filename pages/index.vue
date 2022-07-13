@@ -120,18 +120,6 @@
               </li>
             </ul>
           </nuxt-link>
-          <div
-            :key="post.title"
-            v-lazy-container="{ selector: 'img' }"
-            class="contentListItem-CoverImage"
-          >
-            <!-- prettier-ignore -->
-            <img
-            :data-src="`${transformImage(post.cover_image,'720x0')}`"
-            :alt="post.title"
-            class="lazy"
-          />
-          </div>
         </template>
         <template v-if="post.active == false">
           <section

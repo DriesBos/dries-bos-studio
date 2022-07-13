@@ -48,13 +48,13 @@
           >lets make internet</a
         >
       </div>
-      <div
+      <!-- <div
         class="buttonContainer-Button cursorInteract"
         :class="{ active: warpMode }"
         @click="warpSpeed"
       >
         <p>Hyper</p>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>
@@ -100,15 +100,6 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
-    // INIT
-    generalInit() {
-      setTimeout(() => {
-        var array = document.querySelectorAll(".contentListItem-CoverImage")
-        array.forEach(el => {
-          el.classList.add("initialised")
-        })
-      }, 3000)
-    },
     // WARPSPEED
     warpSpeedInit() {
       this.timeLine
