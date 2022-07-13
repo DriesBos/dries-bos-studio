@@ -11,16 +11,6 @@
       <client-only>
         <VueCarouselItem :images="post.images" />
       </client-only>
-      <!-- <template v-for="(image, index) in post.images">
-        <nuxt-img
-          :key="index"
-          provider="storyblok"
-          width="2300"
-          format="webp"
-          :src="image.filename"
-          :alt="post.title"
-        />
-      </template> -->
     </div>
     <div v-else class="imageGrid-Item_Wrapper">
       <nuxt-img
