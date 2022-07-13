@@ -17,6 +17,7 @@ export default {
   },
   mounted() {
     this.checkDevEnv() // Turn animation of when developing
+    this.scrollToTop()
     this.customCursor()
     this.loadSections()
     document
@@ -51,6 +52,9 @@ export default {
       )
   },
   methods: {
+    scrollToTop() {
+      window.scrollTo({ top: 0 })
+    },
     // IF DEVELOPMENT ENV
     checkDevEnv() {
       if (process.env.NODE_ENV === "development") {
@@ -64,8 +68,6 @@ export default {
         height: 0,
         opacity: 0
       })
-      console.log("INITSTATE =", this.initState)
-      console.log("ENV =", process.env.NODE_ENV)
       if (this.initState) {
         this.$store.commit("init/toggleTheInit")
         // TYPE ANIMATION
