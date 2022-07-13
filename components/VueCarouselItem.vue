@@ -79,7 +79,6 @@ export default {
     document.addEventListener("touchstart", this.iconChange)
     document.addEventListener("touchmove", this.iconChange)
     document.addEventListener("keydown", this.keyNavigation)
-    console.log("CAROUSEL", this.images, typeof this.images)
   },
   destroyed() {
     $(".carousel-Nav_Prev").off("mouseenter", this.changeCursorToPrev)
