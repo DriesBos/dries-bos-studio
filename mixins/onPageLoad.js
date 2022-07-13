@@ -16,6 +16,7 @@ export default {
     }
   },
   mounted() {
+    this.checkDevEnv() // Turn animation of when developing
     this.customCursor()
     this.loadSections()
     document
@@ -50,6 +51,12 @@ export default {
       )
   },
   methods: {
+    // IF DEVELOPMENT ENV
+    checkDevEnv() {
+      if (process.env.NODE_ENV === "development") {
+        this.$store.commit("init/toggleTheInit")
+      }
+    },
     // ON PAGE LOAD
     loadSections() {
       gsap.set(".laserBlok-Line", {
@@ -57,6 +64,8 @@ export default {
         height: 0,
         opacity: 0
       })
+      console.log("INITSTATE =", this.initState)
+      console.log("ENV =", process.env.NODE_ENV)
       if (this.initState) {
         this.$store.commit("init/toggleTheInit")
         // TYPE ANIMATION
