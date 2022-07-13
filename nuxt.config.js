@@ -76,6 +76,11 @@ module.exports = {
     "~/assets/styles/body.sass"
   ],
 
+  // Settings for "@nuxtjs/style-resources"
+  styleResources: {
+    sass: "./assets/styles/vars/*.sass"
+  },
+
   /*
    ** Plugins to load before mounting the App
    */
@@ -156,11 +161,6 @@ module.exports = {
       }
     ]
   ],
-
-  // Settings for "@nuxtjs/style-resources"
-  styleResources: {
-    sass: "./assets/styles/vars/*.sass"
-  },
 
   // Settings for "@aceforth/nuxt-optimized-images"
   optimizedImages: {
