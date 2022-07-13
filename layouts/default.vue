@@ -48,13 +48,6 @@
           >lets make internet</a
         >
       </div>
-      <!-- <div
-        class="buttonContainer-Button cursorInteract"
-        :class="{ active: warpMode }"
-        @click="warpSpeed"
-      >
-        <p>Hyper</p>
-      </div> -->
     </div>
   </main>
 </template>
@@ -68,7 +61,6 @@ export default {
   data() {
     return {
       floatHeader: false,
-      warpMode: false,
       timeLine: gsap.timeline({
         paused: true,
         repeat: -1,
@@ -115,20 +107,6 @@ export default {
             amount: 4.5
           }
         })
-    },
-    warpSpeed() {
-      this.warpMode = !this.warpMode
-      if (this.warpMode) {
-        this.timeLine.play()
-        gsap.set(".laserBlok-Lines", {
-          opacity: 1
-        })
-      } else {
-        this.timeLine.pause()
-        gsap.set(".laserBlok-Lines", {
-          opacity: 0
-        })
-      }
     },
     detectTouch() {
       if (detectIt.deviceType === "touchOnly") {
