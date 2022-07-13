@@ -32,11 +32,11 @@
         />
       </nuxt-link>
     </div>
-    <GridItem
+    <ImageBlock
       v-for="post in story.content.images"
       :key="post.id"
       :post="post"
-    ></GridItem>
+    ></ImageBlock>
     <TheFooter />
   </div>
 </template>
@@ -45,12 +45,8 @@
 import { mapState } from "vuex"
 import onPageLoad from "@/mixins/onPageLoad"
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
-import GridItem from "~/components/GridItem.vue"
 
 export default {
-  components: {
-    GridItem: GridItem
-  },
   mixins: [storyblokLivePreview, onPageLoad],
   scrollToTop: true,
   asyncData(context) {

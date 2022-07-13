@@ -166,11 +166,11 @@
     </template>
     <!-- INDEX GRID -->
     <template v-if="!viewState">
-      <IndexImageItem
+      <ImageBlockIndex
         v-for="post in filteredList"
         :key="post.id"
         :post="post"
-      ></IndexImageItem>
+      ></ImageBlockIndex>
     </template>
     <TheFooter />
   </div>
@@ -320,14 +320,6 @@ export default {
     window.removeEventListener("resize", this.screenResize)
   },
   methods: {
-    transformImage(image, option) {
-      if (!image) return ""
-      if (!option) return ""
-      let imageService = "//img2.storyblok.com/"
-      let pathOne = image.replace("https://a.storyblok.com", "")
-      let pathTwo = pathOne.replace("//a.storyblok.com", "")
-      return imageService + option + pathTwo
-    },
     calculateWidest(el) {
       var maxWidth = 0
       var array = document.querySelectorAll(`.${el}`)

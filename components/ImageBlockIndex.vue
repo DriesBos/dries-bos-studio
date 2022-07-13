@@ -32,9 +32,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  mounted() {
-    // console.log("POSTS", this.post.images)
   }
 }
 </script>
