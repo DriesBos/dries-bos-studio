@@ -194,12 +194,18 @@ export default {
     animationStarted() {
       document.documentElement.style.overflow = "hidden" // Prevent scrolling
       document.body.style.pointerEvents = "none" // Prevent cursor interaction
-      document.querySelector(".cursor-One").style.display = "none" // Hide cursor
+      const cursorOne = document.querySelector(".cursor-One")
+      cursorOne.style.display = "none"
+      const cursorTwo = document.querySelector(".cursor-Two")
+      cursorTwo.style.display = "none"
     },
     animationEnded() {
       document.documentElement.style.overflow = "auto" // Reinstate scrolling
       document.body.style.pointerEvents = "auto" // Reinstate cursor interaction
-      document.querySelector(".cursor-One").style.display = "inline" // Display cursor
+      const cursorOne = document.querySelector(".cursor-One")
+      cursorOne.style.display = "inline"
+      const cursorTwo = document.querySelector(".cursor-Two")
+      cursorTwo.style.display = "inline"
     },
     // CURSOR
     customCursor() {
