@@ -170,11 +170,12 @@ module.exports = {
   },
 
   // Settings for Nuxt Image Module
-  // image: {
-  //   storyblok: {
-  //     baseURL: "https://a.storyblok.com"
-  //   }
-  // },
+  image: {
+    provider: "storyblok",
+    storyblok: {
+      baseURL: "https://a.storyblok.com"
+    }
+  },
 
   // Settings for PWA
   pwa: {
