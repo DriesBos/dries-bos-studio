@@ -149,7 +149,6 @@ module.exports = {
     "@nuxt/image",
     "@nuxtjs/svg",
     "@nuxtjs/style-resources",
-    // "@nuxtjs/google-fonts",
     "@nuxtjs/dotenv",
     "@nuxtjs/google-analytics"
   ],
@@ -168,13 +167,6 @@ module.exports = {
   styleResources: {
     sass: "./assets/styles/vars/*.sass"
   },
-
-  // googleFonts: {
-  //   prefetch: true,
-  //   families: {
-  //     Chivo: true
-  //   }
-  // },
 
   googleAnalytics: {
     id: process.env.GA_ID

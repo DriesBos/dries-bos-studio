@@ -22,7 +22,6 @@
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/style-resources": "^1.0.0",
-    "@nuxtjs/google-fonts": "^2.0.0",
     "detect-it": "^3.0.7",
     "gsap": "^3.5.1",
     "jquery": "^3.5.1",
