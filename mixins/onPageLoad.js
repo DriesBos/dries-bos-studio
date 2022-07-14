@@ -193,11 +193,13 @@ export default {
     },
     animationStarted() {
       document.documentElement.style.overflow = "hidden" // Prevent scrolling
-      document.body.style.pointerEvents = "none" // Reinstate cursor interaction
+      document.body.style.pointerEvents = "none" // Prevent cursor interaction
+      document.querySelector(".cursor-One").style.display = "none" // Hide cursor
     },
     animationEnded() {
       document.documentElement.style.overflow = "auto" // Reinstate scrolling
       document.body.style.pointerEvents = "auto" // Reinstate cursor interaction
+      document.querySelector(".cursor-One").style.display = "inline" // Display cursor
     },
     // CURSOR
     customCursor() {
