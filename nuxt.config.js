@@ -76,11 +76,6 @@ module.exports = {
     "~/assets/styles/body.sass"
   ],
 
-  // Settings for "@nuxtjs/style-resources"
-  styleResources: {
-    sass: "./assets/styles/vars/*.sass"
-  },
-
   /*
    ** Plugins to load before mounting the App
    */
@@ -149,22 +144,20 @@ module.exports = {
     fallback: true
   },
 
-  // Modules only run on build
   buildModules: [
     "@nuxtjs/pwa",
     "@nuxt/image",
     "@nuxtjs/svg",
     "@nuxtjs/style-resources",
+    "@nuxtjs/google-fonts",
     "@nuxtjs/dotenv",
-    [
-      "@nuxtjs/google-analytics",
-      {
-        id: process.env.GA_ID
-      }
-    ]
+    "@nuxtjs/google-analytics"
   ],
 
-  // Settings for Nuxt Image Module
+  pwa: {
+    icon: false
+  },
+
   image: {
     provider: "storyblok",
     storyblok: {
@@ -172,9 +165,19 @@ module.exports = {
     }
   },
 
-  // Settings for PWA
-  pwa: {
-    icon: false
+  styleResources: {
+    sass: "./assets/styles/vars/*.sass"
+  },
+
+  googleFonts: {
+    prefetch: true,
+    families: {
+      Chivo: true
+    }
+  },
+
+  googleAnalytics: {
+    id: process.env.GA_ID
   },
 
   /*

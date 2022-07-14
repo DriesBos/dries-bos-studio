@@ -16,12 +16,11 @@
     "deploy": "nuxt generate"
   },
   "dependencies": {
+    "nuxt": "^2.14.7",
     "@nuxt/image": "^0.7.1",
     "@nuxtjs/svg": "^0.4.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/google-analytics": "^2.2.3",
-    "@nuxtjs/pwa": "^3.2.2",
     "@nuxtjs/style-resources": "^1.0.0",
     "detect-it": "^3.0.7",
     "gsap": "^3.5.1",
@@ -29,7 +28,6 @@
     "jquery": "^3.5.1",
     "lqip-loader": "^2.2.1",
     "marked": "^1.2.0",
-    "nuxt": "^2.14.7",
     "responsive-loader": "^2.2.0",
     "sass": "^1.52.2",
     "sass-loader": "^10.0.3",
@@ -39,6 +37,9 @@
     "vue-scrollto": "^2.19.1"
   },
   "devDependencies": {
+    "@nuxtjs/google-analytics": "^2.2.3",
+    "@nuxtjs/google-fonts": "^2.0.0",
+    "@nuxtjs/pwa": "^3.2.2",
     "babel-eslint": "^10.0.3",
     "css-loader": "^5.0.0",
     "eslint": "^7.11.0",
