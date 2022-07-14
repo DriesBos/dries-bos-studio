@@ -16,8 +16,8 @@ export default {
     }
   },
   mounted() {
-    // this.checkDevEnv() // Turn animation of when developing
-    // this.scrollToTop()
+    this.checkDevEnv() // Turn animation of when developing
+    this.scrollToTop()
     this.customCursor()
     this.loadSections()
     document
