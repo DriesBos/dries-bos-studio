@@ -152,7 +152,7 @@ module.exports = {
   // Modules only run on build
   buildModules: [
     "@nuxtjs/pwa",
-    "@nuxt/image",
+    // "@nuxt/image",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/dotenv",
@@ -170,11 +170,11 @@ module.exports = {
   },
 
   // Settings for Nuxt Image Module
-  image: {
-    storyblok: {
-      baseURL: "https://a.storyblok.com"
-    }
-  },
+  // image: {
+  //   storyblok: {
+  //     baseURL: "https://a.storyblok.com"
+  //   }
+  // },
 
   // Settings for PWA
   pwa: {
