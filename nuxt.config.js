@@ -87,7 +87,7 @@ module.exports = {
   plugins: [
     "~/plugins/components",
     "~/plugins/vue-lazyload",
-    "~/plugins/dashify",
+    "~/plugins/filters",
     "~/plugins/vue-click-outside",
     "~/plugins/vue-scrollto"
     // { src: "~plugins/vue-carousel", mode: "client" }
