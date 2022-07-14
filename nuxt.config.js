@@ -172,7 +172,6 @@ module.exports = {
   // Settings for Nuxt Image Module
   image: {
     provider: "storyblok",
-    domains: ["storyblok.com", "driesbos.com"],
     storyblok: {
       baseURL: "https://a.storyblok.com"
     }

@@ -5,7 +5,7 @@
     class="gridItem gridItem_Project imageGrid-Item"
   >
     <div class="imageGrid-Item_Wrapper">
-      <nuxt-img :src="post.filename" />
+      <nuxt-picture :src="post.filename" />
     </div>
   </section>
 </template>
