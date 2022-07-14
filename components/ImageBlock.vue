@@ -5,7 +5,7 @@
     class="gridItem gridItem_Project imageGrid-Item"
   >
     <div class="imageGrid-Item_Wrapper">
-      <NuxtImg :src="post.filename" />
+      <nuxt-img :src="post.filename" />
     </div>
   </section>
 </template>
@@ -14,9 +14,6 @@
 export default {
   props: {
     post: Object
-  },
-  mounted() {
-    console.log("IMAGEBLOCK IMAGE FILENAME", this.post.filename)
   }
 }
 </script>
