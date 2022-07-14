@@ -16,7 +16,6 @@
         <picture>
           <nuxt-img
             :key="index"
-            provider="storyblok"
             width="2300"
             format="webp"
             :src="image.filename"

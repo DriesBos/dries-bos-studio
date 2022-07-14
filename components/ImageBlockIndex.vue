@@ -14,7 +14,6 @@
     </div>
     <div class="imageGrid-Item_Wrapper">
       <nuxt-img
-        provider="storyblok"
         width="2300"
         format="webp"
         :src="post.cover_image"
