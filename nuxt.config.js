@@ -155,13 +155,13 @@ module.exports = {
     "@nuxtjs/pwa",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
-    "@nuxtjs/dotenv"
-    // [
-    //   "@nuxtjs/google-analytics",
-    //   {
-    //     id: process.env.GA_ID
-    //   }
-    // ]
+    "@nuxtjs/dotenv",
+    [
+      "@nuxtjs/google-analytics",
+      {
+        id: process.env.GA_ID
+      }
+    ]
   ],
 
   // Settings for "@aceforth/nuxt-optimized-images"
