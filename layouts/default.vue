@@ -45,7 +45,12 @@
         <a
           href="mailto:info@driesbos.com?subject=Let's Make Internet"
           target="_blank"
-          >lets make internet</a
+        >
+          <div
+            class="icon"
+            v-html="require('~/assets/images/icon-mail.svg?raw')"
+          />
+          lets make internet</a
         >
       </div>
     </div>
