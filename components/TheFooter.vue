@@ -8,11 +8,11 @@
             v-scroll-to="'#top'"
             class="contentListItem-Icon contentListItem-Arrow"
           >
-            <!-- <div
+            <div
               class="icon icon-Arrow cursorInteract"
               title="view project"
-              v-html="require('~/assets/images/icon-arrow.svg?include')"
-            ></div> -->
+              v-html="require('~/assets/images/icon-arrow.svg?raw')"
+            ></div>
           </li>
         </ul>
       </li>

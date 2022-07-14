@@ -38,6 +38,7 @@
     "vue-scrollto": "^2.19.1"
   },
   "devDependencies": {
+    "@nuxtjs/svg": "^0.4.0",
     "babel-eslint": "^10.0.3",
     "css-loader": "^5.0.0",
     "eslint": "^7.11.0",

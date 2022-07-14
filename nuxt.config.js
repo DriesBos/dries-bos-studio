@@ -153,8 +153,8 @@ module.exports = {
   buildModules: [
     "@nuxtjs/pwa",
     "@nuxt/image",
+    "@nuxtjs/svg",
     "@nuxtjs/style-resources",
-    // "@aceforth/nuxt-optimized-images",
     "@nuxtjs/dotenv",
     [
       "@nuxtjs/google-analytics",
@@ -163,11 +163,6 @@ module.exports = {
       }
     ]
   ],
-
-  // Settings for "@aceforth/nuxt-optimized-images"
-  // optimizedImages: {
-  //   optimizeImages: true
-  // },
 
   // Settings for Nuxt Image Module
   image: {

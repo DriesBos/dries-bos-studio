@@ -13,11 +13,11 @@
         title="previous project"
         tag="div"
       >
-        <!-- <div
+        <div
           v-if="story.content.prev_link.id !== ''"
           class="icon icon-Arrow icon-Arrow_Prev"
-          v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-        /> -->
+          v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
+        />
       </nuxt-link>
       <nuxt-link
         :to="`/${story.content.next_link.cached_url}`"
@@ -25,11 +25,11 @@
         title="next project"
         tag="div"
       >
-        <!-- <div
+        <div
           v-if="story.content.next_link.id !== ''"
           class="icon icon-Arrow icon-Arrow_Next"
-          v-html="require('~/assets/images/icon-arrow-long.svg?include')"
-        /> -->
+          v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
+        />
       </nuxt-link>
     </div>
     <ImageBlock

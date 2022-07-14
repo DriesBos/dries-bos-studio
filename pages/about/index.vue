@@ -1,9 +1,9 @@
 <template>
   <div class="view view-About">
-    <!-- <div
+    <div
       class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    /> -->
+      v-html="require('~/assets/images/spaceform.svg?raw')"
+    />
     <component
       :is="blok.component | dashify"
       v-for="blok in story.content.body"

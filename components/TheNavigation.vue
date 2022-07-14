@@ -1,9 +1,9 @@
 <template>
   <section id="floatBlock" class="contentListItem-Header">
-    <!-- <div
+    <div
       class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    /> -->
+      v-html="require('~/assets/images/spaceform.svg?raw')"
+    />
     <ul class="contentListItem">
       <!-- TITLE -->
       <li class="contentListItem-Column logo">
@@ -37,18 +37,16 @@
               class="cursorInteract icon icon-View"
               title="image view"
             >
-              <!-- <div
-                v-html="require('~/assets/images/icon-img.svg?include')"
-              ></div> -->
+              <div v-html="require('~/assets/images/icon-img.svg?raw')"></div>
             </div>
             <div
               v-show="!viewState"
               class="cursorInteract icon icon-View"
               title="text view"
             >
-              <!-- <div
-                v-html="require('~/assets/images/icon-txt.svg?include')"
-              ></div> -->
+              <div
+                v-html="require('~/assets/images/icon-txt.svg?raw')"
+              ></div>
             </div>
           </li>
           <!-- ABOUT -->
@@ -63,9 +61,9 @@
               title="about"
               tag="div"
             >
-              <!-- <div
-                v-html="require('~/assets/images/icon-about.svg?include')"
-              ></div> -->
+              <div
+                v-html="require('~/assets/images/icon-about.svg?raw')"
+              ></div>
             </nuxt-link>
           </li>
           <!-- MAIL -->
@@ -79,7 +77,7 @@
               class="cursorInteract icon icon-Mail"
               target="_blank"
             >
-              <!-- <div v-html="require('~/assets/images/icon-mail.svg?include')" /> -->
+              <div v-html="require('~/assets/images/icon-mail.svg?raw')" />
             </a>
           </li>
           <!-- PHONE -->
@@ -90,7 +88,7 @@
             target="_blank"
           >
             <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
-              <!-- <div v-html="require('~/assets/images/icon-phone.svg?include')" /> -->
+              <div v-html="require('~/assets/images/icon-phone.svg?raw')" />
             </a>
           </li>
           <!-- PREV -->
@@ -101,7 +99,7 @@
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
               <div
-                v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+                v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
               ></div>
             </div>
           </li> -->
@@ -113,7 +111,7 @@
           >
             <div class="cursorInteract icon icon-Arrow icon-Arrow_Next">
               <div
-                v-html="require('~/assets/images/icon-arrow-long.svg?include')"
+                v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
               ></div>
             </div>
           </li> -->
@@ -129,9 +127,9 @@
               title="close"
               tag="div"
             >
-              <!-- <div
-                v-html="require('~/assets/images/icon-close.svg?include')"
-              ></div> -->
+              <div
+                v-html="require('~/assets/images/icon-close.svg?raw')"
+              ></div>
             </nuxt-link>
           </li>
         </ul>

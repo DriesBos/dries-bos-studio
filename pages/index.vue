@@ -2,10 +2,10 @@
   <div class="view view-Index">
     <!-- FILTER -->
     <section class="contentListItem-Filter">
-      <!-- <div
+      <div
         class="spaceForm"
-        v-html="require('~/assets/images/spaceform.svg?include')"
-      /> -->
+        v-html="require('~/assets/images/spaceform.svg?raw')"
+      />
       <ul class="contentListItem">
         <li class="contentListItem-Column year">
           <div class :class="{ active: sortByYear }" @click="sortYear">
@@ -67,9 +67,7 @@
                 class="cursorInteract icon icon-Search"
                 :class="{ active: toggleSearch }"
               >
-                <!-- <div
-                  v-html="require('~/assets/images/icon-search.svg?include')"
-                /> -->
+                <div v-html="require('~/assets/images/icon-search.svg?raw')" />
               </div>
             </li>
           </ul>
@@ -110,11 +108,11 @@
               <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
-                    <!-- <div
+                    <div
                       class="icon icon-Arrow"
                       title="view project"
-                      v-html="require('~/assets/images/icon-arrow.svg?include')"
-                    ></div> -->
+                      v-html="require('~/assets/images/icon-arrow.svg?raw')"
+                    ></div>
                   </li>
                 </ul>
               </li>
@@ -150,12 +148,11 @@
               <li class="contentListItem-Column icons">
                 <ul class="contentListItem-Icons">
                   <li class="contentListItem-Icon contentListItem-Arrow">
-                    <!-- prettier-ignore -->
-                    <!-- <div
-                        class="icon icon-Arrow"
-                        title="view project"
-                        v-html="require('~/assets/images/icon-arrow.svg?include')"
-                      ></div> -->
+                    <div
+                      class="icon icon-Arrow"
+                      title="view project"
+                      v-html="require('~/assets/images/icon-arrow.svg?raw')"
+                    ></div>
                   </li>
                 </ul>
               </li>

@@ -1,9 +1,9 @@
 <template>
   <section class="contentListItem-Text">
-    <!-- <div
+    <div
       class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?include')"
-    /> -->
+      v-html="require('~/assets/images/spaceform.svg?raw')"
+    />
     <ul class="contentListItem">
       <component
         :is="blok.component | dashify"
