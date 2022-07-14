@@ -98,6 +98,7 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "vue-scrollto/nuxt",
+    "@nuxt/image",
     [
       "storyblok-nuxt",
       {
@@ -151,7 +152,6 @@ module.exports = {
 
   // Modules only run on build
   buildModules: [
-    "@nuxt/image",
     "@nuxtjs/pwa",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
@@ -170,11 +170,11 @@ module.exports = {
   },
 
   // Settings for Nuxt Image Module
-  // image: {
-  //   storyblok: {
-  //     baseURL: "https://a.storyblok.com"
-  //   }
-  // },
+  image: {
+    storyblok: {
+      baseURL: "https://a.storyblok.com"
+    }
+  },
 
   // Settings for PWA
   pwa: {
