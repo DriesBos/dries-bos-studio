@@ -152,7 +152,7 @@ module.exports = {
   // Modules only run on build
   buildModules: [
     "@nuxtjs/pwa",
-    // "@nuxt/image",
+    "@nuxt/image",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/dotenv",

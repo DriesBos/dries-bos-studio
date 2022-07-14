@@ -5,13 +5,7 @@
     class="gridItem gridItem_Project imageGrid-Item"
   >
     <div class="imageGrid-Item_Wrapper">
-      <nuxt-img
-        provider="storyblok"
-        width="2300"
-        format="webp"
-        :src="post.filename"
-        :alt="post.title"
-      />
+      <nuxt-img :src="post.filename" />
     </div>
   </section>
 </template>
@@ -20,6 +14,9 @@
 export default {
   props: {
     post: Object
+  },
+  mounted() {
+    console.log("IMAGEBLOCK IMAGE FILENAME", this.post.filename)
   }
 }
 </script>
