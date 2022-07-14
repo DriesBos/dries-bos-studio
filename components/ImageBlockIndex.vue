@@ -7,12 +7,12 @@
     class="gridItem gridItem_Project imageGrid-Item cursorInteract"
     tag="section"
   >
-    <div v-if="slider" class="imageGrid-Item_Wrapper">
+    <!-- <div v-if="slider" class="imageGrid-Item_Wrapper">
       <client-only>
         <VueCarouselItem :images="post.images" />
       </client-only>
-    </div>
-    <div v-else class="imageGrid-Item_Wrapper">
+    </div> -->
+    <div class="imageGrid-Item_Wrapper">
       <!-- <nuxt-img
         provider="storyblok"
         width="2300"

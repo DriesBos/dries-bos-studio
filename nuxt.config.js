@@ -89,8 +89,8 @@ module.exports = {
     "~/plugins/vue-lazyload",
     "~/plugins/dashify",
     "~/plugins/vue-click-outside",
-    "~/plugins/vue-scrollto",
-    { src: "~plugins/vue-carousel", mode: "client" }
+    "~/plugins/vue-scrollto"
+    // { src: "~plugins/vue-carousel", mode: "client" }
   ],
   /*
    ** Nuxt.js modules
@@ -98,7 +98,7 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "vue-scrollto/nuxt",
-    "@nuxt/image",
+    // "@nuxt/image",
     [
       "storyblok-nuxt",
       {
@@ -155,13 +155,13 @@ module.exports = {
     "@nuxtjs/pwa",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
-    "@nuxtjs/dotenv",
-    [
-      "@nuxtjs/google-analytics",
-      {
-        id: process.env.GA_ID
-      }
-    ]
+    "@nuxtjs/dotenv"
+    // [
+    //   "@nuxtjs/google-analytics",
+    //   {
+    //     id: process.env.GA_ID
+    //   }
+    // ]
   ],
 
   // Settings for "@aceforth/nuxt-optimized-images"
@@ -170,11 +170,11 @@ module.exports = {
   },
 
   // Settings for Nuxt Image Module
-  image: {
-    storyblok: {
-      baseURL: "https://a.storyblok.com"
-    }
-  },
+  // image: {
+  //   storyblok: {
+  //     baseURL: "https://a.storyblok.com"
+  //   }
+  // },
 
   // Settings for PWA
   pwa: {

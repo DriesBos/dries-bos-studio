@@ -32,11 +32,11 @@
         />
       </nuxt-link>
     </div>
-    <ImageBlock
+    <!-- <GridItem
       v-for="post in story.content.images"
       :key="post.id"
       :post="post"
-    ></ImageBlock>
+    ></GridItem> -->
     <TheFooter />
   </div>
 </template>
