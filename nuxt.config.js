@@ -97,7 +97,6 @@ module.exports = {
    */
   modules: [
     "@nuxtjs/axios",
-    "@nuxt/image",
     "vue-scrollto/nuxt",
     [
       "storyblok-nuxt",
@@ -153,6 +152,7 @@ module.exports = {
   // Modules only run on build
   buildModules: [
     "@nuxtjs/pwa",
+    "@nuxt/image",
     "@nuxtjs/style-resources",
     "@aceforth/nuxt-optimized-images",
     "@nuxtjs/dotenv",
