@@ -1,9 +1,9 @@
 <template>
   <section id="floatBlock" class="contentListItem-Header">
-    <div
+    <!-- <div
       class="spaceForm"
       v-html="require('~/assets/images/spaceform.svg?include')"
-    />
+    /> -->
     <ul class="contentListItem">
       <!-- TITLE -->
       <li class="contentListItem-Column logo">
@@ -37,18 +37,18 @@
               class="cursorInteract icon icon-View"
               title="image view"
             >
-              <div
+              <!-- <div
                 v-html="require('~/assets/images/icon-img.svg?include')"
-              ></div>
+              ></div> -->
             </div>
             <div
               v-show="!viewState"
               class="cursorInteract icon icon-View"
               title="text view"
             >
-              <div
+              <!-- <div
                 v-html="require('~/assets/images/icon-txt.svg?include')"
-              ></div>
+              ></div> -->
             </div>
           </li>
           <!-- ABOUT -->
@@ -63,9 +63,9 @@
               title="about"
               tag="div"
             >
-              <div
+              <!-- <div
                 v-html="require('~/assets/images/icon-about.svg?include')"
-              ></div>
+              ></div> -->
             </nuxt-link>
           </li>
           <!-- MAIL -->
@@ -79,7 +79,7 @@
               class="cursorInteract icon icon-Mail"
               target="_blank"
             >
-              <div v-html="require('~/assets/images/icon-mail.svg?include')" />
+              <!-- <div v-html="require('~/assets/images/icon-mail.svg?include')" /> -->
             </a>
           </li>
           <!-- PHONE -->
@@ -90,7 +90,7 @@
             target="_blank"
           >
             <a href="tel:0031636101262" class="cursorInteract icon icon-Phone">
-              <div v-html="require('~/assets/images/icon-phone.svg?include')" />
+              <!-- <div v-html="require('~/assets/images/icon-phone.svg?include')" /> -->
             </a>
           </li>
           <!-- PREV -->
@@ -129,9 +129,9 @@
               title="close"
               tag="div"
             >
-              <div
+              <!-- <div
                 v-html="require('~/assets/images/icon-close.svg?include')"
-              ></div>
+              ></div> -->
             </nuxt-link>
           </li>
         </ul>
