@@ -6,32 +6,6 @@
       :key="blok._uid"
       :blok="blok"
     ></component>
-    <!-- <div class="contentListItem-Nav">
-      <nuxt-link
-        :to="`/${story.content.prev_link.cached_url}`"
-        class="contentListItem-Nav_Prev cursorInteract"
-        title="previous project"
-        tag="div"
-      >
-        <div
-          v-if="story.content.prev_link.id !== ''"
-          class="icon icon-Arrow icon-Arrow_Prev"
-          v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
-        />
-      </nuxt-link>
-      <nuxt-link
-        :to="`/${story.content.next_link.cached_url}`"
-        class="contentListItem-Nav_Next cursorInteract"
-        title="next project"
-        tag="div"
-      >
-        <div
-          v-if="story.content.next_link.id !== ''"
-          class="icon icon-Arrow icon-Arrow_Next"
-          v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
-        />
-      </nuxt-link>
-    </div> -->
     <ImageBlock
       v-for="post in story.content.images"
       :key="post.id"
