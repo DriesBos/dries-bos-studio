@@ -6,7 +6,7 @@
       :key="blok._uid"
       :blok="blok"
     ></component>
-    <div class="contentListItem-Nav">
+    <!-- <div class="contentListItem-Nav">
       <nuxt-link
         :to="`/${story.content.prev_link.cached_url}`"
         class="contentListItem-Nav_Prev cursorInteract"
@@ -31,7 +31,7 @@
           v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
         />
       </nuxt-link>
-    </div>
+    </div> -->
     <ImageBlock
       v-for="post in story.content.images"
       :key="post.id"
@@ -82,11 +82,37 @@ export default {
       story: { content: {} }
     }
   },
-  ...mapState({
-    posts: state => state.posts.list,
-    viewState: state => state.view.viewState
-  }),
+  fetch({ store }) {
+    store.commit("togglePrevState")
+    store.commit("toggleNextState")
+    store.commit("falsePrevBtn")
+    store.commit("truePrevBtn")
+    store.commit("falseNextBtn")
+    store.commit("trueNextBtn")
+  },
+  head() {
+    return {
+      title: "Dries Bos — " + this.story.content.title
+    }
+  },
+  computed: {
+    ...mapState({
+      posts: state => state.posts.list,
+      prevState: state => state.navigation.prevState,
+      nextState: state => state.navigation.nextState
+    })
+  },
+  watch: {
+    prevState: function() {
+      this.prevStateChanged()
+    },
+    nextState: function() {
+      this.nextStateChanged()
+    }
+  },
   mounted() {
+    this.setPrevButton()
+    this.setNextButton()
     document.addEventListener("keydown", this.backOnEscape)
     document.addEventListener("keydown", this.keyNavigation)
     document.addEventListener("visibilitychange", this.windowIsVisible)
@@ -114,6 +140,36 @@ export default {
     document.removeEventListener("keydown", this.keyNavigation)
   },
   methods: {
+    setPrevButton() {
+      if (this.story.content.prev_link.cached_url) {
+        this.$store.commit("navigation/truePrevBtn")
+      } else {
+        this.$store.commit("navigation/falsePrevBtn")
+      }
+    },
+    setNextButton() {
+      if (this.story.content.next_link.cached_url) {
+        this.$store.commit("navigation/trueNextBtn")
+      } else {
+        this.$store.commit("navigation/falseNextBtn")
+      }
+    },
+    prevStateChanged() {
+      if (this.story.content.prev_link.cached_url) {
+        this.$router.push({
+          path: `/${this.story.content.prev_link.cached_url}`
+        })
+        this.setPrevButton()
+      }
+    },
+    nextStateChanged() {
+      if (this.story.content.next_link.cached_url) {
+        this.$router.push({
+          path: `/${this.story.content.next_link.cached_url}`
+        })
+        this.setNextButton()
+      }
+    },
     changeCursor() {
       document.querySelector(".cursor").classList.add("active")
     },
@@ -149,11 +205,6 @@ export default {
           .querySelector("link[rel*='icon']")
           .setAttribute("href", "favicon.png")
       }
-    }
-  },
-  head() {
-    return {
-      title: "Dries Bos — " + this.story.content.title
     }
   }
 }

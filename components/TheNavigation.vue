@@ -44,9 +44,7 @@
               class="cursorInteract icon icon-View"
               title="text view"
             >
-              <div
-                v-html="require('~/assets/images/icon-txt.svg?raw')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-txt.svg?raw')"></div>
             </div>
           </li>
           <!-- ABOUT -->
@@ -61,9 +59,7 @@
               title="about"
               tag="div"
             >
-              <div
-                v-html="require('~/assets/images/icon-about.svg?raw')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-about.svg?raw')"></div>
             </nuxt-link>
           </li>
           <!-- MAIL -->
@@ -92,29 +88,33 @@
             </a>
           </li>
           <!-- PREV -->
-          <!-- <li
+          <li
             v-show="this.$route.name === 'projects-slug'"
             class="contentListItem-Icon contentListItem-View"
+            :class="[{ disabled: !prevBtn }, { cursorInteract: prevBtn }]"
             title="previous project"
+            @click="prevIsClicked"
           >
-            <div class="cursorInteract icon icon-Arrow icon-Arrow_Prev">
+            <div class="icon icon-Arrow icon-Arrow_Prev">
               <div
                 v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
               ></div>
             </div>
-          </li> -->
+          </li>
           <!-- NEXT -->
-          <!-- <li
+          <li
             v-show="this.$route.name === 'projects-slug'"
             class="contentListItem-Icon contentListItem-View"
+            :class="[{ disabled: !nextBtn }, { cursorInteract: nextBtn }]"
             title="next project"
+            @click="nextIsClicked"
           >
-            <div class="cursorInteract icon icon-Arrow icon-Arrow_Next">
+            <div class="icon icon-Arrow icon-Arrow_Next">
               <div
                 v-html="require('~/assets/images/icon-arrow-long.svg?raw')"
               ></div>
             </div>
-          </li> -->
+          </li>
           <!-- CLOSE -->
           <li
             v-show="this.$route.name !== 'index'"
@@ -127,9 +127,7 @@
               title="close"
               tag="div"
             >
-              <div
-                v-html="require('~/assets/images/icon-close.svg?raw')"
-              ></div>
+              <div v-html="require('~/assets/images/icon-close.svg?raw')"></div>
             </nuxt-link>
           </li>
         </ul>
@@ -150,10 +148,16 @@ export default {
   },
   fetch({ store }) {
     store.commit("toggleTheView")
+    store.commit("togglePrevState")
+    store.commit("toggleNextState")
   },
   computed: {
     ...mapState({
-      viewState: state => state.view.viewState
+      viewState: state => state.view.viewState,
+      prevState: state => state.navigation.prevState,
+      nextState: state => state.navigation.nextState,
+      prevBtn: state => state.navigation.prevBtn,
+      nextBtn: state => state.navigation.nextBtn
     })
   },
   watch: {
@@ -178,6 +182,12 @@ export default {
     toggleTheView() {
       this.$store.commit("view/toggleTheView")
       this.$emit("toggle-view")
+    },
+    prevIsClicked() {
+      this.$store.commit("navigation/togglePrevState")
+    },
+    nextIsClicked() {
+      this.$store.commit("navigation/toggleNextState")
     }
   }
 }

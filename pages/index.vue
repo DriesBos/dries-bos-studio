@@ -174,8 +174,8 @@
 </template>
 
 <script>
-import onPageLoad from "@/mixins/onPageLoad"
 import { mapState } from "vuex"
+import onPageLoad from "@/mixins/onPageLoad"
 import detectIt from "detect-it"
 import gsap from "gsap"
 
