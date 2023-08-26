@@ -10,7 +10,7 @@
         <nuxt-link class="cursorInteract" to="/">
           <span title="that's me!">Dries Bos</span>
           <!-- prettier-ignore -->
-          <span v-show="this.$route.name === 'index' || this.$route.name === 'about'"
+          <span v-show="this.$route.name === 'index' || this.$route.name === 'about' || this.$route.name === 'gallery'"
             class="logo-Subtitle"
             title="that's me!"
             >— Creative Web Developer</span
@@ -60,6 +60,23 @@
               tag="div"
             >
               <div v-html="require('~/assets/images/icon-about.svg?raw')"></div>
+            </nuxt-link>
+          </li>
+          <!-- GALLERY -->
+          <li
+            v-show="this.$route.name === 'index'"
+            class="contentListItem-Icon contentListItem-Gallery"
+            title="gallery page"
+          >
+            <nuxt-link
+              to="/gallery"
+              class="cursorInteract icon icon-Gallery"
+              title="gallery"
+              tag="div"
+            >
+              <div
+                v-html="require('~/assets/images/icon-gallery.svg?raw')"
+              ></div>
             </nuxt-link>
           </li>
           <!-- MAIL -->
