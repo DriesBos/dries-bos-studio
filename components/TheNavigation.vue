@@ -1,5 +1,13 @@
 <template>
-  <section id="floatBlock" class="contentListItem-Header">
+  <section
+    v-show="
+      this.$route.name === 'index' ||
+        this.$route.name === 'about' ||
+        this.$route.name === 'projects-slug'
+    "
+    id="floatBlock"
+    class="contentListItem-Header"
+  >
     <div
       class="spaceForm"
       v-html="require('~/assets/images/spaceform.svg?raw')"
@@ -184,6 +192,7 @@ export default {
   },
   mounted() {
     this.processedSlug()
+    console.log(this.$route)
   },
   methods: {
     processedSlug() {

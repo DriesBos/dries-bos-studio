@@ -1,32 +1,17 @@
 <template>
-  <div class="view view-Gallery">
-    <div
-      class="spaceForm"
-      v-html="require('~/assets/images/spaceform.svg?raw')"
-    />
-    <section
-      id="gallery"
-      class="contentListItem-Gallery"
-      style="transform: translate(0px, 0px); opacity: 1;"
-    >
-      <div class="spaceForm">
-        <svg viewBox="0 0 1400 218">
-          <path
-            d="M140 0L1260 0 1400 218 0 218z"
-            transform="translate(-250.000000, -250.000000) translate(250.000000, 250.000000)"
-            fill="none"
-            fill-rule="evenodd"
-            stroke="currentColor"
-          ></path>
-        </svg>
-      </div>
-      <ul class="contentListItem">
-        <li class="contentListItem-Column gallery">
-          <p>Scroll and look afar</p>
-        </li>
-      </ul>
-    </section>
-    <TheFooter />
+  <div>
+    <ul class="gallery-Header">
+      <li class="contentListItem-Icon contentListItem-Close" title="close page">
+        <nuxt-link
+          to="/"
+          class="cursorInteract icon icon-Close"
+          title="close"
+          tag="div"
+        >
+          <div v-html="require('~/assets/images/icon-close.svg?raw')"></div>
+        </nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -99,3 +84,11 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+.gallery
+  &-Header
+    position: fixed
+    top: var(--spacing-one)
+    right: var(--spacing-one)
+</style>
